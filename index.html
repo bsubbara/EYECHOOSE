@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- This is the style for the header -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- This is just a font that we'll be using. You can remove lines 12-14 if you don't want to use Poppins -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+	<link href="http://fonts.cdnfonts.com/css/optician-sans" rel="stylesheet">
+    <title>EYECHOOSE</title>
+</head>
+
+<body>
+    <!-- Start of the header -->
+    <header>
+        <div class="inner">
+            <div class="logo">
+                <div>
+                    <!-- The below line can be an image or a h1, either will work -->
+                    <h1>EYE<span>CHOOSE</span></h1>
+                </div>
+            </div>
+
+            <nav>
+                <!-- Each of the below lines look complicated. There is a reason for this markup though!
+                <li> tag will be the container for the table.
+                <span> will be the part that centers the content inside it
+                <a> is the actual clickable part -->
+                <li><span><a href="#errors">Refractive<br>Errors</a></span></li>
+                <li><span><a href="#surgeries">Refractive<br>Surgery</a></span></li>
+                <li><span><a href="#history">Pertinent<br>History</a></span></li>
+				<li><span><a href="#values">Personal<br>Preferences</a></span></li>
+				<li><span><a href="#surgeryrecs">Surgery<br>Recommendations</a></span></li>
+				<li><span><a href="surgeonrecs">Surgeon<br>Recommendations</a></span></li>
+                <!-- On the line above, remove the class="button" if you don't want the final
+                element to be a button -->
+            </nav>
+        </div>
+    </header>
+    <!-- End of the header --> 
+	
+	<!--Home Section -->
+	<section id="home">
+		<div class="homeContainer inner">
+			<h1>What is the best refractive surgical modality for you?</h1>
+			<div class="logo">
+                <div>
+                    <!-- The below line can be an image or a h1, either will work -->
+                    <h1>EYE<span>CHOOSE</span></h1>
+					<p> is a prototype patient decision aid to assist college-aged students 
+					in the selection of a refractive surgery for the correction of 
+					nearsightedness (myopia), farsightedness (hyperopia), and astigmatism.</p>
+                </div>
+            </div>
+		</div>
+		<div class="pageNav"> 
+			<a href="#errors" class="next round">></a>
+		</div>
+	</section>	
+	<!--End of Home Section -->
+	
+	<!-- Refractive Errors Section -->
+	<section id="errors">
+		<div class="errorsContainer inner">
+			<div class="errors-top">
+				<h1 class="section-title">Refractive Errors</h1>
+				<p>Refractive errors are eye disorders that cause light to 
+				focus outside of the retina, producing a blurry image. 
+				They occur, because the eyeball is excessively long or short, 
+				the cornea is non-spherical, or lens has developed rigidity due 
+				to aging.</p>
+			</div>
+			<div class="errors-bottom">
+				<div class="refractive-error">
+					<h2>Myopia</h2>
+					<p>Myopia, better known as “nearsightedness”, causes distant 
+					objects to appear blurry. The eyeball is too long, causing 
+					light to focus in front of the retina. It progressively worsens
+					after onset until the achievement of eyesight maturity, with 
+					earlier onset of myopia yielding a higher prescription at the 
+					achievement of eyesight maturity. High myopia not only increases
+					the probability of significant visual impairment by itself, but
+					it also increases the possibility of developing glaucoma and 
+					retinal detachment, which may irreversibly impair vision, as 
+					well.</p>
+					<div class="icon"><img src="https://cdn.britannica.com/45/63345-050-7BD73D28/nearsightedness-glasses-Myopia-lenses-focus-eye-objects.jpg" width='715' height='315'/></div>
+				</div>
+				<div class="refractive-error">
+					<h2>Hyperopia</h2>
+					<p>Hyperopia, better known as farsightedness, causes nearby 
+					object to appear blurry, because the eyeball is too short, 
+					causing light to focus behind the retina. Like myopia, 
+					hyperopia is progressive, progressively worsens after onset 
+					until the achievement of eyesight maturity, with earlier onset 
+					of hyperopia yielding a higher prescription at the achievement 
+					of eyesight maturity. Moderate to high hyperopia elevates the 
+					risk of developing amblyopia and strabismus, which may 
+					precipitate visual impairment and/or blindness.</p>
+					<div class="icon"><img src="https://cdn.britannica.com/44/63344-050-D20C0E4A/farsightedness-glasses-Hyperopia-lenses-effort-object-focus.jpg" width='715' height='315'/></div>
+				</div>
+				<div class="refractive-error">
+					<h2>Astigmatism</h2>
+					<p>Astigmatism causes objects at all distances to appear 
+					blurry, because the lens has a non-spherical curvature. 
+					It presents in three varieties-- myopic astigmatism, hyperopic 
+					astigmatism, and mixed astigmatism. In myopic astigmatism, 
+					lens curvature causes light to hit in front of the retina. 
+					In hyperopic astigmatism, light hits behind the retina. In 
+					mixed astigmatism, light hits as a combination of both in front
+					of and behind the retina. Astigmatism is a progressive 
+					condition, like both myopia and hyperopia, affecting visual 
+					acuity. It can lead to amblyopia, which may affect visual 
+					acuity, even causing blindness.</p>
+					<div class="icon"><img src="https://cdn.britannica.com/43/63343-050-A705E5C2/Astigmatism-results-cornea-eyeglasses-vision-curvature-condition.jpg" width='715' height='315'/></div>
+				</div>
+			</div>
+		</div>
+		<div class="pageNav"> 
+			<a href="#surgeries" class="next round">></a>
+		</div>
+	</section>
+	<!--End of Refractive Errors Section -->
+	
+	<!-- Refractive Surgeries Section -->
+	<section id="surgeries">
+		<div class="surgeriesContainer inner">
+			<div class="surgeries-top">
+				<h1 class="section-title">Refractive Surgeries</h1>
+				<p>Refractive surgery seeks to correct these refractive 
+				errors, through corneal remodeling, lens implantation, or 
+				lens replacement. These procedures are FDA approved for 
+				patients 21 years and older, whose eye-glasses prescriptions
+				have remained stable for at least two years.</p>
+			</div>
+			<div class="surgeries-bottom">
+				<div class="refractive-surgery">
+					<h2>Laser In-Situ Keratomileusis (LASIK)</h2>
+					<p>LASIK is the most well known and most commonly performed refractive surgery for the correction of myopia, hyperopia, and astigmatism. 
+					It is a quick procedure with minimal associated discomfort. A femtolaser or a microkeratome creates a corneal flap, 
+					under which an excimer laser reshapes the corneal tissue. Side effects and complications of this procedure present the rare risks of flap 
+					damage or loss, infection, delayed healing, undercorrection or overcorrection, irregular astigmatism, blurry vision or vision loss, scarring, 
+					corneal haze or glare, photosensitivity, and inability to wear contact lenses.  Average recovery time is six to twelve hours, 
+					with most seeing clearly, regaining 90% of their vision, within 24 hours. Full effects of the surgery upon visual acuity are apparent after 
+					a month. Approximately six percent of patients choose to undergo an enhancement within ten years due to myopic regression, 
+					but LASIK is non-reversible for those patients dissatisfied with results.</p>
+					<div class="icon"><iframe width="560" height="315" src="https://www.youtube.com/embed/r7EMHgRhlW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+			</div>
+				<div class="refractive-surgery">
+					<h2>Advanced Surface Ablation</h2>
+					<p>Advanced Surface Ablation, including Photorefractive Keratectomy (PRK), Laser Epithelial Keratomileusis (LASEK), and Epithelial Laser In Situ Keratomileusis 
+					(Epi-LASIK), are the second most commonly performed refractive surgery for the correction of myopia, hyperopia, and astigmatism. In PRK, the corneal epithelium is removed, 
+					after which the Bowman membrane and corneal stroma are reshaped over the pupil using an excimer laser. In LASEK and Epi-LASIK are modifications of PRK, 
+					where an epithelial flap is created, instead of removed. A bandage contact lens is applied until the epithelium heals after each of these proceddures.
+					The side effects and complications of  thes procedures includes undercorrection or overcorrection, irregular astigmatism, blurry vision or vision loss, corneal 
+					haze or glare and halos, photosensitivity, and inability to wear contact lenses. LASEK and epi-LASIK have the additional side effects and complications of flap damage
+					or loss. The removal of the corneal epithelium also increases pain and recovery time: Pain can last up to four days, with 90% recovery over that period.
+					100% recovery can be made between one to three months. Advanced Surface Ablation can be repeated to correct regression, but it cannot be reversed.</p>
+					<div class="icon"><iframe width="560" height="315" src="https://www.youtube.com/embed/EoWdquQfAbA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+				</div>
+				<div class="refractive-surgery">
+					<h2>Intraocular Lenses (IOL)</h2>
+					<p>IOL Implantation is an alternative for the correction of high myopia, high hyperopia, and astigmatism. A surgical incision is made on 
+					the cornea through which a soft lens is inserted and is placed on top of the natural lens within the eye. 
+					Side effects and complications of this procedure include infection, undercorrection/overcorrection, vision loss, clouding of the cornea, 
+					glares, halos, double vision, cataract, and retinal detachment. This procedure may need to be repeated to reposition, replace, or remove the implanted lens, 
+					if it moves, is not the right size, or causes severe complications. That being said, the procedure is both repeatable and reversible. Vision stabilizes 
+					up to 4 weeks after the procedure.</p>
+					<div class="icon"><iframe width="560" height="315" src="https://www.youtube.com/embed/hCSQh5XpoV4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+				</div>
+			</div>
+		</div>
+		<div class="pageNav"> 
+			<a href="#history" class="next round">></a>
+		</div>
+	</section>
+	<!--End of Refractive Surgeries Section -->
+	
+	<!--History Section -->
+	<section id="history">
+		<div class="historyContainer inner">
+			<div class="history-top">
+				<h1 class="section-title">Pertinent History</h1>
+			</div>
+			<form class="history-bottom">
+				<div class="qn">
+					<p>1.&ensp; Do you have a history of or do you currently have any of the following:</p>
+		
+					<ul>
+							<li><p>&emsp; &ensp; •	 &ensp; Uncontrolled Eye Conditions or Diseases</p></li>
+							<li><p>&emsp; &ensp; •	 &ensp; Uncontrolled Autoimmune Disorders</p></li>
+							<li><p>&emsp; &ensp; •	 &ensp; Uncontrolled Thyroid Diseases?</p></li>
+					</ul>
+						
+					<div id="preferences">
+						<input id="abscontraindications_yes" class="radioBtn qn1" name="abscontraindications" type="radio" value="yes" required>
+							<label for="abscontraindications_yes"><p>yes</p></label>
+						
+						<input id="abscontraindications_no" class="radioBtn qn1" name="abscontraindications" type="radio" value="no" required>
+							<label for="abscontraindications_no"><p>no</p></label>
+					</div>
+					
+					
+				</div>
+				
+				<div class="qn">
+					<p>2a.&ensp; Do you have a history of, or do you currently have any of the following:</p>
+					<div id='preferences'>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_herpes' id='relcontraindications_herpes' value="herpes" onclick="uncheckNone('relcontraindications_none')">
+						  <label id='relcontraindications_herpes' for='relcontraindications_herpes'><p>Herpes Simplex Eye Infections</p></label><br><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_glaucoma' id='relcontraindications_glaucoma' value="glaucoma" onclick="uncheckNone('relcontraindications_none')">
+						  <label id='relcontraindications_glaucoma' for='relcontraindications_glaucoma'><p>Glaucoma</p></label><br><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_uveitis' id='relcontraindications_uveitis' value="uveitis" onclick="uncheckNone('relcontraindications_none')">
+						  <label id='relcontraindications_uveitis' for='relcontraindications_uveitis'><p>Uveitis</p></label><br><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_dm' id='relcontraindications_dm' value="diabetes" onclick="uncheckNone('relcontraindications_none')">
+						  <label id='relcontraindications_dm' for='relcontraindications_dm'><p>Diabetes Mellitus</p></label><br><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_cornea' id='relcontraindications_cornea' value="cornea" onclick="uncheckNone('relcontraindications_none')">
+						  <label id='relcontraindications_cornea' for='relcontraindications_cornea'><p>Corneal Abnormalities</p></label><br><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_none' id='relcontraindications_none' value="none" onclick='relContraindicationsConfirm()'>
+						  <label id='relcontraindications_none' for='relcontraindications_none'><p>None of the Above</p></label>
+					  </div>
+						
+					<p><br>2b.&ensp; Do you take Isotretinoin?</p>
+					
+					<div id="preferences">
+						<input id="relcontraindications_yes" class="radioBtn qn2b" name="relcontraindications" type="radio" value="yes" required>
+							<label for="relcontraindications"><p>yes</p></label>
+
+						<input id="relcontraindications_no" class="radioBtn qn2b" name="relcontraindications" type="radio" value="no" required>
+							<label for="relcontraindications"><p>no</p></label>
+					</div>	
+					
+					<p><br>2c.&ensp; Are you younger than 21 years old?</p>
+					
+					<div id="preferences">
+						<input id="relcontraindications_yes" class="radioBtn qn2c" name="relcontraindications" type="radio" value="yes" required>
+							<label for="relcontraindications"><p>yes</p></label>
+
+						<input id="relcontraindications_no" class="radioBtn qn2c" name="relcontraindications" type="radio" value="no" required>
+							<label for="relcontraindications"><p>no</p></label>
+					</div>
+				</div>
+				
+				<div class="qn">
+					<p for="number">3.&ensp;  What is your last known eyeglasses prescription? </p>
+					<table>
+						<tr>
+							<td></td>
+							<td><p>Spherical</p></td>
+							<td><p>Cylindrical</p></td>
+						</tr>
+						<tr>
+							<td><p>Right (OD)</p></td>
+							<td><input id="prescription_RS" name="prescription" type="number" step="0.25" min="-20" max="20" required></td>
+							<td><input id="prescription_RC" name="prescription" type="number" step="0.25" min="-20" max="20" required></td>
+						</tr>
+						<tr>
+							<td><p>Left (OS)</p></td>
+							<td><input id="prescription_LS" name="prescription" type="number" step="0.25" min="-20" max="20" required></td>
+							<td><input id="prescription_LC" name="prescription" type="number" step="0.25" min="-20" max="20" required></td>
+						</tr>
+					</table>
+				</div>
+				
+				<div class="qn">
+					<p>4.&ensp;  Was this prescribed to you by an optometrist or an ophthalmologist? </p>
+					
+					<div id="preferences">
+						<input id="doctor_optometrist"  class="radioBtn qn4" name="doctor" type="radio" value="optometrist" required>
+							<label for="optometrist"><p>optometrist</p></label>
+
+						<input id="doctor_ophthalmologist" class="radioBtn qn4" name="doctor" type="radio" value="ophthalmologist" required>
+							<label for="ophthalmologist"><p>ophthalmologist</p></label>
+					</div>
+				</div>
+				
+				<div class="qn">
+					<p>5.&ensp; Do you play any contact sports, or are you in the military?  </p>
+					
+					<div id="preferences">
+						<input id="behavior_yes" class="radioBtn qn5" name="behavior" type="radio" value="yes" required>
+							<label for="yesbehavior"><p>yes</p></label>
+
+						<input id="behavior_no" class="radioBtn qn5" name="behavior" type="radio" value="no" required>
+							<label for="nobehavior"><p>no</p></label>
+					</div>	
+				</div>
+			</form>
+		</div>
+		<div class="pageNav"> 
+			<a href="#values" class="next round">></a>
+		</div>
+	</section>
+	<!--End of History Section -->
+
+	<!-- Values Section -->
+	<section id="values">
+		<div class="valuesContainer inner">
+			<div class="values-top">
+				<h1 class="section-title">Preferences</h1>
+			</div>
+			<form class="values-bottom">
+				<div class="qn">
+				</div>
+			</form>
+		</div>
+		<div class="pageNav"> 
+			<a href="#surgeryrecs" class="next round">></a>
+		</div>
+	</section>
+	<!-- End of Values Section -->
+	
+	<!-- Surgery Recommendations Section -->
+	<section id="surgeryrecs">
+		<div class="surgeryrecsContainer inner">
+			<div class="surgeryrecs-top">
+				<h1 class="section-title">Surgery Recommendations</h1>
+			</div>
+		</div>
+		<div class="pageNav"> 
+			<a href="#surgeonrecs" class="next round">></a>
+		</div>
+	</section>
+	<!-- End of Surgery Recommendations Section -->
+	
+	<!-- Surgeon Recommendations Section -->
+	<section id="surgeonrecs">
+		<div class="surgeonrecsContainer inner">
+			<div class="surgeonrecs-top">
+				<h1 class="section-title">Surgeon Recommendations</h1>
+			</div>
+			<div class="surgeonrecs-bottom">
+			
+				<div class="surgeon">
+					<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+					<div class="elfsight-app-6fd99781-4b76-4c79-82cd-1bca852d76c9"></div>
+					
+					<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-6fd99781-4b76-4c79-82cd-1bca852d76c9"></div>		
+				</div>
+				<div class="surgeon">
+				</div>
+				<div class="surgeon">
+				</div>						
+			</div>
+		</div>
+	</section>
+	<!-- End of Surgeon Recommendations Section -->
+</body>
+</html>
