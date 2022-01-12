@@ -6,60 +6,1516 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- This is the style for the header -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
 
-    <!-- This is just a font that we'll be using. You can remove lines 12-14 if you don't want to use Poppins -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 	<link href="http://fonts.cdnfonts.com/css/optician-sans" rel="stylesheet">
-    <title>EYECHOOSE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+	
+	<style>
+	<!-- /*General Style*/ -->
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		list-style: none;
+		text-decoration: none;
+	}
+
+	html{
+		font-size: 1rem;
+	}
+
+	a {
+		color: black;
+	}
+
+	h1 {
+		font-weight: 1000;
+		font-family: 'Optician Sans', sans-serif;
+		display: block;
+		width: fit-content;
+		font-size: 2rem;
+		margin-bottom: 10px;
+	}
+
+	p {
+		font-weight: 100;
+		font-size: 1rem;
+		font-family: 'Poppins';
+		margin-bottom: 10px;	
+	}
+
+	.inner{
+		width: 1200px;
+		height: 100%;
+		display: block;
+		margin: 0 auto;
+	}
+	<!-- /*End of General Style*/
+
+	/*Navigation Bar*/ -->
+	nav {
+		background-color: white;
+		color: black;
+		display: flex;
+		justify-content: space-between;
+		border-bottom: solid 1px rgba(16, 16, 16, 0.1);
+		font-family: 'Optician Sans', sans-serif;
+		position: sticky;
+		top: 0;
+		padding-right: 20px;
+		z-index: 100;
+	}
+
+	nav .mainMenu {
+		display: flex;
+		list-style: none;
+	}
+
+	nav .mainMenu li a {
+		display: inline-block;
+		text-decoration: none;
+		font-family: 'Optician Sans', sans-serif;
+		color: black;
+		font-size: 1rem;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		margin-left: 20px;
+	}
+
+	nav .mainMenu li a:hover {
+		color: crimson;
+		font-weight: 1000;
+	}
+
+	nav .openMenu {
+		font-size: 2rem;
+		margin: 20px;
+		display: none;
+		cursor: pointer;
+	}
+
+	nav .mainMenu .closeMenu {
+		font-size: 2 rem;
+		display: none;
+		cursor: pointer;
+	}
+
+	nav .logo {
+		margin: 20px;
+		font-size: 25px;
+		cursor: pointer;
+	}
+
+	.logo h1 { 
+		font-weight: 100;
+		font-family: 'Optician Sans', sans-serif;
+	}
+
+	.logo h2 { 
+		font-weight: 500;
+		font-family: 'Optician Sans', sans-serif;
+	}
+
+	.logo h1 span { 
+		font-weight: 1000;
+		font-family: 'Optician Sans', sans-serif;
+	}
+
+	.logo:hover a{
+		color: crimson;
+	}
+	<!-- /*End of Navigation Bar*/ -->
+
+	<!-- /*Home Section*/ -->
+	#home .home {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 50px;
+		justify-content: flex-start;
+	}
+
+	#home {
+		padding-top: 225px;
+		padding-bottom: 225px;
+		background-image: url(http://api.openverse.engineering/v1/images/37dbb30b-1be8-4a78-8aa5-2eefd4bb51d7/thumb/);
+		background-position: center;
+		background-size: cover;
+		position: relative;
+		z-index: 1;
+	}
+
+	#home::after{
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-color: white;
+		opacity: 0.7;
+		z-index: -1;
+	}
+
+	.homeContainer h1 {
+		font-weight: 1000;
+		font-family: 'Optician Sans', sans-serif;
+		display: block;
+		width: fit-content;
+		font-size: 2rem;
+		position: relative;
+		color: black;
+	}
+
+	.homeContainer p {
+		font-weight: 100;
+		font-size: 1rem;
+		font-family: 'Poppins';	
+	}
+
+	#home .logo h1 span { 
+		font-weight: 1000;
+		font-size: 1.5rem;
+		font-family: 'Optician Sans', sans-serif;
+	}
+
+	#home .logo h1 { 
+		font-weight: 100;
+		font-size: 1.5rem;
+		font-family: 'Optician Sans', sans-serif;
+	}
+
+	#home .logo h1, #home .logo p {
+		display: inline;
+		vertical-align: top;
+		line-height: 28px;
+	}
+
+	.homeContainer .logo:hover a{
+		color: crimson;
+	}
+	<!-- /*End of Home Section*/ -->
+
+	<!-- /*Patient Education Section*/ -->
+	#patientEdu .patientEdu {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 50px;
+		justify-content: flex-start;
+	}
+
+	#patientEdu {
+		padding-top: 225px;
+		padding-bottom: 225px;
+		background-color: #F0F0F0;
+		background-position: center;
+		background-size: cover;
+		position: relative;
+		z-index: 1;
+	}
+
+	.patientEduContainer h1 {
+		font-weight: 1000;
+		font-family: 'Optician Sans', sans-serif;
+		display: block;
+		width: fit-content;
+		font-size: 2rem;
+		position: relative;
+		color: black;
+	}
+
+	.patientEduContainer p {
+		font-weight: 100;
+		font-size: 1rem;
+		font-family: 'Poppins';	
+	}
+
+	#patientEdu .logo p {
+		display: inline;
+		vertical-align: top;
+		line-height: 28px;
+	}
+
+	#patientEdu .logo li a p {
+		display: block;
+		color: black;
+	}
+
+	#patientEdu .logo li a p:hover {
+		color: crimson;
+		font-weight: 1000;
+	}
+	<!-- /*End of Patient Education Section*/ -->
+
+	<!-- /*Errors Section*/ -->
+	/*
+	<!-- #errors .errorsContainer h1{
+		margin-top: 150px;
+	}*/ -->
+
+	#errors .errors{
+		flex-direction: column;
+		text-align: center;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 100px 0;
+	}
+
+	#errors .errors-top {
+		margin-top: 50px;
+	}
+	#errors .errors-bottom {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	#errors .refractive-error h2 {
+		margin-bottom: 10px;
+	}
+
+	#errors .refractive-error p {
+		margin-bottom: 20px;
+		font-size: 0.85rem;
+	}
+
+	#errors .refractive-error:first-child {
+		margin-top: 50px;
+	}
+
+	#errors .refractive-error {
+		flex-basis: 80%;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		flex-direction: column;
+		padding: 30px;
+		border-radius: 10px;
+		background-color: #F0F0F0;
+		margin: 10px 5%;
+		position: relative;
+		z-index; 1;
+		overflow: hidden;
+	}
+
+	#errors .icon {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	<!-- /*End of Errors Section*/
+
+	/*Surgeries Section*/ -->
+	#surgeries .surgeriesContainer h1{
+		margin-top: 460px;
+	}
+
+	#surgeries .surgeries{
+		flex-direction: column;
+		text-align: center;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 100px 0;
+	}
+
+	#surgeries .surgeries-top {
+		margin-top: 50px;
+	}
+
+	#surgeries .surgeries-bottom {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	#surgeries .refractive-surgery h2 {
+		margin-bottom: 10px;
+	}
+
+	#surgeries .refractive-surgery p {
+		margin-bottom: 20px;
+		font-size: 0.85rem;
+	}
+
+	#surgeries .refractive-surgery:first-child {
+		margin-top: 50px;
+	}
+
+	#surgeries .refractive-surgery {
+		flex-basis: 80%;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		flex-direction: column;
+		padding: 30px;
+		border-radius: 10px;
+		background-color: #F0F0F0;
+		margin: 10px 5%;
+		position: relative;
+		z-index; 1;
+		overflow: hidden;
+	}
+
+	#surgeries .icon {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#surgeries .pageNav {
+		margin-bottom: 580px;
+	}
+	<!-- /*End of Surgeries Section*/
+
+	/*Patient Decision Aid Section*/ -->
+	#patientDecisionAid .patientDecisionAid {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 50px;
+		justify-content: flex-start;
+	}
+
+	#patientDecisionAid {
+		padding-top: 225px;
+		padding-bottom: 225px;
+		background-color: #F0F0F0;
+		background-position: center;
+		background-size: cover;
+		position: relative;
+		z-index: 1;
+	}
+
+	.patientDecisionAidContainer h1 {
+		font-weight: 1000;
+		font-family: 'Optician Sans', sans-serif;
+		display: block;
+		width: fit-content;
+		font-size: 2rem;
+		position: relative;
+		color: black;
+	}
+
+	.patientDecisionAidContainer p {
+		font-weight: 100;
+		font-size: 1rem;
+		font-family: 'Poppins';	
+	}
+
+	#patientDecisionAid .logo p {
+		display: inline;
+		vertical-align: top;
+		line-height: 28px;
+	}
+
+
+	#patientDecisionAid .logo li a p {
+		display: block;
+		color: black;
+	}
+
+	#patientDecisionAid .logo li a p:hover {
+		color: crimson;
+		font-weight: 1000;
+	}
+	<!-- /*End of Patient Decision Aid Section*/
+
+	/* History Section*/ -->
+	#history .history{
+		flex-direction: column;
+		text-align: center;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 100px 0;
+	}
+
+	#history .history-bottom {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	#history .qn p {
+		margin-bottom: 10px;
+	}
+
+	#history .qn ul li p {
+		display: list-item;
+	}
+
+	#history .qn {
+		flex-basis:80%;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		flex-direction: column;
+		padding: 30px;
+		border-radius: 10px;
+		position: relative;
+		z-index; 1;
+		overflow: hidden;
+	}
+
+	#preferences {
+	  display: inline-block;
+	}
+
+	#preferences label {
+		float: left;
+		clear: none;
+		display: table;
+	}
+
+	#preferences .qn1{
+		float: left;
+		clear: none;
+		margin: 2px 10px 0 2px;
+		margin-left:21px;
+	}
+
+	#preferences .qn2b, #preferences .qn2c, #preferences .qn2d {
+		float: left;
+		clear: none;
+		margin: 2px 10px 0 2px;
+		margin-left:36px;
+	}
+	
+	#preferences .qn3a {
+		float: left;
+		clear: none;
+		margin: 2px 10px 0 2px;
+		margin-left:36px;
+	}
+	
+	.qn3b {
+		display:none;
+	}
+	
+	#preferences .qn3c{
+		float: left;
+		clear: none;
+		margin: 2px 10px 0 2px;
+		margin-left:36px;
+	}
+	
+	.qn3c {
+		display:none;
+	}
+	
+	#preferences .qn4{
+		float: left;
+		clear: none;
+		margin: 2px 10px 0 2px;
+		margin-left:36px;
+	}
+	
+	.qn4{
+		display: none;
+	}
+	
+		
+	#preferences .qn4b{
+		float: left;
+		clear: none;
+		margin: 2px 10px 0 2px;
+		margin-left:36px;
+	}
+	
+	.qn4b{
+		display: none;
+	}
+
+	#preferences input[type=checkbox], input.checkbox {
+		float: left;
+		clear: none;
+		margin: 2px 20px 0 2px;
+		margin-left:36px;
+	}
+
+	#preferences p {
+		font-weight: 100;
+		font-size: 1rem;
+		font-family: 'Poppins';
+		display: block;
+	}
+	
+	.mhsubmitted {
+		display: none;
+		justify-content: center;
+		font-family: 'Optician Sans', sans-serif;
+		font-size: 1rem;
+		font-weight: 500;
+		color: green;
+		margin-top: 10px;
+	}
+	
+	
+	<!-- /* End of History Section*/
+
+	/*Values Section*/ -->
+	#values .valuesContainer h1{
+		margin-top: 460px;
+	}
+
+	#values .container {
+		/*
+		flex-basis: 50%;
+		display: flex;
+		align-items: flex-start;
+		text-align: left;
+		flex-direction: column;
+		padding: 30px;
+		border-radius: 10px;
+		background-color: #F0F0F0;
+		margin: 10px 5%;
+		position: relative;
+		z-index; 1;
+		overflow: hidden;*/
+		margin: 10px;
+		padding: 10px;
+		border-radius: 10px;
+		background-color: #F0F0F0;
+	}
+
+	#values .values-bottom {
+		display: grid; 
+		grid-template-columns: 1fr 1fr;
+		width: 100%;
+	}
+	#values .values-bottom p {
+		font-size: 0.9rem;
+	}
+
+	#values .draggable {
+		padding: 1rem;
+		background-color: white;
+		border: 1px solid rgba(16, 16, 16, 0.1);
+		border-radius: 10px;
+		cursor: move;
+	}
+
+	#values .draggable.dragging {
+		opacity: 0.9;
+	}
+	<!-- /*End of Values Section*/
+
+	/*Recommendations Section*/ -->
+	#recs .recs {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 50px;
+		justify-content: flex-start;
+	}
+
+	#recs {
+		padding-top: 225px;
+		padding-bottom: 225px;
+		background-color: #F0F0F0;
+		background-position: center;
+		background-size: cover;
+		position: relative;
+		z-index: 1;
+	}
+
+	.recsContainer h1 {
+		font-weight: 1000;
+		font-family: 'Optician Sans', sans-serif;
+		display: block;
+		width: fit-content;
+		font-size: 2rem;
+		position: relative;
+		color: black;
+	}
+
+	.recsContainer p {
+		font-weight: 100;
+		font-size: 1rem;
+		font-family: 'Poppins';	
+	}
+
+	#recs .logo p {
+		display: inline;
+		vertical-align: top;
+		line-height: 28px;
+	}
+
+	#recs .logo li a p {
+		display: block;
+		color: black;
+	}
+
+	#recs .logo li a p:hover {
+		color: crimson;
+		font-weight: 1000;
+	}
+	<!-- /*End of Recommendations Sections*/
+
+	/*Surgery Recommendations Section*/ -->
+	#surgeryrecs .disclaimers {
+		color: crimson;
+	}
+	#surgeryrecs .disclaimer_relcontraindications {
+		display: none;
+	}
+	#surgeryrecs .disclaimer_pregnant {
+		display: none;
+	}
+	#surgeryrecs .disclaimer_isotretinoin {
+		display: none;
+	}
+	#surgeryrecs .disclaimer_under21 {
+		display: none;
+	}
+	<!-- /*End of Surgery Recommendations Section*/
+
+	/*Surgeon Recommendations Section*/ -->
+	<!-- /*End of Surgeon Recommendations Section*/-->
+	.submittedMsg {
+		display: none;
+		justify-content: center;
+		font-family: 'Optician Sans', sans-serif;
+		font-size: 1rem;
+		font-weight: 500;
+		color: green;
+		margin-bottom: 10px;
+	}
+	
+	input.submitBtn {
+	  text-decoration: none;
+	  display: inline-block;
+	  padding: 8px 16px;
+	}
+
+	input.submitBtn:hover {
+	  background-color: black;
+	  color: white;
+	}
+
+	.submitBtn { 
+		background: white;
+		font-size: 1.25rem;
+		font-family: 'Optician Sans', sans-serif;
+		border: 1px solid black;
+		margin-bottom: 15px;
+	}
+
+	.submitNav {
+	   display: flex;
+	   justify-content: center;
+	   margin: 10px;
+	}
+	  
+	<!--/*pageNav Section*/ -->
+	a.next, a.back {
+	  text-decoration: none;
+	  display: inline-block;
+	  padding: 8px 16px;
+	}
+
+	a.next:hover, a.back:hover {
+	  background: lightslategray;
+	}
+
+	.back, .next {
+	  background-color: black;
+	  color: white;
+	}
+
+	.round {
+	  border-radius: 50%;
+	}
+
+	.pageNav {
+	   display: flex;
+	   justify-content: center;
+	   margin: 10px;
+	 }
+	<!--  /*End of pageNav Section*/ -->
+
+	@media(max-width: 800px) {
+		nav .mainMenu {
+			height: 100vh;
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: 10;
+			flex-direction: column;
+			align-items: center;
+			background: white;
+			transition: right 3s;
+			display: none;
+			padding-top: 33%;
+			padding-bottom: 33%;
+		}
+		
+		nav .mainMenu .closeMenu {
+			display: block;
+			position: absolute;
+			top: 20px;
+			right: 20px;
+		}
+		
+		nav .openMenu {
+			display: block;
+		}
+			
+		nav .mainMenu li a:hover {
+			background: none;
+			color: crimson;
+			font-size: 1.6rem;
+		}
+		
+	}
+	</style>
+	
+	<!--<script src="./script.js"></script>-->
+	<script>
+		
+		function hideDivByClass(class_name) {
+			console.log("class_name: " + class_name);
+			for (let i = 0; i < document.getElementsByClassName(class_name).length; i++) {
+				console.log("display style before: " + document.getElementsByClassName(class_name)[i].style.display);
+				document.getElementsByClassName(class_name)[i].style.display="none";
+				console.log("display style after: " + document.getElementsByClassName(class_name)[i].style.display);
+			}
+		}
+	
+		function showDivByClass(class_name) {
+			console.log("class_name: " + class_name);
+			for (let i = 0; i < document.getElementsByClassName(class_name).length; i++) {
+				console.log("display style before: " + document.getElementsByClassName(class_name)[i].style.display);
+				document.getElementsByClassName(class_name)[i].style.display="flex";
+				console.log("display style after: " + document.getElementsByClassName(class_name)[i].style.display);
+			}
+		}
+		
+		function showDivbyID(id) {
+			console.log("id: " + id);
+			console.log("display style before: " + document.getElementsByID(id).style.display);
+			document.getElementsByID(id).style.display="flex";
+			console.log("display style after: " + document.getElementsByID(id).style.display);
+		}
+		
+		function hideDivbyID(id) {
+			console.log("id: " + id);
+			console.log("display style before: " + document.getElementsByID(id).style.display);
+			document.getElementsByID(id).style.display="none";
+			console.log("display style after: " + document.getElementsByID(id).style.display);
+		}
+		
+		function spherical_equivalent(spherical, cylindrical) {
+			let se = spherical + (0.5 * cylindrical);
+			return se;
+		}
+		
+		function LASIKLasers_myopiaastigmatism(spherical, cylindrical) {
+			//if(spherical < 0) {
+				//<!--Abbott Medical Optics (VISX Star S2)-->
+				if (((spherical >= -14.00 && spherical <= 0.00) && ((cylindrical <= -0.50 && cylindrical >= -5.00) || (cylindrical == 0.00))) ||
+				//<!--Abbott Medical Optics (VISX Star S3, Eye Tracker)-->
+				((spherical >= -14.00 && spherical <= 0.00) && (cylindrical <= 0.50 && cylindrical >= -5.00)) ||
+				//<!--Alcon (Apex Plus)-->
+				((spherical >= -14.00 && spherical <= 0.00) && ((cylindrical >= 0.50 && cylindrical <= 5.00) || (cylindrical == 0.00))) ||
+				//<!--Alcon (LADARVision)-->
+				((spherical >= -9.00 && spherical <= 0.00) && ((cylindrical <= -0.50 && cylindrical >= -3.00) || (cylindrical == 0.00))) ||
+				//<!--TOFIX: Alcon (LADARVision) wavefront-guided-->
+				((spherical >= -7.00 && spherical <= 0.00) && (cylindrical <= 0.50 && cylindrical >= 0.00)) ||
+				//<!--Alcon (WaveLight ALLEGRETTO WAVE)-->
+				((spherical >= -12.00 && spherical <= 0.00) && (cylindrical >= -6.00 && cylindrical <= 0.00)) ||
+				//<!--Alcon (WaveLight ALLEGRETTO WAVE) wavefront-guided-->
+				((spherical >= -7.00 && spherical <= 0.00) && (cylindrical <= 3.00 && cylindrical >= 0.00)) ||
+				//<!--Carl Zeiss Meditec (MEL80)-->
+				((spherical >= -7.00 && spherical <= 0.00) && (cylindrical >= -3.00 && cylindrical <= 0.00)) ||
+				//<!--Nidek EC-5000)-->
+				((spherical <= -1.00 && spherical >= -14.00) && (cylindrical >= -4.00 && cylindrical <= 0.00)) ||
+				//<!--Technolas Perfect Vision GmbH (Tehcnolas 217a)-->
+				((spherical >= -11.00 && spherical <= 0.00) && (cylindrical >= -3.00 && cylindrical <= 0.00)) ||
+				//<!--Technolas Perfect Vision GmbH (Technolas 217z) wavefront-guided-->
+				((spherical >= -7.00 && spherical <= 0.00) && (cylindrical >= -3.00 && cylindrical <= 0.00)) ||
+				//<!--VISX Inc. (VISX Star S4 & WaveScan WaveFront System) wavefront-guided-->
+				((spherical >= -11.00 && spherical <= -6.00) && (cylindrical >= -3.00 && cylindrical <= 0.00))) {
+					LASIK = LASIK + 1;
+				}
+			//}
+		}
+		
+		function LASIKLasers_hyperopiaastigmatism(spherical, cylindrical) {
+			if(spherical > 0) {
+				//<!--Abbott Medical Optics-->
+				if (((spherical <= 5.00 && spherical >= 0.50) && (cylindrical <= 3.00 && cylindrical >= 0.00)) ||
+				//<!--Alcon (LADARVision)-->
+				((spherical <= 6.00 && spherical >= 0.00) && (cylindrical <= 0.00 && cylindrical >= -6.00)) ||
+				//<!--Alcon (LADARVision) wavefront-guided-->
+				((spherical <= 5.00 && spherical >= 0.00) && (cylindrical <= 0.00 && cylindrical >= -3.00)) ||
+				//<!--Alcon (WaveLight ALLEGRETTO WAVE)-->
+				((spherical <= 6.00 && spherical >= 0.00) && (cylindrical <= 5.00 && cylindrical >= 0.00)) ||
+				//<!--TODO: Carl Zeiss Meditec (MEL80)-->
+				//<!--Nidek EC-5000)-->
+				((spherical <= 5.00 && spherical >= 0.50) && ((cylindrical <= 2.00 && cylindrical >= 0.50) || (cylindrical == 0.00))) ||
+				//<!--Technolas Perfect Vision GmbH (Tehcnolas 217a)-->
+				((spherical <= 4.00 && spherical >= 1.00) && (cylindrical <= 2.00 && cylindrical >= 0.00)) ||
+				//<!--VISX Inc. (VISX Star S4 & WaveScan WaveFront System) wavefront-guided-->
+				((spherical <= 3.00 && spherical >= 0.00) && (cylindrical <= 2.00 && cylindrical >= 0.00))) {
+					LASIK = LASIK + 1;
+				}
+			}
+		}
+		
+		<!--#TODO-->
+		function LASIKLasers_mixed(Rspherical, Rcylindrical, Lspherical, Lcylindrical) {
+			if((Rcylindrical < 0 && Lcylindrical > 0) || (Rcylindrical > 0 && Lcylindrical < 0)) {
+			}
+		}
+		
+		/*
+		function PRKLasers_myopiaastigmatism(spherical, cylindrical) {
+			if(spherical < 0) {
+				<!--Abbott Medical Optics (VISX Model B & C [Star & Star S2])-->
+				if (
+				<!--Alcon (SVS Apex & Apex Plus)-->
+				<!--Alcon (SVS Apex & Apex Plus Workstation)-->
+				<!--Alcon (LADARVision)-->
+				<!--Bausch & Lomb Surgical (KERACOR 116)-->
+				<!--Nidek EC-5000-->}
+			}
+		}*/
+		
+		function PRKLasers_hyperopiaastigmatism(spherical, cylindrical) {
+			//<!--Abbott Medical Optics (VISX Star S2)-->
+				if((spherical <= 6.00 && spherical >= 1.00) ||
+			//<!--Abbott Medical Optics (VISX Star S2/S3)-->
+				((spherical <= 5.00 && spherical >= 0.50) && ((cylindrical <= 4.00 && cylindrical >= 0.50) || (cylindrical == 0.00))) ||
+			//<!--Alcon (SVS Apex & Apex Plus Workstation)-->
+				((spherical <= 4.00 && spherical >= 1.50) && (cylindrical <= 0.00 && cylindrical >= -1.00))) {
+					PRK = PRK + 1;
+			}
+		}
+		
+		//TODO: complete function
+		function PRKLasers_mixed(Rspherical, Rcylindrical, Lspherical, Lcylindrical) {
+			if((Rcylindrical < 0 && Lcylindrical > 0) || (Rcylindrical > 0 && Lcylindrical < 0)) {
+			}
+		}
+		
+		//which cylinders to use?
+		<!-- check whether vision can be corrected by IOL implantation-->
+		function IOL(eye) {
+			if (eye.localeCompare("right") == 0) {
+				//<!--Visian ICL-->
+			if(((spherical >= 3 && spherical <= 15) && (cylindrical >= 0 && cylindrical <= 2.50)) || 
+			((spherical >= 15 && spherical <= 20) && (cylindrical >= 0 && cylindrical <= 2.50))){
+				IOL = IOL + 1;
+			}
+			//<!--Artisan Phakic IOL-->
+			else if((spherical >= 5 && spherical <= 20) && (cylindrical >= 0 && cylindrical <= 2.50)) {
+				IOL = IOL + 1;
+			}
+			else {}
+			}
+			if (eye.localeCompare("left") == 0) {
+				//<!--Visian ICL-->
+			if(((spherical >= 3 && spherical <= 15) && (cylindrical >= 0 && cylindrical <= 2.50)) || 
+			((spherical >= 15 && spherical <= 20) && (cylindrical >= 0 && cylindrical <= 2.50))){
+				IOL = IOL + 1;
+			}
+			//<!--Artisan Phakic IOL-->
+			else if((spherical >= 5 && spherical <= 20) && (cylindrical >= 0 && cylindrical <= 2.50)) {
+				IOL = IOL + 1;
+			}
+			else {}
+			}
+		}
+		
+		//TODO:
+		function errorMessage(eye) {
+			console.log("entering errorMessage(eye)");
+			if(eye.localeCompare('right') == 0) {
+				console.log("eye: " + eye);
+				console.log("RC: " + document.getElementById('prescription_RC').value);
+				if (!(document.getElementById('prescription_Raxis').value == "") && document.getElementById('prescription_RC').value == "") {
+					alert("Please enter your right cylindrical component.");
+				}
+			}
+			else if(eye.localeCompare('left') == 0) {
+				console.log("eye: " + eye);
+				console.log("LC: " + document.getElementById('prescription_LC').value);
+				if (!(document.getElementById('prescription_Laxis').value == "") && document.getElementById('prescription_LC').value == "") {
+					alert("Please enter your left cylindrical component.");
+				}
+			}
+			else{}
+		}
+		
+		// <!-- Initializing variables -->
+		var modalities = {
+			LASIK: 0,
+			PRK: 0,
+			IOL: 0
+		}
+		
+		var myopia = false;
+		var hyperopia = false;
+		var antimetropia = false;
+		var astigmatism = false;
+		var mixed_astigmatism_R = false;
+		var mixed_astigmatism_L = false;
+		
+		var RS_neg = 0;
+		var RC_neg = 0;
+		var Raxis_neg = 0;
+		var LS_neg = 0;
+		var LC_neg = 0;
+		var Laxis_neg = 0;
+		
+		var RS_pos = 0;
+		var RC_pos = 0;
+		var Raxis_pos = 0;
+		var LS_pos = 0;
+		var LC_pos = 0;
+		var Laxis_pos = 0;
+		
+		function removeModality(modality) {
+			console.log("entering removeModality(modality)");
+			
+			console.log("removing modality: " + modality);
+			delete(modalities[modality]);
+			console.log("modality removed.");
+			console.log("keys left: " + Object.keys(modalities));
+		}
+		
+		function addValueByIdByModality(modality, id) {
+			console.log("entering addValueByIdByModality(modality, id)");
+			console.log("id: " + id);
+			
+			if ("LASIK" in modalities && modality.localeCompare("LASIK") == 0) {
+				console.log("add " + document.getElementById(id).value + " to LASIK");
+				console.log("LASIK: " + LASIK);
+				modalities["LASIK"] = modalities["LASIK"] + document.getElementById(id).value;
+				console.log("LASIK: " + LASIK);
+			}
+			if ("PRK" in modalities && modality.localeCompare("PRK") == 0) {
+				console.log("add " + document.getElementById(id).value + " to PRK");
+				console.log("PRK: " + PRK);
+				modalities["PRK"] = modalities["PRK"] + document.getElementById(id).value;
+				console.log("PRK: " + PRK);
+			}
+			if ("IOL" in modalities && modality.localeCompare("IOL") == 0) {
+				console.log("add " + document.getElementById(id).value + " to IOL");
+				console.log("IOL: " + IOL);
+				modalities["IOL"] = modalities["IOL"] + document.getElementById(id).value;
+				console.log("IOL: " + IOL);
+			}
+		}
+		
+		function addValueByIdToAllModalities(id) {
+			console.log("entering addValueByIdToAllModalities(id)");
+			console.log("id: " + id);
+			
+			if ("LASIK" in modalities) {
+				console.log("add " + document.getElementById(id).value + " to LASIK");
+				console.log("LASIK: " + LASIK);
+				modalities["LASIK"] = modalities["LASIK"] + document.getElementById(id).value;
+				console.log("LASIK: " + LASIK);
+			}
+			
+			if ("PRK" in modalities) {
+				console.log("add " + document.getElementById(id).value + " to PRK");
+				console.log("PRK: " + PRK);
+				modalities["PRK"] = modalities["PRK"] + document.getElementById(id).value;
+				console.log("PRK: " + PRK);
+			}
+			
+			if ("IOL" in modalities) {
+				console.log("add " + document.getElementById(id).value + " to IOL");
+				console.log("IOL: " + IOL);
+				modalities["IOL"] = modalities["IOL"] + document.getElementById(id).value;
+				console.log("IOL: " + IOL);
+			}
+		}
+		
+		function set_prescription(Sid, Cid, Axisid) {
+			console.log("entering set_prescription");
+			let spherical = 0.00;
+			let cylindrical = 0.00;
+			let axis = 0;
+			
+			console.log("Sid: " + Sid);
+			spherical = document.getElementByID(Sid).value;
+			console.log("spherical: " + spherical);
+			
+			console.log("Cid: " + Cid);
+			if (document.getElementByID(Cid).value == "") {
+				cylindrical = 0.00;
+			}
+			else {
+				cylindrical = document.getElementByID(Cid).value;
+			}
+			console.log("cylindrical: " + cylindrical);
+			
+			console.log("Axisid: " + Axisid);
+			if (document.getElementByID(Axisid).value == "") {
+				axis = 0;
+			}
+			else {
+				axis = document.getElementByID(Axisid).value;
+			}
+			console.log("axis: " + axis);
+			return {spherical, cylindrical, axis};
+		}
+		
+		function convert_prescription(spherical, cylindrical, axis) {
+			console.log("entering convert_prescription(spherical, cylindrical, axis)");
+			console.log("spherical: " + spherical);
+			console.log("cylindrical: " + cylindrical);
+			console.log("axis: " + axis);
+			
+			spherical = spherical + cylindrical;
+			console.log("spherical: " + spherical);
+			
+			if (cylindrical != 0.00) {
+				cylindrical = cylindrical * -1;
+			}
+			console.log("cylindrical: " + cylindrical);
+			
+			if (axis > 90) {
+				axis = axis - 90;
+			}
+			else {
+				axis = axis + 90;
+			}
+			console.log("axis: " + axis);
+			
+			return {spherical, cylindrical, axis};
+		}
+		
+		function myopic() {
+			console.log("myopic()");
+			
+			LASIKLasers_myopiaastigmatism("right");
+			PRKLasers_myopiaastigmatism("right");
+			IOL("right");
+			
+			LASIKLasers_myopiaastigmatism("left");
+			PRKLasers_myopiaastigmatism("left");
+			IOL("left");
+		}
+		
+		function hyperopic() {
+			console.log("entering hyperopic()");
+			
+			LASIKLasers_hyperopiaastigmatism("right");
+			PRKLasers_hyperopiaastigmatism("right");
+			
+			LASIKLasers_hyperopiaastigmatism("left");
+			PRKLasers_hyperopiaastigmatism("left");
+			
+			hideDivByClass("myope_only");
+			console.log("myope_only hidden");
+		}
+		
+		function antimetropic () {
+			if(RS_neg > 0) {
+				LASIKLasers_hyperopiaastigmatism("right");
+				PRKLasers_hyperopiaastigmatism("right");
+			}
+			else if (RS < 0) {
+				LASIKLasers_myopiaastigmatism("right");
+				PRKLasers_myopiaastigmatism("right");
+				IOL("right");
+			}
+			else {}
+			
+			
+			if(LS_neg > 0) {
+				LASIKLasers_hyperopiaastigmatism("left");
+				PRKLasers_hyperopiaastigmatism("left");
+			}
+			else if (LS < 0) {
+				LASIKLasers_myopiaastigmatism("left");
+				PRKLasers_myopiaastigmatism("left");
+			}
+			else {}
+		}
+		
+		//What type of astigmatism if they have a 0 spherical but nonezero cylindrical
+		function typeofRE() {
+			console.log("entering typeofRE()");
+			
+			//Review when you're awake
+			if ((Math.abs(RC_neg) > Math.abs(RS_neg)) || (Math.abs(LC_neg) > Math.abs(LS_neg))) {
+				if (Math.abs(RC_neg) > Math.abs(RS_neg)) {
+					console.log("mixed_astigmatism_R: " + mixed_astigmatism_R);
+					mixed_astigmatism_R = true;
+					console.log("mixed_astigmatism_R: " + mixed_astigmatism_R);
+				}
+				else if (Math.abs(LC_neg) > Math.abs(LS_neg)) {
+					console.log("mixed_astigmatism_L: " + mixed_astigmatism_L);
+					mixed_astigmatism_L = true;
+					console.log("mixed_astigmatism_L: " + mixed_astigmatism_L);
+				}
+				else {}				
+			}
+			else {
+				if ((Math.abs(RC_neg) < Math.abs(RS_neg)) || (Math.abs(LC_neg) < Math.abs(LS_neg))) {
+					console.log("astigmatism: " + astigmatism);
+					astigmatism = true;
+					console.log("astigmatism: " + astigmatism);
+				}
+				else {
+					if (RS_neg > 0 || LS_neg > 0) {
+						console.log("hyperopia: " + hyperopia);
+						hyperopia = true;
+						console.log("hyperopia: " + hyperopia);
+					}
+					if (RS_neg < 0 || LS_neg < 0) {
+						console.log("myopia: " + myopia);
+						myopia = true;
+						console.log("myopia: " + myopia);
+					}
+				}
+			}
+			
+			if ((RS_neg > 0 && LS_neg < 0) || (RS_neg < 0 && LS_neg > 0)) {
+				console.log("antimetropia: " + antimetropia);
+				antimetropia = true;
+				console.log("antimetropia: " + antimetropia);
+			}
+			else if (RS_neg > 0 || LS_neg > 0) {
+				console.log("hyperopia: " + hyperopia);
+				hyperopia = true;
+				console.log("hyperopia: " + hyperopia);
+			}		
+			else if (RS_neg < 0 || LS_neg < 0) {
+				console.log("myopia: " + myopia);
+				myopia = true;
+				console.log("myopia: " + myopia);
+			}	
+			else{}			
+		}
+		
+		function uncheck_none(id) {
+			console.log("uncheck_none(id)");
+			console.log("id: " + id);
+			//if (disease.localeCompare('relcontraindications_none') != 0) {
+			
+				if (((document.getElementById('relcontraindications_herpes').checked == true) ||
+				(document.getElementById('relcontraindications_rosacea').checked == true) || 
+				(document.getElementById('relcontraindications_cornea').checked == true) || 
+				(document.getElementById('relcontraindications_dryeye').checked == true) || 
+				(document.getElementById('relcontraindications_strabismus').checked == true) || 
+				(document.getElementById('relcontraindications_glaucoma').checked == true) || 
+				(document.getElementById('relcontraindications_uveitis').checked == true) || 
+				(document.getElementById('relcontraindications_dm').checked == true) || 
+				(document.getElementById('relcontraindications_thyroid').checked == true)) &&
+				(document.getElementById('relcontraindications_none').checked == true)) {
+					if(confirm("Selecting this option will uncheck the None of the Above option. Continue?") == true) {
+						document.getElementById('relcontraindications_none').checked = false;
+					}
+					else {
+						document.getElementById(id).checked = false;
+					}
+				}
+			//}
+		}
+	
+		
+		function noRelContraindicationsConfirm() {
+			if (((document.getElementById('relcontraindications_herpes').checked == true) ||
+				(document.getElementById('relcontraindications_rosacea').checked == true) || 
+				(document.getElementById('relcontraindications_cornea').checked == true) || 
+				(document.getElementById('relcontraindications_dryeye').checked == true) || 
+				(document.getElementById('relcontraindications_strabismus').checked == true) || 
+				(document.getElementById('relcontraindications_glaucoma').checked == true) || 
+				(document.getElementById('relcontraindications_uveitis').checked == true) || 
+				(document.getElementById('relcontraindications_dm').checked == true) || 
+				(document.getElementById('relcontraindications_thyroid').checked == true)) &&
+				(document.getElementById('relcontraindications_none').checked == true)) {
+				if(confirm("Selecting this option will uncheck the other selected options. Continue?") == true) {
+					document.getElementById('relcontraindications_herpes').checked = false;
+					document.getElementById('relcontraindications_rosacea').checked = false;
+					document.getElementById('relcontraindications_cornea').checked = false;
+					document.getElementById('relcontraindications_dryeye').checked = false;
+					document.getElementById('relcontraindications_strabismus').checked = false;
+					document.getElementById('relcontraindications_glaucoma').checked = false;
+					document.getElementById('relcontraindications_uveitis').checked = false;
+					document.getElementById('relcontraindications_dm').checked = false;
+					document.getElementById('relcontraindications_thyroid').checked = false;
+				}
+				else {
+					document.getElementById('relcontraindications_none').checked = false;
+				}
+			}
+		}
+		
+		function process_medical_data() {
+			console.log("entering process_medical_data()");
+			
+			/* 	<!-- Question 1: Absolute contraindications -->
+			<!-- If the patient has any of the following absolute contraindications, -->
+			<!-- they are not recommended to undergo any of the surgeries. --> */
+			console.log("Processing question 1.");
+			if(document.getElementById('abscontraindications_yes').checked==true) {
+				removeModality("LASIK");
+				removeModality("PRK");
+				removeModality("IOL");
+			}
+			console.log("Processed question 1.");
+			
+			console.log("Processing question 2.");
+			if(document.getElementById('abscontraindications_no').checked==true){
+				console.log("Processing question 2a.");
+				/* 	<!-- Question 2a-d: Relative contraindications -->*/
+				/* 	<!-- Showing the disclaimer for relative contraindications if users select any of the relative -->
+				<!-- contraindications. */
+				if((document.getElementById('relcontraindications_herpes').checked==true) ||
+				(document.getElementById('relcontraindications_dryeye').checked==true) ||
+				(document.getElementById('relcontraindications_rosacea').checked==true) ||
+				(document.getElementById('relcontraindications_strabismus').checked==true) ||
+				(document.getElementById('relcontraindications_glaucoma').checked==true) ||
+				(document.getElementById('relcontraindications_dm').checked==true) ||
+				(document.getElementById('relcontraindications_cornea').checked==true) ||
+				(document.getElementById('relcontraindications_thyroid').checked==true))
+				{
+					addValueByIdToAllModalities('relcontraindications_herpes');
+					showDivByClass('disclaimer_relcontraindications');
+				}
+				
+				if(document.getElementById('relcontraindications_uveitis').checked==true) {
+					removeModality("IOL");
+					addValueByIdByModality("LASIK", 'relcontraindications_uveitis');
+					addValueByIdByModality("PRK", 'relcontraindications_uveitis');
+				}
+				console.log("Processed question 2a.");
+				
+				console.log("Processing question 2b.");
+				if(document.getElementById('pregnant_yes').checked==true) {
+					addValueByIdToAllModalities('pregnant_yes');
+					showDivByClass('disclaimer_pregnant');
+				}
+				console.log("Processed question 2b.");
+				
+				console.log("Processing question 2c.");
+				if(document.getElementById('Isotretinoin_yes').checked==true) {
+					addValueByIdToAllModalities('Isotretinoin_yes');
+					showDivByClass('disclaimer_isotretinoin');
+				}
+				console.log("Processed question 2c.");
+				
+				console.log("Processing question 2d.");
+				if(document.getElementById('under21_yes').checked==true) {
+					addValueByIdToAllModalities('under21_yes');
+					showDivByClass('disclaimer_under21');
+				}
+				console.log("Processed question 2d.");
+				
+				console.log("Processing question 3.");
+				console.log("Processing question 3a.");
+				if (document.getElementById('knowpresc_yes').checked ==true){
+					console.log("Processed question 3a.");
+					
+					console.log("Processing question 3b.");
+					//<!-- Question 3b: getting prescription -->
+					let right_eye = set_prescription('prescription_RS', 'prescription_RC', 'prescription_Raxis');
+					if (right_eye.cylindrical < 0) {
+						RS_neg = right_eye.spherical;
+						RC_neg = right_eye.cylindrical;
+						Raxis_neg = right_eye.axis;
+					}
+					else if (right_eye.cylindrical > 0) {
+						RS_pos = right_eye.spherical;
+						RC_pos = right_eye.cylindrical;
+						Raxis_pos = right_eye.axis;
+					}
+					else {
+						RS_neg = right_eye.spherical;
+						RC_neg = right_eye.cylindrical;
+						Raxis_neg = right_eye.axis;
+						
+						RS_pos = right_eye.spherical;
+						RC_pos = right_eye.cylindrical;
+						Raxis_pos = right_eye.axis;
+					}
+					
+					let left_eye = set_prescription('prescription_LS', 'prescription_LC', 'prescription_Laxis');
+					if (left_eye.cylindrical < 0) {
+						RS_neg = left_eye.spherical;
+						RC_neg = left_eye.cylindrical;
+						Raxis_neg = left_eye.axis;
+					}
+					else if (left_eye.cylindrical > 0) {
+						RS_pos = left_eye.spherical;
+						RC_pos = left_eye.cylindrical;
+						Raxis_pos = left_eye.axis;
+					}
+					else {
+						RS_neg = left_eye.spherical;
+						RC_neg = left_eye.cylindrical;
+						Raxis_neg = left_eye.axis;
+						
+						RS_pos = left_eye.spherical;
+						RC_pos = left_eye.cylindrical;
+						Raxis_pos = left_eye.axis;
+					}
+						
+					//<!-- Question 3c: converting cylinders-->
+					
+					//if RS_neg, RC_neg, and Raxis haven't been set yet
+					if(RS_pos == 0.00 && RC_pos == 0.00 && Raxis_pos == 0) {
+						let prescriptions = convert_prescription(RS_neg, RC_neg, Raxis_neg);
+						RS_pos = prescriptions.spherical;
+						RC_pos = prescriptions.cylindrical;
+						Raxis_pos = prescriptions.axis;
+					}
+					else if (RS_neg == 0.00 && RC_neg == 0.00 && Raxis_neg == 0)	{
+						let prescriptions = convert_prescription(RS_pos, RC_pos, Raxis_pos);
+						RS_neg = prescriptions.spherical;
+						RC_neg = prescriptions.cylindrical;
+						Raxis_neg = prescriptions.axis;
+					}
+						
+					if(LS_pos == 0.00 && LC_pos == 0.00 && Laxis_pos == 0) {
+						let prescriptions = convert_prescription(LS_neg, LC_neg, Laxis_neg);
+						LS_pos = prescriptions.spherical;
+						LC_pos = prescriptions.cylindrical;
+						Laxis_pos = prescriptions.axis;
+					}
+					else if (LS_neg == 0.00 && LC_neg == 0.00 && Laxis_neg == 0)	{
+						let prescriptions = convert_prescription(LS_pos, LC_pos, Laxis_pos);
+						LS_neg = prescriptions.spherical;
+						LC_neg = prescriptions.cylindrical;
+						Laxis_neg = prescriptions.axis;
+					}
+										
+					console.log("RS_neg" + RS_neg);
+					console.log("RC_neg" + RC_neg);
+					console.log("Raxis_neg" + Raxis_neg);
+					
+					console.log("LS_neg" + LS_neg);
+					console.log("LC_neg" + LC_neg);
+					console.log("Laxis_neg" + Laxis_neg);
+					
+					console.log("RS_pos" + RS_pos);
+					console.log("RC_pos" + RC_pos);
+					console.log("Raxis_pos" + Raxis_pos);
+					
+					console.log("LS_pos" + LS_pos);
+					console.log("LC_pos" + LC_pos);
+					console.log("Laxis_pos" + Laxis_pos);
+					
+					typeofRE();
+					console.log("Processed question 3b.");
+				}
+				else if (document.getElementById('knowpresc_no') == true){
+					console.log("Processed question 3a.");
+					
+					console.log("Processing question 3b.");
+					if(document.getElementById('re_type_myopic').checked == true) {
+						console.log("myopia: " + myopia);
+						myopia = true;
+						console.log("myopia: " + myopia);
+						myopic();
+					}
+					if(document.getElementById('re_type_hyperopic').checked == true) {
+						console.log("hyperopia: " + hyperopia);
+						hyperopia = true;
+						console.log("hyperopia: " + hyperopia);
+						hyperopic();
+					}
+					if(document.getElementById('re_type_antimetropic').checked == true) {
+						console.log("antimetropia: " + antimetropia);
+						antimetropia = true;
+						console.log("antimetropia: " + antimetropia);
+						antimetropic();
+					}
+					console.log("Processed question 3b.");
+					
+					console.log("Processing question 3c.");
+					if(document.getElementById('astigmatism_yes').checked == true) {
+						console.log("astigmatism: " + astigmatism);
+						astigmatism = true;
+						console.log("astigmatism: " + astigmatism);
+					}
+					console.log("Processed question 3c.");
+				}
+			}
+		}
+			
+		function submittedMessage(form) {
+			console.log("entering submittedMessage(form)");
+			console.log("form: " + form);
+			
+			if (form.localeCompare("mh") == 0) {
+				showDivByClass("mhsubmitted");
+			}
+            showDivByClass("submittedMsg");
+		}
+			
+	</script>
+	
+	<title>EYECHOOSE</title>
 </head>
 
 <body>
-    <!-- Start of the header -->
-    <header>
-        <div class="inner">
-            <div class="logo">
-                <div>
-                    <!-- The below line can be an image or a h1, either will work -->
-                    <h1>EYE<span>CHOOSE</span></h1>
-                </div>
+	<nav>
+		<div class="logo">
+            <div>
+                <a href="#home">
+					<h1>EYE<span>CHOOSE</span></h1>
+				</a>
             </div>
-
-            <nav>
-                <!-- Each of the below lines look complicated. There is a reason for this markup though!
-                <li> tag will be the container for the table.
-                <span> will be the part that centers the content inside it
-                <a> is the actual clickable part -->
-                <li><span><a href="#errors">Refractive<br>Errors</a></span></li>
-                <li><span><a href="#surgeries">Refractive<br>Surgery</a></span></li>
-                <li><span><a href="#history">Pertinent<br>History</a></span></li>
-				<li><span><a href="#values">Personal<br>Preferences</a></span></li>
-				<li><span><a href="#surgeryrecs">Surgery<br>Recommendations</a></span></li>
-				<li><span><a href="surgeonrecs">Surgeon<br>Recommendations</a></span></li>
-                <!-- On the line above, remove the class="button" if you don't want the final
-                element to be a button -->
-            </nav>
         </div>
-    </header>
-    <!-- End of the header --> 
+		
+		<div class="openMenu"><i class="fa fa-bars"></i></div>
+		<ul class="mainMenu">
+			<li><a href="#patientEdu">Patient Education</a></li>
+			<li><a href="#patientDecisionAid">Patient Decision Aid</a></li>
+			<li><a href="#recs">Recommendations</a></li>
+			<div class="closeMenu"><i class="fa fa-times"></i></div>
+		</ul>
+	</nav>
 	
 	<!--Home Section -->
 	<section id="home">
 		<div class="homeContainer inner">
 			<h1>What is the best refractive surgical modality for you?</h1>
 			<div class="logo">
-                <div>
                     <!-- The below line can be an image or a h1, either will work -->
                     <h1>EYE<span>CHOOSE</span></h1>
 					<p> is a prototype patient decision aid to assist college-aged students 
 					in the selection of a refractive surgery for the correction of 
 					nearsightedness (myopia), farsightedness (hyperopia), and astigmatism.</p>
-                </div>
             </div>
 		</div>
 		<div class="pageNav"> 
+			<a href="#patientEdu" class="next round">></a>
+		</div>
+	</section>	
+	<!--End of Home Section -->
+	
+	<!--Patient Education Section -->
+	<section id="patientEdu">
+		<div class="patientEduContainer inner">
+			<h1>Patient Education</h1>
+			<div class="logo">
+                <div>
+					<p>In this section, you will learn about the different types of refractive errors 
+					and the surgical modalities commonly used to correct them.</p><br><br><br><br>
+					<h2>Sections</h2>
+					<ul><br>
+						<li><a href="#errors"><p>&emsp; &ensp; •	 &ensp; Refractive Errors</p></a></li>
+						<li><a href="#surgeries"><p>&emsp; &ensp; •	 &ensp; Refractive Surgeries</p></a></li>
+					</ul>
+				</div>
+            </div>
+		</div>
+		<div class="pageNav"> 
+			<a href="#home" class="next round"><</a>
 			<a href="#errors" class="next round">></a>
 		</div>
 	</section>	
@@ -69,7 +1525,7 @@
 	<section id="errors">
 		<div class="errorsContainer inner">
 			<div class="errors-top">
-				<h1 class="section-title">Refractive Errors</h1>
+				<h1 class="section-title"><br><br><br>Refractive Errors</h1>
 				<p>Refractive errors are eye disorders that cause light to 
 				focus outside of the retina, producing a blurry image. 
 				They occur, because the eyeball is excessively long or short, 
@@ -122,6 +1578,7 @@
 			</div>
 		</div>
 		<div class="pageNav"> 
+			<a href="#patientEdu" class="next round"><</a>
 			<a href="#surgeries" class="next round">></a>
 		</div>
 	</section>
@@ -131,7 +1588,7 @@
 	<section id="surgeries">
 		<div class="surgeriesContainer inner">
 			<div class="surgeries-top">
-				<h1 class="section-title">Refractive Surgeries</h1>
+				<h1 class="section-title"><br><br><br>Refractive Surgeries</h1>
 				<p>Refractive surgery seeks to correct these refractive 
 				errors, through corneal remodeling, lens implantation, or 
 				lens replacement. These procedures are FDA approved for 
@@ -152,8 +1609,8 @@
 					<div class="icon"><iframe width="560" height="315" src="https://www.youtube.com/embed/r7EMHgRhlW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 			</div>
 				<div class="refractive-surgery">
-					<h2>Advanced Surface Ablation</h2>
-					<p>Advanced Surface Ablation, including Photorefractive Keratectomy (PRK), Laser Epithelial Keratomileusis (LASEK), and Epithelial Laser In Situ Keratomileusis 
+					<h2>Photorefractive Keratectomy (PRK)</h2>
+					<p>Photorefractive Keratectomy (PRK) and its variants including Advanced Surface Ablation, Laser Epithelial Keratomileusis (LASEK), and Epithelial Laser In Situ Keratomileusis 
 					(Epi-LASIK), are the second most commonly performed refractive surgery for the correction of myopia, hyperopia, and astigmatism. In PRK, the corneal epithelium is removed, 
 					after which the Bowman membrane and corneal stroma are reshaped over the pupil using an excimer laser. In LASEK and Epi-LASIK are modifications of PRK, 
 					where an epithelial flap is created, instead of removed. A bandage contact lens is applied until the epithelium heals after each of these proceddures.
@@ -165,7 +1622,7 @@
 				</div>
 				<div class="refractive-surgery">
 					<h2>Intraocular Lenses (IOL)</h2>
-					<p>IOL Implantation is an alternative for the correction of high myopia, high hyperopia, and astigmatism. A surgical incision is made on 
+					<p>Intraocular Lenses, also known as Intraocular Contact Lenses and Intracollamer Lenses, are an alternative for the correction of high myopia, high hyperopia, and astigmatism. A surgical incision is made on 
 					the cornea through which a soft lens is inserted and is placed on top of the natural lens within the eye. 
 					Side effects and complications of this procedure include infection, undercorrection/overcorrection, vision loss, clouding of the cornea, 
 					glares, halos, double vision, cataract, and retinal detachment. This procedure may need to be repeated to reposition, replace, or remove the implanted lens, 
@@ -176,32 +1633,58 @@
 			</div>
 		</div>
 		<div class="pageNav"> 
-			<a href="#history" class="next round">></a>
+			<a href="#home" class="next round"><</a>
+			<a href="#patientDecisionAid" class="next round">></a>
 		</div>
 	</section>
 	<!--End of Refractive Surgeries Section -->
 	
+	<!--Patient Decision Aid Section -->
+	<section id="patientDecisionAid">
+		<div class="patientDecisionAidContainer inner">
+			<h1>Patient Decision Aid</h1>
+			<div class="logo">
+                <div>
+					<p>In this section, you will respond to a series of questions regarding your 
+					medical history and regarding the factors that may influence your decision 
+					to pursue any particular refractive surgery modality. Your responses will be used to 
+					recommend a surgical modality for you to pursue.</p><br><br><br><br>
+					<h2>Sections</h2>
+					<ul><br>
+						<li><a href="#history"><p>&emsp; &ensp; •	 &ensp; Medical History</p></a></li>
+						<li><a href="#values"><p>&emsp; &ensp; •	 &ensp; Preferences</p></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="pageNav"> 
+			<a href="#surgeries" class="next round"><</a>
+			<a href="#history" class="next round">></a>
+		</div>
+	</section>	
+	<!--End of Home Section -->
+	
+	<form>
 	<!--History Section -->
 	<section id="history">
 		<div class="historyContainer inner">
 			<div class="history-top">
-				<h1 class="section-title">Pertinent History</h1>
+				<h1 class="section-title"><br><br><br>Medical History</h1>
 			</div>
-			<form class="history-bottom">
+			<div class="history-bottom" id='history_form'>
 				<div class="qn">
 					<p>1.&ensp; Do you have a history of or do you currently have any of the following:</p>
 		
 					<ul>
 							<li><p>&emsp; &ensp; •	 &ensp; Uncontrolled Eye Conditions or Diseases</p></li>
-							<li><p>&emsp; &ensp; •	 &ensp; Uncontrolled Autoimmune Disorders</p></li>
-							<li><p>&emsp; &ensp; •	 &ensp; Uncontrolled Thyroid Diseases?</p></li>
+							<li><p>&emsp; &ensp; •	 &ensp; Uncontrolled Autoimmune Disorders?</p></li>
 					</ul>
 						
 					<div id="preferences">
-						<input id="abscontraindications_yes" class="radioBtn qn1" name="abscontraindications" type="radio" value="yes" required>
+						<input id="abscontraindications_yes" class="radioBtn qn1" name="abscontraindications" type="radio" value=-50 required>
 							<label for="abscontraindications_yes"><p>yes</p></label>
 						
-						<input id="abscontraindications_no" class="radioBtn qn1" name="abscontraindications" type="radio" value="no" required>
+						<input id="abscontraindications_no" class="radioBtn qn1" name="abscontraindications" type="radio" value=0 required>
 							<label for="abscontraindications_no"><p>no</p></label>
 					</div>
 					
@@ -209,90 +1692,145 @@
 				</div>
 				
 				<div class="qn">
-					<p>2a.&ensp; Do you have a history of, or do you currently have any of the following:</p>
+					<p>2a.&ensp; Do you have a history of, or do you currently have any of the following:</p> 
 					<div id='preferences'>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_herpes' id='relcontraindications_herpes' value="herpes" onclick="uncheckNone('relcontraindications_none')">
-						  <label id='relcontraindications_herpes' for='relcontraindications_herpes'><p>Herpes Simplex Eye Infections</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_glaucoma' id='relcontraindications_glaucoma' value="glaucoma" onclick="uncheckNone('relcontraindications_none')">
-						  <label id='relcontraindications_glaucoma' for='relcontraindications_glaucoma'><p>Glaucoma</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_uveitis' id='relcontraindications_uveitis' value="uveitis" onclick="uncheckNone('relcontraindications_none')">
-						  <label id='relcontraindications_uveitis' for='relcontraindications_uveitis'><p>Uveitis</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_dm' id='relcontraindications_dm' value="diabetes" onclick="uncheckNone('relcontraindications_none')">
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_dm' id='relcontraindications_dm' value=-25 onclick="uncheck_none('relcontraindications_dm')">
 						  <label id='relcontraindications_dm' for='relcontraindications_dm'><p>Diabetes Mellitus</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_cornea' id='relcontraindications_cornea' value="cornea" onclick="uncheckNone('relcontraindications_none')">
-						  <label id='relcontraindications_cornea' for='relcontraindications_cornea'><p>Corneal Abnormalities</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_none' id='relcontraindications_none' value="none" onclick='relContraindicationsConfirm()'>
+						 <input type='checkbox' class='checkbox qn2a' name='relcontraindications_thyroid' id='relcontraindications_thyroid' value=-25 onclick="uncheck_none('relcontraindications_thyroid')">
+						  <label id='relcontraindications_thyroid' for='relcontraindications_thyroid'><p>Uncontrolled Thyroid Disease</p></label><br><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_herpes' id='relcontraindications_herpes' value=-25 onclick="uncheck_none('relcontraindications_herpes')">
+						  <label id='relcontraindications_herpes' for='relcontraindications_herpes'><p>Herpes Simplex Eye Infections</p></label><br><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_rosacea' id='relcontraindications_rosacea' value=-25 onclick="uncheck_none('relcontraindications_rosacea')">
+						  <label id='relcontraindications_rosacea' for='relcontraindications_rosacea'><p>Ocular Rosacea</p></label><br><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_dryeye' id='relcontraindications_dryeye' value=-25 onclick="uncheck_none('relcontraindications_dryeye')">
+						  <label id='relcontraindications_dryeye' for='relcontraindications_dryeye'><p>Severe Dry Eye</p></label><br><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_strabismus' id='relcontraindications_strabismus' value=-25 onclick="uncheck_none('relcontraindications_strabismus')">
+						  <label id='relcontraindications_strabismus' for='relcontraindications_strabismus'><p>Strabismus</p></label><br><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_cornea' id='relcontraindications_cornea' value=-25 onclick="uncheck_none('relcontraindications_cornea')">
+						  <label id='relcontraindications_cornea' for='relcontraindications_cornea'><p>Keratoconus</p></label><br><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_glaucoma' id='relcontraindications_glaucoma' value=-25 onclick="uncheck_none('relcontraindications_glaucoma')">
+						  <label id='relcontraindications_glaucoma' for='relcontraindications_glaucoma'><p>Severe Glaucoma</p></label><br><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_uveitis' id='relcontraindications_uveitis' value=-25 onclick="uncheck_none('relcontraindications_uveitis')">
+						  <label id='relcontraindications_uveitis' for='relcontraindications_uveitis'><p>Uveitis</p></label><br><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_none' id='relcontraindications_none' value=0 onclick="noRelContraindicationsConfirm()">
 						  <label id='relcontraindications_none' for='relcontraindications_none'><p>None of the Above</p></label>
 					  </div>
+					
+					<p><br>2b.&ensp; Are you pregnant or lactating?</p>
+					
+					<div id="preferences">
+						<input id="pregnant_yes" class="radioBtn qn2b" name="pregnant" type="radio" value=0 required>
+							<label for="pregnant_yes"><p>yes</p></label>
+
+						<input id="pregnant_no" class="radioBtn qn2b" name="pregnant" type="radio" value=0 required>
+							<label for="pregnant_no"><p>no</p></label>
+					</div>	
+					
+					<p><br>2c.&ensp; Do you take Isotretinoin?</p>
+					
+					<div id="preferences">
+						<input id="Isotretinoin_yes" class="radioBtn qn2c" name="Isotretinoin" type="radio" value=0 required>
+							<label for="Isotretinoin_yes"><p>yes</p></label>
+
+						<input id="Isotretinoin_no" class="radioBtn qn2c" name="Isotretinoin" type="radio" value=0 required>
+							<label for="Isotretinoin_no"><p>no</p></label>
+					</div>	
+					
+					<p><br>2d.&ensp; Are you younger than 21 years old?</p>
+					
+					<div id="preferences">
+						<input id="under21_yes" class="radioBtn qn2d" name="under21" type="radio" value=0 required>
+							<label for="under21_yes"><p>yes</p></label>
+
+						<input id="under21_no" class="radioBtn qn2d" name="under21" type="radio" value=0 required>
+							<label for="under21_no"><p>no</p></label>
+					</div>
+				</div>
+				
+				<div class="qn">
+					<p>3a.&ensp; Do you know your eyeglasses prescription?</p>
 						
-					<p><br>2b.&ensp; Do you take Isotretinoin?</p>
-					
-					<div id="preferences">
-						<input id="relcontraindications_yes" class="radioBtn qn2b" name="relcontraindications" type="radio" value="yes" required>
-							<label for="relcontraindications"><p>yes</p></label>
+						<div id="preferences">
+							<input id="knowpresc_yes" class="radioBtn qn3a" name="knowpresc" type="radio" value=0 required onclick="showDivByClass('qn3b'); hideDivByClass('qn4'); hideDivByClass('qn4b')">
+								<label for="knowpresc_yes"><p>yes</p></label>
 
-						<input id="relcontraindications_no" class="radioBtn qn2b" name="relcontraindications" type="radio" value="no" required>
-							<label for="relcontraindications"><p>no</p></label>
-					</div>	
+							<input id="knowpresc_no" class="radioBtn qn3a" name="knowpresc" type="radio" value=0 required onclick="hideDivByClass('qn3b'); showDivByClass('qn4'); showDivByClass('qn4b')">
+								<label for="knowpresc_no"><p>no</p></label>
+						</div>
 					
-					<p><br>2c.&ensp; Are you younger than 21 years old?</p>
+					<!--<div class="qn3b" display="none">-->
+						<p for="number" class="qn3b"><br>3b.&ensp;  What is your last known eyeglasses prescription? </p>
+						<table class="qn3b">
+							<tr>
+								<td></td>
+								<td><p>Spherical</p></td>
+								<td><p>Cylindrical</p></td>
+								<td><p>Axis</p></td>
+							</tr>
+							<tr>
+								<td><p>Right (OD)</p></td>
+								<td><input id="prescription_RS" name="prescription" type="number" step="0.25" min="-20" max="20" required></td>
+								<td><input id="prescription_RC" name="prescription" type="number" step="0.25" min="-20" max="20" ></td>
+								<td><input id="prescription_Raxis" name="prescription" type="number" step="5" min="0" max="180" onchange="errorMessage('right')"></td>
+							</tr>
+							<tr>
+								<td><p>Left (OS)</p></td>
+								<td><input id="prescription_LS" name="prescription" type="number" step="0.25" min="-20" max="20" required></td>
+								<td><input id="prescription_LC" name="prescription" type="number" step="0.25" min="-20" max="20"></td>
+								<td><input id="prescription_Laxis" name="prescription" type="number" step="5" min="0" max="180" onchange="errorMessage('left')"></td>
+							</tr>
+						</table>
+					<!--</div>-->
 					
-					<div id="preferences">
-						<input id="relcontraindications_yes" class="radioBtn qn2c" name="relcontraindications" type="radio" value="yes" required>
-							<label for="relcontraindications"><p>yes</p></label>
-
-						<input id="relcontraindications_no" class="radioBtn qn2c" name="relcontraindications" type="radio" value="no" required>
-							<label for="relcontraindications"><p>no</p></label>
+					<p class="qn4"><br>3b.&ensp; Do you have myopia, hyperopia, or antimetropia (both)? </p>
+					
+					<div class="qn4">
+						<div id="preferences">
+							<input id="re_type_myopic" class="checkbox qn4" name="re_type" type="radio" required>
+								<label for="re_type_myopic"><p>Myopia</p></label>
+							
+							<input id="re_type_hyperopic" class="checkbox qn4" name="re_type" type="radio" required>
+								<label for="re_type_hyperopic"><p>Hyperopia</p></label>
+								
+							<input id="re_type_antimetropic" class="checkbox qn4" name="re_type" type="radio" required>
+								<label for="re_type_antimetropic"><p>Hyperopia</p></label>
+								
+							<input id="re_type_idk" class="checkbox qn4" name="re_type" type="radio" required>
+								<label for="re_type_idk"><p>I Don't Know</p></label>
+						</div>
 					</div>
-				</div>
-				
-				<div class="qn">
-					<p for="number">3.&ensp;  What is your last known eyeglasses prescription? </p>
-					<table>
-						<tr>
-							<td></td>
-							<td><p>Spherical</p></td>
-							<td><p>Cylindrical</p></td>
-						</tr>
-						<tr>
-							<td><p>Right (OD)</p></td>
-							<td><input id="prescription_RS" name="prescription" type="number" step="0.25" min="-20" max="20" required></td>
-							<td><input id="prescription_RC" name="prescription" type="number" step="0.25" min="-20" max="20" required></td>
-						</tr>
-						<tr>
-							<td><p>Left (OS)</p></td>
-							<td><input id="prescription_LS" name="prescription" type="number" step="0.25" min="-20" max="20" required></td>
-							<td><input id="prescription_LC" name="prescription" type="number" step="0.25" min="-20" max="20" required></td>
-						</tr>
-					</table>
-				</div>
-				
-				<div class="qn">
-					<p>4.&ensp;  Was this prescribed to you by an optometrist or an ophthalmologist? </p>
 					
-					<div id="preferences">
-						<input id="doctor_optometrist"  class="radioBtn qn4" name="doctor" type="radio" value="optometrist" required>
-							<label for="optometrist"><p>optometrist</p></label>
-
-						<input id="doctor_ophthalmologist" class="radioBtn qn4" name="doctor" type="radio" value="ophthalmologist" required>
-							<label for="ophthalmologist"><p>ophthalmologist</p></label>
+					<p class="qn4b"><br>3c.&ensp; Do you have astigmatism? </p>
+					
+					<div class="qn4b">
+						<div id="preferences">
+							<input id="astigmatism_yes" class="checkbox qn4" name="haveastigmatism" type="radio" required>
+								<label for="astigmatism_yes"><p>yes</p></label>
+							
+							<input id="astigmatism_no" class="checkbox qn4" name="haveastigmatism" type="radio" required>
+								<label for="astigmatism_no"><p>no</p></label>
+								
+							<input id="astigmatism_idk" class="checkbox qn4" name="haveastigmatism" type="radio" required>
+								<label for="astigmatism_idk"><p>I Don't Know</p></label>
+						</div>
 					</div>
-				</div>
-				
-				<div class="qn">
-					<p>5.&ensp; Do you play any contact sports, or are you in the military?  </p>
-					
-					<div id="preferences">
-						<input id="behavior_yes" class="radioBtn qn5" name="behavior" type="radio" value="yes" required>
-							<label for="yesbehavior"><p>yes</p></label>
-
-						<input id="behavior_no" class="radioBtn qn5" name="behavior" type="radio" value="no" required>
-							<label for="nobehavior"><p>no</p></label>
-					</div>	
-				</div>
-			</form>
+				</div>	
+			</div>
 		</div>
+		<div class="submitNav"> 
+			<input type='button' class='submitBtn' value = 'Submit Medical History &#187;' onclick="document.getElementsByClassName('submitBtn')[0].disabled = true; submittedMessage('mh'); process_medical_data(); ">
+		</div>
+		
+		<div class="mhsubmitted">
+			<p>Medical History submitted.</p>
+		</div>
+		
+		<div class="submittedMsg">
+			<p>Please continue to the next page using the '>' button below.</p>
+		</div>
+		
 		<div class="pageNav"> 
+			<a href="#patientDecisionAid" class="next round"><</a>
 			<a href="#values" class="next round">></a>
 		</div>
 	</section>
@@ -302,27 +1840,102 @@
 	<section id="values">
 		<div class="valuesContainer inner">
 			<div class="values-top">
-				<h1 class="section-title">Preferences</h1>
+				<h1 class="section-title"><br><br><br>Preferences</h1>
+				<p>Please select three statements that would  ideally describe your surgical recommendation. Please order these in </p>
 			</div>
-			<form class="values-bottom">
-				<div class="qn">
+			<div class="values-bottom">
+				<div class="container" data-max="-1">
+					<p class="draggable IOL myope_only" id="high_myope" draggable="true" value=4>The refractive surgery is better suited for patients with high myopia than its alternatives.</p>
+					<p class="draggable PRK" id="military" draggable="true" value=4>The refractive surgery is better suited for patients in the military or for patients who participate in contact sports.</p>
+					<p class="draggable LASIK PRK" id="cost_effective" draggable="true" value=2>The refractive surgery is more cost effective than an alternative.</p>
+					<p class="draggable IOL myope_only" id="corneal_complications" draggable="true" value=4>The refractive surgery has a lower risk of corneal complications for patients with thinner corneas or an atypical corneal surface than its alternatives.</p>
+					<p class="draggable PRK" id="no_driving" draggable="true" value=-3>During the recovery period of this refractive surgery, if the patient were to get both eyes operated on the same day, the patient may not be able to drive for weeks.</p>
+					<p class="draggable PRK" id="longer_recovery" draggable="true" value=-2>The recovery period of this refractive surgery is longer than an alternative.</p>
+					<p class="draggable PRK" id="more_painful_recovery" draggable="true" value=-2>The recovery period of this refractive surgery is more painful than an alternative.</p>
+					<p class="draggable PRK" id="bandage_contact" draggable="true" value=-2>The recovery period involves wearing a bandage contact lens.</p>
+					<p class="draggable IOL myope_only" id="indefinite_fu" draggable="true" value=-3>The refractive surgery requires follow-up for an indefinite period of time over the long-term.</p>
+					<p class="draggable IOL myope_only" id="reversible" draggable="true" value=2>The refractive surgery is reversible.</p>
+					<p class="draggable LASIK PRK" id="influences_rle" draggable="true" value=-3>The refractive surgery may influence calculations for subsequent cataract surgery and options for vision correction for subsequent cataract surgery.</p>
 				</div>
-			</form>
+				<div class="container empty" data-max="3">
+				</div>
 		</div>
 		<div class="pageNav"> 
-			<a href="#surgeryrecs" class="next round">></a>
+			<a href="#history" class="next round"><</a>
+			<a href="#recs" class="next round">></a>
 		</div>
 	</section>
+	</form>
 	<!-- End of Values Section -->
+	
+	<!--Patient Decision Aid Section -->
+	<section id="recs">
+		<div class="recsContainer inner">
+			<h1>Recommendations</h1>
+			<div class="logo">
+                <div>
+					<p>In this section, you will receive a recommendation for a surgical modality, based upon your preferences. You will also
+					receive recommendations for three reputable surgical centers in the Phoenix Metropolitan Area, based upon the recommended
+					surgical modality.</p><br><br><br><br>
+					<h2>Sections</h2>
+					<ul><br>
+						<li><a href="#surgeryrecs"><p>&emsp; &ensp; •	 &ensp; Surgery Recommendations</p></a></li>
+						<li><a href="#surgeonrecs"><p>&emsp; &ensp; •	 &ensp; Surgeon Recommendations</p></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="pageNav"> 
+			<a href="#values" class="next round"><</a>
+			<a href="#surgeryrecs" class="next round">></a>
+		</div>
+	</section>	
+	<!--End of Home Section -->
 	
 	<!-- Surgery Recommendations Section -->
 	<section id="surgeryrecs">
 		<div class="surgeryrecsContainer inner">
 			<div class="surgeryrecs-top">
-				<h1 class="section-title">Surgery Recommendations</h1>
+				<h1 class="section-title"><br><br>Surgery Recommendations</h1>
+				<p>Based upon the preferences that you have shared, we recommend 
+				discussing the following surgical modality with a 
+				refractive surgeon (recommendations for which can be found
+				on the next page).</p>
+				<div class="disclaimers">
+					<div class='disclaimer_relcontraindications' style="display:none;">
+						<p><br><strong>Contingent upon medical history, some surgeons will not perform 
+						refractive surgery on patients with Herpes Simplex Eye Infections, Ocular Rosacea, 
+						Strabismus, Keratoconus, Glaucoma, Uveitis, Diabetes Mellitus, and/or Thyroid Disease. 
+						This is because Herpes Simplex Eye Infections, Ocular Rosacea, and Strabismus 
+						might recur if the procedure were performed. This is also because Keratoconus, Glaucoma, 
+						Uveitis, Diabetes Mellitus, and/or Thyroid Disease might get worse if the procedure 
+						were performed. Share your medical history with your refractive 
+						surgeon to determine whether you are a candidate for refractive surgery.</strong></p>
+					</div>
+					<div class="disclaimer_pregnant" style="display:none;">
+						<p><br><strong>Some surgeons will not perform refractive surgery on
+						pregnant and lactating individuals, because eyesight can change
+						during pregnancy and lactation. Ask your refractive surgeon during 
+						your consultation whether they operate on pregnant or 
+						lactating individuals.</strong></p>
+					</div>
+					<div class="disclaimer_isotretinoin" style="display:none;">
+						<p><br><strong>Some surgeons will not perform refractive surgery on
+						patients taking isotretinoin. Share your medical history with your refractive 
+						surgeon to determine whether you are a candidate for refractive surgery.</strong></p>
+					</div>
+					<div class="disclaimer_under21" style="display:none;">
+						<p><br><strong>Remember, refractive surgery is only FDA-approved for
+						patients 21 years of age and older. You may have to wait to
+						to schedule a consultation with a refractive surgeon.</strong></p>
+					</div>
+				</div>
+			</div>
+			<div class="surgeryrecs-bottom">
 			</div>
 		</div>
 		<div class="pageNav"> 
+			<a href="#recs" class="next round"><</a>
 			<a href="#surgeonrecs" class="next round">></a>
 		</div>
 	</section>
@@ -332,24 +1945,143 @@
 	<section id="surgeonrecs">
 		<div class="surgeonrecsContainer inner">
 			<div class="surgeonrecs-top">
-				<h1 class="section-title">Surgeon Recommendations</h1>
+				<h1 class="section-title"><br><br>Surgeon Recommendations</h1>
 			</div>
 			<div class="surgeonrecs-bottom">
-			
-				<div class="surgeon">
-					<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-					<div class="elfsight-app-6fd99781-4b76-4c79-82cd-1bca852d76c9"></div>
+				<div class="LASIK">
+					<!--
+					<div class="surgeon">
+						<p>Carrot Eye Center</p>
+						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+						<div class="elfsight-app-a34635bf-bf61-4ee1-8c32-03bca4168713"></div>
+					</div>
+					<div class="surgeon">
+						<p>Swagel Wootton Eye Institute - Mesa</p>
+						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+						<div class="elfsight-app-5a3f5155-fc6b-40d5-8648-90cb6df1a6b4"></div>
+					</div>
+					<div class="surgeon">
+						<p>Barnet Dulaney Perkins Eye Center</p>
+						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+						<div class="elfsight-app-096aff0a-392d-4ac0-ad90-b209b1564148"></div>	
+					</div>-->	
+				</div><!--
+				<div class="PRK">
 					
-					<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-6fd99781-4b76-4c79-82cd-1bca852d76c9"></div>		
+					<div class="surgeon">
+						<p>Carrot Eye Center</p>
+						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+						<div class="elfsight-app-a34635bf-bf61-4ee1-8c32-03bca4168713"></div>
+					</div>
+					<div class="surgeon">
+						<p>Eye Doctors of Arizona</p>
+						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+						<div class="elfsight-app-6fd99781-4b76-4c79-82cd-1bca852d76c9"></div>
+					</div>
+					<div class="surgeon">
+						<p>Swagel Wootton Eye Institute - Mesa</p>
+						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+						<div class="elfsight-app-5a3f5155-fc6b-40d5-8648-90cb6df1a6b4"></div>
+					</div>-->
+					<div class="surgeon">
+					</div>	
 				</div>
-				<div class="surgeon">
+				<div class="IOL">
+					<!--
+					<div class="surgeon">
+						<p>Carrot Eye Center</p>
+						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+						<div class="elfsight-app-a34635bf-bf61-4ee1-8c32-03bca4168713"></div>
+					</div>
+					<div class="surgeon">
+						<p>Swagel Wootton Eye Institute - Mesa</p>
+						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+						<div class="elfsight-app-5a3f5155-fc6b-40d5-8648-90cb6df1a6b4"></div>
+					</div>
+					<div class="surgeon">
+						<p>Southwestern Eye Center</p>
+						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+						<div class="elfsight-app-aa291450-909d-4c0f-88f7-8dde8a71af70"></div>
+					</div>-->
 				</div>
-				<div class="surgeon">
-				</div>						
 			</div>
+		</div>
+		<div class="pageNav"> 
+			<a href="#surgeryrecs" class="next round"><</a>
 		</div>
 	</section>
 	<!-- End of Surgeon Recommendations Section -->
+	
+	<script>
+		const mainMenu = document.querySelector('.mainMenu');
+		const closeMenu = document.querySelector('.closeMenu');
+		const openMenu = document.querySelector('.openMenu');
+
+		openMenu.addEventListener('click', show);
+		closeMenu.addEventListener('click', close);
+
+		function show(){
+			mainMenu.style.display = 'flex';
+			mainMenu.style.top = '0';
+		}
+		
+		function close(){
+			mainMenu.style.top = '-100%';
+		}
+		
+		const draggables = document.querySelectorAll('.draggable')
+		const containers = document.querySelectorAll('.container')
+
+		draggables.forEach(draggable => {
+			draggable.addEventListener('dragstart', () => {
+				draggable.classList.add('dragging')
+			})
+			
+			draggable.addEventListener('dragend', () => {
+				draggable.classList.remove('dragging')
+			})
+		})
+
+		containers.forEach(container => {
+			container.addEventListener('dragover', e => {
+				e.preventDefault()
+				const afterElement = getDragAfterElement(container, e.clientY)
+				const draggable = document.querySelector('.dragging')
+				//if (container.childElementCount <= 2) {
+					if (afterElement == null) {
+						container.appendChild(draggable)
+					}
+					else {
+						container.insertBefore(draggable, afterElement)
+					}
+				//}
+				//else {
+
+				//
+			})
+		})
+
+		function getDragAfterElement(container, y) {
+			const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
+
+			return draggableElements.reduce((closest, child) => {
+				const box = child.getBoundingClientRect()
+				const offset = y - box.top - box.height / 2
+				if (offset < 0 && offset > closest.offset) {
+					return {offset: offset, element: child}
+				}
+				else {
+					return closest
+				}
+			}, {offset: Number.NEGATIVE_INFINITY}).element
+		}
+
+		</script>
 </body>
+<!--<script src="./app2.js"></script>
+<script src="./app.js"></script>-->
+
+
+
+
 </html>
