@@ -988,13 +988,13 @@
 				//<!--Alcon (LADARVision)-->
 				((RS_neg < 0.00 && RS_neg > -9.00) && ((RS_neg <= -0.50 && RS_neg >= -3.00) || (RS_neg == 0.00))) ||
 				//<!--Alcon (LADARVision) wavefront-guided-->
-				((RS_neg < 0.00 && RS_neg > -8.00) && (RC_neg < -0.50 && RC_neg > -4.00) && (spherical_equivalent(RS_neg, RC_neg) >= -8.00 && spherical_equivalent(RS_neg, RC_neg) < 0.00)) ||
+				((RS_neg < 0.00 && RS_neg > -8.00) && (RC_neg <= -0.50 && RC_neg >= -4.00) && (spherical_equivalent(RS_neg, RC_neg) >= -8.00 && spherical_equivalent(RS_neg, RC_neg) < 0.00)) ||
 				//<!--Alcon (WaveLight ALLEGRETTO WAVE)-->
 				((RS_neg < 0.00 && RS_neg >= -12.00) && (RC_neg >= -6.00 && RC_neg <= 0.00)) ||
 				//<!--Alcon (WaveLight ALLEGRETTO WAVE) wavefront-guided-->
 				((RS_pos < 0.00 && RS_pos >= -7.00) && (RC_pos >= 0.00 && RC_pos <= 3.00)) ||
 				//<!--Carl Zeiss Meditec (MEL80)-->
-				((RS_neg <= 0.00 && RS_neg >= -7.00) && (RC_neg <= 0.00 && RC_neg >= -3.00)) ||
+				((RS_neg < 0.00 && RS_neg >= -7.00) && (RC_neg <= 0.00 && RC_neg >= -3.00)) ||
 				//<!--Nidek EC-5000)-->
 				((RS_neg <= -1.00 && RS_neg >= -14.00) && (RC_neg <= 0.00 && RC_neg >= -4.00)) ||
 				//<!--Technolas Perfect Vision GmbH (Tehcnolas 217a)-->
@@ -1003,11 +1003,11 @@
 				((RS_neg < 0.00 && RS_neg >= -7.00) && (RC_neg <= 0.00 && RC_neg >= -3.00)) ||
 				//<!--VISX Inc. (VISX Star S4 & WaveScan WaveFront System) wavefront-guided-->
 				((RS_neg <= -6.00 && RS_neg >= -11.00) && (RC_neg <= 0.00 && RC_neg >= -3.00))) {
-					right_meets = true;
+					console.log("prescription meets LASIK parameters.");
 				}
 				else {
-					console.log("prescription does not meet laser parameters.");
-					right_meets = false;
+					console.log("prescription does not meet LASIK parameters.");
+					removeModality("LASIK");
 				}
 			}
 			else if (eye.localeCompare("left") == 0) {
@@ -1020,13 +1020,13 @@
 				//<!--Alcon (LADARVision)-->
 				((LS_neg < 0.00 && LS_neg > -9.00) && ((LC_neg <= -0.50 && LC_neg >= -3.00) || (LS_neg == 0.00))) ||
 				//<!--Alcon (LADARVision) wavefront-guided-->
-				((LS_neg < 0.00 && LS_neg > -8.00) && (LC_neg < -0.50 && LC_neg > -4.00) && (spherical_equivalent(LS_neg, LC_neg) >= -8.00 && spherical_equivalent(LS_neg, LC_neg) < 0.00)) ||
+				((LS_neg < 0.00 && LS_neg > -8.00) && (LC_neg <= -0.50 && LC_neg >= -4.00) && (spherical_equivalent(LS_neg, LC_neg) >= -8.00 && spherical_equivalent(LS_neg, LC_neg) < 0.00)) ||
 				//<!--Alcon (WaveLight ALLEGRETTO WAVE)-->
 				((LS_neg < 0.00 && LS_neg >= -12.00) && (LC_neg >= -6.00 && LC_neg <= 0.00)) ||
 				//<!--Alcon (WaveLight ALLEGRETTO WAVE) wavefront-guided-->
 				((RS_pos < 0.00 && RS_pos >= -7.00) && (LC_pos >= 0.00 && LC_pos <= 3.00)) ||
 				//<!--Carl Zeiss Meditec (MEL80)-->
-				((LS_neg <= 0.00 && LS_neg >= -7.00) && (LC_neg <= 0.00 && LC_neg >= -3.00)) ||
+				((LS_neg < 0.00 && LS_neg >= -7.00) && (LC_neg <= 0.00 && LC_neg >= -3.00)) ||
 				//<!--Nidek EC-5000)-->
 				((LS_neg <= -1.00 && LS_neg >= -14.00) && (LC_neg <= 0.00 && LC_neg >= -4.00)) ||
 				//<!--Technolas Perfect Vision GmbH (Tehcnolas 217a)-->
@@ -1035,11 +1035,11 @@
 				((LS_neg < 0.00 && LS_neg >= -7.00) && (LC_neg <= 0.00 && LC_neg >= -3.00)) ||
 				//<!--VISX Inc. (VISX Star S4 & WaveScan WaveFront System) wavefront-guided-->
 				((LS_neg <= -6.00 && LS_neg >= -11.00) && (LC_neg <= 0.00 && LC_neg >= -3.00))) {
-					left_meets = true;
+					console.log("prescription meets LASIK parameters.");
 				}
 				else {
-					console.log("prescription does not meet laser parameters.");
-					left_meets = false;
+					console.log("prescription does not meet LASIK parameters.");
+					removeModality("LASIK");
 				}
 			}
 		}
@@ -1062,7 +1062,11 @@
 				((RS_pos <= 4.00 && RS_pos >= 1.00) && (RC_pos <= 2.00 && RC_pos >= 0.00)) ||
 				//<!--VISX Inc. (VISX Star S4 & WaveScan WaveFront System) wavefront-guided-->
 				((RS_pos <= 3.00 && RS_pos >= 0.00) && (RC_pos <= 2.00 && RC_pos >= 0.00))) {
-					right_meets = true;
+					console.log("prescription meets LASIK parameters.");
+				}
+				else {
+					console.log("prescription does not meet LASIK parameters.");
+					removeModality("LASIK");
 				}
 			}
 			else if (eye.localeCompare("left") == 0) {
@@ -1082,7 +1086,11 @@
 				((LS_pos <= 4.00 && LS_pos >= 1.00) && (LC_pos <= 2.00 && LC_pos >= 0.00)) ||
 				//<!--VISX Inc. (VISX Star S4 & WaveScan WaveFront System) wavefront-guided-->
 				((LS_pos <= 3.00 && LS_pos >= 0.00) && (LC_pos <= 2.00 && LC_pos >= 0.00))) {
-					left_meets = true;
+					console.log("prescription meets LASIK parameters.");
+				}
+				else {
+					console.log("prescription does not meet LASIK parameters.");
+					removeModality("LASIK");
 				}
 			}
 		}
@@ -1096,7 +1104,11 @@
 				((RS_neg <= 6.00 && RS_neg >= 0.00) && (RC_neg <= 0.00 && RC_neg >= -6.00)) ||
 				//Alcon (LADARVision) wave-front guided  && VISX Inc. (VISX Star S4 & WaveScan WaveFront System) wavefront-guided
 				((RS_pos >= 1.00 && RS_pos <= 5.00) && (RC_pos <= -1.00 && RC_pos >= -5.00))) {
-					right_meets = true;
+					console.log("prescription meets LASIK parameters.");
+				}
+				else {
+					console.log("prescription does not meet LASIK parameters.");
+					removeModality("LASIK");
 				}
 			}
 			else if (eye.localeCompare("left") == 0) {
@@ -1106,7 +1118,11 @@
 				((LS_neg <= 6.00 && LS_neg >= 0.00) && (LC_neg <= 0.00 && LC_neg >= -6.00)) ||
 				//Alcon (LADARVision) wave-front guided  && VISX Inc. (VISX Star S4 & WaveScan WaveFront System) wavefront-guided
 				((LS_pos <= -1.00 && LS_pos >= -5.00) && (LC_pos >= 1.00 && LC_pos <= 5.00))) {
-					right_meets = true;
+					console.log("prescription meets LASIK parameters.");
+				}
+				else {
+					console.log("prescription does not meet LASIK parameters.");
+					removeModality("LASIK");
 				}
 			}
 		}
@@ -1125,7 +1141,11 @@
 				((RS_neg <= -1.50 && RS_neg >= -7.00) && (RC_neg <= 0.00 && RC_neg > -4.50)) ||
 				//Nidek EC-5000
 				(((RS_neg <= -0.75 && RS_neg >= -13.00) && (RC_neg <= 0.00 && RC_neg >= -0.75)) || ((RS_neg <= -1.00 && RS_neg >= -8.00) && (RC_neg <= -0.50 && RC_neg >= -4.00)))) {
-					right_meets = true;
+					console.log("prescription meets PRK parameters.");
+				}
+				else {
+					console.log("prescription does not meet PRK parameters.");
+					removeModality("PRK");
 				}
 			}
 			else if (eye.localeCompare("left") == 0) {
@@ -1141,7 +1161,11 @@
 				((LS_neg <= -1.50 && LS_neg >= -7.00) && (LC_neg <= 0.00 && LC_neg > -4.50)) ||
 				//Nidek EC-5000
 				(((LS_neg <= -0.75 && LS_neg >= -13.00) && (LC_neg <= 0.00 && LC_neg >= -0.75)) || ((LC_neg <= -1.00 && LC_neg >= -8.00) && (LC_neg <= -0.50 && LC_neg >= -4.00)))) {
-					left_meets = true;
+					console.log("prescription meets PRK parameters.");
+				}
+				else {
+					console.log("prescription does not meet PRK parameters.");
+					removeModality("PRK");
 				}
 			}
 		}
@@ -1154,7 +1178,11 @@
 				((RS_pos <= 5.00 && RS_pos >= 0.50) && ((RC_pos <= 4.00 && RC_pos >= 0.50) || (RC_pos == 0.00))) ||
 				//<!--Alcon (SVS Apex & Apex Plus Workstation)-->
 				((RC_neg <= 4.00 && RC_neg >= 1.50) && (RC_neg <= 0.00 && RC_neg >= -1.00))) {
-					right_meets = true;
+					console.log("prescription meets PRK parameters.");
+				}
+				else {
+					console.log("prescription does not meet PRK parameters.");
+					removeModality("PRK");
 				}
 			}
 			else if (eye.localeCompare("left") == 0) {
@@ -1164,7 +1192,11 @@
 				((LS_pos <= 5.00 && LS_pos >= 0.50) && ((LC_pos <= 4.00 && LC_pos >= 0.50) || (LC_pos == 0.00))) ||
 				//<!--Alcon (SVS Apex & Apex Plus Workstation)-->
 				((LC_neg <= 4.00 && LC_neg >= 1.50) && (LC_neg <= 0.00 && LC_neg >= -1.00))) {
-					left_meets = true;
+					console.log("prescription meets PRK parameters.");
+				}
+				else {
+					console.log("prescription does not meet PRK parameters.");
+					removeModality("PRK");
 				}
 			}
 		}
@@ -1177,14 +1209,22 @@
 				((RS_neg <= 6.00 && RS_neg >= 0.00) && (RC_neg <= 0.00 && RC_neg >= -6.00)) ||
 				//Alcon (WaveLight ALLEGRETTO WAVE)
 				((RS_pos <= 0.00 && RS_pos >= -6.00) && (RC_pos <= 6.00 && RC_pos >= 0.00))) {
-					right_meets = true;
+					console.log("prescription meets PRK parameters.");
+				}
+				else {
+					console.log("prescription does not meet PRK parameters.");
+					removeModality("PRK");
 				}
 			}
 			else if (eye.localeCompare("left") == 0) {
 				if (((LS_pos >= 1.00 && LS_pos <= 5.00) && (LC_pos <= -1.00 && LC_pos >= -5.00)) ||
 				((LS_neg <= 6.00 && LS_neg >= 0.00) && (LC_neg <= 0.00 && LC_neg >= -6.00)) ||
 				((LS_pos <= 0.00 && LS_pos >= -6.00) && (LC_pos <= 6.00 && LC_pos >= 0.00))) {
-					left_meets = true;
+					console.log("prescription meets PRK parameters.");
+				}
+				else {
+					console.log("prescription does not meet PRK parameters.");
+					removeModality("PRK");
 				}
 			}
 		}
@@ -1198,7 +1238,11 @@
 				((RS_pos >= -20.00 && RS_pos <= -15.00) && (RC_pos >= 0.00 && RC_pos <= 2.50))) ||
 				//<!--Artisan Phakic IOL-->
 				((RS_pos >= -20.00 && RS_pos <= -5.00) && (RC_pos >= 0.00 && RC_pos <= 2.50))){
-					right_meets;
+					console.log("prescription meets IOL parameters.");
+				}
+				else {
+					console.log("prescription does not meet IOL parameters.");
+					removeModality("PRK");
 				}
 			}
 			if (eye.localeCompare("left") == 0) {
@@ -1207,7 +1251,11 @@
 				((LS_pos >= -20.00 && LS_pos <= -15.00) && (LC_pos >= 0.00 && LC_pos <= 2.50))) ||
 				//<!--Artisan Phakic IOL-->
 				((LS_pos >= -20.00 && LS_pos <= -5.00) && (LC_pos >= 0.00 && LC_pos <= 2.50))){
-					left_meets;
+					console.log("prescription meets PRK parameters.");
+				}
+				else {
+					console.log("prescription does not meet PRK parameters.");
+					removeModality("PRK");
 				}
 			}
 		}
@@ -1257,7 +1305,7 @@
 				axis = document.getElementById(Axisid).value;
 			}
 			console.log("axis: " + axis);
-			return {spherical, cylindrical, axis};
+			return [spherical, cylindrical, axis];
 		}
 		
 		function convert_prescription(spherical, cylindrical, axis) {
@@ -1282,7 +1330,7 @@
 			}
 			console.log("axis: " + axis);
 			
-			return {spherical, cylindrical, axis};
+			return [spherical, cylindrical, axis];
 		}
 		
 		function typeofRE() {
@@ -1290,6 +1338,7 @@
 			
 			//if astigmatism in right eye
 			if (RC_neg != 0) {
+				//if mixed astigmatism
 				if (((RC_neg > 0 && RS_neg < 0) ||
 				(RC_neg < 0 && RS_neg > 0)) &&
 				(Math.abs(RC_neg) > Math.abs(RS_neg))) {
@@ -1297,19 +1346,14 @@
 					mixed_astigmatism_R = true;
 					console.log("mixed_astigmatism_R: " + mixed_astigmatism_R);
 					
-					/*how to code mixed astigmatism
 					if ("LASIK" in modalities) {
 						LASIKLasers_mixedastigmatism("right");
 					}
 					
 					if ("PRK" in modalities) {
-					}*/
-					
-					/* does IOL even accomodate mixed astigmatism
-					if ("IOL" in modalities) {
 					}
-					*/
 				}
+				//if regular astigmatism
 				else {
 					console.log("astigmatism");
 					
@@ -1324,11 +1368,9 @@
 						if ("PRK" in modalities) {
 							PRKLasers_myopiaastigmatism("right");
 						}
-						
-						/*how to code
 						if ("IOL" in modalities) {
 							IOL("right");
-						}*/
+						}
 					}
 					else if (RS_neg > 0) {
 						console.log("hyperopic astigmatism");
@@ -1356,7 +1398,9 @@
 				}
 			}
 			
+			//if astigmatism in left eye
 			if (LC_neg != 0) {
+				//if mixed astigmatism
 				if (((LC_neg > 0 && LS_neg < 0) ||
 				(LC_neg < 0 && LS_neg > 0)) &&
 				(Math.abs(LC_neg) > Math.abs(LC_neg))) {
@@ -1364,20 +1408,15 @@
 					mixed_astigmatism_L = true;
 					console.log("mixed_astigmatism_L: " + mixed_astigmatism_L);
 					
-					/*how to code mixed astigmatism
 					if ("LASIK" in modalities) {
 						LASIKLasers_mixedastigmatism("left");
 					}
 					
 					if ("PRK" in modalities) {
 						PRKLasers_mixedastigmatism("left");
-					}*/
-					
-					/* does IOL even accomodate mixed astigmatism
-					if ("IOL" in modalities) {
 					}
-					*/
 				}
+				//if regular astigmatism
 				else {
 					console.log("astigmatism");
 					
@@ -1393,10 +1432,9 @@
 							PRKLasers_myopiaastigmatism("left");
 						}
 						
-						/*how to code
 						if ("IOL" in modalities) {
 							IOL("left");
-						}*/
+						}
 					}
 					else if (LS_neg > 0) {
 						console.log("hyperopic astigmatism");
@@ -1423,6 +1461,7 @@
 				}
 			}
 			
+			//if no astigmatism
 			if (RC_neg == 0 && LC_neg == 0) {
 				if (RS_neg < 0) {
 					console.log("myopic");
@@ -1465,10 +1504,9 @@
 						PRKLasers_myopiaastigmatism("left");
 					}
 						
-					/*how to code
 					if ("IOL" in modalities) {
 						IOL("right");
-					}*/
+					}
 				}
 				else if (LS_neg > 0) {
 					console.log("hyperopic");
@@ -1500,7 +1538,139 @@
 			}	
 		}
 		
-		
+		function medical_data_filled() {
+			
+			var already_warned = false;
+			
+			if ((document.getElementById('abscontraindications_yes').checked == true || document.getElementById('abscontraindications_no').checked == true) &&
+				((document.getElementById('relcontraindications_herpes').checked==true) ||
+				(document.getElementById('relcontraindications_dryeye').checked==true) ||
+				(document.getElementById('relcontraindications_rosacea').checked==true) ||
+				(document.getElementById('relcontraindications_strabismus').checked==true) ||
+				(document.getElementById('relcontraindications_glaucoma').checked==true) ||
+				(document.getElementById('relcontraindications_dm').checked==true) ||
+				(document.getElementById('relcontraindications_cornea').checked==true) ||
+				(document.getElementById('relcontraindications_thyroid').checked==true) ||
+				(document.getElementById('relcontraindications_uveitis').checked==true) ||
+				(document.getElementById('relcontraindications_none').checked==true)) &&
+				(document.getElementById('pregnant_yes').checked==true || document.getElementById('pregnant_no').checked==true) &&
+				(document.getElementById('Isotretinoin_yes').checked==true || document.getElementById('Isotretinoin_no').checked==true) &&
+				(document.getElementById('under21_yes').checked==true || document.getElementById('under21_no').checked==true) &&
+				(document.getElementById('knowpresc_yes').checked==true || document.getElementById('knowpresc_no').checked==true)) {
+					console.log("All basic questions filled.");
+					
+					var can_submit_R = false;
+					var can_submit_L = false;
+					
+					if (document.getElementById('knowpresc_yes').checked==true) {
+						if (prescription_RS.value == "") {
+							alert("Please enter your right spherical component.");
+							already_warned = true;
+						}
+						else {
+							console.log("prescription_RS != ''");
+							if (prescription_RC.value == "" && prescription_Raxis.value != "") {
+								alert("Please enter your right cylindrical component.");
+								already_warned = true;
+							}
+							else {
+								can_submit_R = true;
+							}
+						}
+						
+						if (prescription_LS.value == "") {
+							alert("Please enter your left spherical component.");
+							already_warned = true;
+						}
+						else {
+							console.log("prescription_LS != ''");
+							if (prescription_LC.value == "" && prescription_Laxis.value != "") {
+								alert("Please enter your left cylindrical component.");
+								already_warned = true;
+							}
+							else {
+								can_submit_L = true;
+							}
+						}
+						
+						if (can_submit_R == true && can_submit_L == true) {
+							document.getElementsByClassName('submitBtn')[0].disabled = true; 
+							submittedMessage('mh'); 
+							process_medical_data();
+						}
+					}
+					
+					if ((document.getElementById('knowpresc_no').checked==true) &&
+					(document.getElementById('hyperopic_yes').checked==true || 
+					document.getElementById('hyperopic_no').checked==true ||
+					document.getElementById('hyperopic_idk').checked==true)) {
+						document.getElementsByClassName('submitBtn')[0].disabled = true; 
+						submittedMessage('mh'); 
+						process_medical_data();
+					}
+					else if ((document.getElementById('knowpresc_no').checked==true) &&
+					(document.getElementById('hyperopic_yes').checked==false &&
+					document.getElementById('hyperopic_no').checked==false &&
+					document.getElementById('hyperopic_idk').checked==false)) {
+						alert("Please answer question 3b.");
+						already_warned = true;
+					}
+				}
+			if (document.getElementById('abscontraindications_yes').checked == false && document.getElementById('abscontraindications_no').checked == false) {
+				alert("Please answer question 1.");
+			}
+			if ((document.getElementById('relcontraindications_herpes').checked==false) &&
+				(document.getElementById('relcontraindications_dryeye').checked==false) &&
+				(document.getElementById('relcontraindications_rosacea').checked==false) &&
+				(document.getElementById('relcontraindications_strabismus').checked==false) &&
+				(document.getElementById('relcontraindications_glaucoma').checked==false) &&
+				(document.getElementById('relcontraindications_dm').checked==false) &&
+				(document.getElementById('relcontraindications_cornea').checked==false) &&
+				(document.getElementById('relcontraindications_thyroid').checked==false) &&
+				(document.getElementById('relcontraindications_uveitis').checked==false) &&
+				(document.getElementById('relcontraindications_none').checked==false)) {
+				alert("Please answer question 2a.");
+			}
+			if (document.getElementById('pregnant_yes').checked==false && document.getElementById('pregnant_no').checked==false) {
+				alert("Please answer question 2b.");
+			}
+			if (document.getElementById('Isotretinoin_yes').checked==false && document.getElementById('Isotretinoin_no').checked==false) {
+				alert("Please answer question 2c.");
+			}
+			if (document.getElementById('under21_yes').checked==false && document.getElementById('under21_no').checked==false) {
+				alert("Please answer question 2d.");
+			}
+			if (document.getElementById('knowpresc_yes').checked==false && document.getElementById('knowpresc_no').checked==false) {
+				alert("Please answer question 3a.");
+			}
+			if (document.getElementById('knowpresc_yes').checked==true && already_warned == false) {
+				if (prescription_RS.value == "") {
+					alert("Please enter your right spherical component.");
+				}
+				else {
+					if (prescription_RC.value == "" && !(prescription_Raxis.value == "")) {
+						alert("Please enter your right cylindrical component.");
+					}
+				}
+						
+				if (prescription_LS.value == "") {
+					alert("Please enter your left spherical component.");
+				}
+				else {
+					if (prescription_LC.value == "" && !(prescription_Laxis.value == "")) {
+						alert("Please enter your left cylindrical component.");
+					}
+				}
+			}
+					
+			if ((document.getElementById('knowpresc_no').checked==true) &&
+				(document.getElementById('hyperopic_yes').checked==false && 
+				document.getElementById('hyperopic_no').checked==false &&
+				document.getElementById('hyperopic_idk').checked==false) && 
+				already_warned == false) {
+				alert("Please answer question 3b.");
+			}
+		}
 		
 		function process_medical_data() {
 			console.log("entering process_medical_data()");
@@ -1516,12 +1686,12 @@
 			}
 			console.log("Processed question 1.");
 			
-			console.log("Processing question 2.");
 			if(document.getElementById('abscontraindications_no').checked==true){
+				console.log("Processing question 2.");
 				console.log("Processing question 2a.");
 				/* 	<!-- Question 2a-d: Relative contraindications -->*/
-				/* 	<!-- Showing the disclaimer for relative contraindications if users select any of the relative -->
-				<!-- contraindications. */
+				/* 	<!-- If patients select any of the relative contraindications,-->
+				<!-- the following disclaimers will be shown. */
 				if((document.getElementById('relcontraindications_herpes').checked==true) ||
 				(document.getElementById('relcontraindications_dryeye').checked==true) ||
 				(document.getElementById('relcontraindications_rosacea').checked==true) ||
@@ -1544,26 +1714,7 @@
 				}		
 				console.log("Processed question 2a.");
 				
-				console.log("Processing question 2b.");
-				if(document.getElementById('pregnant_yes').checked==true) {
-					addValueByIdToAllModalities('pregnant_yes');
-					showDivByClass('disclaimer_pregnant');
-				}
-				console.log("Processed question 2b.");
 				
-				console.log("Processing question 2c.");
-				if(document.getElementById('Isotretinoin_yes').checked==true) {
-					addValueByIdToAllModalities('Isotretinoin_yes');
-					showDivByClass('disclaimer_isotretinoin');
-				}
-				console.log("Processed question 2c.");
-				
-				console.log("Processing question 2d.");
-				if(document.getElementById('under21_yes').checked==true) {
-					addValueByIdToAllModalities('under21_yes');
-					showDivByClass('disclaimer_under21');
-				}
-				console.log("Processed question 2d.");
 				
 				console.log("Processing question 3.");
 				console.log("Processing question 3a.");
@@ -1575,46 +1726,47 @@
 					console.log("Processing question 3b.");
 					console.log("Getting and setting prescriptions.");
 					//<!-- Question 3b: getting prescription -->
-					let right_eye = set_prescription('prescription_RS', 'prescription_RC', 'prescription_Raxis');
-					if (right_eye.cylindrical < 0) {
-						RS_neg = right_eye.spherical;
-						RC_neg = right_eye.cylindrical;
-						Raxis_neg = right_eye.axis;
+					const right_eye = set_prescription('prescription_RS', 'prescription_RC', 'prescription_Raxis');
+					
+					if (right_eye[1] < 0) {
+						RS_neg = right_eye[0];
+						RC_neg = right_eye[1];
+						Raxis_neg = right_eye[2];
 					}
-					else if (right_eye.cylindrical > 0) {
-						RS_pos = right_eye.spherical;
-						RC_pos = right_eye.cylindrical;
-						Raxis_pos = right_eye.axis;
+					else if (right_eye[1] > 0) {
+						RS_pos = right_eye[0];
+						RC_pos = right_eye[1];
+						Raxis_pos = right_eye[2];
 					}
 					else {
-						RS_neg = right_eye.spherical;
-						RC_neg = right_eye.cylindrical;
-						Raxis_neg = right_eye.axis;
+						RS_neg = right_eye[0];
+						RC_neg = right_eye[1];
+						Raxis_neg = right_eye[2];
 						
-						RS_pos = right_eye.spherical;
-						RC_pos = right_eye.cylindrical;
-						Raxis_pos = right_eye.axis;
+						RS_pos = right_eye[0];
+						RC_pos = right_eye[1];
+						Raxis_pos = right_eye[2];
 					}
 					
-					let left_eye = set_prescription('prescription_LS', 'prescription_LC', 'prescription_Laxis');
-					if (left_eye.cylindrical < 0) {
-						LS_neg = left_eye.spherical;
-						LC_neg = left_eye.cylindrical;
-						Laxis_neg = left_eye.axis;
+					const left_eye = set_prescription('prescription_LS', 'prescription_LC', 'prescription_Laxis');
+					if (left_eye[1] < 0) {
+						LS_neg = left_eye[0];
+						LC_neg = left_eye[1];
+						Laxis_neg = left_eye[2];
 					}
-					else if (left_eye.cylindrical > 0) {
-						LS_pos = left_eye.spherical;
-						LC_pos = left_eye.cylindrical;
-						Laxis_pos = left_eye.axis;
+					else if (left_eye[1] > 0) {
+						LS_pos = left_eye[0];
+						LC_pos = left_eye[1];
+						Laxis_pos = left_eye[2];
 					}
 					else {
-						LS_neg = left_eye.spherical;
-						LC_neg = left_eye.cylindrical;
-						Laxis_neg = left_eye.axis;
+						LS_neg = left_eye[0];
+						LC_neg = left_eye[1];
+						Laxis_neg = left_eye[2];
 						
-						LS_pos = left_eye.spherical;
-						LC_pos = left_eye.cylindrical;
-						Laxis_pos = left_eye.axis;
+						LS_pos = left_eye[0];
+						LC_pos = left_eye[1];
+						Laxis_pos = left_eye[2];
 					}
 					
 					console.log("RS_neg: " + RS_neg);
@@ -1639,28 +1791,28 @@
 					//if RS_neg, RC_neg, and Raxis haven't been set yet
 					if(RS_pos == 0.00 && RC_pos == 0.00 && Raxis_pos == 0) {
 						let prescriptions = convert_prescription(RS_neg, RC_neg, Raxis_neg);
-						RS_pos = prescriptions.spherical;
-						RC_pos = prescriptions.cylindrical;
+						RS_pos = prescriptions[0];
+						RC_pos = prescriptions[1];
 						Raxis_pos = prescriptions.axis;
 					}
 					else if (RS_neg == 0.00 && RC_neg == 0.00 && Raxis_neg == 0)	{
 						let prescriptions = convert_prescription(RS_pos, RC_pos, Raxis_pos);
-						RS_neg = prescriptions.spherical;
-						RC_neg = prescriptions.cylindrical;
-						Raxis_neg = prescriptions.axis;
+						RS_neg = prescriptions[0];
+						RC_neg = prescriptions[1];
+						Raxis_neg = prescriptions[2];
 					}
 						
 					if(LS_pos == 0.00 && LC_pos == 0.00 && Laxis_pos == 0) {
 						let prescriptions = convert_prescription(LS_neg, LC_neg, Laxis_neg);
-						LS_pos = prescriptions.spherical;
-						LC_pos = prescriptions.cylindrical;
-						Laxis_pos = prescriptions.axis;
+						LS_pos = prescriptions[0];
+						LC_pos = prescriptions[1];
+						Laxis_pos = prescriptions[2];
 					}
 					else if (LS_neg == 0.00 && LC_neg == 0.00 && Laxis_neg == 0)	{
 						let prescriptions = convert_prescription(LS_pos, LC_pos, Laxis_pos);
-						LS_neg = prescriptions.spherical;
-						LC_neg = prescriptions.cylindrical;
-						Laxis_neg = prescriptions.axis;
+						LS_neg = prescriptions[0];
+						LC_neg = prescriptions[1];
+						Laxis_neg = prescriptions[2];
 					}
 										
 					console.log("RS_neg: " + RS_neg);
@@ -1696,6 +1848,29 @@
 					console.log("Processed question 3b.");
 				}
 			}
+			else {
+				console.log("Responses to questions 2a, 3a, and 3b ignored. Patient is contraindicated against all modalities.");
+			}
+			console.log("Processing question 2b.");
+			if(document.getElementById('pregnant_yes').checked==true) {
+				addValueByIdToAllModalities('pregnant_yes');
+				showDivByClass('disclaimer_pregnant');
+			}
+			console.log("Processed question 2b.");
+				
+			console.log("Processing question 2c.");
+			if(document.getElementById('Isotretinoin_yes').checked==true) {
+				addValueByIdToAllModalities('Isotretinoin_yes');
+				showDivByClass('disclaimer_isotretinoin');
+			}
+			console.log("Processed question 2c.");
+				
+			console.log("Processing question 2d.");
+			if(document.getElementById('under21_yes').checked==true) {
+				addValueByIdToAllModalities('under21_yes');
+				showDivByClass('disclaimer_under21');
+			}
+			console.log("Processed question 2d.");
 		}
 			
 		function submittedMessage(form) {
@@ -1768,6 +1943,25 @@
 
 		});
 
+		function enoughChildren() {
+			let numPrefs = 0;
+			list2.childNodes.forEach((element) => {
+				
+				if (typeof element.id  !== 'undefined') {
+					numPrefs = numPrefs + 1;
+				}
+				
+			})	
+			if (numPrefs == 3) {
+				document.getElementsByClassName('submitBtn')[1].disabled = true; 
+				submittedMessage('prefs');
+				returnChildren();
+			}
+			else {
+				alert("Please select three statements.");
+			}
+		}
+		
 		function returnChildren() {
 			console.log("entered returnChildren() ");
 			var rank = 0;
@@ -2079,10 +2273,10 @@
 					</ul>
 						
 					<div id="preferences">
-						<input id="abscontraindications_yes" class="radioBtn qn1" name="abscontraindications" type="radio" value=-50 required>
+						<input id="abscontraindications_yes" class="radioBtn qn1" name="abscontraindications" type="radio" value=-50 required />
 							<label for="abscontraindications_yes"><p>yes</p></label>
 						
-						<input id="abscontraindications_no" class="radioBtn qn1" name="abscontraindications" type="radio" value=0 required>
+						<input id="abscontraindications_no" class="radioBtn qn1" name="abscontraindications" type="radio" value=0 required />
 							<label for="abscontraindications_no"><p>no</p></label>
 					</div>
 					
@@ -2092,55 +2286,55 @@
 				<div class="qn">
 					<p>2a.&ensp; Do you have a history of, or do you currently have any of the following:</p> 
 					<div id='preferences'>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_dm' id='relcontraindications_dm' value=-25 onclick="uncheck_none('relcontraindications_dm')">
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_dm' id='relcontraindications_dm' value=-25 onclick="uncheck_none('relcontraindications_dm')" required />
 						  <label id='relcontraindications_dm' for='relcontraindications_dm'><p>Diabetes Mellitus</p></label><br><br>
-						 <input type='checkbox' class='checkbox qn2a' name='relcontraindications_thyroid' id='relcontraindications_thyroid' value=-25 onclick="uncheck_none('relcontraindications_thyroid')">
+						 <input type='checkbox' class='checkbox qn2a' name='relcontraindications_thyroid' id='relcontraindications_thyroid' value=-25 onclick="uncheck_none('relcontraindications_thyroid')" required />
 						  <label id='relcontraindications_thyroid' for='relcontraindications_thyroid'><p>Uncontrolled Thyroid Disease</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_herpes' id='relcontraindications_herpes' value=-25 onclick="uncheck_none('relcontraindications_herpes')">
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_herpes' id='relcontraindications_herpes' value=-25 onclick="uncheck_none('relcontraindications_herpes')" required />
 						  <label id='relcontraindications_herpes' for='relcontraindications_herpes'><p>Herpes Simplex Eye Infections</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_rosacea' id='relcontraindications_rosacea' value=-25 onclick="uncheck_none('relcontraindications_rosacea')">
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_rosacea' id='relcontraindications_rosacea' value=-25 onclick="uncheck_none('relcontraindications_rosacea')" required />
 						  <label id='relcontraindications_rosacea' for='relcontraindications_rosacea'><p>Ocular Rosacea</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_dryeye' id='relcontraindications_dryeye' value=-25 onclick="uncheck_none('relcontraindications_dryeye')">
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_dryeye' id='relcontraindications_dryeye' value=-25 onclick="uncheck_none('relcontraindications_dryeye')" required />
 						  <label id='relcontraindications_dryeye' for='relcontraindications_dryeye'><p>Severe Dry Eye</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_strabismus' id='relcontraindications_strabismus' value=-25 onclick="uncheck_none('relcontraindications_strabismus')">
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_strabismus' id='relcontraindications_strabismus' value=-25 onclick="uncheck_none('relcontraindications_strabismus')"required />
 						  <label id='relcontraindications_strabismus' for='relcontraindications_strabismus'><p>Strabismus</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_cornea' id='relcontraindications_cornea' value=-25 onclick="uncheck_none('relcontraindications_cornea')">
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_cornea' id='relcontraindications_cornea' value=-25 onclick="uncheck_none('relcontraindications_cornea')" required />
 						  <label id='relcontraindications_cornea' for='relcontraindications_cornea'><p>Keratoconus</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_glaucoma' id='relcontraindications_glaucoma' value=-25 onclick="uncheck_none('relcontraindications_glaucoma')">
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_glaucoma' id='relcontraindications_glaucoma' value=-25 onclick="uncheck_none('relcontraindications_glaucoma')" required />
 						  <label id='relcontraindications_glaucoma' for='relcontraindications_glaucoma'><p>Severe Glaucoma</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_uveitis' id='relcontraindications_uveitis' value=-25 onclick="uncheck_none('relcontraindications_uveitis')">
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_uveitis' id='relcontraindications_uveitis' value=-25 onclick="uncheck_none('relcontraindications_uveitis')" required />
 						  <label id='relcontraindications_uveitis' for='relcontraindications_uveitis'><p>Uveitis</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_none' id='relcontraindications_none' value=0 onclick="noRelContraindicationsConfirm()">
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_none' id='relcontraindications_none' value=0 onclick="noRelContraindicationsConfirm()" required />
 						  <label id='relcontraindications_none' for='relcontraindications_none'><p>None of the Above</p></label>
 					  </div>
 					
 					<p><br>2b.&ensp; Are you pregnant or lactating?</p>
 					
 					<div id="preferences">
-						<input id="pregnant_yes" class="radioBtn qn2b" name="pregnant" type="radio" value=0 required>
+						<input id="pregnant_yes" class="radioBtn qn2b" name="pregnant" type="radio" value=0 required />
 							<label for="pregnant_yes"><p>yes</p></label>
 
-						<input id="pregnant_no" class="radioBtn qn2b" name="pregnant" type="radio" value=0 required>
+						<input id="pregnant_no" class="radioBtn qn2b" name="pregnant" type="radio" value=0 required />
 							<label for="pregnant_no"><p>no</p></label>
 					</div>	
 					
 					<p><br>2c.&ensp; Do you take Isotretinoin?</p>
 					
 					<div id="preferences">
-						<input id="Isotretinoin_yes" class="radioBtn qn2c" name="Isotretinoin" type="radio" value=0 required>
+						<input id="Isotretinoin_yes" class="radioBtn qn2c" name="Isotretinoin" type="radio" value=0 required />
 							<label for="Isotretinoin_yes"><p>yes</p></label>
 
-						<input id="Isotretinoin_no" class="radioBtn qn2c" name="Isotretinoin" type="radio" value=0 required>
+						<input id="Isotretinoin_no" class="radioBtn qn2c" name="Isotretinoin" type="radio" value=0 required />
 							<label for="Isotretinoin_no"><p>no</p></label>
 					</div>	
 					
 					<p><br>2d.&ensp; Are you younger than 21 years old?</p>
 					
 					<div id="preferences">
-						<input id="under21_yes" class="radioBtn qn2d" name="under21" type="radio" value=0 required>
+						<input id="under21_yes" class="radioBtn qn2d" name="under21" type="radio" value=0 required />
 							<label for="under21_yes"><p>yes</p></label>
 
-						<input id="under21_no" class="radioBtn qn2d" name="under21" type="radio" value=0 required>
+						<input id="under21_no" class="radioBtn qn2d" name="under21" type="radio" value=0 required />
 							<label for="under21_no"><p>no</p></label>
 					</div>
 				</div>
@@ -2149,10 +2343,10 @@
 					<p>3a.&ensp; Do you know your eyeglasses prescription?</p>
 						
 						<div id="preferences">
-							<input id="knowpresc_yes" class="radioBtn qn3a" name="knowpresc" type="radio" required onclick="showDivByClass('qn3b'); hideDivByClass('qn4');">
+							<input id="knowpresc_yes" class="radioBtn qn3a" name="knowpresc" type="radio" required onclick="showDivByClass('qn3b'); hideDivByClass('qn4');" />
 								<label for="knowpresc_yes"><p>yes</p></label>
 
-							<input id="knowpresc_no" class="radioBtn qn3a" name="knowpresc" type="radio" required onclick="hideDivByClass('qn3b'); showDivByClass('qn4');">
+							<input id="knowpresc_no" class="radioBtn qn3a" name="knowpresc" type="radio" required onclick="hideDivByClass('qn3b'); showDivByClass('qn4');" />
 								<label for="knowpresc_no"><p>no</p></label>
 						</div>
 					
@@ -2198,7 +2392,7 @@
 			</div>
 		</div>
 		<div class="submitNav"> 
-			<input type='button' class='submitBtn' value = 'Submit Medical History &#187;' onclick="document.getElementsByClassName('submitBtn')[0].disabled = true; submittedMessage('mh'); process_medical_data(); ">
+			<input type='button' class='submitBtn' value = 'Submit Medical History &#187;' onclick="medical_data_filled();">
 		</div>
 		
 		<div class="mhsubmitted">
@@ -2244,7 +2438,7 @@
 		</div>
 		
 		<div class="submitNav"> 
-			<input type='button' class='submitBtn' value = 'Submit Preferences &#187;' onclick="returnChildren(); document.getElementsByClassName('submitBtn')[0].disabled = true; submittedMessage('prefs');">
+			<input type='button' class='submitBtn' value = 'Submit Preferences &#187;' onclick="enoughChildren();">
 		</div>
 		
 		<div class="prefssubmitted">
