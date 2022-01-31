@@ -139,7 +139,7 @@
 		}
 
 		#home {
-			padding-top: 225px;
+			padding-top: 100px;
 			padding-bottom: 225px;
 			background-image: url(http://api.openverse.engineering/v1/images/37dbb30b-1be8-4a78-8aa5-2eefd4bb51d7/thumb/);
 			background-position: center;
@@ -661,10 +661,125 @@
 			display: none;
 		}
 		
+		#surgeryrecs .recommendations_table {
+			border-collapse: collapse;
+			margin: 25px 0;
+			min-width: 600px;
+			border-bottom: 1px solid #F0F0F0;
+		}
+		
+		#surgeryrecs .recommendations_table td {
+			padding: 12px 15px;
+			border-bottom: 1px solid #F0F0F0;
+			border-left: 1px solid #F0F0F0;
+			border-top: 1px solid #F0F0F0;
+		}
+		
+		#surgeryrecs .recommendations_table td a:hover{
+			color: crimson;
+			font-weight: 1000;
+		}
+		
+		#surgeryrecs .recommendations_table tr {
+			vertical-align: top;
+		}
+		
+		#surgeryrecs .content {
+			font-size: 0.5rem;
+		}
+		
+		#surgeryrecs .coltitle p{
+			font-family: 'Optician Sans', sans-serif;
+			font-size: 1rem;
+		}
+		
+		#surgeryrecs thead tr .coltitle {
+			background-color: #F0F0F0;
+			color: black;
+			text-align: center;
+			padding: 10px;
+		}
+		#surgeryrecs .bigrowtitle {
+			background: #F0F0F0;
+		}
+		
+		#surgeryrecs .bigrowtitle p{
+			font-family: 'Optician Sans', sans-serif;
+			font-size: 1rem;
+			vertical-align: middle;
+		}
+		
+		#surgeryrecs .bigrowtitle li{
+			font-family: 'Optician Sans', sans-serif;
+			font-size: 1rem;
+			text-align: left;
+			
+		}
+		
+		#surgeryrecs .rowtitle p{
+			font-size: 0.85rem;
+		}
+		
+		#surgeryrecs .resultstip {
+			text-align: center;
+		}
+		
+		#surgeryrecs .more_info {
+			display: none;
+		}
+		
+		.resultstip .resultstiptext:hover a{
+			color: crimson;
+			font-weight: 1000;
+		}
+      
+      /*results section*/
+		.resultstip {
+			position: relative;
+			display: inline-block;
+		}
+		
+		.resultstip {
+			position: relative;
+			display: inline-block;
+		 }
+		 
+		.resultstip .resultstiptext {
+			visibility: hidden;
+			width: 250px;
+			background: white;
+			color: black;
+			text-align: center;
+			padding: 10px;
+			text-align:left;
+			font-size:13px;
+			border:1px solid white;
+			opacity:0.9;
+			position: absolute;
+			left:80%;
+			z-index:1;
+			font-family: 'Poppins';	
+		}
+		.resultstip:hover .resultstiptext {
+			visibility: visible;
+		}
+		
+		.resultstip .resultstiptext:hover a{
+			color: crimson;
+		}
 		<!-- /*End of Surgery Recommendations Section*/
 
 		/*Surgeon Recommendations Section*/ -->
-		#surgeonrecs .surgeon {
+		#surgeonrecs .LASIK_surgeons {
+			display: none;
+		}
+		#surgeonrecs .PRK_surgeons {
+			display: none;
+		}
+		#surgeonrecs .IOL_surgeons {
+			display: none;
+		}
+		#surgeonrecs .none_surgeons {
 			display: none;
 		}
 		#surgeonrecs .surgeon h2 {
@@ -805,40 +920,40 @@
 		var left_meets = false;
 		
 		function hideDivByClass(class_name) {
-			console.log("class_name: " + class_name);
+			<!-- console.log("class_name: " + class_name); -->
 			for (let i = 0; i < document.getElementsByClassName(class_name).length; i++) {
-				console.log("display style before: " + document.getElementsByClassName(class_name)[i].style.display);
+				<!-- console.log("display style before: " + document.getElementsByClassName(class_name)[i].style.display); -->
 				document.getElementsByClassName(class_name)[i].style.display="none";
-				console.log("display style after: " + document.getElementsByClassName(class_name)[i].style.display);
+				<!-- console.log("display style after: " + document.getElementsByClassName(class_name)[i].style.display); -->
 			}
 		}
 	
 		function showDivByClass(class_name) {
-			console.log("class_name: " + class_name);
+			<!-- console.log("class_name: " + class_name); -->
 			for (let i = 0; i < document.getElementsByClassName(class_name).length; i++) {
-				console.log("display style before: " + document.getElementsByClassName(class_name)[i].style.display);
+				<!-- console.log("display style before: " + document.getElementsByClassName(class_name)[i].style.display); -->
 				document.getElementsByClassName(class_name)[i].style.display="flex";
-				console.log("display style after: " + document.getElementsByClassName(class_name)[i].style.display);
+				<!-- console.log("display style after: " + document.getElementsByClassName(class_name)[i].style.display); -->
 			}
 		}
 		
 		function showDivbyID(id) {
-			console.log("id: " + id);
-			console.log("display style before: " + document.getElementsByID(id).style.display);
-			document.getElementsByID(id).style.display="flex";
-			console.log("display style after: " + document.getElementsByID(id).style.display);
+			<!-- console.log("id: " + id); -->
+			<!-- console.log("display style before: " + document.getElementById(id).style.display); -->
+			document.getElementById(id).style.display="flex";
+			<!-- console.log("display style after: " + document.getElementById(id).style.display); -->
 		}
 		
 		function hideDivbyID(id) {
-			console.log("id: " + id);
-			console.log("display style before: " + document.getElementsByID(id).style.display);
-			document.getElementsByID(id).style.display="none";
-			console.log("display style after: " + document.getElementsByID(id).style.display);
+			<!-- console.log("id: " + id); -->
+			<!-- console.log("display style before: " + document.getElementById(id).style.display); -->
+			document.getElementById(id).style.display="none";
+			<!-- console.log("display style after: " + document.getElementById(id).style.display); -->
 		}
 		
 		function uncheck_none(id) {
-			console.log("uncheck_none(id)");
-			console.log("id: " + id);
+			<!-- console.log("uncheck_none(id)"); -->
+			<!-- console.log("id: " + id); -->
 			//if (disease.localeCompare('relcontraindications_none') != 0) {
 			
 				if (((document.getElementById('relcontraindications_herpes').checked == true) ||
@@ -1096,7 +1211,7 @@
 		}
 		
 		
-		function LASIKLasers_mixed(eye) {
+		function LASIKLasers_mixedastigmatism(eye) {
 			if (eye.localeCompare("right") == 0) {
 				//<!--Abbott Medical Optics (VISX Star S3, Eye Tracker) && Alcon (WaveLight ALLEGRETTO WAVE)-->	
 				if (((RS_pos <= 0.00 && RS_pos >= -6.00) && (RC_pos <= 6.00 && RC_pos >= 0.00)) ||
@@ -1242,7 +1357,7 @@
 				}
 				else {
 					console.log("prescription does not meet IOL parameters.");
-					removeModality("PRK");
+					removeModality("IOL");
 				}
 			}
 			if (eye.localeCompare("left") == 0) {
@@ -1251,32 +1366,14 @@
 				((LS_pos >= -20.00 && LS_pos <= -15.00) && (LC_pos >= 0.00 && LC_pos <= 2.50))) ||
 				//<!--Artisan Phakic IOL-->
 				((LS_pos >= -20.00 && LS_pos <= -5.00) && (LC_pos >= 0.00 && LC_pos <= 2.50))){
-					console.log("prescription meets PRK parameters.");
+					console.log("prescription meets IOL parameters.");
 				}
 				else {
-					console.log("prescription does not meet PRK parameters.");
-					removeModality("PRK");
+					console.log("prescription does not meet IOL parameters.");
+					removeModality("IOL");
 				}
 			}
 		}
-		
-		//TODO:	
-		/*
-		function displayRecommendation() {
-			if(modalities.length > 0) {
-				if (modalities.keys()[0].localeCompare("LASIK") {
-				showDivByClass("LASIK");
-				}
-				else if (modalities.keys()[0].localeCompare("PRK") {
-					showDivByClass("PRK");
-				}
-				else {
-					showDivByClass("IOL");
-				}
-			}
-			else {
-			}
-		}*/
 		
 		function set_prescription(Sid, Cid, Axisid) {
 			console.log("entering set_prescription");
@@ -1351,6 +1448,7 @@
 					}
 					
 					if ("PRK" in modalities) {
+						PRKLasers_mixedastigmatism("right");
 					}
 				}
 				//if regular astigmatism
@@ -1383,18 +1481,22 @@
 						if ("PRK" in modalities) {
 							PRKLasers_hyperopiaastigmatism("right");
 						}
-					}/* can patients with no power and just astigmatism have their vision corrected with LASIK, PRK, and/or IOL
-					else { //RS_neg == 0
-						if (RC_neg < 0) {
-							console.log("myopic astigmatism");
-						diagnosis_R = "myopic astigmatism";
-						}
 						
-						else { //RC_neg > 0
-							console.log("hyperopic astigmatism");
-							diagnosis_R = "hyperopic astigmatism";
+						removeModality("IOL");
+					}// can patients with no power and just astigmatism have their vision corrected with LASIK, PRK, and/or IOL
+					else { //RS_neg == 0
+						if (RS_pos > 0) {
+							console.log("no power, astigmatic. hyperopic astigmatism.");
+							LASIKLasers_hyperopiaastigmatismpiaastigmatism("right");
+							PRKLasers_hyperopiaastigmatism("right");
 						}
-					}*/
+						if (RS_pos < 0){
+							console.log("no power, astigmatic. myopic astigmatism.");
+							LASIKLasers_myopiaastigmatism("right");
+							PRKLasers_myopiaastigmatism("right");
+							IOL("right");
+						}
+					}
 				}
 			}
 			
@@ -1447,17 +1549,22 @@
 						if ("PRK" in modalities) {
 							PRKLasers_hyperopiaastigmatism("left");
 						}
-					}/*can patients with no power and just astigmatism have their vision corrected with LASIK, PRK, and/or IOL
+						
+						removeModality("IOL");
+					}
 					else { //LS_neg == 0
-						if (LC_neg < 0) {
-							console.log("myopic astigmatism");
-							diagnosis_L = "myopic astigmatism";
+						if (LS_pos > 0) {
+							console.log("no power, astigmatic. hyperopic astigmatism.");
+							LASIKLasers_hyperopiaastigmatismpiaastigmatism("left");
+							PRKLasers_hyperopiaastigmatism("left");
 						}
-						else { //LC_neg > 0
-							console.log("hyperopic astigmatism");
-							diagnosis_L = "hyperopic astigmatism";
+						if (LS_pos < 0){
+							console.log("no power, astigmatic. myopic astigmatism.");
+							LASIKLasers_myopiaastigmatism("left");
+							PRKLasers_myopiaastigmatism("left");
+							IOL("left");
 						}
-					}*/
+					}
 				}
 			}
 			
@@ -1474,11 +1581,10 @@
 					if ("PRK" in modalities) {
 						PRKLasers_myopiaastigmatism("right");
 					}
-						
-					/*how to code
+					
 					if ("IOL" in modalities) {
 						IOL("right");
-					}*/
+					}
 				}
 				else if (RS_neg > 0) {
 					console.log("hyperopic");
@@ -1491,6 +1597,8 @@
 					if ("PRK" in modalities) {
 						PRKLasers_hyperopiaastigmatism("right");
 					}
+					
+					removeModality("IOL");
 				}
 				if (LS_neg < 0) {
 					console.log("myopic");
@@ -1519,22 +1627,14 @@
 					if ("PRK" in modalities) {
 						PRKLasers_hyperopiaastigmatism("left");
 					}
+					
+					removeModality("IOL");
 				}
 				else { //20/20 vision
 					removeModality("LASIK");
 					removeModality("PRK");
 					removeModality("IOL");
 				}
-				
-				/*figure out what to add and remove
-				if (right_meets == true && left_meets == true) {
-				}
-				else if ((right_meets == true && left_meets == false) || (right_meets == false && left_meets == true)) {
-					modalities.LASIK = parseInt(modalities.LASIK) - parseInt(-13);
-				}
-				else { //right_meets == false && left_meets == false
-				
-				}*/
 			}	
 		}
 		
@@ -1943,7 +2043,7 @@
 
 		});
 
-		function enoughChildren() {
+		function prefs_filled() {
 			let numPrefs = 0;
 			list2.childNodes.forEach((element) => {
 				
@@ -1955,15 +2055,77 @@
 			if (numPrefs == 3) {
 				document.getElementsByClassName('submitBtn')[1].disabled = true; 
 				submittedMessage('prefs');
-				returnChildren();
+				returnRankedPrefs();
+				returnRec();
 			}
-			else {
+			else if (numPrefs < 3) {
 				alert("Please select three statements.");
+			}
+			else if (numPrefs > 3) {
+				alert("Please select ONLY three statements.");
 			}
 		}
 		
-		function returnChildren() {
-			console.log("entered returnChildren() ");
+		//TODO
+		function returnRec() {
+			console.log("entered returnRec()");
+			var rec = "";
+			
+			if (Object.keys(modalities).length > 0) {  //modalities length = 1, 2, 3
+				var items = Object.keys(modalities).map(function(key) {
+					return [key, modalities[key]];
+				});
+				
+				if (Object.keys(modalities).length > 1) { //modalities length = 2, 3
+					items.sort(function(first, second) {
+						return second[1] - first[1];
+					});
+								
+					console.log(items);
+					rec = String(items[0]);
+				}
+				else if (Object.keys(modalities).length == 1) {
+					rec = String(items[0]);
+				}
+			}
+			else { //modalities length = 0
+				rec = "none";
+			}
+			
+			rec = rec.split(",")[0];
+			console.log("rec: " + rec);
+
+			if (rec.localeCompare("none") != 0) {
+				if (rec.localeCompare("LASIK") == 0) {
+					document.getElementById("modality_recommendation").innerHTML = "<p>Based upon the preferences that you have shared, we recommend discussing the following surgical modality with a refractive surgeon: <strong>LASIK</strong></p>";
+					for (let i = 0; i < document.getElementsByClassName("LASIK_col").length; i++) {
+						document.getElementsByClassName("LASIK_col")[i].style.background = "#F0F0F0";
+					}
+					showDivByClass("LASIK_surgeons");
+				}
+				else if (rec.localeCompare("PRK") == 0) {
+					document.getElementById("modality_recommendation").innerHTML = "<p>Based upon the preferences that you have shared, we recommend discussing the following surgical modality with a refractive surgeon: <strong>PRK</strong></p>";
+					for (let i = 0; i < document.getElementsByClassName("PRK_col").length; i++) {
+						document.getElementsByClassName("PRK_col")[i].style.background = "#F0F0F0";
+					}
+					showDivByClass("PRK_surgeons");
+				}
+				else if (rec.localeCompare("IOL") == 0) {
+					document.getElementById("modality_recommendation").innerHTML = "<p>Based upon the preferences that you have shared, we recommend discussing the following surgical modality with a refractive surgeon: <strong>IOL</strong></p>";
+					for (let i = 0; i < document.getElementsByClassName("IOL_col").length; i++) {
+						document.getElementsByClassName("IOL_col")[i].style.background = "#F0F0F0";
+					}
+					showDivByClass("IOL_surgeons");
+				}
+			}
+			else {
+				document.getElementById("modality_recommendation").innerHTML = "<p>Based upon your responses, you may be contraindicated for these surgical modalities, or you may have an eye glasses prescription that is outside of laser and contact lens parameters.</p>";
+				showDivByClass("none_surgeons");
+			}
+		}
+		
+		function returnRankedPrefs() {
+			console.log("entered returnRankedPrefs() ");
 			var rank = 0;
 			list2.childNodes.forEach((element) => {
 				
@@ -1974,54 +2136,58 @@
 					var element_class = element.className;
 					console.log("element_class: " + element_class);
 					
-					if (String(element_class).includes("LASIK")) {
+					console.log("modalities remaining: " + Object.keys(modalities));
+					if (String(element_class).includes("LASIK") && "LASIK" in modalities) {
 						console.log("entered LASIK");
 						if (rank == 1) {
 							console.log("entered rank " + rank);
-							modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('value'));
-							modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('value'));
-							modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							for (let i = 0; i < 3; i++) {
+								modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							}
 						}
 						else if (rank == 2) {
 							console.log("entered rank " + rank);
-							modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('value'));
-							modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							for (let i = 0; i < 2; i++) {
+								modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							}
 						}
 						else if (rank == 3) {
 							console.log("entered rank " + rank);
 							modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('value'));
 						}
 					}
-					if (String(element_class).includes("PRK")) {
+					if (String(element_class).includes("PRK") && "PRK" in modalities) {
 						console.log("entered PRK");
 						if (rank == 1) {
 							console.log("entered rank " + rank);
-							modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('value'));
-							modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('value'));
-							modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							for (let i = 0; i < 3; i++) {
+								modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							}
 						}
 						else if (rank == 2) {
 							console.log("entered rank " + rank);
-							modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('value'));
-							modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							for (let i = 0; i < 2; i++) {
+								modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							}
 						}
 						else if (rank == 3) {
 							console.log("entered rank " + rank);
 							modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('value'));
 						}
 					}
-					if (String(element_class).includes("IOL")) {
+					if (String(element_class).includes("IOL") && "IOL" in modalities) {
 						console.log("entered IOl");
 						if (rank == 1) {
 							console.log("entered rank " + rank);
-							modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('value'));
-							modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('value'));
-							modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							for (let i = 0; i < 3; i++) {
+								modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							}
 						}
 						else if (rank == 2) {
 							console.log("entered rank " + rank);
-							modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('value'));
-							modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							for (let i = 0; i < 2; i++) {
+								modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							}
 						}
 						else if (rank == 3) {
 							console.log("entered rank " + rank);
@@ -2069,6 +2235,8 @@
 					<p> is a prototype patient decision aid to assist college-aged students 
 					in the selection of a refractive surgery for the correction of 
 					nearsightedness (myopia), farsightedness (hyperopia), and astigmatism.</p>
+					
+					<p><br><br><br><br>Disclaimer: The information on this site is not intended or implied to be a substitute for professional medical advice, diagnosis, or treatment. Please use this to talk with a refractive surgeon about your visual acuity and treatment options.</p></p>
             </div>
 		</div>
 		<div class="pageNav"> 
@@ -2125,19 +2293,6 @@
 					retinal detachment, which may irreversibly impair vision, as 
 					well.</p>
 					<div class="icon"><img src="https://cdn.britannica.com/45/63345-050-7BD73D28/nearsightedness-glasses-Myopia-lenses-focus-eye-objects.jpg" width='715' height='315'/></div>
-				</div>
-				<div class="refractive-error">
-					<h2>Hyperopia</h2>
-					<p>Hyperopia, better known as farsightedness, causes nearby 
-					object to appear blurry, because the eyeball is too short, 
-					causing light to focus behind the retina. Like myopia, 
-					hyperopia is progressive, progressively worsens after onset 
-					until the achievement of eyesight maturity, with earlier onset 
-					of hyperopia yielding a higher prescription at the achievement 
-					of eyesight maturity. Moderate to high hyperopia elevates the 
-					risk of developing amblyopia and strabismus, which may 
-					precipitate visual impairment and/or blindness.</p>
-					<div class="icon"><img src="https://cdn.britannica.com/44/63344-050-D20C0E4A/farsightedness-glasses-Hyperopia-lenses-effort-object-focus.jpg" width='715' height='315'/></div>
 				</div>
 				<div class="refractive-error">
 					<h2>Hyperopia</h2>
@@ -2225,7 +2380,7 @@
 			</div>
 		</div>
 		<div class="pageNav"> 
-			<a href="#home" class="next round"><</a>
+			<a href="#errors" class="next round"><</a>
 			<a href="#patientDecisionAid" class="next round">></a>
 		</div>
 	</section>
@@ -2415,22 +2570,23 @@
 		<div class="valuesContainer inner">
 			<div class="values-top">
 				<h1 class="section-title"><br><br><br>Preferences</h1>
-				<p>Please select three statements that would  ideally describe your surgical recommendation. Please order these in </p>
+				<p>Please select three statements that would most influence your selection of a surgical modality. 
+				The top statement should be the statement that most influences you of the provided alternatives. 
+				The middle statement should be the statement that is the second most influential to you of the provided alternatives.  
+				The bottom statement should be the statement that is the third most influential to you  of the provided alternatives.</p>
 			</div>
 			<div class="values-bottom">				
 				<div id="list1" class="droppable list" data-max="-1"><!-- I want this to accept many. -->
-				  <p class="item draggable IOL myope_only" id="high_myope" value=4>The refractive surgery is better suited for patients with high myopia than its alternatives.</p>
+				  <p class="item draggable PRK IOL" id="high_myope" value=4>The refractive surgery is better suited for patients with high myopia.</p>
+				  <p class="item draggable PRK IOL" id="thin_cornea" value=4>The refractive surgery is better suited for patients with thinner or abnormally shaped corneas.</p>
 				  <p class="item draggable PRK" id="military" value=4>The refractive surgery is better suited for patients in the military or for patients who participate in contact sports.</p>
-				  <p class="item draggable LASIK PRK" id="cost_effective" value=2>The refractive surgery is more cost effective than an alternative.</p>
-				  <p class="item draggable IOL myope_only" id="corneal_complications" value=4>The refractive surgery has a lower risk of corneal complications for patients with thinner corneas or an atypical corneal surface than its alternatives.</p>
-				  <p class="item draggable PRK" id="no_driving"value=-3>During the recovery period of this refractive surgery, if the patient were to get both eyes operated on the same day, the patient may not be able to drive for weeks.</p>
+				  <p class="item draggable IOL myope_only" id="more_invasive" value=-4>The refractive surgery is more invasive.</p>
+				  <p class="item draggable LASIK PRK" id="cost_effective" value=2>The refractive surgery is more cost effective.</p>
+				  <p class="item draggable LASIK PRK"id="influences_rle" value=-3>The refractive surgery may influence the accuracy of calculations and vision correction options for subsequent cataract surgery.</p>
+				  <p class="item draggable PRK"id="longer_recovery" value=-2>The recovery period of this refractive surgery is longer and more painful.</p>
 				  <p class="item draggable LASIK PRK" id="more_dry_eye" value=-3>Following the refractive surgery, patients may develop or observe an exacerbation of dry eye symptoms.</p>
-				  <p class="item draggable PRK"id="longer_recovery" value=-2>The recovery period of this refractive surgery is longer than an alternative.</p>
-				  <p class="item draggable PRK" id="more_painful_recovery" value=-2>The recovery period of this refractive surgery is more painful than an alternative.</p>
-				  <p class="item draggable PRK" id="bandage_contact" value=-2>The recovery period involves wearing a bandage contact lens.</p>
 				  <p class="item draggable IOL myope_only" id="indefinite_fu" value=-3>The refractive surgery requires follow-up for an indefinite period of time over the long-term.</p>
 				  <p class="item draggable IOL myope_only"id="reversible" value=2>The refractive surgery is reversible.</p>
-				  <p class="item draggable LASIK PRK"id="influences_rle" value=-3>The refractive surgery may influence calculations for subsequent cataract surgery and options for vision correction for subsequent cataract surgery.</p>
 				</div>
 				<div id="list2" class="droppable list" data-max="3"><!-- I want this to accept only 3. -->
 				</div>
@@ -2438,7 +2594,7 @@
 		</div>
 		
 		<div class="submitNav"> 
-			<input type='button' class='submitBtn' value = 'Submit Preferences &#187;' onclick="enoughChildren();">
+			<input type='button' class='submitBtn' value = 'Submit Preferences &#187;' onclick="prefs_filled();">
 		</div>
 		
 		<div class="prefssubmitted">
@@ -2486,401 +2642,496 @@
 		<div class="surgeryrecsContainer inner">
 			<div class="surgeryrecs-top">
 				<h1 class="section-title"><br><br>Surgery Recommendations</h1>
-				<p>Based upon the preferences that you have shared, we recommend 
-				discussing the following surgical modality with a 
-				refractive surgeon (recommendations for which can be found
-				on the next page).</p>
-				<div class="recommendations">
-				</div>
+				<p>Hover over the icons for more detail.</p>
+				
+				<div id="modality_recommendation"></div>
 				<div class="disclaimers">
 					<div class='disclaimer_relcontraindications' style="display:none;">
-						<p><br><strong>Contingent upon medical history, some surgeons will not perform 
+						<p><br>Contingent upon medical history, some surgeons will not perform 
 						refractive surgery on patients with Herpes Simplex Eye Infections, Ocular Rosacea, Severe Dry Eye,
 						Strabismus, Keratoconus, Severe Glaucoma, Uveitis, Diabetes Mellitus, and/or Uncontrolled Thyroid Disease. 
 						This is because Herpes Simplex Eye Infections, Ocular Rosacea, and Strabismus 
 						might recur if the procedure were performed. This is also because Keratoconus, Severe Glaucoma, 
 						Uveitis, Diabetes Mellitus, and/or Uncontrolled Thyroid Disease might get worse if the procedure 
 						were performed. Share your medical history with your refractive 
-						surgeon to determine whether you are a candidate for refractive surgery.</strong></p>
+						surgeon to determine whether you are a candidate for refractive surgery.</p>
 					</div>
 					<div class="disclaimer_pregnant" style="display:none;">
-						<p><br><strong>Some surgeons will not perform refractive surgery on
+						<p><br>Some surgeons will not perform refractive surgery on
 						pregnant and lactating individuals, because eyesight can change
 						during pregnancy and lactation. Ask your refractive surgeon during 
 						your consultation whether they operate on pregnant or 
-						lactating individuals.</strong></p>
+						lactating individuals.</p>
 					</div>
 					<div class="disclaimer_isotretinoin" style="display:none;">
-						<p><br><strong>Some surgeons will not perform refractive surgery on
+						<p><br>Some surgeons will not perform refractive surgery on
 						patients taking isotretinoin. Share your medical history with your refractive 
-						surgeon to determine whether you are a candidate for refractive surgery.</strong></p>
+						surgeon to determine whether you are a candidate for refractive surgery.</p>
 					</div>
 					<div class="disclaimer_under21" style="display:none;">
-						<p><br><strong>Remember, refractive surgery is only FDA-approved for
+						<p><br>Remember, refractive surgery is only FDA-approved for
 						patients 21 years of age and older. You may have to wait to
-						to schedule a consultation with a refractive surgeon.</strong></p>
+						to schedule a consultation with a refractive surgeon.</p>
 					</div>
 				</div>
+				
 				<div class="recommendations_table">
 					<table>
-						<tr>
-							<td></td>
-							<td><p>Laser In-Situ Keratomileusis (LASIK)</p></td>
-							<td><p>Photorefractive Keratectomy (PRK)</p></td>
-							<td><p>Intraocular Lens (IOL) Implantation</p></td>
-						</tr>
-						
-						<tr>
-							<td><p>Better Suited for High Myopia</p></td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span></span>
-								</div>
-							</td>
-						</tr>
-						
-						<tr>
-							<td><p>Better Suited for Military and Athletes</p></td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-						</tr>
-						
-						<tr>
-							<td><p>Cost Effective</p></td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span class='resultstiptext'><p>Average of $2,199 per eye</p></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span class='resultstiptext'><p>Average of $2,246 per eye</p></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext monofocal'><p>Average of $3,783 per eye</p></span>
-									<span class='resultstiptext toric'><p>Average of $5,304 per eye</p></span>
-								</div>
-							</td>
-						</tr>
-						
-						<tr>
-							<td><p>Lower Risk of Corneal Complications</p></td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'>
-										<p>The side effects and complications of LASIK include the following:</p>
-										<ul>
-											<li><p>Symptomatic undercorrection or overcorrection</p></li>
-											<li><p>Partial regression of effect</p></li>
-											<li><p>Loss of BCVA</p></li>
-											<li><p>Visual symptoms, including transient or permanent glare or starburst/halo effect, especially at night</p></li>
-											<li><p>Decreased contrast sensitivity</p></li>
-											<li><p>Induced regular or irregular astigmatism</p></li>
-											<li><p>Induced anisometropia</p></li>
-											<li><p>Premature need for reading correction</p></li>
-											<li><p>Corneal haze or scarring (early or delayed onset)</p></li>
-											<li><p>Worsening corneal stromal dystrophy</p></li>
-											<li><p>Corneal infiltrates, ulceration, melting, or perforation (sterile or microbial)</p></li>
-											<li><p>Corneal ectasia (progressive corneal steepening)</p></li>
-											<li><p>Development or exacerbation of dry eye symptoms</p></li>
-											<li><p>Decreased corneal sensitivity</p></li>
-											<li><p>Recurrent corneal erosion</p></li>
-											<li><p>Reactivation of HSV keratitis</p></li>
-											<li><p>Corticosteroid-induced complications (e.g., ocular hypertension, glaucoma, cataract)</p></li>
-											<li><p>Adverse effect on ocular alignment</p></li>
-											<li><p>Ptosis</p></li>
-											<li><p>Artifactual reduction of IOP measured by applanation tonometry</p></li>
-											<li><p>Interface debris</p></li>
-											<li><p>Interface fluid accumulation and associated artifactual underestimation of IOP (pressure-induced stromal keratitis)</p></li>
-											<li><p>Epithelial ingrowth</p></li>
-											<li><p>Flap necrosis</p></li>
-											<li><p>Early or late onset diffuse lamellar keratitis (DLK)</p></li>
-											<li><p>Pressure-induced sterile keratitis</p></li>
-											<li><p>Transient-light sensitivity associated with femtosecond laser</p></li>
-											<li><p>Rainbow glare associated with femtosecond laser</p></li>
-											<li><p>Persistent flap edema</p></li>
-											<li><p>Striae (microstriae and macrostriae)</p></li>
-											<li><p>Traumatic flap dislocation</p></li>
-										</ul>
-									</span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'>
-										<p>The side effects and complications of PRK include the following:</p>
-										<ul>
-											<li><p>Symptomatic undercorrection or overcorrection</p></li>
-											<li><p>Partial regression of effect</p></li>
-											<li><p>Visual aberrations, including transient or permanent glare or starburst/halo effect, especially at night</p></li>
-											<li><p>Decreased contrast sensitivity</p></li>
-											<li><p>Induced regular or irregular astigmatism</p></li>
-											<li><p>Induced anisometropia</p></li>
-											<li><p>Need for reading correction</p></li>
-											<li><p>Corneal haze or scarring (early or delayed onset)</p></li>
-											<li><p>Corneal infiltrates, ulceration, melting, or perforation (sterile or microbial)</p></li>
-											<li><p>Corneal ectasia (progressive corneal steepening)</p></li>
-											<li><p>Development or exacerbation of dry eye symptoms</p></li>
-											<li><p>Decreased corneal sensitivity</p></li>
-											<li><p>Recurrent corneal erosion</p></li>
-											<li><p>Reactivation of HSV keratitis</p></li>
-											<li><p>Corticosteroid-induced complications (e.g., ocular hypertension, glaucoma, cataract)</p></li>
-											<li><p>Adverse effect on ocular alignment</p></li>
-											<li><p>Ptosis</p></li>
-											<li><p>Artifactual reduction of measured IOP (due to corneal thinning)</p></li>
-											<li><p>Complications related to mitomycin-C (e.g., endothelial cell decrease)</p></li>
-										</ul>
-									</span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span class='resultstiptext'>
-									<p>The side effects and complications of IOL Implantation include the following:</p>
-										<ul>
-											<li><p>Symptomatic undercorrection or overcorrection</p></li>
-											<li><p>Loss of BCVA</p></li>
-											<li><p>Visual aberrations, including transient or permanent glare or starburst/halo effect, especially at night</p></li>
-											<li><p>Induced anisometropia</p></li>
-											<li><p>Corticosteroid-induced complications (e.g., ocular hypertension, glaucoma, cataract)</p></li>
-											<li><p>Adverse effect on ocular alignment</p></li>
-											<li><p>Ptosis</p></li>
-											<li><p>Cataract formation</p></li>
-											<li><p>Endothelial cell loss</p></li>
-											<li><p>Corneal decompensation</p></li>
-											<li><p>Pupil ovalization</p></li>
-											<li><p>Pigmentary glaucoma</p></li>
-											<li><p>Acute angle-closure glaucoma</p></li>
-											<li><p>Malignant glaucoma</p></li>
-											<li><p>Lens dislocation with subsequent need for repositioning, exchange, or removal</p></li>
-										</ul>
-									<!--TODO-->
-									<p>Patients with thin corneas or patients with an atypical corneal surface are at increased risk of corneal complications with</p>
-									</span>
-								</div>
-							</td>
-						</tr>
-						
-						<tr>
-							<td><p>Longer Recovery</p></td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-						</tr>	
-						
-						<tr>
-							<td><p>More Painful Recovery</p></td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-						</tr>
-						
-						<tr>
-							<td><p>Involves a Bandage Contact During Recovery</p></td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-						</tr>
-						
-						<tr>
-							<td><p>May Not Be Able to Drive</p></td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-						</tr>
-						
-						<tr>
-							<td><p>Exacerbated Dry Eye</p></td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-						</tr>
-						
-						<tr>
-							<td><p>Follow Up Indefinitely Long</p></td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-						</tr>
-						
-						<tr>
-							<td><p>Is Reversible</p></td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-						</tr>
-						
-						<tr>
-							<td><p>May Affect Future Cataract Surgery</p></td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-check" alt="yes"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-							<td class='results'>
-								<div class='resultstip'>
-									<i class="fas fa-times" alt="no"></i>
-									<span class='resultstiptext'></span>
-								</div>
-							</td>
-						</tr>
-						
+						<thead>
+							<tr>
+								<td colspan="2"></td>
+								<td class="coltitle"><p>Laser In-Situ Keratomileusis (LASIK)</p></td>
+								<td class="coltitle"><p>Photorefractive Keratectomy (PRK)</p></td>
+								<td class="coltitle"><p>Intraocular Lenses (IOLs)</p></td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td rowspan="4" class="bigrowtitle"><p>Advantages</p></td>
+								<td class="rowtitle"><p>Better Suited for High Myopia</p></td>
+								<td class='results LASIK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+									</div>
+								</td>
+								<td class='results PRK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+									</div>
+								</td>
+								<td class='results IOL_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>IOL is optically and structurally better suited for patients with higher myopia, 
+										whose thin or abnormally shaped corneas make them poor candidates for LASIK and PRK.</span>
+									</div>
+								</td>
+							</tr>
+							
+							<tr>
+								<td><class="rowtitle"><p>Better for Patients with Thin or Abnormally Shaped Corneas</p></td>
+								<td class='results LASIK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+										<span class='resultstiptext'>LASIK involves the creation of a flap in the corneal epithelium, Bowman membrane,
+										and corneal stroma;	the shaping of the underlying corneal stroma; and the replacement of the flap. The use of a
+										microkeratome or laser leaves less corneal epithelium untouched than PRK and LASEK. Additionally, because the corneal flap 
+										in LASIK includes the superficial stroma, unlike in PRK and LASEK, this surgery leaves less residual corneal stroma than 
+										PRK and LASEK. This makes it a worse option for patients with thin or abnormally shaped corneas.</span>
+									</div>
+								</td>
+								<td class='results PRK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>PRK involves the removal of the corneal epithelium, with subsequent
+										shaping of the Bowman membrane and underlying corneal stroma. LASEK and Epi-LASEK, variants of PRK,
+										involve the creation of a flap in the corneal epithelium, instead of the removal of the corneal epithelium. Neither 
+										the removal nor the creation of a flap in the corneal epithelium during these surgeries involve a microkeratome or laser. This leaves 
+										more corneal epithelium untouched than LASIK. Additionally, because the corneal flap in PRK and LASEK do not include the 
+										superficial stroma, like it does in LASIK, these surgeries leave more residual corneal stroma than LASIK. This makes 
+										it a better option for patients with thin or abnormally shaped corneas.</span>
+									</div>
+								</td>
+								<td class='results IOL_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>Intraocular Refractive Surgery involves the placement of an intraocular 
+										contact lens within the eye. This contrasts from LASIK and PRK and its variants, which all involve manipulation of the cornea. 
+										As such, it has fewer risks of corneal complications for patients with thin or abnormally shaped corneas.</span>
+									</div>
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="rowtitle"><p>Better Suited for Military and Athletes</p></td>
+								<td class='results LASIK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+										<span class='resultstiptext'>LASIK is not as well suited for the military and athletes as PRK. The surgery 
+										involves the creation of a corneal flap, which is susceptible to damage, dislodgement, or loss with the 
+										infliction of trauma.</span>
+									</div>
+								</td>
+								<td class='results PRK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>PRK is better suited for the military and athletes than LASIK. The 
+										surgery does not involve the creation of a corneal flap, eliminating potential of flap related complications.</span>
+									</div>
+								</td>
+								<td class='results IOL_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+									</div>
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="rowtitle"><p>Less Invasive</p></td>
+								<td class='results LASIK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>LASIK touches more of the cornea than PRK and its variants, making it a more invasive 
+										alternative to PRK and its variants. That being said, 
+										because the procedure remains superficial, in contrast to IOLs, it is still minimally invasive.</span>
+									</div>
+								</td>
+								<td class='results PRK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>PRK and LASEK touch less of the cornea than LASIK, making them less invasive alternatives. Additionally, 
+										because the procedure is superficial, in contrast to IOLs, it is minimally invasive.</span>
+									</div>
+								</td>
+								<td class='results IOL_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+										<span class='resultstiptext'>Intraocular Refractive Surgery involves the placement of an intraocular 
+										contact lens within the eye. This contrasts from LASIK and PRK and its variants, which correct refraction by shaping the cornea, a 
+										more superficial layer of the eye. As such, IOLs are more invasive than LASIK and PRK.</span>
+									</div>
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="bigrowtitle"><p>Price</p></td>
+								<td class="rowtitle"><p>Cost Effective</p></td>
+								<td class='results LASIK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>Average of <a href="https://www.webmd.com/connect-to-care/lasik/how-much-does-lasik-surgery-cost#:~:text=With%20an%20average%20cost%20of,equipment%2C%20and%20specific%20eye%20conditions.">$2,199</a> per eye</span>
+									</div>
+								</td>
+								<td class='results PRK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>Average of <a href="https://www.webmd.com/connect-to-care/lasik/is-prk-surgery-covered-by-insurance#:~:text=How%20Much%20Does%20PRK%20Surgery,laser%2Dassisted%20in%20situ%20keratomileusis.">$2,246</a> per eye</span>
+									</div>
+								</td>
+								<td class='results IOL_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+										<span class='resultstiptext'>Average of $5,304 per eye</span>
+									</div>
+								</td>
+							</tr>
+							
+							<tr>
+								<td rowspan="2" class="bigrowtitle"><p>Side Effects and Complications</p></td>
+								<td class="rowtitle"><p>Exacerbated Dry Eye</p></td>
+								<td class='results LASIK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>LASIK involves the creation of a corneal flap. The creation of a 
+										corneal flap affects corneal nerves associated with tear production. As such, patients may experience exacerbated 
+										dry eye symptoms following LASIK.</span>
+									</div>
+								</td>
+								<td class='results PRK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>PRK involves the removal of the corneal epithelium. LASEK and Epi-LASEK, variants of PRK,
+										involve the creation of a flap in the corneal epithelium instead. 
+										The removal or creation of a flap in the corneal epithelium affects corneal nerves associated with tear production. 
+										As such, patients may experience exacerbated dry eye symptoms following PRK.</span>
+									</div>
+								</td>
+								<td class='results IOL_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+									</div>
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="rowtitle"><p>Influences Future Cataract Surgery</p></td>
+								<td class='results LASIK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>Because LASIK involves shaping of the cornea, it may reduce the 
+										accuracy of IOLs calculations for future cataract surgery.</span>
+									</div>
+								</td>
+								<td class='results PRK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>Because PRK and its variants shape the cornea, it may reduce the 
+										accuracy of IOLs calculations for future cataract surgery.</span>
+									</div>
+								</td>
+								<td class='results IOL_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+									</div>
+								</td>
+							</tr>
+							
+							<tr>
+								<td rowspan="2" class="bigrowtitle"><p>Recovery Period</p></td>
+								<td class="rowtitle"><p>Longer and More Painful Recovery</p></td>
+								<td class='results LASIK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+										<span class='resultstiptext'>LASIK involves the creation of a corneal flap, that is 
+										repositioned after the corneal stroma is shaped. The healing process involves the reattachment 
+										of the corneal flap, which is shorter and less painful than PRK.</span>
+									</div>
+								</td>
+								<td class='results PRK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>PRK involves the removal of the corneal epithelium. The 
+										process of regrowing the corneal epithelium is longer and more painful than the process 
+										of reattaching the corneal flap, as occurs in LASIK.</span>
+									</div>
+								</td>
+								<td class='results IOL_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+									</div>
+								</td>
+							</tr>	
+							
+							<tr>
+								<td class="rowtitle"><p>Follow Up Indefinitely Long</p></td>
+								<td class='results LASIK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+										<span class='resultstiptext'>LASIK patients undergo postoperative examination 
+										36 hours following surgery. Patients whose postoperative vision is worse than their eye-glasses or contact lens 
+										corrected vision preoperatively will follow up with their ophthalmologist 1-4 weeks postoperatively. 
+										Any other follow ups will be determined as appropriate by the ophthalmologist. Typically, patients follow up at 1 day, 4 days, 
+										1 week, 1 month, 3 months, 6 months, and 12 months postoperatively.</span>
+									</div>
+								</td>
+								<td class='results PRK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+										<span class='resultstiptext'>PRK patients undergo postoperative examination 1 day postoperatively and 
+										every 2-3 days after until the epithelium heals (usually 5 days postoperatively). Any other follow ups 
+										will be determined as appropriate by the ophthalmologist. Typically, patients follow up at 1 day, 
+										2-4 weeks, 2-3 months, 6 months, and 12 months postoperatively.</span>
+									</div>
+								</td>
+								<td class='results IOL_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>IOL patients are recommended to pursue indefinite long-term follow up 
+										care with their ophthalmologist.</span>
+									</div>
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="bigrowtitle"><p>Expected Results</p></td>
+								<td class="rowtitle"><p>Is Reversible</p></td>
+								<td class='results LASIK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+										<span class='resultstiptext'>LASIK involves the removal of stromal tissue. This tissue cannot be replaced postoperatively.</span>
+									</div>
+								</td>
+								<td class='results PRK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+										<span class='resultstiptext'>PRK and its variants involve the removal of stromal tissue. This tissue cannot be replaced postoperatively.</span>
+									</div>
+								</td>
+								<td class='results IOL_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>Intraocular Refractive Surgery involves the placement of an intraocular contact lens
+										within the eye. This contact lens can be removed and/or replaced, if the intraocular contact lens does not effectively
+										correct the patient's vision, is displaced/becomes dislocated, or causes significant side effects or complications.</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="bigrowtitle"><p>Additional Resources</p></td>
+								<td class="content">
+									<li><p><a href="https://americanrefractivesurgerycouncil.org/lasik/">American Refractive Surgery Council</a></p></li>
+									<li><p><a href="https://www.mayoclinic.org/tests-procedures/lasik-eye-surgery/about/pac-20384774">Mayo Clinic</a></p></li>
+									<li><p><a href="https://www.allaboutvision.com/visionsurgery/lasik.htm">All About Vision</a></p></li>
+									<li><p><a href="https://www.webmd.com/eye-health/lasik-laser-eye-surgery">WebMD</a></p></li>
+									<li><p><a href="https://www.medicalnewstoday.com/articles/lasik-surgery">Medical News Today</a></p></li>
+								</td>
+								<td  class="content">
+									<li><p><a href="https://eyewiki.aao.org/Photorefractive_Keratectomy">American Academy of Ophthalmology</a></p></li>
+									<li><p><a href="https://my.clevelandclinic.org/health/treatments/8596-photorefractive-keratectomy-prk-eye-surgery">Cleveland Clinic</a></p></li>
+									<li><p><a href="https://www.allaboutvision.com/en-au/vision-surgery/prk/">All About Vision</a></p></li>
+									<li><p><a href="https://www.webmd.com/connect-to-care/lasik/prk-surgery-pros-and-cons">WebMD</a></p></li>
+									<li><p><a href="https://www.healthline.com/health/prk">Healthline</a></p></li>
+								</td>
+								<td  class="content">
+									<li><p><a href="https://www.aao.org/eye-health/news/phakic-intraocular-lenses-nearsightedness">American Academy of Ophthalmology</a></p></li>
+									<li><p><a href="https://www.fda.gov/medical-devices/implants-and-prosthetics/phakic-intraocular-lenses">Food and Drug Administration</a></p></li>
+									<li><p><a href="https://www.allaboutvision.com/lens-implant-surgery/">All About Vision</a></p></li>
+									<li><p><a href="https://www.webmd.com/eye-health/what-to-know-icl-surgery">WebMD</a></p></li>
+									<li><p><a href="https://www.healthline.com/health/icl-surgery#benefits">Healthline</a></p></li>
+								</td>
+							</tr>
+						</tbody>
 					</table>
-
 				</div>
-			</div>
-			<div class="surgeryrecs-bottom">
+				
+					<div class="submitNav" id="open_more_info"> 
+						<input type='button' class='submitBtn' value = 'More Information &#187;' onclick="showDivByClass('more_info'); hideDivbyID('open_more_info');">
+					</div>
+				
+				<!-- <div class="more_info"> -->
+					<h1 class="section-title more_info"><br><br>More Information</h1>
+					<div class="recommendations_table more_info">
+						<table>
+							<thead>
+								<tr>
+									<td></td>
+									<td class="coltitle"><p>Laser In-Situ Keratomileusis (LASIK)</p></td>
+									<td class="coltitle"><p>Photorefractive Keratectomy (PRK)</p></td>
+									<td class="coltitle"><p>Intraocular Lenses (IOL)</p></td>
+								</tr>
+							</thead>
+							
+							<tbody>						
+								<tr>
+									<td class="bigrowtitle"><p>Advantages</td>
+									<td  class="content">
+										<ul>
+											<li><p> •	 rapid visual recovery</p></li>
+											<li><p>  •	 little to no discomfort</p></li>
+										</ul>
+									</td>
+									<td  class="content">
+										<ul>
+											<li><p> •	 better for patients with thinner or abnormally shaped corneas</p></li>
+											<li><p>  •	 minimized eye dryness postoperatively</p></li>
+											<li><p>  •	 no risk of flap-related complications</p></li>
+										</ul>
+									</td>
+									<td class="content">
+										<ul>
+											<li><p> •	 better for patients with high myopia who are poor candidates for LASIK and PRK</p></li>
+											<li><p>  •	 short recovery period</p></li>
+										</ul>
+									</td>
+								</tr>
+											
+								<tr>
+									<td class="bigrowtitle"><p>Recovery Period</p></td>
+									<td  class="content">
+										<ul>
+											<li><p> •	 4-6 hours postoperatively: Patients may experience mild discomfort-- a burning 
+											and itchy sensation--, during which they should rest their eyes. Patients should refrain from rubbing or 
+											squeezing their eyes.</p></li>
+											<li><p> •	 For 4-10 days: Patients are typically prescribed steroid and antibacterial eye drops, which they should 
+											use in accordance with the patient care instructions provided by their ophthalmologist.</p></li>
+											<li><p> •	 For Weeks to months: Patients may use preservative-free eye drops to alleviate dry eye symptoms.</p><br><br></li>
+																						
+											<li><p> •	 3-6 months postoperatively: Patients should expect to achieve vision stabilization.</p><br><br></li>
+																						
+											<li><p> •	 For 3 days: Patients should avoid non-contact sports.</p></li>
+											<li><p> •	 For 1-7 days: Patients may be asked to use a protective shield while showering and sleeping.</p></li>
+											<li><p> •	 For 1-2 weeks: Patients should avoid swimming and hot tubs, even with goggles.</p></li>
+											<li><p> •	 For 2 weeks: Patients should avoid applying cosmetic products around their eyes.</p></li>
+											<li><p> •	 For 4 weeks: Patients should avoid strenuous contact sports.</p></li>
+										</ul>
+									</td>
+									<td  class="content">
+										<ul>
+											<li><p> •	 For 4-5 days postoperatively: Patients may experience tearing, sensitivity to light, moderately blurred vision. 
+											This waxes on on days 2 and three and wanes on days 4 and 5.<li><p>
+											<li><p> •	 For 4-7 days: Patients must wear a bandage contact lens. During this period, patients are 
+											typically prescribed chilled lubricating and medicated drops. The prescription of 
+											topical antibiotics, corticosteroids, NSAIDs, and oral analgesic vary by provider.</p><br><br></li>
+																						
+											<li><p> •	 5 days postoperatively: Patients should expect to have 20/30-20/50 vision.</p></li>
+											<li><p> •	 For 4-6 weeks: Patients will observe gradual improvement.</p></li>
+											<li><p> •	 3-6 months postoperatively: Patients should expect to achieve vision stabilization.</p><br><br></li>
+																						
+											<li><p> •	 For 7-10 days: Patients should avoid activities that require good vision, such as driving, reading, and computer use.</p></li>
+											<li><p> •	 For 2 weeks: Patients should avoid applying cosmetic products around their eyes. Patients should also 
+											avoid swimming and hot tubs, even with goggles.</p></li>
+											<li><p> •	 For 1 month: Patients should avoid contact sports.</p></li>
+											<li><p> •	 For 1 year: Patients should wear sun glasses for as long as their ophthalmologist recommends.</p></li>
+										</ul>
+									</td>
+									<td class="content">
+										<ul>
+											<li><p> •	 For the first few days: Patients may experience mild discomfort, sensitivity to light, and the feeling 
+											that something is in your eye. Patients should refrain from rubbing or 
+											squeezing their eyes. Patients may be prescribed pain medication to ameliorate this.</p></li>
+											<li><p> •	 For a few weeks: Patients may be prescribed anti-inflammatory and antibiotic eye drops. 
+											Patients should wear a shield as instructed by their ophthalmologist.</p><br><br></li>
+																					
+											<li><p> •	 First several days: Patients may experience hazy or blurry vision, with gradual improvement</p></li>
+											<li><p> •	 For several weeks: Patients may experience vision fluctuations.</p></li>
+											<li><p> •	 2-4 weeks postoperatively: Patients will achieve vision stability.</p><br><br></li>
+																					
+											<li><p> •	 For 8 weeks: Patients should not get water in their eyes, bend from the waist to lift weights, lift heavy objects, 
+											or engage in strenuous activity.</p></li>
+										</ul>
+									</td>
+								</tr>
+											
+								<tr>
+									<td class="bigrowtitle"><p>Side Effects and Complications</p></td>
+									<td class="content"><p>•	 Most common complaints</a>: blurred distance and/or near vision, glare, dry eyes, and night vision 
+									problems. Other side effects and complications of LASIK can be found 
+									<a href="https://www.aao.org/preferred-practice-pattern/refractive-errors-refractive-surgery-ppp-2017">here</a>.</p></td>
+									<td  class="content"><p>•	 Most common complaints: blurred distance and/or near vision, glare, dry eyes, and night vision 
+									problems. Other side effects and complications of LASIK can be found 
+									<a href="https://www.aao.org/preferred-practice-pattern/refractive-errors-refractive-surgery-ppp-2017">here</a>.</p></td>
+									<td class="content"><p>•	 A high proportion of patients who received IOLs during Phase III clinical trials 
+									described their visual acuity as good to excellent.</p></td>
+								</tr>
+											
+								<tr>
+									<td class="bigrowtitle"><p>Results</p></td>
+									<td  class="content">
+										<ul>
+											<li><p>•	 95% of patients are satisfied with their results; however, a range of 1-2% are dissatisfied with the 
+											surgery and a range of 1-4% are dissatisfied with their vision.</p><br><br></li>
+											<li><p>•	 At 3 months postoperatively, 96% patients from the general population achieved 20/20 vision</p><br><br></li>
+											
+											<li><p>•	 More predictable for low to moderate myopia; less predictable
+											for high myopia</p></li>
+											<li><p>•	 75-100%, with a median of 92%, patients with myopia and myopic astigmatism achieved a 
+											prescription within 1.00D intended correction</p><br><br></li>
+											
+											<li><p>•	 86-91%, with a median of 88%, patients with hyperopia between 0.50D to 6.00D.</p></li>
+											<li><p>•	 94-100% hyperopic patients achieved 20/40 vision</p></li>
+											<li><p>•	 88-89% patients with hyperopic astigmatism achieved a 
+											prescription within 1.00D intended correction</p></li>
+											<li><p>•	 94% patients with hyperopic astigmatism achieved 20/40 vision</p></li>
+										</ul>
+									</td>
+									<td class="content">
+										<ul>
+											<li><p>•	 91.8% of patients satisfied with their surgery</p></li>
+											<li><p>•	 96.3% believe their goal was achieved and 95.7% would still have undergone surgery 
+											if faced with the decision again.</p><br><br></li>
+											
+											<li><p>•	 More predictable for low to moderate myopia; less predictable
+											for high myopia</p></li>
+											<li><p>•	 12 months postoperatively, 70-92% of myopic patients with preoperative prescriptions 
+											ranging from 1.00D to 14.00D had a visual acuity of 20/20 to 20/40</p></li>
+											<li><p>•	 12 months postoperatively, 86% of myopic patients with preoperative prescriptions 
+											ranging from 1.00D to 14.00D had a prescription within 1.00D of their intended correction.</p><br><br></li>
+											
+											<li><p>•	 More predictable for low to moderate hyperopia; less predictable
+											for high hyperopia</p></li>
+											<li><p>•	 12 months or more postoperatively, 79% of hyperopic patients achieved within 
+											1.00D of their intended correction</p></li>
+										</ul>
+									</td>
+									<td  class="content"><p>•	 Phakic IOLs are currently in Phase III clinical trials. As such, results are still unknown.</p></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				<!-- </div> -->
 			</div>
 		</div>
+		
 		<div class="pageNav"> 
 			<a href="#recs" class="next round"><</a>
 			<a href="#surgeonrecs" class="next round">></a>
@@ -2895,67 +3146,91 @@
 				<h1 class="section-title"><br><br>Surgeon Recommendations</h1>
 			</div>
 			<div class="surgeonrecs-bottom">
-			<!--
-				<div class="LASIK">
-					<!--4.9 stars
-					<div class="surgeon">
-						<h2>Carrot Eye Center</h2>
-						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-						<div class="elfsight-app-8a3989d2-ce38-495b-bb9b-8179a81d3f6a"></div>
-					</div>
-					<!--4.8 stars
-					<div class="surgeon">
-						<h2>Barnet Dulaney Perkins Eye Center</h2>
-						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-						<div class="elfsight-app-84678646-8f21-4cfc-9827-65f9677004da"></div>
-					</div>	
-					<!--4.5 stars
-					<div class="surgeon">
-						<h2>Swagel Wootton Eye Institute - Mesa</h2>
-						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-						<div class="elfsight-app-4b7eafa8-0654-4cc2-9fc0-7e404ccd0997"></div>
-					</div>
+				<div class="LASIK_surgeons">
+					<table>
+						<tr><td><h2>Carrot Eye Center</h2></td></tr>
+						<tr><td>
+							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+							<div class="elfsight-app-e3e4cf5b-e20d-44fc-beec-151600949292"></div> 
+						</td></tr>
+						
+						<tr><td><h2>Barnet Dulaney Perkins Eye Center</h2></td></tr>
+						<tr><td>
+							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+							<div class="elfsight-app-84678646-8f21-4cfc-9827-65f9677004da"></div>
+						</td></tr>
+						
+						<tr><td><h2>Swagel Wootton Eye Institute - Mesa</h2><td></tr>
+						<tr><td>
+							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+							<div class="elfsight-app-4b7eafa8-0654-4cc2-9fc0-7e404ccd0997"></div>
+						</td></tr>
+					</table>
 				</div>
-				<div class="PRK">
-					<!--4.9 stars
-					<div class="surgeon">
-						<h2>Carrot Eye Center</h2>
-						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-						<div class="elfsight-app-8a3989d2-ce38-495b-bb9b-8179a81d3f6a"></div>
-					</div>
-					<!--4.5 stars
-					<div class="surgeon">
-						<h2>Swagel Wootton Eye Institute - Mesa</h2>
-						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-						<div class="elfsight-app-4b7eafa8-0654-4cc2-9fc0-7e404ccd0997"></div>
-					</div>-->
-					<!--4.0 stars
-					<div class="surgeon">
-						<h2>Eye Doctors of Arizona</h2>
-						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-						<div class="elfsight-app-20edcbe5-422c-4e7c-b530-83dcc803b3c6"></div>
-					</div>
+				<div class="PRK_surgeons">
+					<table>
+						<tr><td><h2>Carrot Eye Center</h2></td></tr>
+						<tr><td>
+							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+							<div class="elfsight-app-e3e4cf5b-e20d-44fc-beec-151600949292"></div> 
+						</td></tr>
+						
+						<tr><td><h2>Swagel Wootton Eye Institute - Mesa</h2></td></tr>
+						<tr><td>
+							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+							<div class="elfsight-app-3c43b0bb-951e-429c-b096-07bd1cb10f6d"></div>
+						</td></tr>
+						
+						<tr><td><h2>Eye Doctors of Arizona</h2><td></tr>
+						<tr><td>
+							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+							<div class="elfsight-app-20edcbe5-422c-4e7c-b530-83dcc803b3c6"></div>
+						</td></tr>
+					</table>
 				</div>
-				<div class="IOL">
-					<!--4.9 stars
-					<div class="surgeon">
-						<h2>Carrot Eye Center</h2>
-						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-						<div class="elfsight-app-8a3989d2-ce38-495b-bb9b-8179a81d3f6a"></div>
-					</div>
-					<!--4.5 stars
-					<div class="surgeon">
-						<h2>Swagel Wootton Eye Institute - Mesa</h2>
-						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-						<div class="elfsight-app-4b7eafa8-0654-4cc2-9fc0-7e404ccd0997"></div>
-					</div>
-					<!-- 3.3 stars 
-					<div class="surgeon">
-						<h2>Southwestern Eye Center</h2>
-						<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-						<div class="elfsight-app-38713e41-a53c-4736-af28-1446038076ea"></div>
-					</div>
-				</div>-->
+				<div class="IOL_surgeons">
+					<table>
+						<tr><td><h2>Carrot Eye Center</h2></td></tr>
+						<tr><td>
+							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+							<div class="elfsight-app-e3e4cf5b-e20d-44fc-beec-151600949292"></div> 
+						</td></tr>
+						
+						<tr><td><h2>Swagel Wootton Eye Institute - Mesa</h2></td></tr>
+						<tr><td>
+							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+							<div class="elfsight-app-3c43b0bb-951e-429c-b096-07bd1cb10f6d"></div>
+						</td></tr>
+						
+						<tr><td><h2>Southwestern Eye Center</h2><td></tr>
+						<tr><td>
+							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+							<div class="elfsight-app-38713e41-a53c-4736-af28-1446038076ea"></div>
+						</td></tr>
+					</table>
+				</div>
+				<div class="none_surgeons">
+					<table>
+						<tr><td><h2>Eye Doctors of Arizona</h2><td></tr>
+						<tr><td>
+							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+							<div class="elfsight-app-20edcbe5-422c-4e7c-b530-83dcc803b3c6"></div>
+						</td></tr>
+						
+						<tr><td><h2>Swagel Wootton Eye Institute - Mesa</h2></td></tr>
+						<tr><td>
+							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+							<div class="elfsight-app-3c43b0bb-951e-429c-b096-07bd1cb10f6d"></div>
+						</td></tr>
+						
+						<tr><td><h2>Carrot Eye Center</h2></td></tr>
+						<tr><td>
+							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+							<div class="elfsight-app-e3e4cf5b-e20d-44fc-beec-151600949292"></div> 
+						</td></tr>
+						
+					</table>
+				</div>
 			</div>
 		</div>
 		<div class="pageNav"> 
