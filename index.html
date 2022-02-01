@@ -200,31 +200,19 @@
 		<!-- /*End of Home Section*/ -->
 
 		<!-- /*Patient Education Section*/ -->
-		#patientEdu .patientEdu {
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 0 50px;
-			justify-content: flex-start;
-		}
-
-		#patientEdu {
-			padding-top: 225px;
-			padding-bottom: 225px;
+		#patientEdu .patientEduContainer {
+			display: flex;
+			align-items: flex-start;
+			text-align: left;
+			flex-direction: column;
+			padding: 30px;
 			background-color: #F0F0F0;
-			background-position: center;
 			background-size: cover;
 			position: relative;
-			z-index: 1;
-		}
-
-		.patientEduContainer h1 {
-			font-weight: 1000;
-			font-family: 'Optician Sans', sans-serif;
-			display: block;
-			width: fit-content;
-			font-size: 2rem;
-			position: relative;
-			color: black;
+			z-index; 1;
+			overflow: hidden;
+			padding-top: 225px;
+			padding-bottom: 225px;
 		}
 
 		.patientEduContainer p {
@@ -371,31 +359,19 @@
 		<!-- /*End of Surgeries Section*/
 
 		/*Patient Decision Aid Section*/ -->
-		#patientDecisionAid .patientDecisionAid {
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 0 50px;
-			justify-content: flex-start;
-		}
-
-		#patientDecisionAid {
-			padding-top: 225px;
-			padding-bottom: 225px;
+		#patientDecisionAid .patientDecisionAidContainer {
+			display: flex;
+			align-items: flex-start;
+			text-align: left;
+			flex-direction: column;
+			padding: 30px;
 			background-color: #F0F0F0;
-			background-position: center;
 			background-size: cover;
 			position: relative;
-			z-index: 1;
-		}
-
-		.patientDecisionAidContainer h1 {
-			font-weight: 1000;
-			font-family: 'Optician Sans', sans-serif;
-			display: block;
-			width: fit-content;
-			font-size: 2rem;
-			position: relative;
-			color: black;
+			z-index; 1;
+			overflow: hidden;
+			padding-top: 225px;
+			padding-bottom: 225px;
 		}
 
 		.patientDecisionAidContainer p {
@@ -409,7 +385,6 @@
 			vertical-align: top;
 			line-height: 28px;
 		}
-
 
 		#patientDecisionAid .logo li a p {
 			display: block;
@@ -443,13 +418,17 @@
 			font-size: 1rem;
 		}
 
+		#history .qn2athrud, #history .qn3athrub {
+			padding-left: 100px;
+		}
+		
 		#history .qn ul li p {
 			display: list-item;
 			font-size: 0.9rem;
 		}
 
 		#history .qn {
-			flex-basis:80%;
+			flex-basis:50%;
 			display: flex;
 			align-items: flex-start;
 			justify-content: center;
@@ -594,31 +573,19 @@
 		<!-- /*End of Values Section*/
 
 		/*Recommendations Section*/ -->
-		#recs .recs {
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 0 50px;
-			justify-content: flex-start;
-		}
-
-		#recs {
-			padding-top: 225px;
-			padding-bottom: 225px;
+		#recs .recsContainer {
+			display: flex;
+			align-items: flex-start;
+			text-align: left;
+			flex-direction: column;
+			padding: 30px;
 			background-color: #F0F0F0;
-			background-position: center;
 			background-size: cover;
 			position: relative;
-			z-index: 1;
-		}
-
-		.recsContainer h1 {
-			font-weight: 1000;
-			font-family: 'Optician Sans', sans-serif;
-			display: block;
-			width: fit-content;
-			font-size: 2rem;
-			position: relative;
-			color: black;
+			z-index; 1;
+			overflow: hidden;
+			padding-top: 225px;
+			padding-bottom: 225px;
 		}
 
 		.recsContainer p {
@@ -770,6 +737,10 @@
 		<!-- /*End of Surgery Recommendations Section*/
 
 		/*Surgeon Recommendations Section*/ -->
+		#surgeonrecs .surgeonrecsContainer h1{
+			margin-top: 460px;
+		}
+		
 		#surgeonrecs .LASIK_surgeons {
 			display: none;
 		}
@@ -1005,17 +976,17 @@
 		}
 		
 		function errorMessage(eye) {
-			console.log("entering errorMessage(eye)");
+			<!-- console.log("entering errorMessage(eye)"); -->
 			if(eye.localeCompare('right') == 0) {
-				console.log("eye: " + eye);
-				console.log("RC: " + document.getElementById('prescription_RC').value);
+				<!-- console.log("eye: " + eye);
+				 -->console.log("RC: " + document.getElementById('prescription_RC').value);
 				if (!(document.getElementById('prescription_Raxis').value == "") && document.getElementById('prescription_RC').value == "") {
 					alert("Please enter your right cylindrical component.");
 				}
 			}
 			else if(eye.localeCompare('left') == 0) {
-				console.log("eye: " + eye);
-				console.log("LC: " + document.getElementById('prescription_LC').value);
+				<!-- console.log("eye: " + eye); -->
+				<!-- console.log("LC: " + document.getElementById('prescription_LC').value); -->
 				if (!(document.getElementById('prescription_Laxis').value == "") && document.getElementById('prescription_LC').value == "") {
 					alert("Please enter your left cylindrical component.");
 				}
@@ -1450,6 +1421,9 @@
 					if ("PRK" in modalities) {
 						PRKLasers_mixedastigmatism("right");
 					}
+					
+					removeModality("IOL");
+					hideDivByClass("myope_only");
 				}
 				//if regular astigmatism
 				else {
@@ -1483,12 +1457,15 @@
 						}
 						
 						removeModality("IOL");
+						hideDivByClass("myope_only");
 					}// can patients with no power and just astigmatism have their vision corrected with LASIK, PRK, and/or IOL
 					else { //RS_neg == 0
 						if (RS_pos > 0) {
 							console.log("no power, astigmatic. hyperopic astigmatism.");
 							LASIKLasers_hyperopiaastigmatismpiaastigmatism("right");
 							PRKLasers_hyperopiaastigmatism("right");
+							removeModality("IOL");
+							hideDivByClass("myope_only");
 						}
 						if (RS_pos < 0){
 							console.log("no power, astigmatic. myopic astigmatism.");
@@ -1517,6 +1494,9 @@
 					if ("PRK" in modalities) {
 						PRKLasers_mixedastigmatism("left");
 					}
+					
+					removeModality("IOL");
+					hideDivByClass("myope_only");
 				}
 				//if regular astigmatism
 				else {
@@ -1551,12 +1531,15 @@
 						}
 						
 						removeModality("IOL");
+						hideDivByClass("myope_only");
 					}
 					else { //LS_neg == 0
 						if (LS_pos > 0) {
 							console.log("no power, astigmatic. hyperopic astigmatism.");
 							LASIKLasers_hyperopiaastigmatismpiaastigmatism("left");
 							PRKLasers_hyperopiaastigmatism("left");
+							removeModality("IOL");
+							hideDivByClass("myope_only");
 						}
 						if (LS_pos < 0){
 							console.log("no power, astigmatic. myopic astigmatism.");
@@ -1599,6 +1582,7 @@
 					}
 					
 					removeModality("IOL");
+					hideDivByClass("myope_only");
 				}
 				if (LS_neg < 0) {
 					console.log("myopic");
@@ -1629,6 +1613,7 @@
 					}
 					
 					removeModality("IOL");
+					hideDivByClass("myope_only");
 				}
 				else { //20/20 vision
 					removeModality("LASIK");
@@ -2142,18 +2127,18 @@
 						if (rank == 1) {
 							console.log("entered rank " + rank);
 							for (let i = 0; i < 3; i++) {
-								modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('value'));
+								modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('lasikvalue'));
 							}
 						}
 						else if (rank == 2) {
 							console.log("entered rank " + rank);
 							for (let i = 0; i < 2; i++) {
-								modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('value'));
+								modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('lasikvalue'));
 							}
 						}
 						else if (rank == 3) {
 							console.log("entered rank " + rank);
-							modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('lasikvalue'));
 						}
 					}
 					if (String(element_class).includes("PRK") && "PRK" in modalities) {
@@ -2161,18 +2146,18 @@
 						if (rank == 1) {
 							console.log("entered rank " + rank);
 							for (let i = 0; i < 3; i++) {
-								modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('value'));
+								modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('prkvalue'));
 							}
 						}
 						else if (rank == 2) {
 							console.log("entered rank " + rank);
 							for (let i = 0; i < 2; i++) {
-								modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('value'));
+								modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('prkvalue'));
 							}
 						}
 						else if (rank == 3) {
 							console.log("entered rank " + rank);
-							modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('prkvalue'));
 						}
 					}
 					if (String(element_class).includes("IOL") && "IOL" in modalities) {
@@ -2180,18 +2165,18 @@
 						if (rank == 1) {
 							console.log("entered rank " + rank);
 							for (let i = 0; i < 3; i++) {
-								modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('value'));
+								modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('iolvalue'));
 							}
 						}
 						else if (rank == 2) {
 							console.log("entered rank " + rank);
 							for (let i = 0; i < 2; i++) {
-								modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('value'));
+								modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('iolvalue'));
 							}
 						}
 						else if (rank == 3) {
 							console.log("entered rank " + rank);
-							modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('value'));
+							modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('iolvalue'));
 						}
 					}
 				}
@@ -2248,22 +2233,26 @@
 	<!--Patient Education Section -->
 	<section id="patientEdu">
 		<div class="patientEduContainer inner">
-			<h1>Patient Education</h1>
-			<div class="logo">
-                <div>
-					<p>In this section, you will learn about the different types of refractive errors 
-					and the surgical modalities commonly used to correct them.</p><br><br><br><br>
-					<h2>Sections</h2>
-					<ul><br>
-						<li><a href="#errors"><p>&emsp; &ensp; •	 &ensp; Refractive Errors</p></a></li>
-						<li><a href="#surgeries"><p>&emsp; &ensp; •	 &ensp; Refractive Surgeries</p></a></li>
-					</ul>
+			<div class="patientEdu-top">
+				<h1 class="section-title">Patient Education</h1>
+			</div>
+			<div class="patientEdu-bottom">	
+				<div class="logo">
+					<div>
+						<p>In this section, you will learn about the different types of refractive errors 
+						and the surgical modalities commonly used to correct them.</p><br><br><br><br>
+						<h2>Sections</h2>
+						<ul><br>
+							<li><a href="#errors"><p>&emsp; &ensp; •	 &ensp; Refractive Errors</p></a></li>
+							<li><a href="#surgeries"><p>&emsp; &ensp; •	 &ensp; Refractive Surgeries</p></a></li>
+						</ul>
+					</div>
 				</div>
-            </div>
-		</div>
-		<div class="pageNav"> 
-			<a href="#home" class="next round"><</a>
-			<a href="#errors" class="next round">></a>
+				<div class="pageNav"> 
+					<a href="#home" class="next round"><</a>
+					<a href="#errors" class="next round">></a>
+				</div>
+			</div>
 		</div>
 	</section>	
 	<!--End of Home Section -->
@@ -2389,24 +2378,28 @@
 	<!--Patient Decision Aid Section -->
 	<section id="patientDecisionAid">
 		<div class="patientDecisionAidContainer inner">
-			<h1>Patient Decision Aid</h1>
-			<div class="logo">
-                <div>
-					<p>In this section, you will respond to a series of questions regarding your 
-					medical history and regarding the factors that may influence your decision 
-					to pursue any particular refractive surgery modality. Your responses will be used to 
-					recommend a surgical modality for you to pursue.</p><br><br><br><br>
-					<h2>Sections</h2>
-					<ul><br>
-						<li><a href="#history"><p>&emsp; &ensp; •	 &ensp; Medical History</p></a></li>
-						<li><a href="#values"><p>&emsp; &ensp; •	 &ensp; Preferences</p></a></li>
-					</ul>
+			<div class="patientDecisionAid-top">
+				<h1 class="section-title">Patient Decision Aid</h1>
+			</div>
+			<div class="patientDecisionAid-bottom">	
+				<div class="logo">
+					<div>
+						<p>In this section, you will respond to a series of questions regarding your 
+						medical history and regarding the factors that may influence your decision 
+						to pursue any particular refractive surgery modality. Your responses will be used to 
+						recommend a surgical modality for you to pursue.</p><br><br><br><br>
+						<h2>Sections</h2>
+						<ul><br>
+							<li><a href="#history"><p>&emsp; &ensp; •	 &ensp; Medical History</p></a></li>
+							<li><a href="#values"><p>&emsp; &ensp; •	 &ensp; Preferences</p></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="pageNav"> 
+					<a href="#surgeries" class="next round"><</a>
+					<a href="#history" class="next round">></a>
 				</div>
 			</div>
-		</div>
-		<div class="pageNav"> 
-			<a href="#surgeries" class="next round"><</a>
-			<a href="#history" class="next round">></a>
 		</div>
 	</section>	
 	<!--End of Home Section -->
@@ -2438,32 +2431,8 @@
 					
 				</div>
 				
-				<div class="qn">
-					<p>2a.&ensp; Do you have a history of, or do you currently have any of the following:</p> 
-					<div id='preferences'>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_dm' id='relcontraindications_dm' value=-25 onclick="uncheck_none('relcontraindications_dm')" required />
-						  <label id='relcontraindications_dm' for='relcontraindications_dm'><p>Diabetes Mellitus</p></label><br><br>
-						 <input type='checkbox' class='checkbox qn2a' name='relcontraindications_thyroid' id='relcontraindications_thyroid' value=-25 onclick="uncheck_none('relcontraindications_thyroid')" required />
-						  <label id='relcontraindications_thyroid' for='relcontraindications_thyroid'><p>Uncontrolled Thyroid Disease</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_herpes' id='relcontraindications_herpes' value=-25 onclick="uncheck_none('relcontraindications_herpes')" required />
-						  <label id='relcontraindications_herpes' for='relcontraindications_herpes'><p>Herpes Simplex Eye Infections</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_rosacea' id='relcontraindications_rosacea' value=-25 onclick="uncheck_none('relcontraindications_rosacea')" required />
-						  <label id='relcontraindications_rosacea' for='relcontraindications_rosacea'><p>Ocular Rosacea</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_dryeye' id='relcontraindications_dryeye' value=-25 onclick="uncheck_none('relcontraindications_dryeye')" required />
-						  <label id='relcontraindications_dryeye' for='relcontraindications_dryeye'><p>Severe Dry Eye</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_strabismus' id='relcontraindications_strabismus' value=-25 onclick="uncheck_none('relcontraindications_strabismus')"required />
-						  <label id='relcontraindications_strabismus' for='relcontraindications_strabismus'><p>Strabismus</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_cornea' id='relcontraindications_cornea' value=-25 onclick="uncheck_none('relcontraindications_cornea')" required />
-						  <label id='relcontraindications_cornea' for='relcontraindications_cornea'><p>Keratoconus</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_glaucoma' id='relcontraindications_glaucoma' value=-25 onclick="uncheck_none('relcontraindications_glaucoma')" required />
-						  <label id='relcontraindications_glaucoma' for='relcontraindications_glaucoma'><p>Severe Glaucoma</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_uveitis' id='relcontraindications_uveitis' value=-25 onclick="uncheck_none('relcontraindications_uveitis')" required />
-						  <label id='relcontraindications_uveitis' for='relcontraindications_uveitis'><p>Uveitis</p></label><br><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_none' id='relcontraindications_none' value=0 onclick="noRelContraindicationsConfirm()" required />
-						  <label id='relcontraindications_none' for='relcontraindications_none'><p>None of the Above</p></label>
-					  </div>
-					
-					<p><br>2b.&ensp; Are you pregnant or lactating?</p>
+				<div class="qn qn2athrud">
+					<p>2b.&ensp; Are you pregnant or lactating?</p>
 					
 					<div id="preferences">
 						<input id="pregnant_yes" class="radioBtn qn2b" name="pregnant" type="radio" value=0 required />
@@ -2471,7 +2440,7 @@
 
 						<input id="pregnant_no" class="radioBtn qn2b" name="pregnant" type="radio" value=0 required />
 							<label for="pregnant_no"><p>no</p></label>
-					</div>	
+					</div>
 					
 					<p><br>2c.&ensp; Do you take Isotretinoin?</p>
 					
@@ -2495,6 +2464,60 @@
 				</div>
 				
 				<div class="qn">
+					<p>2a.&ensp; Do you have a history of, or do you currently have any of the following:</p> 
+					<div id='preferences'>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_dm' id='relcontraindications_dm' value=-25 onclick="uncheck_none('relcontraindications_dm')" required />
+						  <label id='relcontraindications_dm' for='relcontraindications_dm'><p>Diabetes Mellitus</p></label>
+						 <input type='checkbox' class='checkbox qn2a' name='relcontraindications_thyroid' id='relcontraindications_thyroid' value=-25 onclick="uncheck_none('relcontraindications_thyroid')" required />
+						  <label id='relcontraindications_thyroid' for='relcontraindications_thyroid'><p>Uncontrolled Thyroid Disease</p></label><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_herpes' id='relcontraindications_herpes' value=-25 onclick="uncheck_none('relcontraindications_herpes')" required />
+						  <label id='relcontraindications_herpes' for='relcontraindications_herpes'><p>Herpes Simplex Eye Infections</p></label>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_rosacea' id='relcontraindications_rosacea' value=-25 onclick="uncheck_none('relcontraindications_rosacea')" required />
+						  <label id='relcontraindications_rosacea' for='relcontraindications_rosacea'><p>Ocular Rosacea</p></label><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_dryeye' id='relcontraindications_dryeye' value=-25 onclick="uncheck_none('relcontraindications_dryeye')" required />
+						  <label id='relcontraindications_dryeye' for='relcontraindications_dryeye'><p>Severe Dry Eye</p></label>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_strabismus' id='relcontraindications_strabismus' value=-25 onclick="uncheck_none('relcontraindications_strabismus')"required />
+						  <label id='relcontraindications_strabismus' for='relcontraindications_strabismus'><p>Strabismus</p></label><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_cornea' id='relcontraindications_cornea' value=-25 onclick="uncheck_none('relcontraindications_cornea')" required />
+						  <label id='relcontraindications_cornea' for='relcontraindications_cornea'><p>Keratoconus</p></label><br>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_glaucoma' id='relcontraindications_glaucoma' value=-25 onclick="uncheck_none('relcontraindications_glaucoma')" required />
+						  <label id='relcontraindications_glaucoma' for='relcontraindications_glaucoma'><p>Severe Glaucoma</p></label>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_uveitis' id='relcontraindications_uveitis' value=-25 onclick="uncheck_none('relcontraindications_uveitis')" required />
+						  <label id='relcontraindications_uveitis' for='relcontraindications_uveitis'><p>Uveitis</p></label>
+						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_none' id='relcontraindications_none' value=0 onclick="noRelContraindicationsConfirm()" required />
+						  <label id='relcontraindications_none' for='relcontraindications_none'><p>None of the Above</p></label>
+					  </div>
+					</div>
+				
+				<!-- <div class="qn">
+					<p><br>2d.&ensp; Are you younger than 21 years old?</p>
+					
+					<div id="preferences">
+						<input id="under21_yes" class="radioBtn qn2d" name="under21" type="radio" value=0 required />
+							<label for="under21_yes"><p>yes</p></label>
+
+						<input id="under21_no" class="radioBtn qn2d" name="under21" type="radio" value=0 required />
+							<label for="under21_no"><p>no</p></label>
+					</div>
+				</div> -->
+				
+				<!-- <div class="qn">
+					<p>2b.&ensp; Are you pregnant or lactating?</p>
+					
+					<div id="preferences">
+						<input id="pregnant_yes" class="radioBtn qn2b" name="pregnant" type="radio" value=0 required />
+							<label for="pregnant_yes"><p>yes</p></label>
+
+						<input id="pregnant_no" class="radioBtn qn2b" name="pregnant" type="radio" value=0 required />
+							<label for="pregnant_no"><p>no</p></label>
+					</div>
+				</div> -->
+				
+				
+				
+				
+				
+				<div class="qn qn3athrub">
 					<p>3a.&ensp; Do you know your eyeglasses prescription?</p>
 						
 						<div id="preferences">
@@ -2529,7 +2552,7 @@
 						</table>
 					<!--</div>-->
 					
-					<p class="qn4"><br>3b.&ensp; Are you hyperopic or antimetropic, in which one of your eyes is hyperopic? </p>
+					<p class="qn4"><br>3b.&ensp; Do you have hyperopia, antimetropia-- in which one of your eyes is hyperopic--, or mixed astigmatism? </p>
 					
 					<div class="qn4">
 						<div id="preferences">
@@ -2577,16 +2600,16 @@
 			</div>
 			<div class="values-bottom">				
 				<div id="list1" class="droppable list" data-max="-1"><!-- I want this to accept many. -->
-				  <p class="item draggable PRK IOL" id="high_myope" value=4>The refractive surgery is better suited for patients with high myopia.</p>
-				  <p class="item draggable PRK IOL" id="thin_cornea" value=4>The refractive surgery is better suited for patients with thinner or abnormally shaped corneas.</p>
-				  <p class="item draggable PRK" id="military" value=4>The refractive surgery is better suited for patients in the military or for patients who participate in contact sports.</p>
-				  <p class="item draggable IOL myope_only" id="more_invasive" value=-4>The refractive surgery is more invasive.</p>
-				  <p class="item draggable LASIK PRK" id="cost_effective" value=2>The refractive surgery is more cost effective.</p>
-				  <p class="item draggable LASIK PRK"id="influences_rle" value=-3>The refractive surgery may influence the accuracy of calculations and vision correction options for subsequent cataract surgery.</p>
-				  <p class="item draggable PRK"id="longer_recovery" value=-2>The recovery period of this refractive surgery is longer and more painful.</p>
-				  <p class="item draggable LASIK PRK" id="more_dry_eye" value=-3>Following the refractive surgery, patients may develop or observe an exacerbation of dry eye symptoms.</p>
-				  <p class="item draggable IOL myope_only" id="indefinite_fu" value=-3>The refractive surgery requires follow-up for an indefinite period of time over the long-term.</p>
-				  <p class="item draggable IOL myope_only"id="reversible" value=2>The refractive surgery is reversible.</p>
+				  <p class="item draggable PRK IOL" id="high_myope" prkvalue=3 iolvalue=4>The refractive surgery is better suited for patients with high myopia.</p>
+				  <p class="item draggable PRK IOL" id="thin_cornea" prkvalue=4 iolvalue=4>The refractive surgery is better suited for patients with thinner or abnormally shaped corneas.</p>
+				  <p class="item draggable PRK" id="military" prkvalue=4>The refractive surgery is better suited for patients in the military or for patients who participate in contact sports.</p>
+				  <p class="item draggable LASIK IOL" id="more_invasive" lasikvalue=-2 iolvalue=-4>The refractive surgery is more invasive.</p>
+				  <p class="item draggable LASIK PRK" id="cost_effective" lasikvalue=2 prkvalue=1>The refractive surgery is more cost effective.</p>
+				  <p class="item draggable LASIK PRK"id="influences_rle" lasikvalue=-2 prkvalue=-2>The refractive surgery may influence the accuracy of calculations and vision correction options for subsequent cataract surgery.</p>
+				  <p class="item draggable PRK"id="longer_recovery" prkvalue=-2>The recovery period of this refractive surgery is longer and more painful.</p>
+				  <p class="item draggable LASIK PRK" id="more_dry_eye" lasikvalue=-2 prkvalue=-1>Following the refractive surgery, patients may develop or observe an exacerbation of dry eye symptoms.</p>
+				  <p class="item draggable IOL myope_only" id="indefinite_fu" iolvalue=-3>The refractive surgery requires follow-up for an indefinite period of time over the long-term.</p>
+				  <p class="item draggable IOL myope_only" id="reversible" iolvalue=3>The refractive surgery is reversible.</p>
 				</div>
 				<div id="list2" class="droppable list" data-max="3"><!-- I want this to accept only 3. -->
 				</div>
@@ -2616,23 +2639,27 @@
 	<!--Patient Decision Aid Section -->
 	<section id="recs">
 		<div class="recsContainer inner">
-			<h1>Recommendations</h1>
-			<div class="logo">
-                <div>
-					<p>In this section, you will receive a recommendation for a surgical modality, based upon your preferences. You will also
-					receive recommendations for three reputable surgical centers in the Phoenix Metropolitan Area, based upon the recommended
-					surgical modality.</p><br><br><br><br>
-					<h2>Sections</h2>
-					<ul><br>
-						<li><a href="#surgeryrecs"><p>&emsp; &ensp; •	 &ensp; Surgery Recommendations</p></a></li>
-						<li><a href="#surgeonrecs"><p>&emsp; &ensp; •	 &ensp; Surgeon Recommendations</p></a></li>
-					</ul>
+			<div class="recs-top">
+				<h1 class="section-title">Recommendations</h1>
+			</div>
+			<div class="recs-bottom">	
+				<div class="logo">
+					<div>
+						<p>In this section, you will receive a recommendation for a surgical modality, based upon your preferences. You will also
+						receive recommendations for three reputable surgical centers in the Phoenix Metropolitan Area, based upon the recommended
+						surgical modality.</p><br><br><br><br>
+						<h2>Sections</h2>
+						<ul><br>
+							<li><a href="#surgeryrecs"><p>&emsp; &ensp; •	 &ensp; Surgery Recommendations</p></a></li>
+							<li><a href="#surgeonrecs"><p>&emsp; &ensp; •	 &ensp; Surgeon Recommendations</p></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="pageNav"> 
+					<a href="#values" class="next round"><</a>
+					<a href="#surgeryrecs" class="next round">></a>
 				</div>
 			</div>
-		</div>
-		<div class="pageNav"> 
-			<a href="#values" class="next round"><</a>
-			<a href="#surgeryrecs" class="next round">></a>
 		</div>
 	</section>	
 	<!--End of Home Section -->
@@ -3095,13 +3122,17 @@
 											<li><p>•	 More predictable for low to moderate myopia; less predictable
 											for high myopia</p></li>
 											<li><p>•	 75-100%, with a median of 92%, patients with myopia and myopic astigmatism achieved a 
-											prescription within 1.00D intended correction</p><br><br></li>
+											prescription within 1.00D intended correction</p></li>
+											<li><p>•	 0-3%, with a median of 0.6%, of patients who had myopia or myopic astigmatism preoperatively were
+											able to read 2+ fewer lines on the eye chart postoperatively than preoperatively</p><br><br></li>
 											
 											<li><p>•	 86-91%, with a median of 88%, patients with hyperopia between 0.50D to 6.00D.</p></li>
 											<li><p>•	 94-100% hyperopic patients achieved 20/40 vision</p></li>
 											<li><p>•	 88-89% patients with hyperopic astigmatism achieved a 
 											prescription within 1.00D intended correction</p></li>
 											<li><p>•	 94% patients with hyperopic astigmatism achieved 20/40 vision</p></li>
+											<li><p>•	 2-5%, with a median of 3%, of patients who had hyperopia or hyperopic astigmatism preoperatively 
+											were able to read 2+ fewer lines on the eye chart postoperatively than preoperatively</p></li>
 										</ul>
 									</td>
 									<td class="content">
@@ -3112,10 +3143,14 @@
 											
 											<li><p>•	 More predictable for low to moderate myopia; less predictable
 											for high myopia</p></li>
-											<li><p>•	 12 months postoperatively, 70-92% of myopic patients with preoperative prescriptions 
-											ranging from 1.00D to 14.00D had a visual acuity of 20/20 to 20/40</p></li>
-											<li><p>•	 12 months postoperatively, 86% of myopic patients with preoperative prescriptions 
-											ranging from 1.00D to 14.00D had a prescription within 1.00D of their intended correction.</p><br><br></li>
+											<li><p>•	 12 months postoperatively, 70-92% of patients with preoperative prescriptions 
+											ranging from -1.00D to -14.00D had a visual acuity of 20/20 to 20/40</p></li>
+											<li><p>•	 12 months postoperatively, 86% of patients with preoperative prescriptions 
+											ranging from -1.00D to -14.00D had a prescription within 1.00D of their intended correction.</p></li>
+											<li><p>•	 1 year postoperatively, 0-1% of patients who had low to moderate myopia preoperatively were able
+											to read 2+ fewer lines on the eye chart postoperatively than preoperatively</p></li>
+											<li><p>•	 1 year postoperatively, 6% of patients who had high myopia preoperatively were able
+											to read 2+ fewer lines on the eye chart postoperatively than preoperatively</p><br><br></li>
 											
 											<li><p>•	 More predictable for low to moderate hyperopia; less predictable
 											for high hyperopia</p></li>
@@ -3160,7 +3195,7 @@
 							<div class="elfsight-app-84678646-8f21-4cfc-9827-65f9677004da"></div>
 						</td></tr>
 						
-						<tr><td><h2>Swagel Wootton Eye Institute - Mesa</h2><td></tr>
+						<tr><td><h2><br><br>Swagel Wootton Eye Institute - Mesa</h2></td></tr>
 						<tr><td>
 							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
 							<div class="elfsight-app-4b7eafa8-0654-4cc2-9fc0-7e404ccd0997"></div>
@@ -3181,7 +3216,7 @@
 							<div class="elfsight-app-3c43b0bb-951e-429c-b096-07bd1cb10f6d"></div>
 						</td></tr>
 						
-						<tr><td><h2>Eye Doctors of Arizona</h2><td></tr>
+						<tr><td><h2><br><br>Eye Doctors of Arizona</h2></td></tr>
 						<tr><td>
 							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
 							<div class="elfsight-app-20edcbe5-422c-4e7c-b530-83dcc803b3c6"></div>
@@ -3202,7 +3237,7 @@
 							<div class="elfsight-app-3c43b0bb-951e-429c-b096-07bd1cb10f6d"></div>
 						</td></tr>
 						
-						<tr><td><h2>Southwestern Eye Center</h2><td></tr>
+						<tr><td><h2><br><br>Southwestern Eye Center</h2></td></tr>
 						<tr><td>
 							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
 							<div class="elfsight-app-38713e41-a53c-4736-af28-1446038076ea"></div>
@@ -3211,19 +3246,19 @@
 				</div>
 				<div class="none_surgeons">
 					<table>
-						<tr><td><h2>Eye Doctors of Arizona</h2><td></tr>
+						<tr><td><h2>Eye Doctors of Arizona</h2></td></tr>
 						<tr><td>
 							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
 							<div class="elfsight-app-20edcbe5-422c-4e7c-b530-83dcc803b3c6"></div>
 						</td></tr>
 						
-						<tr><td><h2>Swagel Wootton Eye Institute - Mesa</h2></td></tr>
+						<tr><td><h2><br><br>Swagel Wootton Eye Institute - Mesa</h2></td></tr>
 						<tr><td>
 							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
 							<div class="elfsight-app-3c43b0bb-951e-429c-b096-07bd1cb10f6d"></div>
 						</td></tr>
 						
-						<tr><td><h2>Carrot Eye Center</h2></td></tr>
+						<tr><td><h2><br><br>Carrot Eye Center</h2></td></tr>
 						<tr><td>
 							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
 							<div class="elfsight-app-e3e4cf5b-e20d-44fc-beec-151600949292"></div> 
