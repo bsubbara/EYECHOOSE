@@ -131,71 +131,28 @@
 		<!-- /*End of Navigation Bar*/ -->
 
 		<!-- /*Home Section*/ -->
-		#home .home {
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 0 50px;
-			justify-content: flex-start;
-		}
-
-		#home {
+		#home .homeContainer{
+			display: flex;
+			align-items: flex-start;
+			text-align: left;
+			flex-direction: column;
+			padding: 30px;
+			background-image: url("https://live.staticflickr.com/7293/15791962004_58d6296748_b.jpg");
+			background-size: cover;
+			background-position: 80% 20%;
+			position: relative;
+			z-index; 1;
+			overflow: hidden;
 			padding-top: 100px;
 			padding-bottom: 225px;
-			background-image: url(http://api.openverse.engineering/v1/images/37dbb30b-1be8-4a78-8aa5-2eefd4bb51d7/thumb/);
-			background-position: center;
-			background-size: cover;
-			position: relative;
-			z-index: 1;
-		}
-
-		#home::after{
-			content: '';
-			position: absolute;
-			left: 0;
-			top: 0;
-			height: 100%;
-			width: 100%;
-			background-color: white;
-			opacity: 0.7;
-			z-index: -1;
-		}
-
-		.homeContainer h1 {
-			font-weight: 1000;
-			font-family: 'Optician Sans', sans-serif;
-			display: block;
-			width: fit-content;
-			font-size: 2rem;
-			position: relative;
 			color: black;
+			text-outline: 1px black;
 		}
-
-		.homeContainer p {
-			font-weight: 100;
-			font-size: 	1rem;
-			font-family: 'Poppins';	
-		}
-
-		#home .logo h1 span { 
-			font-weight: 1000;
-			font-size: 1.5rem;
-			font-family: 'Optician Sans', sans-serif;
-		}
-
-		#home .logo h1 { 
-			font-weight: 100;
-			font-size: 1.5rem;
-			font-family: 'Optician Sans', sans-serif;
-		}
-
+		
 		#home .logo h1, #home .logo p {
 			display: inline;
 			vertical-align: top;
 			line-height: 28px;
-		}
-
-		.homeContainer .logo:hover a{
-			color: crimson;
 		}
 		<!-- /*End of Home Section*/ -->
 
@@ -239,13 +196,15 @@
 		<!-- /*End of Patient Education Section*/ -->
 
 		<!-- /*Errors Section*/ -->
-
+		
 		#errors .errors{
 			flex-direction: column;
 			text-align: center;
 			max-width: 1200px;
 			margin: 0 auto;
 			padding: 100px 0;
+			width: 100vw;
+			height:100vh;
 		}
 
 		#errors .errors-top {
@@ -428,7 +387,7 @@
 		}
 
 		#history .qn {
-			flex-basis:50%;
+			flex-basis:50.01%;
 			display: flex;
 			align-items: flex-start;
 			justify-content: center;
@@ -454,25 +413,52 @@
 			float: left;
 			clear: none;
 			margin: 2px 10px 0 2px;
-			margin-left:21px;
+			margin-left:26px;
+		}
+		
+		#preferences .qn1b{
+			float: left;
+			clear: none;
+			margin: 2px 10px 0 2px;
+			margin-left:26px;
+		}
+		
+		#preferences .qn2a{
+			float: left;
+			clear: none;
+			margin: 2px 10px 0 2px;
+			margin-left:26px;
 		}
 
-		#preferences .qn2b, #preferences .qn2c, #preferences .qn2d {
+		/*<!-- #preferences .qn2b, #preferences .qn2c, #preferences .qn2d {
 			float: left;
 			clear: none;
 			margin: 2px 10px 0 2px;
 			margin-left:36px;
-		}
+		} -->*/
 		
 		#preferences .qn3a {
 			float: left;
 			clear: none;
 			margin: 2px 10px 0 2px;
-			margin-left:36px;
+			margin-left:26px;
+		}
+		
+		.qn1b {
+			display:none;
+		}
+		
+		.qn2 {
+			display:none;
+		}
+		
+		.qn3a {
+			display:none;
 		}
 		
 		.qn3b {
 			display:none;
+			margin-left:50px;
 		}
 		
 		#preferences .qn4{
@@ -484,13 +470,7 @@
 		
 		.qn4{
 			display: none;
-		}
-
-		#preferences input[type=checkbox], input.checkbox {
-			float: left;
-			clear: none;
-			margin: 2px 20px 0 2px;
-			margin-left:36px;
+			margin-left:50px;
 		}
 
 		#preferences p {
@@ -616,15 +596,6 @@
 			color: crimson;
 		}
 		#surgeryrecs .disclaimer_relcontraindications {
-			display: none;
-		}
-		#surgeryrecs .disclaimer_pregnant {
-			display: none;
-		}
-		#surgeryrecs .disclaimer_isotretinoin {
-			display: none;
-		}
-		#surgeryrecs .disclaimer_under21 {
 			display: none;
 		}
 		
@@ -920,59 +891,6 @@
 			<!-- console.log("display style before: " + document.getElementById(id).style.display); -->
 			document.getElementById(id).style.display="none";
 			<!-- console.log("display style after: " + document.getElementById(id).style.display); -->
-		}
-		
-		function uncheck_none(id) {
-			<!-- console.log("uncheck_none(id)"); -->
-			<!-- console.log("id: " + id); -->
-			//if (disease.localeCompare('relcontraindications_none') != 0) {
-			
-				if (((document.getElementById('relcontraindications_herpes').checked == true) ||
-				(document.getElementById('relcontraindications_rosacea').checked == true) || 
-				(document.getElementById('relcontraindications_cornea').checked == true) || 
-				(document.getElementById('relcontraindications_dryeye').checked == true) || 
-				(document.getElementById('relcontraindications_strabismus').checked == true) || 
-				(document.getElementById('relcontraindications_glaucoma').checked == true) || 
-				(document.getElementById('relcontraindications_uveitis').checked == true) || 
-				(document.getElementById('relcontraindications_dm').checked == true) || 
-				(document.getElementById('relcontraindications_thyroid').checked == true)) &&
-				(document.getElementById('relcontraindications_none').checked == true)) {
-					if(confirm("Selecting this option will uncheck the None of the Above option. Continue?") == true) {
-						document.getElementById('relcontraindications_none').checked = false;
-					}
-					else {
-						document.getElementById(id).checked = false;
-					}
-				}
-			//}
-		}
-	
-		function noRelContraindicationsConfirm() {
-			if (((document.getElementById('relcontraindications_herpes').checked == true) ||
-				(document.getElementById('relcontraindications_rosacea').checked == true) || 
-				(document.getElementById('relcontraindications_cornea').checked == true) || 
-				(document.getElementById('relcontraindications_dryeye').checked == true) || 
-				(document.getElementById('relcontraindications_strabismus').checked == true) || 
-				(document.getElementById('relcontraindications_glaucoma').checked == true) || 
-				(document.getElementById('relcontraindications_uveitis').checked == true) || 
-				(document.getElementById('relcontraindications_dm').checked == true) || 
-				(document.getElementById('relcontraindications_thyroid').checked == true)) &&
-				(document.getElementById('relcontraindications_none').checked == true)) {
-				if(confirm("Selecting this option will uncheck the other selected options. Continue?") == true) {
-					document.getElementById('relcontraindications_herpes').checked = false;
-					document.getElementById('relcontraindications_rosacea').checked = false;
-					document.getElementById('relcontraindications_cornea').checked = false;
-					document.getElementById('relcontraindications_dryeye').checked = false;
-					document.getElementById('relcontraindications_strabismus').checked = false;
-					document.getElementById('relcontraindications_glaucoma').checked = false;
-					document.getElementById('relcontraindications_uveitis').checked = false;
-					document.getElementById('relcontraindications_dm').checked = false;
-					document.getElementById('relcontraindications_thyroid').checked = false;
-				}
-				else {
-					document.getElementById('relcontraindications_none').checked = false;
-				}
-			}
 		}
 		
 		function errorMessage(eye) {
@@ -1338,6 +1256,11 @@
 				//<!--Artisan Phakic IOL-->
 				((LS_pos >= -20.00 && LS_pos <= -5.00) && (LC_pos >= 0.00 && LC_pos <= 2.50))){
 					console.log("prescription meets IOL parameters.");
+					if (spherical_equivalent(RS_pos, RC_pos) >= -8.00 || spherical_equivalent(LS_pos, LC_pos) >= -8.00) {
+						if("IOL" in modalities) {
+							modalities.IOL = parseInt(modalities.IOL) + parseInt(12);
+						}
+					}
 				}
 				else {
 					console.log("prescription does not meet IOL parameters.");
@@ -1627,26 +1550,29 @@
 			
 			var already_warned = false;
 			
-			if ((document.getElementById('abscontraindications_yes').checked == true || document.getElementById('abscontraindications_no').checked == true) &&
-				((document.getElementById('relcontraindications_herpes').checked==true) ||
-				(document.getElementById('relcontraindications_dryeye').checked==true) ||
-				(document.getElementById('relcontraindications_rosacea').checked==true) ||
-				(document.getElementById('relcontraindications_strabismus').checked==true) ||
-				(document.getElementById('relcontraindications_glaucoma').checked==true) ||
-				(document.getElementById('relcontraindications_dm').checked==true) ||
-				(document.getElementById('relcontraindications_cornea').checked==true) ||
-				(document.getElementById('relcontraindications_thyroid').checked==true) ||
-				(document.getElementById('relcontraindications_uveitis').checked==true) ||
-				(document.getElementById('relcontraindications_none').checked==true)) &&
-				(document.getElementById('pregnant_yes').checked==true || document.getElementById('pregnant_no').checked==true) &&
-				(document.getElementById('Isotretinoin_yes').checked==true || document.getElementById('Isotretinoin_no').checked==true) &&
-				(document.getElementById('under21_yes').checked==true || document.getElementById('under21_no').checked==true) &&
+			if (document.getElementById('abscontraindications_yes').checked == false && document.getElementById('abscontraindications_no').checked == false) {
+				alert("Please answer all questions.");
+			}
+			else if (document.getElementById('abscontraindications_yes').checked == true) {
+				document.getElementsByClassName('submitBtn')[0].disabled = true; 
+				submittedMessage('mh'); 
+				process_medical_data();
+			}
+			else if (document.getElementById('abscontraindications_no').checked == true) {
+				if ((document.getElementById('uveitis_yes').checked == false && document.getElementById('uveitis_no').checked == false) || 
+				(document.getElementById('relcontraindications_yes').checked == false && document.getElementById('relcontraindications_no').checked == false) ||
+				(document.getElementById('knowpresc_yes').checked==false && document.getElementById('knowpresc_no').checked==false)) {
+					alert("Please answer all questions.");
+				}
+				
+				if ((document.getElementById('uveitis_yes').checked==true || document.getElementById('uveitis_no').checked == true) &&
+				(document.getElementById('relcontraindications_yes').checked==true || document.getElementById('relcontraindications_no').checked == true) &&
 				(document.getElementById('knowpresc_yes').checked==true || document.getElementById('knowpresc_no').checked==true)) {
 					console.log("All basic questions filled.");
-					
+						
 					var can_submit_R = false;
 					var can_submit_L = false;
-					
+						
 					if (document.getElementById('knowpresc_yes').checked==true) {
 						if (prescription_RS.value == "") {
 							alert("Please enter your right spherical component.");
@@ -1662,7 +1588,7 @@
 								can_submit_R = true;
 							}
 						}
-						
+							
 						if (prescription_LS.value == "") {
 							alert("Please enter your left spherical component.");
 							already_warned = true;
@@ -1684,8 +1610,7 @@
 							process_medical_data();
 						}
 					}
-					
-					if ((document.getElementById('knowpresc_no').checked==true) &&
+					else if ((document.getElementById('knowpresc_no').checked==true) &&
 					(document.getElementById('hyperopic_yes').checked==true || 
 					document.getElementById('hyperopic_no').checked==true ||
 					document.getElementById('hyperopic_idk').checked==true)) {
@@ -1697,63 +1622,10 @@
 					(document.getElementById('hyperopic_yes').checked==false &&
 					document.getElementById('hyperopic_no').checked==false &&
 					document.getElementById('hyperopic_idk').checked==false)) {
-						alert("Please answer question 3b.");
+						alert("Please answer all questions.");
 						already_warned = true;
 					}
-				}
-			if (document.getElementById('abscontraindications_yes').checked == false && document.getElementById('abscontraindications_no').checked == false) {
-				alert("Please answer question 1.");
-			}
-			if ((document.getElementById('relcontraindications_herpes').checked==false) &&
-				(document.getElementById('relcontraindications_dryeye').checked==false) &&
-				(document.getElementById('relcontraindications_rosacea').checked==false) &&
-				(document.getElementById('relcontraindications_strabismus').checked==false) &&
-				(document.getElementById('relcontraindications_glaucoma').checked==false) &&
-				(document.getElementById('relcontraindications_dm').checked==false) &&
-				(document.getElementById('relcontraindications_cornea').checked==false) &&
-				(document.getElementById('relcontraindications_thyroid').checked==false) &&
-				(document.getElementById('relcontraindications_uveitis').checked==false) &&
-				(document.getElementById('relcontraindications_none').checked==false)) {
-				alert("Please answer question 2a.");
-			}
-			if (document.getElementById('pregnant_yes').checked==false && document.getElementById('pregnant_no').checked==false) {
-				alert("Please answer question 2b.");
-			}
-			if (document.getElementById('Isotretinoin_yes').checked==false && document.getElementById('Isotretinoin_no').checked==false) {
-				alert("Please answer question 2c.");
-			}
-			if (document.getElementById('under21_yes').checked==false && document.getElementById('under21_no').checked==false) {
-				alert("Please answer question 2d.");
-			}
-			if (document.getElementById('knowpresc_yes').checked==false && document.getElementById('knowpresc_no').checked==false) {
-				alert("Please answer question 3a.");
-			}
-			if (document.getElementById('knowpresc_yes').checked==true && already_warned == false) {
-				if (prescription_RS.value == "") {
-					alert("Please enter your right spherical component.");
-				}
-				else {
-					if (prescription_RC.value == "" && !(prescription_Raxis.value == "")) {
-						alert("Please enter your right cylindrical component.");
-					}
-				}
-						
-				if (prescription_LS.value == "") {
-					alert("Please enter your left spherical component.");
-				}
-				else {
-					if (prescription_LC.value == "" && !(prescription_Laxis.value == "")) {
-						alert("Please enter your left cylindrical component.");
-					}
-				}
-			}
-					
-			if ((document.getElementById('knowpresc_no').checked==true) &&
-				(document.getElementById('hyperopic_yes').checked==false && 
-				document.getElementById('hyperopic_no').checked==false &&
-				document.getElementById('hyperopic_idk').checked==false) && 
-				already_warned == false) {
-				alert("Please answer question 3b.");
+				}	
 			}
 		}
 		
@@ -1768,6 +1640,12 @@
 				removeModality("LASIK");
 				removeModality("PRK");
 				removeModality("IOL");
+				hideDivByClass("prefs_instructions");
+				document.getElementById("modality_recommendation_in_prefs").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon your responses, you may be contraindicated for these surgical modalities, or you may have an eye glasses prescription that is outside of laser and contact lens parameters.</p>";
+				hideDivByClass("values-bottom");
+				hideDivByClass("submitNav");
+				showDivByClass("submittedMsg");
+				returnRec();
 			}
 			console.log("Processed question 1.");
 			
@@ -1777,30 +1655,19 @@
 				/* 	<!-- Question 2a-d: Relative contraindications -->*/
 				/* 	<!-- If patients select any of the relative contraindications,-->
 				<!-- the following disclaimers will be shown. */
-				if((document.getElementById('relcontraindications_herpes').checked==true) ||
-				(document.getElementById('relcontraindications_dryeye').checked==true) ||
-				(document.getElementById('relcontraindications_rosacea').checked==true) ||
-				(document.getElementById('relcontraindications_strabismus').checked==true) ||
-				(document.getElementById('relcontraindications_glaucoma').checked==true) ||
-				(document.getElementById('relcontraindications_dm').checked==true) ||
-				(document.getElementById('relcontraindications_cornea').checked==true) ||
-				(document.getElementById('relcontraindications_thyroid').checked==true) ||
-				(document.getElementById('relcontraindications_uveitis').checked==true))
-				{
-					addValueByIdByModality("LASIK", 'relcontraindications_herpes');
-					addValueByIdByModality("PRK", 'relcontraindications_uveitis');
-					if(document.getElementById('relcontraindications_uveitis').checked==true) {
+				if(document.getElementById('relcontraindications_yes').checked==true){
+					addValueByIdByModality("LASIK", 'relcontraindications_yes');
+					addValueByIdByModality("PRK", 'relcontraindications_yes');
+					if(document.getElementById('uveitis_true').checked==true) {
 						removeModality("IOL");
 					}
 					else {
-						addValueByIdByModality("IOL", 'relcontraindications_herpes');
+						addValueByIdByModality("IOL", 'relcontraindications_yes');
 						showDivByClass('disclaimer_relcontraindications');
 					}
 				}		
 				console.log("Processed question 2a.");
-				
-				
-				
+								
 				console.log("Processing question 3.");
 				console.log("Processing question 3a.");
 				console.log("document.getElementById('knowpresc_yes').checked: " + document.getElementById('knowpresc_yes').checked);
@@ -1933,29 +1800,6 @@
 					console.log("Processed question 3b.");
 				}
 			}
-			else {
-				console.log("Responses to questions 2a, 3a, and 3b ignored. Patient is contraindicated against all modalities.");
-			}
-			console.log("Processing question 2b.");
-			if(document.getElementById('pregnant_yes').checked==true) {
-				addValueByIdToAllModalities('pregnant_yes');
-				showDivByClass('disclaimer_pregnant');
-			}
-			console.log("Processed question 2b.");
-				
-			console.log("Processing question 2c.");
-			if(document.getElementById('Isotretinoin_yes').checked==true) {
-				addValueByIdToAllModalities('Isotretinoin_yes');
-				showDivByClass('disclaimer_isotretinoin');
-			}
-			console.log("Processed question 2c.");
-				
-			console.log("Processing question 2d.");
-			if(document.getElementById('under21_yes').checked==true) {
-				addValueByIdToAllModalities('under21_yes');
-				showDivByClass('disclaimer_under21');
-			}
-			console.log("Processed question 2d.");
 		}
 			
 		function submittedMessage(form) {
@@ -2082,21 +1926,21 @@
 
 			if (rec.localeCompare("none") != 0) {
 				if (rec.localeCompare("LASIK") == 0) {
-					document.getElementById("modality_recommendation").innerHTML = "<p>Based upon the preferences that you have shared, we recommend discussing the following surgical modality with a refractive surgeon: <strong>LASIK</strong></p>";
+					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend discussing the following surgical modality with a refractive surgeon: <strong>LASIK</strong></p>";
 					for (let i = 0; i < document.getElementsByClassName("LASIK_col").length; i++) {
 						document.getElementsByClassName("LASIK_col")[i].style.background = "#F0F0F0";
 					}
 					showDivByClass("LASIK_surgeons");
 				}
 				else if (rec.localeCompare("PRK") == 0) {
-					document.getElementById("modality_recommendation").innerHTML = "<p>Based upon the preferences that you have shared, we recommend discussing the following surgical modality with a refractive surgeon: <strong>PRK</strong></p>";
+					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend discussing the following surgical modality with a refractive surgeon: <strong>PRK</strong></p>";
 					for (let i = 0; i < document.getElementsByClassName("PRK_col").length; i++) {
 						document.getElementsByClassName("PRK_col")[i].style.background = "#F0F0F0";
 					}
 					showDivByClass("PRK_surgeons");
 				}
 				else if (rec.localeCompare("IOL") == 0) {
-					document.getElementById("modality_recommendation").innerHTML = "<p>Based upon the preferences that you have shared, we recommend discussing the following surgical modality with a refractive surgeon: <strong>IOL</strong></p>";
+					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend discussing the following surgical modality with a refractive surgeon: <strong>IOL</strong></p>";
 					for (let i = 0; i < document.getElementsByClassName("IOL_col").length; i++) {
 						document.getElementsByClassName("IOL_col")[i].style.background = "#F0F0F0";
 					}
@@ -2104,7 +1948,7 @@
 				}
 			}
 			else {
-				document.getElementById("modality_recommendation").innerHTML = "<p>Based upon your responses, you may be contraindicated for these surgical modalities, or you may have an eye glasses prescription that is outside of laser and contact lens parameters.</p>";
+				document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon your responses, you may be contraindicated for these surgical modalities, or you may have an eye glasses prescription that is outside of laser and contact lens parameters.</p>";
 				showDivByClass("none_surgeons");
 			}
 		}
@@ -2213,19 +2057,22 @@
 	<!--Home Section -->
 	<section id="home">
 		<div class="homeContainer inner">
-			<h1>What is the best refractive surgical modality for you?</h1>
-			<div class="logo">
-                    <!-- The below line can be an image or a h1, either will work -->
+			<div class="home-top">
+				<h1 class="section-title">What is the best refractive surgical modality for you?</h1>
+			</div>
+			<div class="home-bottom">	
+				<div class="logo">
                     <h1>EYE<span>CHOOSE</span></h1>
 					<p> is a prototype patient decision aid to assist college-aged students 
 					in the selection of a refractive surgery for the correction of 
 					nearsightedness (myopia), farsightedness (hyperopia), and astigmatism.</p>
 					
-					<p><br><br><br><br>Disclaimer: The information on this site is not intended or implied to be a substitute for professional medical advice, diagnosis, or treatment. Please use this to talk with a refractive surgeon about your visual acuity and treatment options.</p></p>
-            </div>
-		</div>
-		<div class="pageNav"> 
-			<a href="#patientEdu" class="next round">></a>
+					<p><br><br><br><strong>Disclaimer:</strong> Information on this site is not intended nor implied to be a substitute for professional medical advice, diagnosis, or treatment. Please consult with a medical professional about your treatment options.</p></p>
+				</div>
+				<div class="pageNav"> 
+					<a href="#patientEdu" class="next round">></a>
+				</div>
+			</div>
 		</div>
 	</section>	
 	<!--End of Home Section -->
@@ -2272,13 +2119,13 @@
 				<div class="refractive-error">
 					<h2>Myopia</h2>
 					<p>Myopia, better known as “nearsightedness”, causes distant 
-					objects to appear blurry. The eyeball is too long, causing 
-					light to focus in front of the retina. It progressively worsens
-					after onset until the achievement of eyesight maturity, with 
-					earlier onset of myopia yielding a higher prescription at the 
-					achievement of eyesight maturity. High myopia not only increases
-					the probability of significant visual impairment by itself, but
-					it also increases the possibility of developing glaucoma and 
+					objects to appear blurry. It occurs when the eyeball is too long, causing 
+					light to focus in front of the retina. It progressively worsens 
+					after onset until the ages of 16 to 21. The 
+					earlier onset of myopia yields a higher prescription at the 
+					achievement of eyesight maturity. High myopia increases 
+					the probability of significant visual impairment by itself, but 
+					it also increases the possibility of 
 					retinal detachment, which may irreversibly impair vision, as 
 					well.</p>
 					<div class="icon"><img src="https://cdn.britannica.com/45/63345-050-7BD73D28/nearsightedness-glasses-Myopia-lenses-focus-eye-objects.jpg" width='715' height='315'/></div>
@@ -2286,20 +2133,22 @@
 				<div class="refractive-error">
 					<h2>Hyperopia</h2>
 					<p>Hyperopia, better known as farsightedness, causes nearby 
-					object to appear blurry, because the eyeball is too short, 
+					objects to appear blurry. It occurs when the eyeball is too short, 
 					causing light to focus behind the retina. Like myopia, 
-					hyperopia is progressive, progressively worsens after onset 
-					until the achievement of eyesight maturity, with earlier onset 
-					of hyperopia yielding a higher prescription at the achievement 
-					of eyesight maturity. Moderate to high hyperopia elevates the 
+					hyperopia is progressive, worsening after onset 
+					until the achievement of eyesight maturity. Earlier onset 
+					of hyperopia yields a higher prescription when eyesight stabilizes. Moderate to high hyperopia elevates the 
 					risk of developing amblyopia and strabismus, which may 
-					precipitate visual impairment and/or blindness.</p>
+					precipitate visual impairment. Moderate to high hyperopia also increases
+					the risk of glaucoma where pressure inside the eye damages
+					the optic nerve and reduces peripheral vision.
+					In severe cases it can lead to blindness. </p>
 					<div class="icon"><img src="https://cdn.britannica.com/44/63344-050-D20C0E4A/farsightedness-glasses-Hyperopia-lenses-effort-object-focus.jpg" width='715' height='315'/></div>
 				</div>
 				<div class="refractive-error">
 					<h2>Astigmatism</h2>
 					<p>Astigmatism causes objects at all distances to appear 
-					blurry, because the lens has a non-spherical curvature. 
+					blurry, because of the non-spherical curvature of the cornea or the lens. 
 					It presents in three varieties-- myopic astigmatism, hyperopic 
 					astigmatism, and mixed astigmatism. In myopic astigmatism, 
 					lens curvature causes light to hit in front of the retina. 
@@ -2309,13 +2158,13 @@
 					condition, like both myopia and hyperopia, affecting visual 
 					acuity. It can lead to amblyopia, which may affect visual 
 					acuity, even causing blindness.</p>
-					<div class="icon"><img src="https://cdn.britannica.com/43/63343-050-A705E5C2/Astigmatism-results-cornea-eyeglasses-vision-curvature-condition.jpg" width='715' height='315'/></div>
+					<div class="icon"><img src="https://www.visioncenter.org/wp-content/uploads/2020/04/astigmatism-eye-defect-1536x1427.jpeg" width="621" height="577"></div>
 				</div>
 			</div>
-		</div>
-		<div class="pageNav"> 
-			<a href="#patientEdu" class="next round"><</a>
-			<a href="#surgeries" class="next round">></a>
+			<div class="pageNav"> 
+					<a href="#patientEdu" class="next round"><</a>
+					<a href="#surgeries" class="next round">></a>
+			</div>
 		</div>
 	</section>
 	<!--End of Refractive Errors Section -->
@@ -2336,30 +2185,29 @@
 					<h2>Laser In-Situ Keratomileusis (LASIK)</h2>
 					<p>LASIK is the most well known and most commonly performed refractive surgery for the correction of myopia, hyperopia, and astigmatism. 
 					It is a quick procedure with minimal associated discomfort. A femtolaser or a microkeratome creates a corneal flap, 
-					under which an excimer laser reshapes the corneal tissue. Side effects and complications of this procedure present the rare risks of flap 
+					under which an excimer laser reshapes the corneal tissue. Side effects and complications of this procedure include the rare risks of flap 
 					damage or loss, infection, delayed healing, undercorrection or overcorrection, irregular astigmatism, blurry vision or vision loss, scarring, 
 					corneal haze or glare, photosensitivity, and inability to wear contact lenses.  Average recovery time is six to twelve hours, 
-					with most seeing clearly, regaining 90% of their vision, within 24 hours. Full effects of the surgery upon visual acuity are apparent after 
-					a month. Approximately six percent of patients choose to undergo an enhancement within ten years due to myopic regression, 
-					but LASIK is non-reversible for those patients dissatisfied with results.</p>
+					with most seeing clearly, regaining 90% of their vision, within 24 hours. Full effects of the surgery are apparent after 
+					a month. Approximately six percent of patients choose to undergo an enhancement within ten years due to myopic regression. LASIK is non-reversible for those patients dissatisfied with results.</p>
 					<div class="icon"><iframe width="560" height="315" src="https://www.youtube.com/embed/r7EMHgRhlW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 			</div>
 				<div class="refractive-surgery">
 					<h2>Photorefractive Keratectomy (PRK)</h2>
 					<p>Photorefractive Keratectomy (PRK) and its variants including Advanced Surface Ablation, Laser Epithelial Keratomileusis (LASEK), and Epithelial Laser In Situ Keratomileusis 
 					(Epi-LASIK), are the second most commonly performed refractive surgery for the correction of myopia, hyperopia, and astigmatism. In PRK, the corneal epithelium is removed, 
-					after which the Bowman membrane and corneal stroma are reshaped over the pupil using an excimer laser. In LASEK and Epi-LASIK are modifications of PRK, 
-					where an epithelial flap is created, instead of removed. A bandage contact lens is applied until the epithelium heals after each of these proceddures.
-					The side effects and complications of  thes procedures includes undercorrection or overcorrection, irregular astigmatism, blurry vision or vision loss, corneal 
+					after which the Bowman membrane and corneal stroma are reshaped over the pupil using an excimer laser. LASEK and Epi-LASIK are modifications of PRK, 
+					where an epithelial flap is created, instead of removed. A bandage contact lens is applied until the epithelium heals after each of these procedures.
+					The side effects and complications of these procedures include undercorrection or overcorrection, irregular astigmatism, blurry vision or vision loss, corneal 
 					haze or glare and halos, photosensitivity, and inability to wear contact lenses. LASEK and epi-LASIK have the additional side effects and complications of flap damage
-					or loss. The removal of the corneal epithelium also increases pain and recovery time: Pain can last up to four days, with 90% recovery over that period.
-					100% recovery can be made between one to three months. Advanced Surface Ablation can be repeated to correct regression, but it cannot be reversed.</p>
+					or loss. The removal of the corneal epithelium increases pain and recovery time: Pain can last up to four days, with 90% recovery over that period.
+					Full recovery takes between three to six months. These procedures can be repeated to correct regression, but they cannot be reversed.</p>
 					<div class="icon"><iframe width="560" height="315" src="https://www.youtube.com/embed/EoWdquQfAbA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 				</div>
 				<div class="refractive-surgery">
-					<h2>Intraocular Lenses (IOL)</h2>
-					<p>Intraocular Lenses, also known as Intraocular Contact Lenses and Intracollamer Lenses, are an alternative for the correction of high myopia, high hyperopia, and astigmatism. A surgical incision is made on 
-					the cornea through which a soft lens is inserted and is placed on top of the natural lens within the eye. 
+					<h2>Phakic Intraocular Lenses (IOL)</h2>
+					<p>Phakic Intraocular Lenses, also known as Implantable Collamer Lenses, are an alternative to LASIK and PRK for the correction of high myopia and astigmatism. A surgical incision is made on 
+					the cornea. A soft lens is inserted through this incision and is placed on top of or behind the natural lens of the eye. 
 					Side effects and complications of this procedure include infection, undercorrection/overcorrection, vision loss, clouding of the cornea, 
 					glares, halos, double vision, cataract, and retinal detachment. This procedure may need to be repeated to reposition, replace, or remove the implanted lens, 
 					if it moves, is not the right size, or causes severe complications. That being said, the procedure is both repeatable and reversible. Vision stabilizes 
@@ -2367,10 +2215,10 @@
 					<div class="icon"><iframe width="560" height="315" src="https://www.youtube.com/embed/hCSQh5XpoV4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 				</div>
 			</div>
-		</div>
-		<div class="pageNav"> 
-			<a href="#errors" class="next round"><</a>
-			<a href="#patientDecisionAid" class="next round">></a>
+			<div class="pageNav"> 
+				<a href="#errors" class="next round"><</a>
+				<a href="#patientDecisionAid" class="next round">></a>
+			</div>
 		</div>
 	</section>
 	<!--End of Refractive Surgeries Section -->
@@ -2413,7 +2261,7 @@
 			</div>
 			<div class="history-bottom" id='history_form'>
 				<div class="qn">
-					<p>1.&ensp; Do you have a history of or do you currently have any of the following:</p>
+					<p><!-- 1.&ensp;  -->Do you have a history of or do you currently have any of the following:</p>
 		
 					<ul>
 							<li><p>&emsp; &ensp; •	 &ensp; Uncontrolled Eye Conditions or Diseases</p></li>
@@ -2424,112 +2272,57 @@
 						<input id="abscontraindications_yes" class="radioBtn qn1" name="abscontraindications" type="radio" value=-50 required />
 							<label for="abscontraindications_yes"><p>yes</p></label>
 						
-						<input id="abscontraindications_no" class="radioBtn qn1" name="abscontraindications" type="radio" value=0 required />
+						<input id="abscontraindications_no" class="radioBtn qn1" name="abscontraindications" type="radio" value=0 required onclick="showDivByClass('qn1b'); showDivByClass('qn2'); showDivByClass('qn3a');"/>
 							<label for="abscontraindications_no"><p>no</p></label>
-					</div>
-					
-					
-				</div>
-				
-				<div class="qn qn2athrud">
-					<p>2b.&ensp; Are you pregnant or lactating?</p>
-					
-					<div id="preferences">
-						<input id="pregnant_yes" class="radioBtn qn2b" name="pregnant" type="radio" value=0 required />
-							<label for="pregnant_yes"><p>yes</p></label>
-
-						<input id="pregnant_no" class="radioBtn qn2b" name="pregnant" type="radio" value=0 required />
-							<label for="pregnant_no"><p>no</p></label>
-					</div>
-					
-					<p><br>2c.&ensp; Do you take Isotretinoin?</p>
-					
-					<div id="preferences">
-						<input id="Isotretinoin_yes" class="radioBtn qn2c" name="Isotretinoin" type="radio" value=0 required />
-							<label for="Isotretinoin_yes"><p>yes</p></label>
-
-						<input id="Isotretinoin_no" class="radioBtn qn2c" name="Isotretinoin" type="radio" value=0 required />
-							<label for="Isotretinoin_no"><p>no</p></label>
-					</div>	
-					
-					<p><br>2d.&ensp; Are you younger than 21 years old?</p>
-					
-					<div id="preferences">
-						<input id="under21_yes" class="radioBtn qn2d" name="under21" type="radio" value=0 required />
-							<label for="under21_yes"><p>yes</p></label>
-
-						<input id="under21_no" class="radioBtn qn2d" name="under21" type="radio" value=0 required />
-							<label for="under21_no"><p>no</p></label>
 					</div>
 				</div>
 				
 				<div class="qn">
-					<p>2a.&ensp; Do you have a history of, or do you currently have any of the following:</p> 
-					<div id='preferences'>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_dm' id='relcontraindications_dm' value=-25 onclick="uncheck_none('relcontraindications_dm')" required />
-						  <label id='relcontraindications_dm' for='relcontraindications_dm'><p>Diabetes Mellitus</p></label>
-						 <input type='checkbox' class='checkbox qn2a' name='relcontraindications_thyroid' id='relcontraindications_thyroid' value=-25 onclick="uncheck_none('relcontraindications_thyroid')" required />
-						  <label id='relcontraindications_thyroid' for='relcontraindications_thyroid'><p>Uncontrolled Thyroid Disease</p></label><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_herpes' id='relcontraindications_herpes' value=-25 onclick="uncheck_none('relcontraindications_herpes')" required />
-						  <label id='relcontraindications_herpes' for='relcontraindications_herpes'><p>Herpes Simplex Eye Infections</p></label>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_rosacea' id='relcontraindications_rosacea' value=-25 onclick="uncheck_none('relcontraindications_rosacea')" required />
-						  <label id='relcontraindications_rosacea' for='relcontraindications_rosacea'><p>Ocular Rosacea</p></label><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_dryeye' id='relcontraindications_dryeye' value=-25 onclick="uncheck_none('relcontraindications_dryeye')" required />
-						  <label id='relcontraindications_dryeye' for='relcontraindications_dryeye'><p>Severe Dry Eye</p></label>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_strabismus' id='relcontraindications_strabismus' value=-25 onclick="uncheck_none('relcontraindications_strabismus')"required />
-						  <label id='relcontraindications_strabismus' for='relcontraindications_strabismus'><p>Strabismus</p></label><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_cornea' id='relcontraindications_cornea' value=-25 onclick="uncheck_none('relcontraindications_cornea')" required />
-						  <label id='relcontraindications_cornea' for='relcontraindications_cornea'><p>Keratoconus</p></label><br>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_glaucoma' id='relcontraindications_glaucoma' value=-25 onclick="uncheck_none('relcontraindications_glaucoma')" required />
-						  <label id='relcontraindications_glaucoma' for='relcontraindications_glaucoma'><p>Severe Glaucoma</p></label>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_uveitis' id='relcontraindications_uveitis' value=-25 onclick="uncheck_none('relcontraindications_uveitis')" required />
-						  <label id='relcontraindications_uveitis' for='relcontraindications_uveitis'><p>Uveitis</p></label>
-						<input type='checkbox' class='checkbox qn2a' name='relcontraindications_none' id='relcontraindications_none' value=0 onclick="noRelContraindicationsConfirm()" required />
-						  <label id='relcontraindications_none' for='relcontraindications_none'><p>None of the Above</p></label>
-					  </div>
-					</div>
-				
-				<!-- <div class="qn">
-					<p><br>2d.&ensp; Are you younger than 21 years old?</p>
-					
+					<p class="qn1b"><!-- 1.&ensp;  -->Do you have a history of or do you currently have Uveitis?</p>
+		
+					<div class="qn1b"> 
 					<div id="preferences">
-						<input id="under21_yes" class="radioBtn qn2d" name="under21" type="radio" value=0 required />
-							<label for="under21_yes"><p>yes</p></label>
-
-						<input id="under21_no" class="radioBtn qn2d" name="under21" type="radio" value=0 required />
-							<label for="under21_no"><p>no</p></label>
-					</div>
-				</div> -->
-				
-				<!-- <div class="qn">
-					<p>2b.&ensp; Are you pregnant or lactating?</p>
-					
-					<div id="preferences">
-						<input id="pregnant_yes" class="radioBtn qn2b" name="pregnant" type="radio" value=0 required />
-							<label for="pregnant_yes"><p>yes</p></label>
-
-						<input id="pregnant_no" class="radioBtn qn2b" name="pregnant" type="radio" value=0 required />
-							<label for="pregnant_no"><p>no</p></label>
-					</div>
-				</div> -->
-				
-				
-				
-				
-				
-				<div class="qn qn3athrub">
-					<p>3a.&ensp; Do you know your eyeglasses prescription?</p>
+						<input id="uveitis_yes" class="radioBtn qn1b" name="uveitis" type="radio" value=-25 required />
+							<label for="uveitis_yes"><p>yes</p></label>
 						
+						<input id="uveitis_no" class="radioBtn qn1b" name="uveitis" type="radio" value=0 required />
+							<label for="uveitis_no"><p>no</p></label>
+					</div></div>
+				</div>
+				
+				<div class="qn">
+					<p class="qn2"><!-- 1.&ensp;  -->Do you have a history of or do you currently have any of the following:</p>
+					<div class="qn2">
+					<ul>
+						<li><p>&emsp; &ensp; •	 &ensp; Diabetes Mellitus&emsp;&ensp;&emsp;&ensp;&emsp;&ensp;&emsp;&emsp;&ensp;&emsp;&ensp;&ensp;•	 &ensp; Ocular Herpes</p></li>
+						<li><p>&emsp; &ensp; •	 &ensp; Uncontrolled Thyroid Disease&emsp;&ensp;&emsp;&ensp;•	 &ensp; Ocular Rosacea</p></li>
+						<li><p>&emsp; &ensp; •	 &ensp; Severe Dry Eye&ensp;&emsp;&ensp;&emsp;&ensp;&emsp;&ensp;&emsp;&ensp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•	 &ensp; Strabismus</p></li>
+						<li><p>&emsp; &ensp; •	 &ensp; Severe Glaucoma&ensp;&emsp;&ensp;&emsp;&ensp;&emsp;&ensp;&emsp;&ensp;&emsp;&emsp;•	 &ensp; Keratoconus?</p></li>
+					</ul></div>
+						
+					<div class="qn2">
+					<div id="preferences" class="qn2">
+						<input id="relcontraindications_yes" class="radioBtn qn2a" name="relcontraindications" type="radio" value=-25 required />
+							<label for="relcontraindications_yes"><p>yes</p></label>
+						
+						<input id="relcontraindications_no" class="radioBtn qn2a qn2" name="relcontraindications" type="radio" value=0 required />
+							<label for="relcontraindications_no"><p>no</p></label>
+					</div></div>
+				</div>
+
+				<div class="qn qn3athrub">
+						<p class="qn3a"><!-- 3a. &ensp; -->Do you know your eyeglasses prescription?</p>
+						
+						<div class="qn3a">
 						<div id="preferences">
 							<input id="knowpresc_yes" class="radioBtn qn3a" name="knowpresc" type="radio" required onclick="showDivByClass('qn3b'); hideDivByClass('qn4');" />
 								<label for="knowpresc_yes"><p>yes</p></label>
 
 							<input id="knowpresc_no" class="radioBtn qn3a" name="knowpresc" type="radio" required onclick="hideDivByClass('qn3b'); showDivByClass('qn4');" />
 								<label for="knowpresc_no"><p>no</p></label>
-						</div>
-					
-					<!--<div class="qn3b" display="none">-->
-						<p for="number" class="qn3b"><br>3b.&ensp;  What is your last known eyeglasses prescription? </p>
+						</div></div>
+
+						<p for="number" class="qn3b"><br><!-- 3b.&ensp;   -->What is your last known eyeglasses prescription? </p>
 						<table class="qn3b">
 							<tr>
 								<td></td>
@@ -2550,9 +2343,8 @@
 								<td><input id="prescription_Laxis" name="prescription" type="number" step="5" min="0" max="180" onchange="errorMessage('left')"></td>
 							</tr>
 						</table>
-					<!--</div>-->
 					
-					<p class="qn4"><br>3b.&ensp; Do you have hyperopia, antimetropia-- in which one of your eyes is hyperopic--, or mixed astigmatism? </p>
+					<p class="qn4"><br><!-- 3b.&ensp;  -->Do you have hyperopia, antimetropia-- in which one of your two eyes is hyperopic--, or mixed astigmatism? </p>
 					
 					<div class="qn4">
 						<div id="preferences">
@@ -2568,22 +2360,23 @@
 					</div>
 				</div>	
 			</div>
-		</div>
-		<div class="submitNav"> 
-			<input type='button' class='submitBtn' value = 'Submit Medical History &#187;' onclick="medical_data_filled();">
-		</div>
-		
-		<div class="mhsubmitted">
-			<p><strong>Medical History submitted.</strong></p>
-		</div>
-		
-		<div class="submittedMsg">
-			<p><strong>Please continue to the next page using the '>' button below.</strong></p>
-		</div>
-		
-		<div class="pageNav"> 
-			<a href="#patientDecisionAid" class="next round"><</a>
-			<a href="#values" class="next round">></a>
+			
+			<div class="submitNav"> 
+				<input type='button' class='submitBtn' value = 'Submit Medical History &#187;' onclick="medical_data_filled();">
+			</div>
+			
+			<div class="mhsubmitted">
+				<p><strong>Medical History submitted.</strong></p>
+			</div>
+			
+			<div class="submittedMsg">
+				<p><strong>Please continue to the next page using the '>' button below.</strong></p>
+			</div>
+			
+			<div class="pageNav"> 
+				<a href="#patientDecisionAid" class="next round"><</a>
+				<a href="#values" class="next round">></a>
+			</div>
 		</div>
 	</section>
 	<!--End of History Section -->
@@ -2593,44 +2386,43 @@
 		<div class="valuesContainer inner">
 			<div class="values-top">
 				<h1 class="section-title"><br><br><br>Preferences</h1>
-				<p>Please select three statements that would most influence your selection of a surgical modality. 
-				The top statement should be the statement that most influences you of the provided alternatives. 
+				<div id="modality_recommendation_in_prefs"></div>
+				<p class="prefs_instructions">Please select three statements that would most influence your selection of a surgical modality. 
+				The top statement should be the statement that is the most influential to you of the provided alternatives. 
 				The middle statement should be the statement that is the second most influential to you of the provided alternatives.  
 				The bottom statement should be the statement that is the third most influential to you  of the provided alternatives.</p>
 			</div>
 			<div class="values-bottom">				
 				<div id="list1" class="droppable list" data-max="-1"><!-- I want this to accept many. -->
-				  <p class="item draggable PRK IOL" id="high_myope" prkvalue=3 iolvalue=4>The refractive surgery is better suited for patients with high myopia.</p>
-				  <p class="item draggable PRK IOL" id="thin_cornea" prkvalue=4 iolvalue=4>The refractive surgery is better suited for patients with thinner or abnormally shaped corneas.</p>
 				  <p class="item draggable PRK" id="military" prkvalue=4>The refractive surgery is better suited for patients in the military or for patients who participate in contact sports.</p>
-				  <p class="item draggable LASIK IOL" id="more_invasive" lasikvalue=-2 iolvalue=-4>The refractive surgery is more invasive.</p>
-				  <p class="item draggable LASIK PRK" id="cost_effective" lasikvalue=2 prkvalue=1>The refractive surgery is more cost effective.</p>
-				  <p class="item draggable LASIK PRK"id="influences_rle" lasikvalue=-2 prkvalue=-2>The refractive surgery may influence the accuracy of calculations and vision correction options for subsequent cataract surgery.</p>
-				  <p class="item draggable PRK"id="longer_recovery" prkvalue=-2>The recovery period of this refractive surgery is longer and more painful.</p>
-				  <p class="item draggable LASIK PRK" id="more_dry_eye" lasikvalue=-2 prkvalue=-1>Following the refractive surgery, patients may develop or observe an exacerbation of dry eye symptoms.</p>
-				  <p class="item draggable IOL myope_only" id="indefinite_fu" iolvalue=-3>The refractive surgery requires follow-up for an indefinite period of time over the long-term.</p>
-				  <p class="item draggable IOL myope_only" id="reversible" iolvalue=3>The refractive surgery is reversible.</p>
+				  <p class="item draggable LASIK PRK" id="minimally_invasive" lasikvalue=2 prkvalue=4>The refractive surgery is minimally invasive.</p>
+				  <p class="item draggable LASIK PRK" id="cost_effective" lasikvalue=4 prkvalue=2>The refractive surgery is more cost effective.</p>
+				  <p class="item draggable PRK IOL" id="less_dry_eye" prkvalue=2 iolvalue=4>Following the refractive surgery, patients are at lower risk of developing dry eye symptoms.</p>
+				  <p class="item draggable IOL myope_only"id="doesnt_influence_rle" iolvalue=4>The refractive surgery does not influence vision correction during subsequent cataract surgery.</p>
+				  <p class="item draggable LASIK IOL" id="shorter_recovery" lasikvalue=4 iolvalue=2>The recovery period of this refractive surgery is shorter.</p>
+				  <p class="item draggable LASIK" id="less_painful_recovery" lasikvalue=4>The recovery period of this refractive surgery is less painful.</p>
+				  <p class="item draggable LASIK PRK myope_only" id="fewer_fus" lasikvalue=4 prkvalue=2>The refractive surgery requires less follow-up appointments post-operatively.</p>
+				  <p class="item draggable IOL myope_only" id="reversible" iolvalue=4>The refractive surgery is reversible.</p>
 				</div>
 				<div id="list2" class="droppable list" data-max="3"><!-- I want this to accept only 3. -->
 				</div>
 			</div>
-		</div>
-		
-		<div class="submitNav"> 
-			<input type='button' class='submitBtn' value = 'Submit Preferences &#187;' onclick="prefs_filled();">
-		</div>
-		
-		<div class="prefssubmitted">
-			<p><strong>Preferences submitted.</strong></p>
-		</div>
-		
-		<div class="submittedMsg">
-			<p><strong>Please continue to the next page using the '>' button below.</strong></p>
-		</div>
-		
-		<div class="pageNav"> 
-			<a href="#history" class="next round"><</a>
-			<a href="#recs" class="next round">></a>
+			<div class="submitNav"> 
+				<input type='button' class='submitBtn' value = 'Submit Preferences &#187;' onclick="prefs_filled();">
+			</div>
+			
+			<div class="prefssubmitted">
+				<p><strong>Preferences submitted.</strong></p>
+			</div>
+			
+			<div class="submittedMsg">
+				<p><strong>Please continue to the next page using the '>' button below.</strong></p>
+			</div>
+			
+			<div class="pageNav"> 
+				<a href="#history" class="next round"><</a>
+				<a href="#recs" class="next round">></a>
+			</div>
 		</div>
 	</section>
 	</form>
@@ -2668,40 +2460,10 @@
 	<section id="surgeryrecs">
 		<div class="surgeryrecsContainer inner">
 			<div class="surgeryrecs-top">
-				<h1 class="section-title"><br><br>Surgery Recommendations</h1>
+				<h1 class="section-title"><br><br><br>Surgery Recommendations</h1>
 				<p>Hover over the icons for more detail.</p>
 				
 				<div id="modality_recommendation"></div>
-				<div class="disclaimers">
-					<div class='disclaimer_relcontraindications' style="display:none;">
-						<p><br>Contingent upon medical history, some surgeons will not perform 
-						refractive surgery on patients with Herpes Simplex Eye Infections, Ocular Rosacea, Severe Dry Eye,
-						Strabismus, Keratoconus, Severe Glaucoma, Uveitis, Diabetes Mellitus, and/or Uncontrolled Thyroid Disease. 
-						This is because Herpes Simplex Eye Infections, Ocular Rosacea, and Strabismus 
-						might recur if the procedure were performed. This is also because Keratoconus, Severe Glaucoma, 
-						Uveitis, Diabetes Mellitus, and/or Uncontrolled Thyroid Disease might get worse if the procedure 
-						were performed. Share your medical history with your refractive 
-						surgeon to determine whether you are a candidate for refractive surgery.</p>
-					</div>
-					<div class="disclaimer_pregnant" style="display:none;">
-						<p><br>Some surgeons will not perform refractive surgery on
-						pregnant and lactating individuals, because eyesight can change
-						during pregnancy and lactation. Ask your refractive surgeon during 
-						your consultation whether they operate on pregnant or 
-						lactating individuals.</p>
-					</div>
-					<div class="disclaimer_isotretinoin" style="display:none;">
-						<p><br>Some surgeons will not perform refractive surgery on
-						patients taking isotretinoin. Share your medical history with your refractive 
-						surgeon to determine whether you are a candidate for refractive surgery.</p>
-					</div>
-					<div class="disclaimer_under21" style="display:none;">
-						<p><br>Remember, refractive surgery is only FDA-approved for
-						patients 21 years of age and older. You may have to wait to
-						to schedule a consultation with a refractive surgeon.</p>
-					</div>
-				</div>
-				
 				<div class="recommendations_table">
 					<table>
 						<thead>
@@ -2713,8 +2475,9 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td rowspan="4" class="bigrowtitle"><p>Advantages</p></td>
+							<!-- <tr>
+								<!-- <td rowspan="4" class="bigrowtitle"><p>Advantages</p></td>
+								<td rowspan="3" class="bigrowtitle"><p>Advantages</p></td>
 								<td class="rowtitle"><p>Better Suited for High Myopia</p></td>
 								<td class='results LASIK_col'>
 									<div class='resultstip'>
@@ -2733,9 +2496,9 @@
 										whose thin or abnormally shaped corneas make them poor candidates for LASIK and PRK.</span>
 									</div>
 								</td>
-							</tr>
+							</tr> -->
 							
-							<tr>
+							<!-- <tr>
 								<td><class="rowtitle"><p>Better for Patients with Thin or Abnormally Shaped Corneas</p></td>
 								<td class='results LASIK_col'>
 									<div class='resultstip'>
@@ -2767,9 +2530,10 @@
 										As such, it has fewer risks of corneal complications for patients with thin or abnormally shaped corneas.</span>
 									</div>
 								</td>
-							</tr>
+							</tr> -->
 							
 							<tr>
+								<td rowspan="2" class="bigrowtitle"><p>Advantages</p></td>
 								<td class="rowtitle"><p>Better Suited for Military and Athletes</p></td>
 								<td class='results LASIK_col'>
 									<div class='resultstip'>
@@ -2782,7 +2546,7 @@
 								<td class='results PRK_col'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
-										<span class='resultstiptext'>PRK is better suited for the military and athletes than LASIK. The 
+										<span class='resultstiptext'>PRK is <a href="https://eyewiki.aao.org/Photorefractive_Keratectomy">better suited for the military and athletes than LASIK</a>. The 
 										surgery does not involve the creation of a corneal flap, eliminating potential of flap related complications.</span>
 									</div>
 								</td>
@@ -2806,7 +2570,7 @@
 								<td class='results PRK_col'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
-										<span class='resultstiptext'>PRK and LASEK touch less of the cornea than LASIK, making them less invasive alternatives. Additionally, 
+										<span class='resultstiptext'>PRK and its variants touch less of the cornea than LASIK, making them less invasive alternatives. Additionally, 
 										because the procedure is superficial, in contrast to IOLs, it is minimally invasive.</span>
 									</div>
 								</td>
@@ -2814,8 +2578,8 @@
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
 										<span class='resultstiptext'>Intraocular Refractive Surgery involves the placement of an intraocular 
-										contact lens within the eye. This contrasts from LASIK and PRK and its variants, which correct refraction by shaping the cornea, a 
-										more superficial layer of the eye. As such, IOLs are more invasive than LASIK and PRK.</span>
+										contact lens within the eye. This contrasts from LASIK and PRK and its variants, which correct refraction by shaping the cornea, a  
+										superficial layer of the eye. As such, IOLs are more invasive than LASIK and PRK.</span>
 									</div>
 								</td>
 							</tr>
@@ -2838,77 +2602,105 @@
 								<td class='results IOL_col'>
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
-										<span class='resultstiptext'>Average of $5,304 per eye</span>
+										<span class='resultstiptext'>Range of <a href="https://www.bettervisionguide.com/phakic-iols/#:~:text=How%20Much%20Do%20Phakic%20IOLs,is%20not%20covered%20by%20insurance.">$3,000 to $5,000</a> per eye</span>
 									</div>
 								</td>
 							</tr>
 							
 							<tr>
 								<td rowspan="2" class="bigrowtitle"><p>Side Effects and Complications</p></td>
-								<td class="rowtitle"><p>Exacerbated Dry Eye</p></td>
+								<td class="rowtitle"><p>Limited Risk of Dry Eye</p></td>
 								<td class='results LASIK_col'>
 									<div class='resultstip'>
-										<i class="fas fa-check" alt="yes"></i>
+										<i class="fas fa-times" alt="no"></i>
 										<span class='resultstiptext'>LASIK involves the creation of a corneal flap. The creation of a 
-										corneal flap affects corneal nerves associated with tear production. As such, patients may experience exacerbated 
-										dry eye symptoms following LASIK.</span>
+										corneal flap affects corneal nerves associated with tear production. As such, patients may experience <a href="https://eyewiki.aao.org/LASIK_for_Myopia_and_Astigmatism:_Safety_and_Efficacy">exacerbated 
+										dry eye symptoms following LASIK</a>.</span>
 									</div>
 								</td>
 								<td class='results PRK_col'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
-										<span class='resultstiptext'>PRK involves the removal of the corneal epithelium. LASEK and Epi-LASEK, variants of PRK,
-										involve the creation of a flap in the corneal epithelium instead. 
-										The removal or creation of a flap in the corneal epithelium affects corneal nerves associated with tear production. 
-										As such, patients may experience exacerbated dry eye symptoms following PRK.</span>
+										<span class='resultstiptext'>PRK involves the removal of the corneal epithelium, while variants of PRK
+										involve the creation of a flap in the corneal epithelium, instead. 
+										The removal of or creation of a flap in the corneal epithelium affects corneal nerves associated with tear production. 
+										As such, patients may experience <a href="https://www.aao.org/preferred-practice-pattern/refractive-errors-refractive-surgery-ppp-2017">exacerbated dry eye symptoms following PRK</a>. However, 
+										because less of the cornea is touched by PRK than LASIK, <a href="https://eyewiki.aao.org/Photorefractive_Keratectomy">less dry eye</a> is expected.</span>
 									</div>
 								</td>
 								<td class='results IOL_col'>
 									<div class='resultstip'>
-										<i class="fas fa-times" alt="no"></i>
+										<i class="fas fa-check" alt="yes"></i>
 									</div>
 								</td>
 							</tr>
 							
 							<tr>
-								<td class="rowtitle"><p>Influences Future Cataract Surgery</p></td>
+								<td class="rowtitle"><p>Does Not Influence Future Cataract Surgery</p></td>
 								<td class='results LASIK_col'>
 									<div class='resultstip'>
-										<i class="fas fa-check" alt="yes"></i>
-										<span class='resultstiptext'>Because LASIK involves shaping of the cornea, it may reduce the 
-										accuracy of IOLs calculations for future cataract surgery.</span>
+										<i class="fas fa-times" alt="no"></i>
+										<span class='resultstiptext'>Because LASIK involves shaping of the cornea, it may <a href="https://www.aao.org/preferred-practice-pattern/refractive-errors-refractive-surgery-ppp-2017">reduce the 
+										accuracy of calculations and vision correction options for future cataract surgery</a>.</span>
 									</div>
 								</td>
 								<td class='results PRK_col'>
 									<div class='resultstip'>
-										<i class="fas fa-check" alt="yes"></i>
-										<span class='resultstiptext'>Because PRK and its variants shape the cornea, it may reduce the 
-										accuracy of IOLs calculations for future cataract surgery.</span>
+										<i class="fas fa-times" alt="no"></i>
+										<span class='resultstiptext'>Because PRK and its variants shape the cornea, it may <a href="https://www.aao.org/preferred-practice-pattern/refractive-errors-refractive-surgery-ppp-2017">reduce the 
+										accuracy of calculations and vision correction options for future cataract surgery</a>.</span>
 									</div>
 								</td>
 								<td class='results IOL_col'>
 									<div class='resultstip'>
-										<i class="fas fa-times" alt="no"></i>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>Because Intraocular Surgery involves the placement of an intraocular contact lens, it does not inherently change the eye. As such,  
+										its presence does not affect calculations and vision correction options for future catarct surgery, like LASIK and PRK do.</span>
 									</div>
 								</td>
 							</tr>
 							
 							<tr>
-								<td rowspan="2" class="bigrowtitle"><p>Recovery Period</p></td>
-								<td class="rowtitle"><p>Longer and More Painful Recovery</p></td>
+								<td rowspan="3" class="bigrowtitle"><p>Recovery Period</p></td>
+								<td class="rowtitle"><p>Shorter Recovery</p></td>
 								<td class='results LASIK_col'>
 									<div class='resultstip'>
-										<i class="fas fa-times" alt="no"></i>
+										<i class="fas fa-check" alt="yes"></i>
 										<span class='resultstiptext'>LASIK involves the creation of a corneal flap, that is 
 										repositioned after the corneal stroma is shaped. The healing process involves the reattachment 
-										of the corneal flap, which is shorter and less painful than PRK.</span>
+										of the corneal flap, which is shorter than PRK.</span>
 									</div>
 								</td>
 								<td class='results PRK_col'>
 									<div class='resultstip'>
-										<i class="fas fa-check" alt="yes"></i>
+										<i class="fas fa-times" alt="no"></i>
 										<span class='resultstiptext'>PRK involves the removal of the corneal epithelium. The 
-										process of regrowing the corneal epithelium is longer and more painful than the process 
+										process of regrowing the corneal epithelium is longer than the process 
+										of reattaching the corneal flap, as occurs in LASIK.</span>
+									</div>
+								</td>
+								<td class='results IOL_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+									</div>
+								</td>
+							</tr>	
+							
+							<tr>
+								<td class="rowtitle"><p>Less Painful Recovery</p></td>
+								<td class='results LASIK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>LASIK involves the creation of a corneal flap, that is 
+										repositioned after the corneal stroma is shaped. The healing process involves the reattachment 
+										of the corneal flap, which is less painful than PRK.</span>
+									</div>
+								</td>
+								<td class='results PRK_col'>
+									<div class='resultstip'>
+										<i class="fas fa-times" alt="no"></i>
+										<span class='resultstiptext'>PRK involves the removal of the corneal epithelium. The 
+										process of regrowing the corneal epithelium is more painful than the process 
 										of reattaching the corneal flap, as occurs in LASIK.</span>
 									</div>
 								</td>
@@ -2920,31 +2712,26 @@
 							</tr>	
 							
 							<tr>
-								<td class="rowtitle"><p>Follow Up Indefinitely Long</p></td>
+								<td class="rowtitle"><p>Fewer Follow Up Visits</p></td>
 								<td class='results LASIK_col'>
 									<div class='resultstip'>
-										<i class="fas fa-times" alt="no"></i>
-										<span class='resultstiptext'>LASIK patients undergo postoperative examination 
-										36 hours following surgery. Patients whose postoperative vision is worse than their eye-glasses or contact lens 
-										corrected vision preoperatively will follow up with their ophthalmologist 1-4 weeks postoperatively. 
-										Any other follow ups will be determined as appropriate by the ophthalmologist. Typically, patients follow up at 1 day, 4 days, 
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>Typically, patients follow up at 1 day, 4 days, 
 										1 week, 1 month, 3 months, 6 months, and 12 months postoperatively.</span>
 									</div>
 								</td>
 								<td class='results PRK_col'>
 									<div class='resultstip'>
-										<i class="fas fa-times" alt="no"></i>
-										<span class='resultstiptext'>PRK patients undergo postoperative examination 1 day postoperatively and 
-										every 2-3 days after until the epithelium heals (usually 5 days postoperatively). Any other follow ups 
-										will be determined as appropriate by the ophthalmologist. Typically, patients follow up at 1 day, 
-										2-4 weeks, 2-3 months, 6 months, and 12 months postoperatively.</span>
+										<i class="fas fa-check" alt="yes"></i>
+										<span class='resultstiptext'>Typically, patients follow up at <a href="https://www.surgeryencyclopedia.com/Pa-St/Photorefractive-Keratectomy-PRK.html">1 day, 
+										2-4 weeks, 2-3 months, 6 months, and 12 months postoperatively</a>.</span>
 									</div>
 								</td>
 								<td class='results IOL_col'>
 									<div class='resultstip'>
-										<i class="fas fa-check" alt="yes"></i>
-										<span class='resultstiptext'>IOL patients are recommended to pursue indefinite long-term follow up 
-										care with their ophthalmologist.</span>
+										<i class="fas fa-times" alt="no"></i>
+										<span class='resultstiptext'>IOL patients are recommended to pursue <a href="https://www.fda.gov/medical-devices/phakic-intraocular-lenses/during-after-surgery">indefinite long-term follow up 
+										care with their ophthalmologist</a>.</span>
 									</div>
 								</td>
 							</tr>
@@ -2994,11 +2781,41 @@
 									<li><p><a href="https://www.fda.gov/medical-devices/implants-and-prosthetics/phakic-intraocular-lenses">Food and Drug Administration</a></p></li>
 									<li><p><a href="https://www.allaboutvision.com/lens-implant-surgery/">All About Vision</a></p></li>
 									<li><p><a href="https://www.webmd.com/eye-health/what-to-know-icl-surgery">WebMD</a></p></li>
-									<li><p><a href="https://www.healthline.com/health/icl-surgery#benefits">Healthline</a></p></li>
+									<li><p><a href="https://www.healthline.com/health/icl-surgery">Healthline</a></p></li>
 								</td>
 							</tr>
 						</tbody>
 					</table>
+				</div>
+				
+				<div class="disclaimers">
+					<div class='disclaimer_relcontraindications'>
+						<p><br>Contingent upon medical history, some surgeons will not perform 
+						refractive surgery on patients with Herpes Simplex Eye Infections, Ocular Rosacea, Severe Dry Eye,
+						Strabismus, Keratoconus, Severe Glaucoma, Uveitis, Diabetes Mellitus, and/or Uncontrolled Thyroid Disease. 
+						This is because Herpes Simplex Eye Infections, Ocular Rosacea, and Strabismus 
+						might recur if the procedure were performed. This is also because Keratoconus, Severe Glaucoma, 
+						Uveitis, Diabetes Mellitus, and/or Uncontrolled Thyroid Disease might get worse if the procedure 
+						were performed. Share your medical history with your refractive 
+						surgeon to determine whether you are a candidate for refractive surgery.</p>
+					</div>
+					<div class="disclaimer_pregnant">
+						<p><br>Some surgeons will not perform refractive surgery on
+						pregnant and lactating individuals, because eyesight can change
+						during pregnancy and lactation. Ask your refractive surgeon during 
+						your consultation whether they operate on pregnant or 
+						lactating individuals.</p>
+					</div>
+					<div class="disclaimer_isotretinoin">
+						<p><br>Some surgeons will not perform refractive surgery on
+						patients taking isotretinoin. Share your medical history with your refractive 
+						surgeon to determine whether you are a candidate for refractive surgery.</p>
+					</div>
+					<div class="disclaimer_under21">
+						<p><br>Remember, refractive surgery is only FDA-approved for
+						patients 21 years of age and older. You may have to wait to
+						to schedule a consultation with a refractive surgeon.</p>
+					</div>
 				</div>
 				
 					<div class="submitNav" id="open_more_info"> 
@@ -3006,7 +2823,7 @@
 					</div>
 				
 				<!-- <div class="more_info"> -->
-					<h1 class="section-title more_info"><br><br>More Information</h1>
+					<h1 class="section-title more_info"><br><br><br>More Information</h1>
 					<div class="recommendations_table more_info">
 						<table>
 							<thead>
@@ -3116,7 +2933,7 @@
 									<td  class="content">
 										<ul>
 											<li><p>•	 95% of patients are satisfied with their results; however, a range of 1-2% are dissatisfied with the 
-											surgery and a range of 1-4% are dissatisfied with their vision.</p><br><br></li>
+											surgery and a range of 1-4% are dissatisfied with their vision.</p></li>
 											<li><p>•	 At 3 months postoperatively, 96% patients from the general population achieved 20/20 vision</p><br><br></li>
 											
 											<li><p>•	 More predictable for low to moderate myopia; less predictable
@@ -3164,13 +2981,14 @@
 						</table>
 					</div>
 				<!-- </div> -->
+				<div class="pageNav"> 
+					<a href="#recs" class="next round"><</a>
+					<a href="#surgeonrecs" class="next round">></a>
+				</div>
 			</div>
 		</div>
 		
-		<div class="pageNav"> 
-			<a href="#recs" class="next round"><</a>
-			<a href="#surgeonrecs" class="next round">></a>
-		</div>
+		
 	</section>
 	<!-- End of Surgery Recommendations Section -->
 	
@@ -3178,7 +2996,9 @@
 	<section id="surgeonrecs">
 		<div class="surgeonrecsContainer inner">
 			<div class="surgeonrecs-top">
-				<h1 class="section-title"><br><br>Surgeon Recommendations</h1>
+				<h1 class="section-title"><br><br><br>Surgeon Recommendations</h1>
+				<p>Below are surgeons in the Phoenix metropolitan area, that are recommended to you based upon the surgery that you were
+				 recommended in the previous section.<br><br></p>
 			</div>
 			<div class="surgeonrecs-bottom">
 				<div class="LASIK_surgeons">
@@ -3189,7 +3009,7 @@
 							<div class="elfsight-app-e3e4cf5b-e20d-44fc-beec-151600949292"></div> 
 						</td></tr>
 						
-						<tr><td><h2>Barnet Dulaney Perkins Eye Center</h2></td></tr>
+						<tr><td><h2><br><br>Barnet Dulaney Perkins Eye Center</h2></td></tr>
 						<tr><td>
 							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
 							<div class="elfsight-app-84678646-8f21-4cfc-9827-65f9677004da"></div>
@@ -3210,7 +3030,7 @@
 							<div class="elfsight-app-e3e4cf5b-e20d-44fc-beec-151600949292"></div> 
 						</td></tr>
 						
-						<tr><td><h2>Swagel Wootton Eye Institute - Mesa</h2></td></tr>
+						<tr><td><h2><br><br>Swagel Wootton Eye Institute - Mesa</h2></td></tr>
 						<tr><td>
 							<script src="https://apps.elfsight.com/p/platform.js" defer></script>
 							<div class="elfsight-app-3c43b0bb-951e-429c-b096-07bd1cb10f6d"></div>
@@ -3266,11 +3086,13 @@
 						
 					</table>
 				</div>
+				
+				<div class="pageNav"> 
+					<a href="#surgeryrecs" class="next round"><</a>
+				</div>
 			</div>
 		</div>
-		<div class="pageNav"> 
-			<a href="#surgeryrecs" class="next round"><</a>
-		</div>
+		
 	</section>
 	<!-- End of Surgeon Recommendations Section -->
 	
