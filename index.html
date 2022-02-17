@@ -2020,8 +2020,17 @@
 
 		});
 
+		let element_ids_list = [];
+		
 		function prefs_filled() {
 			let numPrefs = 0;
+			
+			if (element_ids_list.length > 0) {
+				for (let i = 0; i < element_ids_list.length;  i++) {
+					element_ids_list.pop();
+				}
+			}
+			
 			list2.childNodes.forEach((element) => {
 				
 				if (typeof element.id  !== 'undefined') {
@@ -2100,6 +2109,63 @@
 				document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon your responses, you may be contraindicated for these surgical modalities, or you may have an eye glasses prescription that is outside of laser and contact lens parameters.</p>";
 				showDivByClass("none_surgeons");
 			}
+			
+			for(let i = 0; i < element_ids_list.length; i++) {
+				if (element_ids_list[i].localeCompare("military") == 0) {
+					for (let j = 0; j < document.getElementsByClassName("military").length; j++) {
+						document.getElementsByClassName("military")[j].style.background = "#F0F0F0";
+						document.getElementsByClassName("military")[j].style.fontWeight = "700";
+					}
+				}
+				if (element_ids_list[i].localeCompare("minimally_invasive") == 0) {
+					for (let j = 0; j < document.getElementsByClassName("minimally_invasive").length; j++) {
+						document.getElementsByClassName("minimally_invasive")[j].style.background = "#F0F0F0";
+						document.getElementsByClassName("minimally_invasive")[j].style.fontWeight = "700";
+					}
+				}
+				if (element_ids_list[i].localeCompare("cost_effective") == 0) {
+					for (let j = 0; j < document.getElementsByClassName("cost_effective").length; j++) {
+						document.getElementsByClassName("cost_effective")[j].style.background = "#F0F0F0";
+						document.getElementsByClassName("cost_effective")[j].style.fontWeight = "700";
+					}
+				}
+				if (element_ids_list[i].localeCompare("less_dry_eye") == 0) {
+					for (let j = 0; j < document.getElementsByClassName("less_dry_eye").length; j++) {
+						document.getElementsByClassName("less_dry_eye")[j].style.background = "#F0F0F0";
+						document.getElementsByClassName("less_dry_eye")[j].style.fontWeight = "700";
+					}
+				}
+				if (element_ids_list[i].localeCompare("doesnt_influence_rle") == 0) {
+					for (let j = 0; j < document.getElementsByClassName("doesnt_influence_rle").length; j++) {
+						document.getElementsByClassName("doesnt_influence_rle")[j].style.background = "#F0F0F0";
+						document.getElementsByClassName("doesnt_influence_rle")[j].style.fontWeight = "700";
+					}
+				}
+				if (element_ids_list[i].localeCompare("shorter_recovery") == 0) {
+					for (let j = 0; j < document.getElementsByClassName("shorter_recovery").length; j++) {
+						document.getElementsByClassName("shorter_recovery")[j].style.background = "#F0F0F0";
+						document.getElementsByClassName("shorter_recovery")[j].style.fontWeight = "700";
+					}
+				}
+				if (element_ids_list[i].localeCompare("less_painful_recovery") == 0) {
+					for (let j = 0; j < document.getElementsByClassName("less_painful_recovery").length; j++) {
+						document.getElementsByClassName("less_painful_recovery")[j].style.background = "#F0F0F0";
+						document.getElementsByClassName("less_painful_recovery")[j].style.fontWeight = "700";
+					}
+				}
+				if (element_ids_list[i].localeCompare("fewer_fus") == 0) {
+					for (let j = 0; j < document.getElementsByClassName("fewer_fus").length; j++) {
+						document.getElementsByClassName("fewer_fus")[j].style.background = "#F0F0F0";
+						document.getElementsByClassName("fewer_fus")[j].style.fontWeight = "700";
+					}
+				}
+				if (element_ids_list[i].localeCompare("reversible") == 0) {
+					for (let j = 0; j < document.getElementsByClassName("reversible").length; j++) {
+						document.getElementsByClassName("reversible")[j].style.background = "#F0F0F0";
+						document.getElementsByClassName("reversible")[j].style.fontWeight = "700";
+					}
+				}
+			}
 		}
 		
 		function returnRankedPrefs() {
@@ -2111,6 +2177,7 @@
 					rank = rank + 1;
 					var element_id = element.id;
 					console.log("element_id: " + element_id);
+					element_ids_list.push(element_id);
 					var element_class = element.className;
 					console.log("element_class: " + element_class);
 					
@@ -2184,6 +2251,18 @@
 				document.getElementsByClassName("LASIK_col")[i].style.background = "white";
 				document.getElementsByClassName("PRK_col")[i].style.background = "white";
 				document.getElementsByClassName("IOL_col")[i].style.background = "white";
+			}
+			
+			for (let j = 0; j < document.getElementsByClassName("military").length; j++) {
+				document.getElementsByClassName("military")[j].style.background = "#white";
+				document.getElementsByClassName("minimally_invasive")[j].style.background = "#white";
+				document.getElementsByClassName("cost_effective")[j].style.background = "#white";
+				document.getElementsByClassName("less_dry_eye")[j].style.background = "#white";
+				document.getElementsByClassName("doesnt_influence_rle")[j].style.background = "#white";
+				document.getElementsByClassName("shorter_recovery")[j].style.background = "#white";
+				document.getElementsByClassName("less_painful_recovery")[j].style.background = "#white";
+				document.getElementsByClassName("fewer_fus")[j].style.background = "#white";
+				document.getElementsByClassName("reversible")[j].style.background = "#white";
 			}
 		}
 		/*function navtoerrors() {
@@ -2484,7 +2563,7 @@
 			</div>
 			
 			<div class="submitNav_1"> 
-				<input type='button' class='submitBtn' value = 'Submit Responses &#187;' onclick="process_abscontraindications_yes(); submittedMessage('mh'); document.getElementsByClassName('LASIK_col')[i].style.background = 'white'; document.getElementsByClassName('PRK_col')[i].style.background = 'white'; document.getElementsByClassName('IOL_col')[i].style.background = 'white';">
+				<input type='button' class='submitBtn' value = 'Submit Responses &#187;' onclick="restore_original_colors(); process_abscontraindications_yes(); submittedMessage('mh'); document.getElementsByClassName('LASIK_col')[i].style.background = 'white'; document.getElementsByClassName('PRK_col')[i].style.background = 'white'; document.getElementsByClassName('IOL_col')[i].style.background = 'white';">
 			</div>
 			
 			<div class="mhsubmitted">
@@ -2529,7 +2608,7 @@
 				  <p class="item draggable IOL myope_only"id="doesnt_influence_rle" iolvalue=4>The refractive surgery does not influence vision correction during subsequent cataract surgery.</p>
 				  <p class="item draggable LASIK IOL" id="shorter_recovery" lasikvalue=4 iolvalue=2>The recovery period of this refractive surgery is shorter.</p>
 				  <p class="item draggable LASIK" id="less_painful_recovery" lasikvalue=4>The recovery period of this refractive surgery is less painful.</p>
-				  <p class="item draggable LASIK PRK myope_only" id="fewer_fus" lasikvalue=4 prkvalue=2>The refractive surgery requires less follow-up appointments post-operatively.</p>
+				  <p class="item draggable LASIK PRK" id="fewer_fus" lasikvalue=4 prkvalue=2>The refractive surgery requires less follow-up appointments post-operatively.</p>
 				  <p class="item draggable IOL myope_only" id="reversible" iolvalue=4>The refractive surgery is reversible.</p>
 				</div>
 				<div id="list2" class="droppable list" data-max="3"><!-- I want this to accept only 3. -->
@@ -2578,8 +2657,8 @@
 						<tbody>
 							<tr>
 								<td rowspan="2" class="bigrowtitle"><p>Advantages</p></td>
-								<td class="rowtitle"><p>Better Suited for Military and Athletes</p></td>
-								<td class='results LASIK_col'>
+								<td class="rowtitle military"><p>Better Suited for Military and Athletes</p></td>
+								<td class='results LASIK_col military'>
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
 										<span class='resultstiptext'>LASIK is not as well suited for the military and athletes as PRK. The surgery 
@@ -2587,14 +2666,14 @@
 										infliction of trauma.</span>
 									</div>
 								</td>
-								<td class='results PRK_col'>
+								<td class='results PRK_col military'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
 										<span class='resultstiptext'>PRK is <a href="https://eyewiki.aao.org/Photorefractive_Keratectomy">better suited for the military and athletes than LASIK</a>. The 
 										surgery does not involve the creation of a corneal flap, eliminating potential of flap related complications.</span>
 									</div>
 								</td>
-								<td class='results IOL_col'>
+								<td class='results IOL_col military'>
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
 									</div>
@@ -2602,8 +2681,8 @@
 							</tr>
 							
 							<tr>
-								<td class="rowtitle"><p>Less Invasive</p></td>
-								<td class='results LASIK_col'>
+								<td class="rowtitle minimally_invasive"><p>Less Invasive</p></td>
+								<td class='results LASIK_col minimally_invasive'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
 										<span class='resultstiptext'>LASIK touches more of the cornea than PRK and its variants, making it a more invasive 
@@ -2611,14 +2690,14 @@
 										because the procedure remains superficial, in contrast to IOLs, it is still minimally invasive.</span>
 									</div>
 								</td>
-								<td class='results PRK_col'>
+								<td class='results PRK_col minimally_invasive'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
 										<span class='resultstiptext'>PRK and its variants touch less of the cornea than LASIK, making them less invasive alternatives. Additionally, 
 										because the procedure is superficial, in contrast to IOLs, it is minimally invasive.</span>
 									</div>
 								</td>
-								<td class='results IOL_col'>
+								<td class='results IOL_col minimally_invasive'>
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
 										<span class='resultstiptext'>Intraocular Refractive Surgery involves the placement of an intraocular 
@@ -2630,20 +2709,20 @@
 							
 							<tr>
 								<td class="bigrowtitle"><p>Price</p></td>
-								<td class="rowtitle"><p>Cost Effective</p></td>
-								<td class='results LASIK_col'>
+								<td class="rowtitle cost_effective"><p>Cost Effective</p></td>
+								<td class='results LASIK_col cost_effective'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
 										<span class='resultstiptext'>Average of <a href="https://www.webmd.com/connect-to-care/lasik/how-much-does-lasik-surgery-cost#:~:text=With%20an%20average%20cost%20of,equipment%2C%20and%20specific%20eye%20conditions.">$2,199</a> per eye</span>
 									</div>
 								</td>
-								<td class='results PRK_col'>
+								<td class='results PRK_col cost_effective'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
 										<span class='resultstiptext'>Average of <a href="https://www.webmd.com/connect-to-care/lasik/is-prk-surgery-covered-by-insurance#:~:text=How%20Much%20Does%20PRK%20Surgery,laser%2Dassisted%20in%20situ%20keratomileusis.">$2,246</a> per eye</span>
 									</div>
 								</td>
-								<td class='results IOL_col'>
+								<td class='results IOL_col cost_effective'>
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
 										<span class='resultstiptext'>Range of <a href="https://www.bettervisionguide.com/phakic-iols/#:~:text=How%20Much%20Do%20Phakic%20IOLs,is%20not%20covered%20by%20insurance.">$3,000 to $5,000</a> per eye</span>
@@ -2653,8 +2732,8 @@
 							
 							<tr>
 								<td rowspan="2" class="bigrowtitle"><p>Side Effects and Complications</p></td>
-								<td class="rowtitle"><p>Limited Risk of Dry Eye</p></td>
-								<td class='results LASIK_col'>
+								<td class="rowtitle less_dry_eye"><p>Limited Risk of Dry Eye</p></td>
+								<td class='results LASIK_col less_dry_eye'>
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
 										<span class='resultstiptext'>LASIK involves the creation of a corneal flap. The creation of a 
@@ -2662,7 +2741,7 @@
 										dry eye symptoms following LASIK</a>.</span>
 									</div>
 								</td>
-								<td class='results PRK_col'>
+								<td class='results PRK_col less_dry_eye'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
 										<span class='resultstiptext'>PRK involves the removal of the corneal epithelium, while variants of PRK
@@ -2672,7 +2751,7 @@
 										because less of the cornea is touched by PRK than LASIK, <a href="https://eyewiki.aao.org/Photorefractive_Keratectomy">less dry eye</a> is expected.</span>
 									</div>
 								</td>
-								<td class='results IOL_col'>
+								<td class='results IOL_col less_dry_eye'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
 									</div>
@@ -2680,22 +2759,22 @@
 							</tr>
 							
 							<tr>
-								<td class="rowtitle"><p>Does Not Influence Future Cataract Surgery</p></td>
-								<td class='results LASIK_col'>
+								<td class="rowtitle doesnt_influence_rle"><p>Does Not Influence Future Cataract Surgery</p></td>
+								<td class='results LASIK_col doesnt_influence_rle'>
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
 										<span class='resultstiptext'>Because LASIK involves shaping of the cornea, it may <a href="https://www.aao.org/preferred-practice-pattern/refractive-errors-refractive-surgery-ppp-2017">reduce the 
 										accuracy of calculations and vision correction options for future cataract surgery</a>.</span>
 									</div>
 								</td>
-								<td class='results PRK_col'>
+								<td class='results PRK_col doesnt_influence_rle'>
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
 										<span class='resultstiptext'>Because PRK and its variants shape the cornea, it may <a href="https://www.aao.org/preferred-practice-pattern/refractive-errors-refractive-surgery-ppp-2017">reduce the 
 										accuracy of calculations and vision correction options for future cataract surgery</a>.</span>
 									</div>
 								</td>
-								<td class='results IOL_col'>
+								<td class='results IOL_col doesnt_influence_rle'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
 										<span class='resultstiptext'>Because Intraocular Surgery involves the placement of an intraocular contact lens, it does not inherently change the eye. As such,  
@@ -2706,8 +2785,8 @@
 							
 							<tr>
 								<td rowspan="3" class="bigrowtitle"><p>Recovery Period</p></td>
-								<td class="rowtitle"><p>Shorter Recovery</p></td>
-								<td class='results LASIK_col'>
+								<td class="rowtitle shorter_recovery"><p>Shorter Recovery</p></td>
+								<td class='results LASIK_col shorter_recovery'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
 										<span class='resultstiptext'>LASIK involves the creation of a corneal flap, that is 
@@ -2715,7 +2794,7 @@
 										of the corneal flap, which is shorter than PRK.</span>
 									</div>
 								</td>
-								<td class='results PRK_col'>
+								<td class='results PRK_col shorter_recovery'>
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
 										<span class='resultstiptext'>PRK involves the removal of the corneal epithelium. The 
@@ -2723,7 +2802,7 @@
 										of reattaching the corneal flap, as occurs in LASIK.</span>
 									</div>
 								</td>
-								<td class='results IOL_col'>
+								<td class='results IOL_col shorter_recovery'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
 									</div>
@@ -2731,8 +2810,8 @@
 							</tr>	
 							
 							<tr>
-								<td class="rowtitle"><p>Less Painful Recovery</p></td>
-								<td class='results LASIK_col'>
+								<td class="rowtitle less_painful_recovery"><p>Less Painful Recovery</p></td>
+								<td class='results LASIK_col less_painful_recovery'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
 										<span class='resultstiptext'>LASIK involves the creation of a corneal flap, that is 
@@ -2740,7 +2819,7 @@
 										of the corneal flap, which is less painful than PRK.</span>
 									</div>
 								</td>
-								<td class='results PRK_col'>
+								<td class='results PRK_col less_painful_recovery'>
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
 										<span class='resultstiptext'>PRK involves the removal of the corneal epithelium. The 
@@ -2748,7 +2827,7 @@
 										of reattaching the corneal flap, as occurs in LASIK.</span>
 									</div>
 								</td>
-								<td class='results IOL_col'>
+								<td class='results IOL_col less_painful_recovery'>
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
 									</div>
@@ -2756,22 +2835,22 @@
 							</tr>	
 							
 							<tr>
-								<td class="rowtitle"><p>Fewer Follow Up Visits</p></td>
-								<td class='results LASIK_col'>
+								<td class="rowtitle fewer_fus"><p>Fewer Follow Up Visits</p></td>
+								<td class='results LASIK_col fewer_fus'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
 										<span class='resultstiptext'>Typically, patients follow up at 1 day, 4 days, 
 										1 week, 1 month, 3 months, 6 months, and 12 months postoperatively.</span>
 									</div>
 								</td>
-								<td class='results PRK_col'>
+								<td class='results PRK_col fewer_fus'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
 										<span class='resultstiptext'>Typically, patients follow up at <a href="https://www.surgeryencyclopedia.com/Pa-St/Photorefractive-Keratectomy-PRK.html">1 day, 
 										2-4 weeks, 2-3 months, 6 months, and 12 months postoperatively</a>.</span>
 									</div>
 								</td>
-								<td class='results IOL_col'>
+								<td class='results IOL_col fewer_fus'>
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
 										<span class='resultstiptext'>IOL patients are recommended to pursue <a href="https://www.fda.gov/medical-devices/phakic-intraocular-lenses/during-after-surgery">indefinite long-term follow up 
@@ -2782,20 +2861,20 @@
 							
 							<tr>
 								<td class="bigrowtitle"><p>Expected Results</p></td>
-								<td class="rowtitle"><p>Is Reversible</p></td>
-								<td class='results LASIK_col'>
+								<td class="rowtitle reversible"><p>Is Reversible</p></td>
+								<td class='results LASIK_col reversible'>
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
 										<span class='resultstiptext'>LASIK involves the removal of stromal tissue. This tissue cannot be replaced postoperatively.</span>
 									</div>
 								</td>
-								<td class='results PRK_col'>
+								<td class='results PRK_col reversible'>
 									<div class='resultstip'>
 										<i class="fas fa-times" alt="no"></i>
 										<span class='resultstiptext'>PRK and its variants involve the removal of stromal tissue. This tissue cannot be replaced postoperatively.</span>
 									</div>
 								</td>
-								<td class='results IOL_col'>
+								<td class='results IOL_col reversible'>
 									<div class='resultstip'>
 										<i class="fas fa-check" alt="yes"></i>
 										<span class='resultstiptext'>Intraocular Refractive Surgery involves the placement of an intraocular contact lens
