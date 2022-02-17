@@ -2021,15 +2021,10 @@
 		});
 
 		let element_ids_list = [];
+		let empty_arr = [];
 		
 		function prefs_filled() {
 			let numPrefs = 0;
-			
-			if (element_ids_list.length > 0) {
-				for (let i = 0; i < element_ids_list.length;  i++) {
-					element_ids_list.pop();
-				}
-			}
 			
 			list2.childNodes.forEach((element) => {
 				
@@ -2171,6 +2166,7 @@
 		function returnRankedPrefs() {
 			console.log("entered returnRankedPrefs() ");
 			var rank = 0;
+			element_ids_list.length = 0;
 			list2.childNodes.forEach((element) => {
 				
 				if (typeof element.id  !== 'undefined') {
@@ -2935,7 +2931,7 @@
 						surgeon to determine whether you are a candidate for refractive surgery.</p>
 					</div>
 					<div class="disclaimer_under21">
-						<p><br>Remember, refractive surgery is only FDA-approved for
+						<p><br><strong>Disclaimer:</strong> Remember, refractive surgery is only FDA-approved for
 						patients 21 years of age and older. You may have to wait to
 						to schedule a consultation with a refractive surgeon.</p>
 					</div>
