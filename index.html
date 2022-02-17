@@ -70,39 +70,42 @@
 			z-index: 100;
 		}
 
-		nav .mainMenu {
-			display: flex;
-			list-style: none;
-		}
-
-		nav .mainMenu li a {
-			display: inline-block;
-			text-decoration: none;
-			font-family: 'Optician Sans', sans-serif;
-			color: black;
-			font-size: 1rem;
-			margin-top: 30px;
-			margin-bottom: 30px;
-			margin-left: 20px;
-		}
-
-		nav .mainMenu li a:hover {
-			color: crimson;
-			font-weight: 1000;
-		}
-
-		nav .openMenu {
-			font-size: 2rem;
-			margin: 20px;
-			display: none;
-			cursor: pointer;
-		}
-
-		nav .mainMenu .closeMenu {
-			font-size: 2rem;
-			display: none;
-			cursor: pointer;
-		}
+			nav .mainMenu {
+				height: 100vh;
+				position: fixed;
+				top: 0;
+				right: 0;
+				left: 0%;
+				bottom: 0;
+				z-index: 10;
+				padding-top: 20%;
+				flex-direction: column;
+				align-items: center;
+				background: white;
+				transition: right 3s;
+				display: none;
+			}
+			
+			nav .mainMenu .closeMenu {
+				display: block;
+				position: absolute;
+				top: 20px;
+				right: 20px;
+			}
+			
+			nav .openMenu {
+				display: block;
+				margin: 30px;
+			}
+			
+			nav .mainMenu li a {
+				font-size: 1.5rem;
+			}
+			nav .mainMenu li a:hover {
+				background: none;
+				color: crimson;
+				font-size: 2rem;
+			}
 
 		nav .logo {
 			margin: 20px;
@@ -168,8 +171,8 @@
 			position: relative;
 			z-index; 1;
 			overflow: hidden;
-			padding-top: 225px;
-			padding-bottom: 225px;
+			padding-top: 200px;
+			padding-bottom: 200px;
 		}
 
 		.patientEduContainer p {
@@ -207,9 +210,6 @@
 			height:100vh;
 		}
 
-		#errors .errors-top {
-			margin-top: 50px;
-		}
 		#errors .errors-bottom {
 			display: flex;
 			align-items: center;
@@ -232,7 +232,7 @@
 		}
 
 		#errors .refractive-error {
-			flex-basis: 80%;
+			flex-basis: 100%;
 			display: flex;
 			align-items: flex-start;
 			justify-content: center;
@@ -251,23 +251,27 @@
 			margin-left: auto;
 			margin-right: auto;
 		}
+		
+		#errors .icon_source {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
 		<!-- /*End of Errors Section*/
 
 		/*Surgeries Section*/ -->
-		#surgeries .surgeriesContainer h1{
-			margin-top: 460px;
+		#surgeries .icon_source {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
 		}
-
+		
 		#surgeries .surgeries{
 			flex-direction: column;
 			text-align: center;
 			max-width: 1200px;
 			margin: 0 auto;
 			padding: 100px 0;
-		}
-
-		#surgeries .surgeries-top {
-			margin-top: 50px;
 		}
 
 		#surgeries .surgeries-bottom {
@@ -292,7 +296,7 @@
 		}
 
 		#surgeries .refractive-surgery {
-			flex-basis: 80%;
+			flex-basis: 100%;
 			display: flex;
 			align-items: flex-start;
 			justify-content: center;
@@ -312,9 +316,6 @@
 			margin-right: auto;
 		}
 
-		#surgeries .pageNav {
-			margin-bottom: 580px;
-		}
 		<!-- /*End of Surgeries Section*/
 
 		/*Patient Decision Aid Section*/ -->
@@ -329,8 +330,8 @@
 			position: relative;
 			z-index; 1;
 			overflow: hidden;
-			padding-top: 225px;
-			padding-bottom: 225px;
+			padding-top: 200px;
+			padding-bottom: 200px;
 		}
 
 		.patientDecisionAidContainer p {
@@ -494,11 +495,6 @@
 		<!-- /* End of History Section*/
 
 		/*Values Section*/ -->
-		#values .valuesContainer h1{
-			margin-top: 460px;
-		}
-
-			
 		#values .list {
 			/*
 			flex-basis: 50%;
@@ -564,8 +560,8 @@
 			position: relative;
 			z-index; 1;
 			overflow: hidden;
-			padding-top: 225px;
-			padding-bottom: 225px;
+			padding-top: 200px;
+			padding-bottom: 200px;
 		}
 
 		.recsContainer p {
@@ -662,10 +658,6 @@
 			text-align: center;
 		}
 		
-		#surgeryrecs .more_info {
-			display: none;
-		}
-		
 		.resultstip .resultstiptext:hover a{
 			color: crimson;
 			font-weight: 1000;
@@ -705,13 +697,72 @@
 		.resultstip .resultstiptext:hover a{
 			color: crimson;
 		}
-		<!-- /*End of Surgery Recommendations Section*/
-
-		/*Surgeon Recommendations Section*/ -->
-		#surgeonrecs .surgeonrecsContainer h1{
-			margin-top: 460px;
+		<!-- /*End of Surgery Recommendations Section*/-->
+		
+		#moreinfo .recommendations_table {
+			border-collapse: collapse;
+			margin: 25px 0;
+			min-width: 600px;
+			border-bottom: 1px solid #F0F0F0;
 		}
 		
+		#moreinfo .recommendations_table td {
+			padding: 12px 15px;
+			border-bottom: 1px solid #F0F0F0;
+			border-left: 1px solid #F0F0F0;
+			border-top: 1px solid #F0F0F0;
+		}
+		
+		#moreinfo .recommendations_table td a {
+			text-decoration: underline;
+		}
+		
+		#moreinfo .recommendations_table td a:hover{
+			color: crimson;
+			font-weight: 1000;
+		}
+		
+		#moreinfo .recommendations_table tr {
+			vertical-align: top;
+		}
+		
+		#moreinfo .content {
+			font-size: 0.5rem;
+		}
+		
+		#moreinfo .coltitle p{
+			font-family: 'Optician Sans', sans-serif;
+			font-size: 1rem;
+		}
+		
+		#moreinfo thead tr .coltitle {
+			background-color: #F0F0F0;
+			color: black;
+			text-align: center;
+			padding: 10px;
+		}
+		#moreinfo .bigrowtitle {
+			background: #F0F0F0;
+		}
+		
+		#moreinfo .bigrowtitle p{
+			font-family: 'Optician Sans', sans-serif;
+			font-size: 1rem;
+			vertical-align: middle;
+		}
+		
+		#moreinfo .bigrowtitle li{
+			font-family: 'Optician Sans', sans-serif;
+			font-size: 1rem;
+			text-align: left;
+			
+		}
+		
+		#moreinfo .rowtitle p{
+			font-size: 0.85rem;
+		}
+
+		<!-- /*Surgeon Recommendations Section*/ -->		
 		#surgeonrecs .LASIK_surgeons {
 			display: none;
 		}
@@ -730,7 +781,17 @@
 			font-family: 'Optician Sans', sans-serif;
 		}
 		<!-- /*End of Surgeon Recommendations Section*/-->
-		.submittedMsg {
+		.submittedMsg_mh {
+			display: none;
+			justify-content: center;
+			font-family: 'Optician Sans', sans-serif;
+			font-size: 1rem;
+			font-weight: 500;
+			<!--color: green;-->
+			margin-bottom: 10px;
+		}
+		
+		.submittedMsg_prefs {
 			display: none;
 			justify-content: center;
 			font-family: 'Optician Sans', sans-serif;
@@ -764,6 +825,12 @@
 		   justify-content: center;
 		   margin: 10px;
 		}
+		
+		.submitNav_1 {
+		   display: none;
+		   justify-content: center;
+		   margin: 10px;
+		}
 		  
 		<!--/*pageNav Section*/ -->
 		a.next, a.back {
@@ -790,6 +857,71 @@
 		   justify-content: center;
 		   margin: 10px;
 		}
+		
+		.pageNav_abscontraindications_no {
+		   display: flex;
+		   justify-content: center;
+		   margin: 10px;
+		}
+		
+		.pageNav_abscontraindications_yes {
+		   display: none;
+		   justify-content: center;
+		   margin: 10px;
+		}
+		
+		.pageNav_recs_abscontraindications_no {
+		   display: flex;
+		   justify-content: center;
+		   margin: 10px;
+		}
+		
+		.pageNav_recs_abscontraindications_yes {
+		   display: none;
+		   justify-content: center;
+		   margin: 10px;
+		}
+		
+		#patientEdu {
+			display: none;
+		}
+		
+		#errors {
+			display: none;
+		}
+		
+		#surgeries {
+			display: none;
+		}
+		
+		#patientDecisionAid{
+			display: none;
+		}
+		
+		#history{
+			display: none;
+		}
+		
+		#values {
+			display: none;
+		}
+		
+		#recs{
+			display: none;
+		}
+		
+		#surgeryrecs{
+			display: none;
+		}
+		
+		#moreinfo {
+			display: none;
+		}
+		
+		#surgeonrecs{
+			display: none;
+		}
+		
 		<!--  /*End of pageNav Section*/ -->
 
 		@media(max-width: 800px) {
@@ -1553,11 +1685,11 @@
 			if (document.getElementById('abscontraindications_yes').checked == false && document.getElementById('abscontraindications_no').checked == false) {
 				alert("Please answer all questions.");
 			}
-			else if (document.getElementById('abscontraindications_yes').checked == true) {
-				document.getElementsByClassName('submitBtn')[0].disabled = true; 
-				submittedMessage('mh'); 
+			/*else if (document.getElementById('abscontraindications_yes').checked == true) {
+				//document.getElementsByClassName('submitBtn')[0].disabled = true; 
+				//submittedMessage('mh'); 
 				process_medical_data();
-			}
+			}*/
 			else if (document.getElementById('abscontraindications_no').checked == true) {
 				if ((document.getElementById('uveitis_yes').checked == false && document.getElementById('uveitis_no').checked == false) || 
 				(document.getElementById('relcontraindications_yes').checked == false && document.getElementById('relcontraindications_no').checked == false) ||
@@ -1605,18 +1737,18 @@
 						}
 						
 						if (can_submit_R == true && can_submit_L == true) {
-							document.getElementsByClassName('submitBtn')[0].disabled = true; 
-							submittedMessage('mh'); 
-							process_medical_data();
+							//document.getElementsByClassName('submitBtn')[0].disabled = true; 
+							//submittedMessage('mh'); 
+							prefs_filled();
 						}
 					}
 					else if ((document.getElementById('knowpresc_no').checked==true) &&
 					(document.getElementById('hyperopic_yes').checked==true || 
 					document.getElementById('hyperopic_no').checked==true ||
 					document.getElementById('hyperopic_idk').checked==true)) {
-						document.getElementsByClassName('submitBtn')[0].disabled = true; 
-						submittedMessage('mh'); 
-						process_medical_data();
+						//document.getElementsByClassName('submitBtn')[0].disabled = true; 
+						//submittedMessage('mh'); 
+						prefs_filled();
 					}
 					else if ((document.getElementById('knowpresc_no').checked==true) &&
 					(document.getElementById('hyperopic_yes').checked==false &&
@@ -1629,14 +1761,27 @@
 			}
 		}
 		
+		function process_abscontraindications_yes() {
+			if(document.getElementById('abscontraindications_yes').checked==true) {
+				removeModality("LASIK");
+				removeModality("PRK");
+				removeModality("IOL");
+				returnRec();
+			}
+		}
+		
 		function process_medical_data() {
+			modalities.LASIK = 0;
+			modalities.PRK = 0;
+			modalities.IOL = 0;
+			
 			console.log("entering process_medical_data()");
 			
 			/* 	<!-- Question 1: Absolute contraindications -->
 			<!-- If the patient has any of the following absolute contraindications, -->
 			<!-- they are not recommended to undergo any of the surgeries. --> */
 			console.log("Processing question 1.");
-			if(document.getElementById('abscontraindications_yes').checked==true) {
+			/*if(document.getElementById('abscontraindications_yes').checked==true) {
 				removeModality("LASIK");
 				removeModality("PRK");
 				removeModality("IOL");
@@ -1646,10 +1791,10 @@
 				hideDivByClass("submitNav");
 				showDivByClass("submittedMsg");
 				returnRec();
-			}
-			console.log("Processed question 1.");
+			}*/
 			
 			if(document.getElementById('abscontraindications_no').checked==true){
+				console.log("Processed question 1.");
 				console.log("Processing question 2.");
 				console.log("Processing question 2a.");
 				/* 	<!-- Question 2a-d: Relative contraindications -->*/
@@ -1806,14 +1951,17 @@
 			console.log("entering submittedMessage(form)");
 			console.log("form: " + form);
 			
-			alert('If you would like to modify your responses after hitting submit, you would have to refresh the page.'); 
+			//alert('If you would like to modify your responses after hitting submit, you would have to refresh the page.'); 
 			if (form.localeCompare("mh") == 0) {
-				showDivByClass("mhsubmitted");
+				//showDivByClass("mhsubmitted");
+				alert('Data submitted.');
+				showDivByClass("submittedMsg_mh");
 			}
 			else if (form.localeCompare("prefs") == 0) {
-				showDivByClass("prefssubmitted");
+				//showDivByClass("prefssubmitted");
+				alert('Data submitted.');
+				showDivByClass("submittedMsg_prefs");
 			}
-            showDivByClass("submittedMsg");
 		}
 		
 		$(document).ready(function(){
@@ -1882,16 +2030,17 @@
 				
 			})	
 			if (numPrefs == 3) {
-				document.getElementsByClassName('submitBtn')[1].disabled = true; 
+				//document.getElementsByClassName('submitBtn')[1].disabled = true; 
 				submittedMessage('prefs');
+				process_medical_data();
 				returnRankedPrefs();
 				returnRec();
 			}
 			else if (numPrefs < 3) {
-				alert("Please select three statements.");
+				alert("Please select three preferences.");
 			}
 			else if (numPrefs > 3) {
-				alert("Please select ONLY three statements.");
+				alert("Please select ONLY three preferences.");
 			}
 		}
 		
@@ -2029,6 +2178,23 @@
 				}
 			})
 		}
+		
+		function restore_original_colors() {
+			for (let i = 0; i < document.getElementsByClassName("LASIK_col").length; i++) {
+				document.getElementsByClassName("LASIK_col")[i].style.background = "white";
+				document.getElementsByClassName("PRK_col")[i].style.background = "white";
+				document.getElementsByClassName("IOL_col")[i].style.background = "white";
+			}
+		}
+		/*function navtoerrors() {
+			hideDivByID('home'); 
+			showDivByID('errors'); 
+			hideDivByID('surgeries'); 
+			hideDivByID('history'); 
+			hideDivByID('values'); 
+			hideDivByID('surgeryrecs'); 
+			hideDivByID('surgeonrecs');
+		}*/
 	</script>
 	
 	<title>EYECHOOSE</title>
@@ -2045,11 +2211,19 @@
             </div>
         </div>
 		
-		<div class="openMenu"><i class="fa fa-bars"></i></div>
+		<div class="openMenu"><i class="fa fa-bars icon-large"></i></div>
 		<ul class="mainMenu">
-			<li><a href="#patientEdu">Patient Education</a></li>
+			<!-- <li><a href="#patientEdu">Patient Education</a></li>
 			<li><a href="#patientDecisionAid">Patient Decision Aid</a></li>
-			<li><a href="#recs">Recommendations</a></li>
+			<li><a href="#recs">Recommendations</a></li> -->
+			<li><a href="#home" onclick="showDivbyID('home'); hideDivbyID('errors'); hideDivbyID('surgeries'); hideDivbyID('history'); hideDivbyID('values'); hideDivbyID('surgeryrecs'); hideDivbyID('surgeonrecs'); hideDivbyID('moreinfo');">Home</a></li>
+			<li><a href="#errors" onclick="hideDivbyID('home'); showDivbyID('errors'); hideDivbyID('surgeries'); hideDivbyID('history'); hideDivbyID('values'); hideDivbyID('surgeryrecs'); hideDivbyID('surgeonrecs'); hideDivbyID('moreinfo');">Refractive Errors</a></li>
+			<li><a href="#surgeries" onclick="hideDivbyID('home'); hideDivbyID('errors'); showDivbyID('surgeries'); hideDivbyID('history'); hideDivbyID('values'); hideDivbyID('surgeryrecs'); hideDivbyID('surgeonrecs'); hideDivbyID('moreinfo');">Refractive Surgeries</a></li>
+			<li><a href="#history" onclick="hideDivbyID('home'); hideDivbyID('errors'); hideDivbyID('surgeries'); showDivbyID('history'); hideDivbyID('values'); hideDivbyID('surgeryrecs'); hideDivbyID('surgeonrecs'); hideDivbyID('moreinfo');">Medical History</a></li>
+			<li><a href="#values" onclick="hideDivbyID('home'); hideDivbyID('errors'); hideDivbyID('surgeries'); hideDivbyID('history'); showDivbyID('values'); hideDivbyID('surgeryrecs'); hideDivbyID('surgeonrecs'); hideDivbyID('moreinfo');">Preferences</a></li>
+			<li><a href="#surgeonrecs" onclick="hideDivbyID('home'); hideDivbyID('errors'); hideDivbyID('surgeries'); hideDivbyID('history'); hideDivbyID('values'); showDivbyID('surgeryrecs'); hideDivbyID('surgeonrecs'); hideDivbyID('moreinfo');">Surgical Modality Recommendations</a></li>
+			<li><a href="#moreinfo" onclick="hideDivbyID('home'); hideDivbyID('errors'); hideDivbyID('surgeries'); hideDivbyID('history'); hideDivbyID('values'); hideDivbyID('surgeryrecs'); hideDivbyID('surgeonrecs'); showDivbyID('moreinfo');">Additional Information</a></li>
+			<li><a href="#surgeryrecs" onclick="hideDivbyID('home'); hideDivbyID('errors'); hideDivbyID('surgeries'); hideDivbyID('history'); hideDivbyID('values'); hideDivbyID('surgeryrecs'); showDivbyID('surgeonrecs'); hideDivbyID('moreinfo');">Surgeon Recommendations</a></li>
 			<div class="closeMenu"><i class="fa fa-times"></i></div>
 		</ul>
 	</nav>
@@ -2069,37 +2243,10 @@
 					
 					<p><br><br><br><strong>Disclaimer:</strong> Information on this site is not intended nor implied to be a substitute for professional medical advice, diagnosis, or treatment. Please consult with a medical professional about your treatment options.</p></p>
 				</div>
-				<div class="pageNav"> 
-					<a href="#patientEdu" class="next round">></a>
-				</div>
 			</div>
 		</div>
-	</section>	
-	<!--End of Home Section -->
-	
-	<!--Patient Education Section -->
-	<section id="patientEdu">
-		<div class="patientEduContainer inner">
-			<div class="patientEdu-top">
-				<h1 class="section-title">Patient Education</h1>
-			</div>
-			<div class="patientEdu-bottom">	
-				<div class="logo">
-					<div>
-						<p>In this section, you will learn about the different types of refractive errors 
-						and the surgical modalities commonly used to correct them.</p><br><br><br><br>
-						<h2>Sections</h2>
-						<ul><br>
-							<li><a href="#errors"><p>&emsp; &ensp; •	 &ensp; Refractive Errors</p></a></li>
-							<li><a href="#surgeries"><p>&emsp; &ensp; •	 &ensp; Refractive Surgeries</p></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="pageNav"> 
-					<a href="#home" class="next round"><</a>
-					<a href="#errors" class="next round">></a>
-				</div>
-			</div>
+		<div class="pageNav"> 
+			<a href="#errors" class="next round" onclick="showDivbyID('errors'); hideDivbyID('home');">></a>
 		</div>
 	</section>	
 	<!--End of Home Section -->
@@ -2158,12 +2305,13 @@
 					condition, like both myopia and hyperopia, affecting visual 
 					acuity. It can lead to amblyopia, which may affect visual 
 					acuity, even causing blindness.</p>
-					<div class="icon"><img src="https://www.visioncenter.org/wp-content/uploads/2020/04/astigmatism-eye-defect-1536x1427.jpeg" width="621" height="577"></div>
+					<div class="icon"><img src="https://www.casagrandeeyecare.com/wp-content/uploads/2017/10/astigmatism-720x320.jpg" width="704" height="312"></div>
+					<p class="icon_source">Source: Casa Grande Eye Care</p>
 				</div>
 			</div>
 			<div class="pageNav"> 
-					<a href="#patientEdu" class="next round"><</a>
-					<a href="#surgeries" class="next round">></a>
+					<a href="#home" class="next round" onclick="hideDivbyID('errors'); showDivbyID('home');"><</a>
+					<a href="#surgeries" class="next round" onclick="showDivbyID('surgeries'); hideDivbyID('errors');">></a>
 			</div>
 		</div>
 	</section>
@@ -2191,6 +2339,7 @@
 					with most seeing clearly, regaining 90% of their vision, within 24 hours. Full effects of the surgery are apparent after 
 					a month. Approximately six percent of patients choose to undergo an enhancement within ten years due to myopic regression. LASIK is non-reversible for those patients dissatisfied with results.</p>
 					<div class="icon"><iframe width="560" height="315" src="https://www.youtube.com/embed/r7EMHgRhlW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+					<p class="icon_source">Source: EyeSmart - American Academy of Ophthalmology</p>
 			</div>
 				<div class="refractive-surgery">
 					<h2>Photorefractive Keratectomy (PRK)</h2>
@@ -2203,6 +2352,7 @@
 					or loss. The removal of the corneal epithelium increases pain and recovery time: Pain can last up to four days, with 90% recovery over that period.
 					Full recovery takes between three to six months. These procedures can be repeated to correct regression, but they cannot be reversed.</p>
 					<div class="icon"><iframe width="560" height="315" src="https://www.youtube.com/embed/EoWdquQfAbA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+					<p class="icon_source">Source: EyeSmart - American Academy of Ophthalmology</p>
 				</div>
 				<div class="refractive-surgery">
 					<h2>Phakic Intraocular Lenses (IOL)</h2>
@@ -2213,44 +2363,16 @@
 					if it moves, is not the right size, or causes severe complications. That being said, the procedure is both repeatable and reversible. Vision stabilizes 
 					up to 4 weeks after the procedure.</p>
 					<div class="icon"><iframe width="560" height="315" src="https://www.youtube.com/embed/hCSQh5XpoV4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+					<p class="icon_source">Source: EyeSmart - American Academy of Ophthalmology</p>
 				</div>
 			</div>
 			<div class="pageNav"> 
-				<a href="#errors" class="next round"><</a>
-				<a href="#patientDecisionAid" class="next round">></a>
+				<a href="#errors" class="next round" onclick="hideDivbyID('surgeries'); showDivbyID('errors');"><</a>
+				<a href="#history" class="next round" onclick="hideDivbyID('surgeries'); showDivbyID('history');">></a>
 			</div>
 		</div>
 	</section>
 	<!--End of Refractive Surgeries Section -->
-	
-	<!--Patient Decision Aid Section -->
-	<section id="patientDecisionAid">
-		<div class="patientDecisionAidContainer inner">
-			<div class="patientDecisionAid-top">
-				<h1 class="section-title">Patient Decision Aid</h1>
-			</div>
-			<div class="patientDecisionAid-bottom">	
-				<div class="logo">
-					<div>
-						<p>In this section, you will respond to a series of questions regarding your 
-						medical history and regarding the factors that may influence your decision 
-						to pursue any particular refractive surgery modality. Your responses will be used to 
-						recommend a surgical modality for you to pursue.</p><br><br><br><br>
-						<h2>Sections</h2>
-						<ul><br>
-							<li><a href="#history"><p>&emsp; &ensp; •	 &ensp; Medical History</p></a></li>
-							<li><a href="#values"><p>&emsp; &ensp; •	 &ensp; Preferences</p></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="pageNav"> 
-					<a href="#surgeries" class="next round"><</a>
-					<a href="#history" class="next round">></a>
-				</div>
-			</div>
-		</div>
-	</section>	
-	<!--End of Home Section -->
 	
 	<form>
 	<!--History Section -->
@@ -2269,10 +2391,10 @@
 					</ul>
 						
 					<div id="preferences">
-						<input id="abscontraindications_yes" class="radioBtn qn1" name="abscontraindications" type="radio" value=-50 required />
+						<input id="abscontraindications_yes" class="radioBtn qn1" name="abscontraindications" type="radio" value=-50 required onclick="hideDivByClass('qn1b'); hideDivByClass('qn2'); hideDivByClass('qn3a'); showDivByClass('submitNav_1'); hideDivByClass('pageNav_abscontraindications_no'); showDivByClass('pageNav_abscontraindications_yes');"/>
 							<label for="abscontraindications_yes"><p>yes</p></label>
 						
-						<input id="abscontraindications_no" class="radioBtn qn1" name="abscontraindications" type="radio" value=0 required onclick="showDivByClass('qn1b'); showDivByClass('qn2'); showDivByClass('qn3a');"/>
+						<input id="abscontraindications_no" class="radioBtn qn1" name="abscontraindications" type="radio" value=0 required onclick="showDivByClass('qn1b'); showDivByClass('qn2'); showDivByClass('qn3a'); hideDivByClass('submitNav_1'); hideDivByClass('pageNav_abscontraindications_yes'); showDivByClass('pageNav_abscontraindications_no');"/>
 							<label for="abscontraindications_no"><p>no</p></label>
 					</div>
 				</div>
@@ -2361,21 +2483,26 @@
 				</div>	
 			</div>
 			
-			<div class="submitNav"> 
-				<input type='button' class='submitBtn' value = 'Submit Medical History &#187;' onclick="medical_data_filled();">
+			<div class="submitNav_1"> 
+				<input type='button' class='submitBtn' value = 'Submit Responses &#187;' onclick="process_abscontraindications_yes(); submittedMessage('mh'); document.getElementsByClassName('LASIK_col')[i].style.background = 'white'; document.getElementsByClassName('PRK_col')[i].style.background = 'white'; document.getElementsByClassName('IOL_col')[i].style.background = 'white';">
 			</div>
 			
 			<div class="mhsubmitted">
-				<p><strong>Medical History submitted.</strong></p>
+				<p><strong>Responses submitted.</strong></p>
 			</div>
 			
-			<div class="submittedMsg">
+			<div class="submittedMsg_mh">
 				<p><strong>Please continue to the next page using the '>' button below.</strong></p>
 			</div>
 			
-			<div class="pageNav"> 
-				<a href="#patientDecisionAid" class="next round"><</a>
-				<a href="#values" class="next round">></a>
+			<div class="pageNav_abscontraindications_no"> 
+				<a href="#surgeries" class="next round" onclick="showDivbyID('surgeries'); hideDivbyID('history');"><</a>
+				<a href="#values" class="next round" onclick="hideDivbyID('history'); showDivbyID('values');">></a>
+			</div>
+			
+			<div class="pageNav_abscontraindications_yes"> 
+				<a href="#surgeries" class="next round" onclick="showDivbyID('surgeries'); hideDivbyID('history');"><</a>
+				<a href="#surgeryrecs" class="next round" onclick="hideDivbyID('history'); showDivbyID('surgeryrecs'); hideDivByClass('pageNav_recs_abscontraindications_no'); showDivByClass('pageNav_recs_abscontraindications_yes');">></a>
 			</div>
 		</div>
 	</section>
@@ -2390,7 +2517,8 @@
 				<p class="prefs_instructions">Please select three statements that would most influence your selection of a surgical modality. 
 				The top statement should be the statement that is the most influential to you of the provided alternatives. 
 				The middle statement should be the statement that is the second most influential to you of the provided alternatives.  
-				The bottom statement should be the statement that is the third most influential to you  of the provided alternatives.</p>
+				The bottom statement should be the statement that is the third most influential to you of the provided alternatives.
+				Statements will be weighted according to this ranking.</p>
 			</div>
 			<div class="values-bottom">				
 				<div id="list1" class="droppable list" data-max="-1"><!-- I want this to accept many. -->
@@ -2408,59 +2536,32 @@
 				</div>
 			</div>
 			<div class="submitNav"> 
-				<input type='button' class='submitBtn' value = 'Submit Preferences &#187;' onclick="prefs_filled();">
+				<input type='button' class='submitBtn' value = 'Submit Responses &#187;' onclick="restore_original_colors(); medical_data_filled();">
 			</div>
 			
 			<div class="prefssubmitted">
-				<p><strong>Preferences submitted.</strong></p>
+				<p><strong>Responses submitted.</strong></p>
 			</div>
 			
-			<div class="submittedMsg">
+			<div class="submittedMsg_prefs">
 				<p><strong>Please continue to the next page using the '>' button below.</strong></p>
 			</div>
 			
 			<div class="pageNav"> 
-				<a href="#history" class="next round"><</a>
-				<a href="#recs" class="next round">></a>
+				<a href="#history" class="next round" onclick="hideDivbyID('values'); showDivbyID('history');"><</a>
+				<a href="#surgeryrecs" class="next round" onclick="hideDivbyID('values'); showDivbyID('surgeryrecs'); hideDivByClass('pageNav_recs_abscontraindications_yes'); showDivByClass('pageNav_recs_abscontraindications_no');">></a>
 			</div>
+			
 		</div>
 	</section>
 	</form>
 	<!-- End of Values Section -->
 	
-	<!--Patient Decision Aid Section -->
-	<section id="recs">
-		<div class="recsContainer inner">
-			<div class="recs-top">
-				<h1 class="section-title">Recommendations</h1>
-			</div>
-			<div class="recs-bottom">	
-				<div class="logo">
-					<div>
-						<p>In this section, you will receive a recommendation for a surgical modality, based upon your preferences. You will also
-						receive recommendations for three reputable surgical centers in the Phoenix Metropolitan Area, based upon the recommended
-						surgical modality.</p><br><br><br><br>
-						<h2>Sections</h2>
-						<ul><br>
-							<li><a href="#surgeryrecs"><p>&emsp; &ensp; •	 &ensp; Surgery Recommendations</p></a></li>
-							<li><a href="#surgeonrecs"><p>&emsp; &ensp; •	 &ensp; Surgeon Recommendations</p></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="pageNav"> 
-					<a href="#values" class="next round"><</a>
-					<a href="#surgeryrecs" class="next round">></a>
-				</div>
-			</div>
-		</div>
-	</section>	
-	<!--End of Home Section -->
-	
 	<!-- Surgery Recommendations Section -->
 	<section id="surgeryrecs">
 		<div class="surgeryrecsContainer inner">
 			<div class="surgeryrecs-top">
-				<h1 class="section-title"><br><br><br>Surgery Recommendations</h1>
+				<h1 class="section-title"><br><br><br>Surgical Modality Recommendations</h1>
 				<p>Hover over the icons for more detail.</p>
 				
 				<div id="modality_recommendation"></div>
@@ -2475,63 +2576,6 @@
 							</tr>
 						</thead>
 						<tbody>
-							<!-- <tr>
-								<!-- <td rowspan="4" class="bigrowtitle"><p>Advantages</p></td>
-								<td rowspan="3" class="bigrowtitle"><p>Advantages</p></td>
-								<td class="rowtitle"><p>Better Suited for High Myopia</p></td>
-								<td class='results LASIK_col'>
-									<div class='resultstip'>
-										<i class="fas fa-times" alt="no"></i>
-									</div>
-								</td>
-								<td class='results PRK_col'>
-									<div class='resultstip'>
-										<i class="fas fa-times" alt="no"></i>
-									</div>
-								</td>
-								<td class='results IOL_col'>
-									<div class='resultstip'>
-										<i class="fas fa-check" alt="yes"></i>
-										<span class='resultstiptext'>IOL is optically and structurally better suited for patients with higher myopia, 
-										whose thin or abnormally shaped corneas make them poor candidates for LASIK and PRK.</span>
-									</div>
-								</td>
-							</tr> -->
-							
-							<!-- <tr>
-								<td><class="rowtitle"><p>Better for Patients with Thin or Abnormally Shaped Corneas</p></td>
-								<td class='results LASIK_col'>
-									<div class='resultstip'>
-										<i class="fas fa-times" alt="no"></i>
-										<span class='resultstiptext'>LASIK involves the creation of a flap in the corneal epithelium, Bowman membrane,
-										and corneal stroma;	the shaping of the underlying corneal stroma; and the replacement of the flap. The use of a
-										microkeratome or laser leaves less corneal epithelium untouched than PRK and LASEK. Additionally, because the corneal flap 
-										in LASIK includes the superficial stroma, unlike in PRK and LASEK, this surgery leaves less residual corneal stroma than 
-										PRK and LASEK. This makes it a worse option for patients with thin or abnormally shaped corneas.</span>
-									</div>
-								</td>
-								<td class='results PRK_col'>
-									<div class='resultstip'>
-										<i class="fas fa-check" alt="yes"></i>
-										<span class='resultstiptext'>PRK involves the removal of the corneal epithelium, with subsequent
-										shaping of the Bowman membrane and underlying corneal stroma. LASEK and Epi-LASEK, variants of PRK,
-										involve the creation of a flap in the corneal epithelium, instead of the removal of the corneal epithelium. Neither 
-										the removal nor the creation of a flap in the corneal epithelium during these surgeries involve a microkeratome or laser. This leaves 
-										more corneal epithelium untouched than LASIK. Additionally, because the corneal flap in PRK and LASEK do not include the 
-										superficial stroma, like it does in LASIK, these surgeries leave more residual corneal stroma than LASIK. This makes 
-										it a better option for patients with thin or abnormally shaped corneas.</span>
-									</div>
-								</td>
-								<td class='results IOL_col'>
-									<div class='resultstip'>
-										<i class="fas fa-check" alt="yes"></i>
-										<span class='resultstiptext'>Intraocular Refractive Surgery involves the placement of an intraocular 
-										contact lens within the eye. This contrasts from LASIK and PRK and its variants, which all involve manipulation of the cornea. 
-										As such, it has fewer risks of corneal complications for patients with thin or abnormally shaped corneas.</span>
-									</div>
-								</td>
-							</tr> -->
-							
 							<tr>
 								<td rowspan="2" class="bigrowtitle"><p>Advantages</p></td>
 								<td class="rowtitle"><p>Better Suited for Military and Athletes</p></td>
@@ -2762,21 +2806,21 @@
 							</tr>
 							<tr>
 								<td colspan="2" class="bigrowtitle"><p>Additional Resources</p></td>
-								<td class="content">
+								<td class="content LASIK_col">
 									<li><p><a href="https://americanrefractivesurgerycouncil.org/lasik/">American Refractive Surgery Council</a></p></li>
 									<li><p><a href="https://www.mayoclinic.org/tests-procedures/lasik-eye-surgery/about/pac-20384774">Mayo Clinic</a></p></li>
 									<li><p><a href="https://www.allaboutvision.com/visionsurgery/lasik.htm">All About Vision</a></p></li>
 									<li><p><a href="https://www.webmd.com/eye-health/lasik-laser-eye-surgery">WebMD</a></p></li>
 									<li><p><a href="https://www.medicalnewstoday.com/articles/lasik-surgery">Medical News Today</a></p></li>
 								</td>
-								<td  class="content">
+								<td  class="content PRK_col">
 									<li><p><a href="https://eyewiki.aao.org/Photorefractive_Keratectomy">American Academy of Ophthalmology</a></p></li>
 									<li><p><a href="https://my.clevelandclinic.org/health/treatments/8596-photorefractive-keratectomy-prk-eye-surgery">Cleveland Clinic</a></p></li>
 									<li><p><a href="https://www.allaboutvision.com/en-au/vision-surgery/prk/">All About Vision</a></p></li>
 									<li><p><a href="https://www.webmd.com/connect-to-care/lasik/prk-surgery-pros-and-cons">WebMD</a></p></li>
 									<li><p><a href="https://www.healthline.com/health/prk">Healthline</a></p></li>
 								</td>
-								<td  class="content">
+								<td  class="content IOL_col">
 									<li><p><a href="https://www.aao.org/eye-health/news/phakic-intraocular-lenses-nearsightedness">American Academy of Ophthalmology</a></p></li>
 									<li><p><a href="https://www.fda.gov/medical-devices/implants-and-prosthetics/phakic-intraocular-lenses">Food and Drug Administration</a></p></li>
 									<li><p><a href="https://www.allaboutvision.com/lens-implant-surgery/">All About Vision</a></p></li>
@@ -2790,7 +2834,7 @@
 				
 				<div class="disclaimers">
 					<div class='disclaimer_relcontraindications'>
-						<p><br>Contingent upon medical history, some surgeons will not perform 
+						<p><br><strong>Disclaimer:</strong> Contingent upon medical history, some surgeons will not perform 
 						refractive surgery on patients with Herpes Simplex Eye Infections, Ocular Rosacea, Severe Dry Eye,
 						Strabismus, Keratoconus, Severe Glaucoma, Uveitis, Diabetes Mellitus, and/or Uncontrolled Thyroid Disease. 
 						This is because Herpes Simplex Eye Infections, Ocular Rosacea, and Strabismus 
@@ -2800,14 +2844,14 @@
 						surgeon to determine whether you are a candidate for refractive surgery.</p>
 					</div>
 					<div class="disclaimer_pregnant">
-						<p><br>Some surgeons will not perform refractive surgery on
+						<p><br><strong>Disclaimer:</strong> Some surgeons will not perform refractive surgery on
 						pregnant and lactating individuals, because eyesight can change
 						during pregnancy and lactation. Ask your refractive surgeon during 
 						your consultation whether they operate on pregnant or 
 						lactating individuals.</p>
 					</div>
 					<div class="disclaimer_isotretinoin">
-						<p><br>Some surgeons will not perform refractive surgery on
+						<p><br><strong>Disclaimer:</strong> Some surgeons will not perform refractive surgery on
 						patients taking isotretinoin. Share your medical history with your refractive 
 						surgeon to determine whether you are a candidate for refractive surgery.</p>
 					</div>
@@ -2817,14 +2861,31 @@
 						to schedule a consultation with a refractive surgeon.</p>
 					</div>
 				</div>
+				<div class="pageNav_recs_abscontraindications_no"> 
+					<a href="#values" class="next round" onclick="hideDivbyID('surgeryrecs'); showDivbyID('values');"><</a>
+					<a href="#moreinfo" class="next round" onclick="hideDivbyID('surgeryrecs'); showDivbyID('moreinfo');">></a>
+				</div>
 				
-					<div class="submitNav" id="open_more_info"> 
-						<input type='button' class='submitBtn' value = 'More Information &#187;' onclick="showDivByClass('more_info'); hideDivbyID('open_more_info');">
-					</div>
-				
-				<!-- <div class="more_info"> -->
-					<h1 class="section-title more_info"><br><br><br>More Information</h1>
-					<div class="recommendations_table more_info">
+				<div class="pageNav_recs_abscontraindications_yes"> 
+					<a href="#history" class="next round" onclick="hideDivbyID('surgeryrecs'); showDivbyID('history');"><</a>
+					<a href="#moreinfo" class="next round" onclick="hideDivbyID('surgeryrecs'); showDivbyID('moreinfo');">></a>
+				</div>
+			</div>
+		</div>
+		
+		
+	</section>
+	<!-- End of Surgery Recommendations Section -->
+	
+		
+	<!-- Surgery Recommendations Section -->
+	<section id="moreinfo">
+		<div class="moreinfoContainer inner">
+			<div class="moreinforecs-top">
+				<h1 class="section-title more_info"><br><br><br>Additional Information</h1>
+			</div>
+			
+			<div class="recommendations_table more_info">
 						<table>
 							<thead>
 								<tr>
@@ -2838,20 +2899,20 @@
 							<tbody>						
 								<tr>
 									<td class="bigrowtitle"><p>Advantages</td>
-									<td  class="content">
+									<td  class="content LASIK_col">
 										<ul>
 											<li><p> •	 rapid visual recovery</p></li>
 											<li><p>  •	 little to no discomfort</p></li>
 										</ul>
 									</td>
-									<td  class="content">
+									<td  class="content PRK_col">
 										<ul>
 											<li><p> •	 better for patients with thinner or abnormally shaped corneas</p></li>
 											<li><p>  •	 minimized eye dryness postoperatively</p></li>
 											<li><p>  •	 no risk of flap-related complications</p></li>
 										</ul>
 									</td>
-									<td class="content">
+									<td class="content IOL_col">
 										<ul>
 											<li><p> •	 better for patients with high myopia who are poor candidates for LASIK and PRK</p></li>
 											<li><p>  •	 short recovery period</p></li>
@@ -2861,7 +2922,7 @@
 											
 								<tr>
 									<td class="bigrowtitle"><p>Recovery Period</p></td>
-									<td  class="content">
+									<td  class="content LASIK_col">
 										<ul>
 											<li><p> •	 4-6 hours postoperatively: Patients may experience mild discomfort-- a burning 
 											and itchy sensation--, during which they should rest their eyes. Patients should refrain from rubbing or 
@@ -2879,7 +2940,7 @@
 											<li><p> •	 For 4 weeks: Patients should avoid strenuous contact sports.</p></li>
 										</ul>
 									</td>
-									<td  class="content">
+									<td  class="content PRK_col">
 										<ul>
 											<li><p> •	 For 4-5 days postoperatively: Patients may experience tearing, sensitivity to light, moderately blurred vision. 
 											This waxes on on days 2 and three and wanes on days 4 and 5.<li><p>
@@ -2898,7 +2959,7 @@
 											<li><p> •	 For 1 year: Patients should wear sun glasses for as long as their ophthalmologist recommends.</p></li>
 										</ul>
 									</td>
-									<td class="content">
+									<td class="content IOL_col">
 										<ul>
 											<li><p> •	 For the first few days: Patients may experience mild discomfort, sensitivity to light, and the feeling 
 											that something is in your eye. Patients should refrain from rubbing or 
@@ -2918,19 +2979,19 @@
 											
 								<tr>
 									<td class="bigrowtitle"><p>Side Effects and Complications</p></td>
-									<td class="content"><p>•	 Most common complaints</a>: blurred distance and/or near vision, glare, dry eyes, and night vision 
+									<td class="content LASIK_col"><p>•	 Most common complaints</a>: blurred distance and/or near vision, glare, dry eyes, and night vision 
 									problems. Other side effects and complications of LASIK can be found 
 									<a href="https://www.aao.org/preferred-practice-pattern/refractive-errors-refractive-surgery-ppp-2017">here</a>.</p></td>
-									<td  class="content"><p>•	 Most common complaints: blurred distance and/or near vision, glare, dry eyes, and night vision 
+									<td  class="content PRK_col"><p>•	 Most common complaints: blurred distance and/or near vision, glare, dry eyes, and night vision 
 									problems. Other side effects and complications of LASIK can be found 
 									<a href="https://www.aao.org/preferred-practice-pattern/refractive-errors-refractive-surgery-ppp-2017">here</a>.</p></td>
-									<td class="content"><p>•	 A high proportion of patients who received IOLs during Phase III clinical trials 
+									<td class="content IOL_col"><p>•	 A high proportion of patients who received IOLs during Phase III clinical trials 
 									described their visual acuity as good to excellent.</p></td>
 								</tr>
 											
 								<tr>
 									<td class="bigrowtitle"><p>Results</p></td>
-									<td  class="content">
+									<td  class="content LASIK_col">
 										<ul>
 											<li><p>•	 95% of patients are satisfied with their results; however, a range of 1-2% are dissatisfied with the 
 											surgery and a range of 1-4% are dissatisfied with their vision.</p></li>
@@ -2952,11 +3013,11 @@
 											were able to read 2+ fewer lines on the eye chart postoperatively than preoperatively</p></li>
 										</ul>
 									</td>
-									<td class="content">
+									<td class="content PRK_col">
 										<ul>
 											<li><p>•	 91.8% of patients satisfied with their surgery</p></li>
-											<li><p>•	 96.3% believe their goal was achieved and 95.7% would still have undergone surgery 
-											if faced with the decision again.</p><br><br></li>
+											<li><p>•	 96.3% believe their goal was achieved</p></li>
+											<li><p>•	 95.7% would still have undergone surgery if faced with the decision again</p><br><br></li>
 											
 											<li><p>•	 More predictable for low to moderate myopia; less predictable
 											for high myopia</p></li>
@@ -2975,15 +3036,13 @@
 											1.00D of their intended correction</p></li>
 										</ul>
 									</td>
-									<td  class="content"><p>•	 Phakic IOLs are currently in Phase III clinical trials. As such, results are still unknown.</p></td>
+									<td  class="content IOL_col"><p>•	 Phakic IOLs are currently in Phase III clinical trials. As such, results are still unknown.</p></td>
 								</tr>
 							</tbody>
 						</table>
-					</div>
-				<!-- </div> -->
 				<div class="pageNav"> 
-					<a href="#recs" class="next round"><</a>
-					<a href="#surgeonrecs" class="next round">></a>
+					<a href="#values" class="next round" onclick="hideDivbyID('moreinfo'); showDivbyID('surgeryrecs');"><</a>
+					<a href="#surgeonrecs" class="next round" onclick="hideDivbyID('moreinfo'); showDivbyID('surgeonrecs');">></a>
 				</div>
 			</div>
 		</div>
@@ -2998,7 +3057,9 @@
 			<div class="surgeonrecs-top">
 				<h1 class="section-title"><br><br><br>Surgeon Recommendations</h1>
 				<p>Below are surgeons in the Phoenix metropolitan area, that are recommended to you based upon the surgery that you were
-				 recommended in the previous section.<br><br></p>
+				 recommended in the previous section.</p>
+				 <p><strong>Disclaimer:</strong> The views and opinions expressed in these reviews are those of the Google reviewers and do not necessarily reflect
+				 those of the developers of this application.<br><br></p>
 			</div>
 			<div class="surgeonrecs-bottom">
 				<div class="LASIK_surgeons">
@@ -3088,7 +3149,7 @@
 				</div>
 				
 				<div class="pageNav"> 
-					<a href="#surgeryrecs" class="next round"><</a>
+					<a href="#moreinfo" class="next round" onclick="hideDivbyID('surgeonrecs'); showDivbyID('moreinfo');"><</a>
 				</div>
 			</div>
 		</div>
