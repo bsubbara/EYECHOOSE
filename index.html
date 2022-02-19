@@ -1375,6 +1375,14 @@
 				//<!--Artisan Phakic IOL-->
 				((RS_pos >= -20.00 && RS_pos <= -5.00) && (RC_pos >= 0.00 && RC_pos <= 2.50))){
 					console.log("prescription meets IOL parameters.");
+					if (spherical_equivalent(RS_pos, RC_pos) <= -8.00 && (LS_pos == 0.00 && LC_pos == 0.00)) {
+						if("IOL" in modalities) {
+							console.log("IOL: " + modalities.IOL);
+							console.log("add 12 to IOL");
+							modalities.IOL = parseInt(modalities.IOL) + parseInt(12);
+							console.log("IOL: " + modalities.IOL);
+						}
+					}
 				}
 				else {
 					console.log("prescription does not meet IOL parameters.");
@@ -1388,9 +1396,12 @@
 				//<!--Artisan Phakic IOL-->
 				((LS_pos >= -20.00 && LS_pos <= -5.00) && (LC_pos >= 0.00 && LC_pos <= 2.50))){
 					console.log("prescription meets IOL parameters.");
-					if (spherical_equivalent(RS_pos, RC_pos) >= -8.00 || spherical_equivalent(LS_pos, LC_pos) >= -8.00) {
+					if (spherical_equivalent(RS_pos, RC_pos) <= -8.00 || spherical_equivalent(LS_pos, LC_pos) <= -8.00) {
 						if("IOL" in modalities) {
+							console.log("IOL: " + modalities.IOL);
+							console.log("add 12 to IOL");
 							modalities.IOL = parseInt(modalities.IOL) + parseInt(12);
+							console.log("IOL: " + modalities.IOL);
 						}
 					}
 				}
@@ -1652,7 +1663,7 @@
 					}
 						
 					if ("IOL" in modalities) {
-						IOL("right");
+						IOL("left");
 					}
 				}
 				else if (LS_neg > 0) {
@@ -1676,6 +1687,222 @@
 					removeModality("IOL");
 				}
 			}	
+		}
+		
+		function typeofRE_right() {
+			if (RC_neg != 0) {
+				//if mixed astigmatism
+				if (((RC_neg > 0 && RS_neg < 0) ||
+				(RC_neg < 0 && RS_neg > 0)) &&
+				(Math.abs(RC_neg) > Math.abs(RS_neg))) {
+					console.log("mixed_astigmatism_R: " + mixed_astigmatism_R);
+					mixed_astigmatism_R = true;
+					console.log("mixed_astigmatism_R: " + mixed_astigmatism_R);
+									
+					if ("LASIK" in modalities) {
+						LASIKLasers_mixedastigmatism("right");
+					}
+									
+					if ("PRK" in modalities) {
+						PRKLasers_mixedastigmatism("right");
+					}
+									
+					removeModality("IOL");
+					hideDivByClass("myope_only");
+				}
+				//if regular astigmatism
+				else {
+					console.log("astigmatism");
+									
+					if (RS_neg < 0) {
+						console.log("myopic astigmatism");
+						diagnosis_R = "myopic astigmatism";
+										
+						if ("LASIK" in modalities) {
+							LASIKLasers_myopiaastigmatism("right");
+						}
+										
+						if ("PRK" in modalities) {
+							PRKLasers_myopiaastigmatism("right");
+						}
+						if ("IOL" in modalities) {
+							IOL("right");
+						}
+					}
+					else if (RS_neg > 0) {
+						console.log("hyperopic astigmatism");
+						diagnosis_R = "hyperopic astigmatism";
+										
+						if ("LASIK" in modalities) {
+							LASIKLasers_hyperopiaastigmatism("right");
+						}
+										
+						if ("PRK" in modalities) {
+							PRKLasers_hyperopiaastigmatism("right");
+						}
+										
+						removeModality("IOL");
+						hideDivByClass("myope_only");
+					}// can patients with no power and just astigmatism have their vision corrected with LASIK, PRK, and/or IOL
+					else { //RS_neg == 0
+						if (RS_pos > 0) {
+							console.log("no power, astigmatic. hyperopic astigmatism.");
+							LASIKLasers_hyperopiaastigmatismpiaastigmatism("right");
+							PRKLasers_hyperopiaastigmatism("right");
+							removeModality("IOL");
+							hideDivByClass("myope_only");
+						}
+						if (RS_pos < 0){
+							console.log("no power, astigmatic. myopic astigmatism.");
+							LASIKLasers_myopiaastigmatism("right");
+							PRKLasers_myopiaastigmatism("right");
+							IOL("right");
+						}
+					}
+				}
+			}
+				
+			if (RC_neg == 0) {
+				if (RS_neg < 0) {
+					console.log("myopic");
+					diagnosis_R = "myopic";
+									
+					if ("LASIK" in modalities) {
+						LASIKLasers_myopiaastigmatism("right");
+					}
+											
+					if ("PRK" in modalities) {
+						PRKLasers_myopiaastigmatism("right");
+					}
+										
+					if ("IOL" in modalities) {
+						IOL("right");
+					}
+				}
+				else if (RS_neg > 0) {
+					console.log("hyperopic");
+					diagnosis_R = "hyperopic";
+										
+					if ("LASIK" in modalities) {
+						LASIKLasers_hyperopiaastigmatism("right");
+					}
+											
+					if ("PRK" in modalities) {
+						PRKLasers_hyperopiaastigmatism("right");
+					}
+										
+					removeModality("IOL");
+					hideDivByClass("myope_only");
+				}
+			}
+		}
+		
+		function typeofRE_left() {
+			if (LC_neg != 0) {
+				//if mixed astigmatism
+				if (((LC_neg > 0 && LS_neg < 0) ||
+				(LC_neg < 0 && LS_neg > 0)) &&
+				(Math.abs(LC_neg) > Math.abs(LS_neg))) {
+					console.log("mixed_astigmatism_L: " + mixed_astigmatism_L);
+					mixed_astigmatism_L = true;
+					console.log("mixed_astigmatism_L: " + mixed_astigmatism_L);
+									
+					if ("LASIK" in modalities) {
+						LASIKLasers_mixedastigmatism("left");
+					}
+									
+					if ("PRK" in modalities) {
+						PRKLasers_mixedastigmatism("left");
+					}
+									
+					removeModality("IOL");
+					hideDivByClass("myope_only");
+				}
+				//if regular astigmatism
+				else {
+					console.log("astigmatism");
+									
+					if (LS_neg < 0) {
+						console.log("myopic astigmatism");
+						diagnosis_L = "myopic astigmatism";
+										
+						if ("LASIK" in modalities) {
+							LASIKLasers_myopiaastigmatism("left");
+						}
+										
+						if ("PRK" in modalities) {
+							PRKLasers_myopiaastigmatism("left");
+						}
+						if ("IOL" in modalities) {
+							IOL("left");
+						}
+					}
+					else if (LS_neg > 0) {
+						console.log("hyperopic astigmatism");
+						diagnosis_L = "hyperopic astigmatism";
+										
+						if ("LASIK" in modalities) {
+							LASIKLasers_hyperopiaastigmatism("left");
+						}
+										
+						if ("PRK" in modalities) {
+							PRKLasers_hyperopiaastigmatism("left");
+						}
+										
+						removeModality("IOL");
+						hideDivByClass("myope_only");
+					}// can patients with no power and just astigmatism have their vision corrected with LASIK, PRK, and/or IOL
+					else { //LS_neg == 0
+						if (LS_pos > 0) {
+							console.log("no power, astigmatic. hyperopic astigmatism.");
+							LASIKLasers_hyperopiaastigmatismpiaastigmatism("left");
+							PRKLasers_hyperopiaastigmatism("left");
+							removeModality("IOL");
+							hideDivByClass("myope_only");
+						}
+						if (LS_pos < 0){
+							console.log("no power, astigmatic. myopic astigmatism.");
+							LASIKLasers_myopiaastigmatism("left");
+							PRKLasers_myopiaastigmatism("left");
+							IOL("left");
+						}
+					}
+				}
+			}
+				
+			if (LC_neg == 0) {
+				if (LS_neg < 0) {
+					console.log("myopic");
+					diagnosis_L = "myopic";
+									
+					if ("LASIK" in modalities) {
+						LASIKLasers_myopiaastigmatism("left");
+					}
+											
+					if ("PRK" in modalities) {
+						PRKLasers_myopiaastigmatism("left");
+					}
+										
+					if ("IOL" in modalities) {
+						IOL("left");
+					}
+				}
+				else if (LS_neg > 0) {
+					console.log("hyperopic");
+					diagnosis_R = "hyperopic";
+										
+					if ("LASIK" in modalities) {
+						LASIKLasers_hyperopiaastigmatism("left");
+					}
+											
+					if ("PRK" in modalities) {
+						PRKLasers_hyperopiaastigmatism("left");
+					}
+										
+					removeModality("IOL");
+					hideDivByClass("myope_only");
+				}
+			}
 		}
 		
 		function medical_data_filled() {
@@ -1928,7 +2155,22 @@
 					console.log("LC_pos: " + LC_pos);
 					console.log("Laxis_pos: " + Laxis_pos);
 					
-					typeofRE();
+					if ((LS_neg == 0.00 && LC_neg == 0.00) && (RS_neg == 0.00 && RC_neg == 0.00)) {
+						removeModality("LASIK");
+						removeModality("PRK");
+						removeModality("IOL");
+					}
+					else if ((LS_neg == 0.00 && LC_neg == 0.00) || (RS_neg == 0.00 && RC_neg == 0.00)) {
+						if (LS_neg == 0.00 && LC_neg == 0.00) {
+							typeofRE_right()
+						}
+						else if (RS_neg == 0.00 && RC_neg == 0.00) {
+							typeofRE_left()
+						}
+					}
+					else {
+						typeofRE();
+					}
 					console.log("Processed question 3b.");
 				}
 				else if (document.getElementById('knowpresc_no').checked == true){
@@ -2320,9 +2562,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="pageNav"> 
+		<div class="home-bottom"><div class="pageNav"> 
 			<a href="#errors" class="next round" onclick="showDivbyID('errors'); hideDivbyID('home');">></a>
-		</div>
+		</div></div>
 	</section>	
 	<!--End of Home Section -->
 	
