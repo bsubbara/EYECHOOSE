@@ -853,9 +853,21 @@
 		}
 
 		.pageNav {
+		   /*display: block;*/
 		   display: flex;
 		   justify-content: center;
 		   margin: 10px;
+		   /*position: absolute;
+		   left: 50%;
+		   top: 100%;*/
+		}
+		
+		.pageNav_home {
+		   display: flex;
+		   justify-content: center;
+		   margin: 10px;position: absolute;
+		   left: 50%;
+		   top: 100%;
 		}
 		
 		.pageNav_abscontraindications_no {
@@ -1152,7 +1164,7 @@
 				//<!--Abbott Medical Optics (VISX Star S3, Eye Tracker)-->	
 				((LS_neg < 0.00 && LS_neg > -14.00) && (LC_neg <= 0.50 && LC_neg >= -5.00)) ||
 				//<!--Alcon (Apex Plus)-->
-				((RS_pos < 0.00 && RS_pos > -14.00) && ((LC_pos >= 0.50 && LC_pos <= 5.00) || (LC_pos == 0.00))) ||
+				((LS_pos < 0.00 && LS_pos > -14.00) && ((LC_pos >= 0.50 && LC_pos <= 5.00) || (LC_pos == 0.00))) ||
 				//<!--Alcon (LADARVision)-->
 				((LS_neg < 0.00 && LS_neg > -9.00) && ((LC_neg <= -0.50 && LC_neg >= -3.00) || (LS_neg == 0.00))) ||
 				//<!--Alcon (LADARVision) wavefront-guided-->
@@ -1160,7 +1172,7 @@
 				//<!--Alcon (WaveLight ALLEGRETTO WAVE)-->
 				((LS_neg < 0.00 && LS_neg >= -12.00) && (LC_neg >= -6.00 && LC_neg <= 0.00)) ||
 				//<!--Alcon (WaveLight ALLEGRETTO WAVE) wavefront-guided-->
-				((RS_pos < 0.00 && RS_pos >= -7.00) && (LC_pos >= 0.00 && LC_pos <= 3.00)) ||
+				((LS_pos < 0.00 && LS_pos >= -7.00) && (LC_pos >= 0.00 && LC_pos <= 3.00)) ||
 				//<!--Carl Zeiss Meditec (MEL80)-->
 				((LS_neg < 0.00 && LS_neg >= -7.00) && (LC_neg <= 0.00 && LC_neg >= -3.00)) ||
 				//<!--Nidek EC-5000)-->
@@ -1988,14 +2000,13 @@
 			}
 		}
 		
-		function process_abscontraindications_yes() {
-			if(document.getElementById('abscontraindications_yes').checked==true) {
-				removeModality("LASIK");
-				removeModality("PRK");
-				removeModality("IOL");
-				returnRec();
-			}
+		function abscontraindications_or_2020vision() {
+			removeModality("LASIK");
+			removeModality("PRK");
+			removeModality("IOL");
+			returnRec();
 		}
+		
 		
 		function process_medical_data() {
 			modalities.LASIK = 0;
@@ -2188,23 +2199,6 @@
 				}
 			}
 		}
-			
-		function submittedMessage(form) {
-			console.log("entering submittedMessage(form)");
-			console.log("form: " + form);
-			
-			//alert('If you would like to modify your responses after hitting submit, you would have to refresh the page.'); 
-			if (form.localeCompare("mh") == 0) {
-				//showDivByClass("mhsubmitted");
-				alert('Data submitted.');
-				showDivByClass("submittedMsg_mh");
-			}
-			else if (form.localeCompare("prefs") == 0) {
-				//showDivByClass("prefssubmitted");
-				alert('Data submitted.');
-				showDivByClass("submittedMsg_prefs");
-			}
-		}
 		
 		$(document).ready(function(){
 		  $(".droppable").droppable({
@@ -2277,7 +2271,7 @@
 			})	
 			if (numPrefs == 3) {
 				//document.getElementsByClassName('submitBtn')[1].disabled = true; 
-				submittedMessage('prefs');
+				//submittedMessage('prefs');
 				process_medical_data();
 				returnRankedPrefs();
 				returnRec();
@@ -2321,21 +2315,21 @@
 
 			if (rec.localeCompare("none") != 0) {
 				if (rec.localeCompare("LASIK") == 0) {
-					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend discussing the following surgical modality with a refractive surgeon: <strong>LASIK</strong></p>";
+					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>LASIK</strong></p>. Please discuss with a refractive surgeon.";
 					for (let i = 0; i < document.getElementsByClassName("LASIK_col").length; i++) {
 						document.getElementsByClassName("LASIK_col")[i].style.background = "#F0F0F0";
 					}
 					showDivByClass("LASIK_surgeons");
 				}
 				else if (rec.localeCompare("PRK") == 0) {
-					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend discussing the following surgical modality with a refractive surgeon: <strong>PRK</strong></p>";
+					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>PRK</strong></p>. Please discuss with a refractive surgeon.";
 					for (let i = 0; i < document.getElementsByClassName("PRK_col").length; i++) {
 						document.getElementsByClassName("PRK_col")[i].style.background = "#F0F0F0";
 					}
 					showDivByClass("PRK_surgeons");
 				}
 				else if (rec.localeCompare("IOL") == 0) {
-					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend discussing the following surgical modality with a refractive surgeon: <strong>IOL</strong></p>";
+					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>IOL</strong></p>. Please discuss with a refractive surgeon.";
 					for (let i = 0; i < document.getElementsByClassName("IOL_col").length; i++) {
 						document.getElementsByClassName("IOL_col")[i].style.background = "#F0F0F0";
 					}
@@ -2503,15 +2497,58 @@
 				document.getElementsByClassName("reversible")[j].style.background = "white";
 			}
 		}
-		/*function navtoerrors() {
-			hideDivByID('home'); 
-			showDivByID('errors'); 
-			hideDivByID('surgeries'); 
-			hideDivByID('history'); 
-			hideDivByID('values'); 
-			hideDivByID('surgeryrecs'); 
-			hideDivByID('surgeonrecs');
-		}*/
+		
+		function navfromhistoryto() {
+			hideDivbyID('history'); 
+			if (document.getElementById('abscontraindications_yes').checked == true) {
+				console.log("abscontraindications_yes checked.");
+				abscontraindications_or_2020vision();
+				showDivbyID('surgeryrecs');
+				hideDivbyID('values');
+			}
+			else if (document.getElementById('knowpresc_yes').checked == true) {
+				if (document.getElementById('prescription_RS').value == 0 && document.getElementById('prescription_LS').value == 0) {
+					if ((document.getElementById('prescription_RC').value == 0 && document.getElementById('prescription_LC').value == 0) ||
+					(document.getElementById('prescription_RC').value == "" && document.getElementById('prescription_LC').value == "") ||
+					(document.getElementById('prescription_RC').value == 0 && document.getElementById('prescription_LC').value == "") ||
+					(document.getElementById('prescription_RC').value == "" && document.getElementById('prescription_LC').value == 0)) {
+						console.log("20/20 vision ID'd.");
+						abscontraindications_or_2020vision();
+						showDivbyID('surgeryrecs');
+						hideDivbyID('values');
+					}
+					else {
+						hideDivbyID('surgeryrecs');
+						showDivbyID('values');
+					}
+				}
+			}
+			else {
+				hideDivbyID('surgeryrecs');
+				showDivbyID('values');
+			}
+		}
+		
+		function navfromsurgeryrecsbackto() {
+			hideDivbyID('surgeryrecs');
+			if (document.getElementById('abscontraindications_yes').checked == true) {
+				showDivbyID('history');
+			}
+			else if (document.getElementById('prescription_RS').value == 0 && document.getElementById('prescription_LS').value == 0) {
+				if ((document.getElementById('prescription_RC').value == 0 && document.getElementById('prescription_LC').value == 0) ||
+				(document.getElementById('prescription_RC').value == "" && document.getElementById('prescription_LC').value == "") ||
+				(document.getElementById('prescription_RC').value == 0 && document.getElementById('prescription_LC').value == "") ||
+				(document.getElementById('prescription_RC').value == "" && document.getElementById('prescription_LC').value == 0)) {
+					showDivbyID('history');
+				}
+				else {
+					showDivbyID('values');
+				}
+			}
+			else {
+				showDivbyID('values');
+			}
+		}
 	</script>
 	
 	<title>EYECHOOSE</title>
@@ -2530,9 +2567,6 @@
 		
 		<div class="openMenu"><i class="fa fa-bars icon-large"></i></div>
 		<ul class="mainMenu">
-			<!-- <li><a href="#patientEdu">Patient Education</a></li>
-			<li><a href="#patientDecisionAid">Patient Decision Aid</a></li>
-			<li><a href="#recs">Recommendations</a></li> -->
 			<li><a href="#home" onclick="showDivbyID('home'); hideDivbyID('errors'); hideDivbyID('surgeries'); hideDivbyID('history'); hideDivbyID('values'); hideDivbyID('surgeryrecs'); hideDivbyID('surgeonrecs'); hideDivbyID('moreinfo');">Home</a></li>
 			<li><a href="#errors" onclick="hideDivbyID('home'); showDivbyID('errors'); hideDivbyID('surgeries'); hideDivbyID('history'); hideDivbyID('values'); hideDivbyID('surgeryrecs'); hideDivbyID('surgeonrecs'); hideDivbyID('moreinfo');">Refractive Errors</a></li>
 			<li><a href="#surgeries" onclick="hideDivbyID('home'); hideDivbyID('errors'); showDivbyID('surgeries'); hideDivbyID('history'); hideDivbyID('values'); hideDivbyID('surgeryrecs'); hideDivbyID('surgeonrecs'); hideDivbyID('moreinfo');">Refractive Surgeries</a></li>
@@ -2562,7 +2596,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="home-bottom"><div class="pageNav"> 
+		<div class="home-bottom"><div class="pageNav_home"> 
 			<a href="#errors" class="next round" onclick="showDivbyID('errors'); hideDivbyID('home');">></a>
 		</div></div>
 	</section>	
@@ -2708,10 +2742,10 @@
 					</ul>
 						
 					<div id="preferences">
-						<input id="abscontraindications_yes" class="radioBtn qn1" name="abscontraindications" type="radio" value=-50 required onclick="hideDivByClass('qn1b'); hideDivByClass('qn2'); hideDivByClass('qn3a'); showDivByClass('submitNav_1'); hideDivByClass('pageNav_abscontraindications_no'); showDivByClass('pageNav_abscontraindications_yes');"/>
+						<input id="abscontraindications_yes" class="radioBtn qn1" name="abscontraindications" type="radio" value=-50 required onclick="hideDivByClass('qn1b'); hideDivByClass('qn2'); hideDivByClass('qn3a'); hideDivByClass('qn4'); hideDivByClass('qn3b');"/>
 							<label for="abscontraindications_yes"><p>yes</p></label>
 						
-						<input id="abscontraindications_no" class="radioBtn qn1" name="abscontraindications" type="radio" value=0 required onclick="showDivByClass('qn1b'); showDivByClass('qn2'); showDivByClass('qn3a'); hideDivByClass('submitNav_1'); hideDivByClass('pageNav_abscontraindications_yes'); showDivByClass('pageNav_abscontraindications_no');"/>
+						<input id="abscontraindications_no" class="radioBtn qn1" name="abscontraindications" type="radio" value=0 required onclick="showDivByClass('qn1b'); showDivByClass('qn2'); showDivByClass('qn3a');"/>
 							<label for="abscontraindications_no"><p>no</p></label>
 					</div>
 				</div>
@@ -2800,26 +2834,9 @@
 				</div>	
 			</div>
 			
-			<div class="submitNav_1"> 
-				<input type='button' class='submitBtn' value = 'Submit Responses &#187;' onclick="restore_original_colors(); process_abscontraindications_yes(); submittedMessage('mh'); document.getElementsByClassName('LASIK_col')[i].style.background = 'white'; document.getElementsByClassName('PRK_col')[i].style.background = 'white'; document.getElementsByClassName('IOL_col')[i].style.background = 'white';">
-			</div>
-			
-			<div class="mhsubmitted">
-				<p><strong>Responses submitted.</strong></p>
-			</div>
-			
-			<div class="submittedMsg_mh">
-				<p><strong>Please continue to the next page using the '>' button below.</strong></p>
-			</div>
-			
-			<div class="pageNav_abscontraindications_no"> 
+			<div class="pageNav"> 
 				<a href="#surgeries" class="next round" onclick="showDivbyID('surgeries'); hideDivbyID('history');"><</a>
-				<a href="#values" class="next round" onclick="hideDivbyID('history'); showDivbyID('values');">></a>
-			</div>
-			
-			<div class="pageNav_abscontraindications_yes"> 
-				<a href="#surgeries" class="next round" onclick="showDivbyID('surgeries'); hideDivbyID('history');"><</a>
-				<a href="#surgeryrecs" class="next round" onclick="hideDivbyID('history'); showDivbyID('surgeryrecs'); hideDivByClass('pageNav_recs_abscontraindications_no'); showDivByClass('pageNav_recs_abscontraindications_yes');">></a>
+				<a href="#values" class="next round" onclick="restore_original_colors(); navfromhistoryto();">></a>
 			</div>
 		</div>
 	</section>
@@ -2831,11 +2848,9 @@
 			<div class="values-top">
 				<h1 class="section-title"><br><br><br>Preferences</h1>
 				<div id="modality_recommendation_in_prefs"></div>
-				<p class="prefs_instructions">Please select three statements that would most influence your selection of a surgical modality. 
-				The top statement should be the statement that is the most influential to you of the provided alternatives. 
-				The middle statement should be the statement that is the second most influential to you of the provided alternatives.  
-				The bottom statement should be the statement that is the third most influential to you of the provided alternatives.
-				Statements will be weighted according to this ranking.</p>
+				<p class="prefs_instructions">Choose three statements that are the most influential to your 
+				selection of a refractive surgery modality. Rank them by their importance to you, placing the most 
+				important statement at the top.</p>
 			</div>
 			<div class="values-bottom">				
 				<div id="list1" class="droppable list" data-max="-1"><!-- I want this to accept many. -->
@@ -2852,21 +2867,10 @@
 				<div id="list2" class="droppable list" data-max="3"><!-- I want this to accept only 3. -->
 				</div>
 			</div>
-			<div class="submitNav"> 
-				<input type='button' class='submitBtn' value = 'Submit Responses &#187;' onclick="restore_original_colors(); medical_data_filled();">
-			</div>
-			
-			<div class="prefssubmitted">
-				<p><strong>Responses submitted.</strong></p>
-			</div>
-			
-			<div class="submittedMsg_prefs">
-				<p><strong>Please continue to the next page using the '>' button below.</strong></p>
-			</div>
 			
 			<div class="pageNav"> 
 				<a href="#history" class="next round" onclick="hideDivbyID('values'); showDivbyID('history');"><</a>
-				<a href="#surgeryrecs" class="next round" onclick="hideDivbyID('values'); showDivbyID('surgeryrecs'); hideDivByClass('pageNav_recs_abscontraindications_yes'); showDivByClass('pageNav_recs_abscontraindications_no');">></a>
+				<a href="#surgeryrecs" class="next round" onclick="restore_original_colors(); medical_data_filled(); hideDivbyID('values'); showDivbyID('surgeryrecs'); hideDivByClass('pageNav_recs_abscontraindications_yes'); showDivByClass('pageNav_recs_abscontraindications_no');">></a>
 			</div>
 			
 		</div>
@@ -3178,13 +3182,8 @@
 						to schedule a consultation with a refractive surgeon.</p>
 					</div>
 				</div>
-				<div class="pageNav_recs_abscontraindications_no"> 
-					<a href="#values" class="next round" onclick="hideDivbyID('surgeryrecs'); showDivbyID('values');"><</a>
-					<a href="#moreinfo" class="next round" onclick="hideDivbyID('surgeryrecs'); showDivbyID('moreinfo');">></a>
-				</div>
-				
-				<div class="pageNav_recs_abscontraindications_yes"> 
-					<a href="#history" class="next round" onclick="hideDivbyID('surgeryrecs'); showDivbyID('history');"><</a>
+				<div class="pageNav"> 
+					<a href="#values" class="next round" onclick="navfromsurgeryrecsbackto();"><</a>
 					<a href="#moreinfo" class="next round" onclick="hideDivbyID('surgeryrecs'); showDivbyID('moreinfo');">></a>
 				</div>
 			</div>
