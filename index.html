@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--Added justification of decision making-->
+<!--TODO: fix home page image to adjust itself according screen resolution, if possible.-->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +15,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	
 	
 	<style>
 		<!-- /*General Style*/ -->
@@ -140,9 +143,8 @@
 			text-align: left;
 			flex-direction: column;
 			padding: 30px;
-			background-image: url("https://live.staticflickr.com/7293/15791962004_58d6296748_b.jpg");
+			background: no-repeat center/80% url("https://live.staticflickr.com/7293/15791962004_58d6296748_b.jpg");
 			background-size: cover;
-			background-position: 80% 20%;
 			position: relative;
 			z-index; 1;
 			overflow: hidden;
@@ -865,33 +867,10 @@
 		.pageNav_home {
 		   display: flex;
 		   justify-content: center;
-		   margin: 10px;position: absolute;
+		   margin: 10px;
+		   position: absolute;
 		   left: 50%;
-		   top: 100%;
-		}
-		
-		.pageNav_abscontraindications_no {
-		   display: flex;
-		   justify-content: center;
-		   margin: 10px;
-		}
-		
-		.pageNav_abscontraindications_yes {
-		   display: none;
-		   justify-content: center;
-		   margin: 10px;
-		}
-		
-		.pageNav_recs_abscontraindications_no {
-		   display: flex;
-		   justify-content: center;
-		   margin: 10px;
-		}
-		
-		.pageNav_recs_abscontraindications_yes {
-		   display: none;
-		   justify-content: center;
-		   margin: 10px;
+		   top: 80%;
 		}
 		
 		#patientEdu {
@@ -988,22 +967,26 @@
 		var diagnosis_R = "";
 		var diagnosis_L = "";
 		
-		var RS_neg = 0;
-		var RC_neg = 0;
-		var Raxis_neg = 0;
-		var LS_neg = 0;
-		var LC_neg = 0;
-		var Laxis_neg = 0;
+		var RS_neg = -100;
+		var RC_neg = -100;
+		var Raxis_neg = -100;
+		var LS_neg = -100;
+		var LC_neg = -100;
+		var Laxis_neg = -100;
 		
-		var RS_pos = 0;
-		var RC_pos = 0;
-		var Raxis_pos = 0;
-		var LS_pos = 0;
-		var LC_pos = 0;
-		var Laxis_pos = 0; 
+		var RS_pos = -100;
+		var RC_pos = -100;
+		var Raxis_pos = -100;
+		var LS_pos = -100;
+		var LC_pos = -100;
+		var Laxis_pos = -100; 
 		
 		var right_meets = false;
 		var left_meets = false;
+		
+		var med_data_filled = false;
+		var justification_statement = "";
+		var new_justification_statement = "";
 		
 		function hideDivByClass(class_name) {
 			<!-- console.log("class_name: " + class_name); -->
@@ -1393,6 +1376,10 @@
 							console.log("add 12 to IOL");
 							modalities.IOL = parseInt(modalities.IOL) + parseInt(12);
 							console.log("IOL: " + modalities.IOL);
+							new_justification_statement = "<p>•	 Your prescription indicates that you have High Myopia. Phakic IOLs are better suited for patients with High Myopia. This has been reflected in your recommendation. </p>";
+							if (!justification_statement.includes(`${new_justification_statement}`)) {
+								justification_statement += new_justification_statement;
+							}
 						}
 					}
 				}
@@ -1414,7 +1401,10 @@
 							console.log("add 12 to IOL");
 							modalities.IOL = parseInt(modalities.IOL) + parseInt(12);
 							console.log("IOL: " + modalities.IOL);
-						}
+							new_justification_statement = "<p>•	 Your prescription indicates that you have High Myopia. Phakic IOLs are better suited for patients with High Myopia. This has been reflected in your recommendation. </p>";
+							if (!justification_statement.includes(`${new_justification_statement}`)) {
+								justification_statement += new_justification_statement;
+							}						}
 					}
 				}
 				else {
@@ -1502,6 +1492,10 @@
 					
 					removeModality("IOL");
 					hideDivByClass("myope_only");
+					new_justification_statement = "<p>•	 Your prescription indicates that you have Mixed Astigmatism. Phakic IOLs are not indicated for patients with Mixed Astigmatism. This was accounted for in your recommendation.</p>";
+					if (!justification_statement.includes(`${new_justification_statement}`)) {
+						justification_statement += new_justification_statement
+					}
 				}
 				//if regular astigmatism
 				else {
@@ -1536,7 +1530,11 @@
 						
 						removeModality("IOL");
 						hideDivByClass("myope_only");
-					}// can patients with no power and just astigmatism have their vision corrected with LASIK, PRK, and/or IOL
+						new_justification_statement = "<p>•	 Your prescription indicates that you have Hyperopic Astigmatism. Phakic IOLs are not indicated for patients with Hyperopic Astigmatism. This was accounted for in your recommendation.</p>";
+						if (!justification_statement.includes(`${new_justification_statement}`)) {
+							justification_statement += new_justification_statement;
+						}
+					}
 					else { //RS_neg == 0
 						if (RS_pos > 0) {
 							console.log("no power, astigmatic. hyperopic astigmatism.");
@@ -1544,6 +1542,10 @@
 							PRKLasers_hyperopiaastigmatism("right");
 							removeModality("IOL");
 							hideDivByClass("myope_only");
+							new_justification_statement = "<p>•	 Your prescription indicates that you have Hyperopic Astigmatism. Phakic IOLs are not indicated for patients with Hyperopic Astigmatism. This was accounted for in your recommendation.</p>";
+							if (!justification_statement.includes(`${new_justification_statement}`)) {
+								justification_statement += new_justification_statement;
+							}
 						}
 						if (RS_pos < 0){
 							console.log("no power, astigmatic. myopic astigmatism.");
@@ -1575,6 +1577,10 @@
 					
 					removeModality("IOL");
 					hideDivByClass("myope_only");
+					new_justification_statement = "<p>•	 Your prescription indicates that you have Mixed Astigmatism. Phakic IOLs are not indicated for patients with Mixed Astigmatism. This was accounted for in your recommendation.</p>";
+					if (!justification_statement.includes(`${new_justification_statement}`)) {
+						justification_statement += new_justification_statement;
+					}
 				}
 				//if regular astigmatism
 				else {
@@ -1610,6 +1616,10 @@
 						
 						removeModality("IOL");
 						hideDivByClass("myope_only");
+						new_justification_statement = "<p>•	 Your prescription indicates that you have Hyperopic Astigmatism. Phakic IOLs are not indicated for patients with Hyperopic Astigmatism. This was accounted for in your recommendation.</p>";
+						if (!justification_statement.includes(`${new_justification_statement}`)) {
+							justification_statement += new_justification_statement;
+						}
 					}
 					else { //LS_neg == 0
 						if (LS_pos > 0) {
@@ -1618,6 +1628,10 @@
 							PRKLasers_hyperopiaastigmatism("left");
 							removeModality("IOL");
 							hideDivByClass("myope_only");
+							justification_statement = justification_statement + "<p>•	 Your prescription indicates that you have Hyperopic Astigmatism. Phakic IOLs are not indicated for patients with Hyperopic Astigmatism. This was accounted for in your recommendation.</p>";
+							if (!justification_statement.includes(`${new_justification_statement}`)) {
+								justification_statement += new_justification_statement;
+							}
 						}
 						if (LS_pos < 0){
 							console.log("no power, astigmatic. myopic astigmatism.");
@@ -1661,6 +1675,10 @@
 					
 					removeModality("IOL");
 					hideDivByClass("myope_only");
+					new_justification_statement = "<p>•	 Your prescription indicates that you have Hyperopia. Phakic IOLs are not indicated for patients with Hyperopia. This was accounted for in your recommendation.</p>";
+					if (!justification_statement.includes(`${new_justification_statement}`)) {
+						justification_statement += new_justification_statement;
+					}
 				}
 				if (LS_neg < 0) {
 					console.log("myopic");
@@ -1692,6 +1710,10 @@
 					
 					removeModality("IOL");
 					hideDivByClass("myope_only");
+					new_justification_statement = "<p>•	 Your prescription indicates that you have Hyperopia. Phakic IOLs are not indicated for patients with Hyperopia. This was accounted for in your recommendation.</p>";
+					if (!justification_statement.includes(`${new_justification_statement}`)) {
+						justification_statement += new_justification_statement;
+					}
 				}
 				else { //20/20 vision
 					removeModality("LASIK");
@@ -1721,6 +1743,10 @@
 									
 					removeModality("IOL");
 					hideDivByClass("myope_only");
+					new_justification_statement = "<p>•	 Your prescription indicates that you have Mixed Astigmatism. Phakic IOLs are not indicated for patients with Mixed Astigmatism. This was accounted for in your recommendation.</p>";
+					if (!justification_statement.includes(`${new_justification_statement}`)) {
+						justification_statement += new_justification_statement;
+					}
 				}
 				//if regular astigmatism
 				else {
@@ -1755,7 +1781,11 @@
 										
 						removeModality("IOL");
 						hideDivByClass("myope_only");
-					}// can patients with no power and just astigmatism have their vision corrected with LASIK, PRK, and/or IOL
+						new_justification_statement = "<p>•	 Your prescription indicates that you have Hyperopic Astigmatism. Phakic IOLs are not indicated for patients with Hyperopic Astigmatism. This was accounted for in your recommendation.</p>";
+						if (!justification_statement.includes(`${new_justification_statement}`)) {
+							justification_statement += new_justification_statement;
+						}
+					}
 					else { //RS_neg == 0
 						if (RS_pos > 0) {
 							console.log("no power, astigmatic. hyperopic astigmatism.");
@@ -1763,6 +1793,10 @@
 							PRKLasers_hyperopiaastigmatism("right");
 							removeModality("IOL");
 							hideDivByClass("myope_only");
+							new_justification_statement = justification_statement + "<p>•	 Your prescription indicates that you have Hyperopic Astigmatism. Phakic IOLs are not indicated for patients with Hyperopic Astigmatism. This was accounted for in your recommendation.</p>";
+							if (!justification_statement.includes(`${new_justification_statement}`)) {
+								justification_statement += new_justification_statement;
+							}
 						}
 						if (RS_pos < 0){
 							console.log("no power, astigmatic. myopic astigmatism.");
@@ -1805,6 +1839,10 @@
 										
 					removeModality("IOL");
 					hideDivByClass("myope_only");
+					new_justification_statement = "<p>•	 Your prescription indicates that you have Hyperopia. Phakic IOLs are not indicated for patients with Hyperopia. This was accounted for in your recommendation.</p>";
+					if (!justification_statement.includes(`${new_justification_statement}`)) {
+						justification_statement += new_justification_statement;
+					}
 				}
 			}
 		}
@@ -1829,6 +1867,10 @@
 									
 					removeModality("IOL");
 					hideDivByClass("myope_only");
+					new_justification_statement = "<p>•	 Your prescription indicates that you have Mixed Astigmatism. Phakic IOLs are not indicated for patients with Mixed Astigmatism. This was accounted for in your recommendation.</p>";
+					if (!justification_statement.includes(`${new_justification_statement}`)) {
+						justification_statement += new_justification_statement;
+					}
 				}
 				//if regular astigmatism
 				else {
@@ -1863,7 +1905,11 @@
 										
 						removeModality("IOL");
 						hideDivByClass("myope_only");
-					}// can patients with no power and just astigmatism have their vision corrected with LASIK, PRK, and/or IOL
+						new_justification_statement = "<p>•	 Your prescription indicates that you have Hyperopic Astigmatism. Phakic IOLs are not indicated for patients with Hyperopic Astigmatism. This was accounted for in your recommendation.</p>";
+						if (!justification_statement.includes(`${new_justification_statement}`)) {
+							justification_statement += new_justification_statement;
+						}
+					}
 					else { //LS_neg == 0
 						if (LS_pos > 0) {
 							console.log("no power, astigmatic. hyperopic astigmatism.");
@@ -1871,6 +1917,10 @@
 							PRKLasers_hyperopiaastigmatism("left");
 							removeModality("IOL");
 							hideDivByClass("myope_only");
+							new_justification_statement = "<p>•	 Your prescription indicates that you have Hyperopic Astigmatism. Phakic IOLs are not indicated for patients with Hyperopic Astigmatism. This was accounted for in your recommendation.</p>";
+							if (!justification_statement.includes(`${new_justification_statement}`)) {
+								justification_statement += new_justification_statement;
+							}
 						}
 						if (LS_pos < 0){
 							console.log("no power, astigmatic. myopic astigmatism.");
@@ -1913,6 +1963,11 @@
 										
 					removeModality("IOL");
 					hideDivByClass("myope_only");
+					
+					new_justification_statement = "<p>•	 Your prescription indicates that you have Hyperopia. Phakic IOLs are not indicated for patients with Hyperopia. This was accounted for in your recommendation.</p>";
+					if (!justification_statement.includes(`${new_justification_statement}`)) {
+						justification_statement += new_justification_statement;
+					}
 				}
 			}
 		}
@@ -1924,11 +1979,9 @@
 			if (document.getElementById('abscontraindications_yes').checked == false && document.getElementById('abscontraindications_no').checked == false) {
 				alert("Please answer all questions.");
 			}
-			/*else if (document.getElementById('abscontraindications_yes').checked == true) {
-				//document.getElementsByClassName('submitBtn')[0].disabled = true; 
-				//submittedMessage('mh'); 
+			if (document.getElementById('abscontraindications_yes').checked == true) {
 				process_medical_data();
-			}*/
+			}
 			else if (document.getElementById('abscontraindications_no').checked == true) {
 				if ((document.getElementById('uveitis_yes').checked == false && document.getElementById('uveitis_no').checked == false) || 
 				(document.getElementById('relcontraindications_yes').checked == false && document.getElementById('relcontraindications_no').checked == false) ||
@@ -1955,6 +2008,15 @@
 								alert("Please enter your right cylindrical component.");
 								already_warned = true;
 							}
+							else if (prescription_RS.value > 20.00 || prescription_RS.value < -20.00) {
+								alert("Please enter a valid right spherical component, between -20.00D and 20.00D.");
+							}
+							else if (prescription_RC.value != "" && (prescription_RC.value > 20.00 || prescription_RC.value < -20.00)) {
+								alert("Please enter a valid right cylindrical component, between -20.00D and 20.00D.");
+							}
+							else if (prescription_Raxis.value != "" && (prescription_Raxis.value < 0 || prescription_Raxis.value > 180)) {
+								alert("Please enter a valid right axis, between 0 and 180 degrees.");
+							}
 							else {
 								can_submit_R = true;
 							}
@@ -1970,24 +2032,29 @@
 								alert("Please enter your left cylindrical component.");
 								already_warned = true;
 							}
+							else if (prescription_LS.value > 20.00 || prescription_LS.value < -20.00) {
+								alert("Please enter a valid left spherical component, between -20.00D and 20.00D.");
+							}
+							else if (prescription_LC.value != "" && (prescription_LC.value > 20.00 || prescription_LC.value < -20.00)) {
+								alert("Please enter a valid left cylindrical component, between -20.00D and 20.00D.");
+							}
+							else if (prescription_Laxis.value != "" && (prescription_Laxis.value < 0 || prescription_Laxis.value > 180)) {
+								alert("Please enter a valid left axis, between 0 and 180 degrees.");
+							}
 							else {
 								can_submit_L = true;
 							}
 						}
 						
 						if (can_submit_R == true && can_submit_L == true) {
-							//document.getElementsByClassName('submitBtn')[0].disabled = true; 
-							//submittedMessage('mh'); 
-							prefs_filled();
+							process_medical_data();
 						}
 					}
 					else if ((document.getElementById('knowpresc_no').checked==true) &&
 					(document.getElementById('hyperopic_yes').checked==true || 
 					document.getElementById('hyperopic_no').checked==true ||
 					document.getElementById('hyperopic_idk').checked==true)) {
-						//document.getElementsByClassName('submitBtn')[0].disabled = true; 
-						//submittedMessage('mh'); 
-						prefs_filled();
+						process_medical_data();
 					}
 					else if ((document.getElementById('knowpresc_no').checked==true) &&
 					(document.getElementById('hyperopic_yes').checked==false &&
@@ -2000,18 +2067,14 @@
 			}
 		}
 		
-		function abscontraindications_or_2020vision() {
-			removeModality("LASIK");
-			removeModality("PRK");
-			removeModality("IOL");
-			returnRec();
-		}
-		
-		
 		function process_medical_data() {
-			modalities.LASIK = 0;
-			modalities.PRK = 0;
-			modalities.IOL = 0;
+			modalities = {
+				LASIK: 0,
+				PRK: 0,
+				IOL: 0
+			};
+			
+			justification_statement = "";
 			
 			console.log("entering process_medical_data()");
 			
@@ -2019,17 +2082,17 @@
 			<!-- If the patient has any of the following absolute contraindications, -->
 			<!-- they are not recommended to undergo any of the surgeries. --> */
 			console.log("Processing question 1.");
-			/*if(document.getElementById('abscontraindications_yes').checked==true) {
+			if(document.getElementById('abscontraindications_yes').checked==true) {
+				console.log("abscontraindications_yes checked.");
 				removeModality("LASIK");
 				removeModality("PRK");
 				removeModality("IOL");
-				hideDivByClass("prefs_instructions");
-				document.getElementById("modality_recommendation_in_prefs").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon your responses, you may be contraindicated for these surgical modalities, or you may have an eye glasses prescription that is outside of laser and contact lens parameters.</p>";
-				hideDivByClass("values-bottom");
-				hideDivByClass("submitNav");
-				showDivByClass("submittedMsg");
 				returnRec();
-			}*/
+				hideDivbyID('history'); 
+				showDivbyID('surgeryrecs');
+				hideDivbyID('values');
+				justification_statement = justification_statement + "<p>•	 You indicated that you have either uncontrolled eye conditions/diseases or uncontrolled autoimmune disorders. These are absolute contraindications for LASIK, PRK, and Phakic IOLs, meaning that it is not safe for patients with these conditions/diseases to undergo these surgical modalities. </p>";
+			}
 			
 			if(document.getElementById('abscontraindications_no').checked==true){
 				console.log("Processed question 1.");
@@ -2041,14 +2104,24 @@
 				if(document.getElementById('relcontraindications_yes').checked==true){
 					addValueByIdByModality("LASIK", 'relcontraindications_yes');
 					addValueByIdByModality("PRK", 'relcontraindications_yes');
-					if(document.getElementById('uveitis_true').checked==true) {
+					if(document.getElementById('uveitis_yes').checked==true) {
 						removeModality("IOL");
+						justification_statement = justification_statement + "<p>•	 You indicated that you either have a history of or you currently have Uveitis. Uveitis is an absolute contraindication for Phakic IOLs, meaning that it is not safe for patients with Uveitis to undergo Phakic IOL placement. Uveitis is also a relative contraindication for LASIK and PRK, meaning that it <strong>may be unsafe</strong> for patients with Uveitis to undergo LASIK or PRK. </p>";
 					}
 					else {
 						addValueByIdByModality("IOL", 'relcontraindications_yes');
+						justification_statement = justification_statement + "<p>•	 You indicated that you either have a history of or you currently have Diabetes Mellitus, Uncontrolled Thyroid Disease, Severe Dry Eye, Severe Glaucoma, Ocular Herpes, Ocular Rosacea, Strabismus, or Keratoconus. These are relative contraindications for LASIK, PRK, and Phakic IOLs, meaning that it <strong>may be unsafe</strong> for patients with these conditions to undergo LASIK, PRK, or Phakic IOL placement. Please consult with a refractive surgeon to determine candidacy for refractive surgery.</p>";
 						showDivByClass('disclaimer_relcontraindications');
 					}
-				}		
+				}
+				else if (document.getElementById('relcontraindications_no').checked==true) {
+					if(document.getElementById('uveitis_yes').checked==true) {
+						addValueByIdByModality("LASIK", 'uveitis_yes');
+						addValueByIdByModality("PRK", 'uveitis_yes');
+						removeModality("IOL");
+						justification_statement = justification_statement + "<p>•	 You indicated that you either have a history of or you currently have Uveitis. Uveitis is an absolute contraindication for Phakic IOLs, meaning that it is not safe for patients with Uveitis to undergo Phakic IOL placement. Uveitis is also a relative contraindication for LASIK and PRK, meaning that it <strong>may be unsafe</strong> for patients with Uveitis to undergo LASIK or PRK. Please consult with a refractive surgeon to determine candidacy for refractive surgery.</p>";
+					}
+				}
 				console.log("Processed question 2a.");
 								
 				console.log("Processing question 3.");
@@ -2114,7 +2187,7 @@
 					
 					console.log("RS_pos: " + RS_pos);
 					console.log("RC_pos: " + RC_pos);
-					console.log("Raxis_pos" + Raxis_pos);
+					console.log("Raxis_pos: " + Raxis_pos);
 					
 					console.log("LS_pos: " + LS_pos);
 					console.log("LC_pos: " + LC_pos);
@@ -2152,35 +2225,47 @@
 										
 					console.log("RS_neg: " + RS_neg);
 					console.log("RC_neg: " + RC_neg);
-					console.log("Raxis_neg: " + Raxis_neg);
+					console.log("Raxis_neg: " + Raxis_neg + "\n");
 					
 					console.log("LS_neg: " + LS_neg);
 					console.log("LC_neg: " + LC_neg);
-					console.log("Laxis_neg: " + Laxis_neg);
+					console.log("Laxis_neg: " + Laxis_neg + "\n\n");
 					
 					console.log("RS_pos: " + RS_pos);
 					console.log("RC_pos: " + RC_pos);
-					console.log("Raxis_pos" + Raxis_pos);
+					console.log("Raxis_pos" + Raxis_pos  + "\n");
 					
 					console.log("LS_pos: " + LS_pos);
 					console.log("LC_pos: " + LC_pos);
-					console.log("Laxis_pos: " + Laxis_pos);
+					console.log("Laxis_pos: " + Laxis_pos + "\n\n");
 					
 					if ((LS_neg == 0.00 && LC_neg == 0.00) && (RS_neg == 0.00 && RC_neg == 0.00)) {
 						removeModality("LASIK");
 						removeModality("PRK");
 						removeModality("IOL");
+						hideDivbyID('history'); 
+						hideDivbyID('values');
+						showDivbyID('surgeryrecs');
 					}
 					else if ((LS_neg == 0.00 && LC_neg == 0.00) || (RS_neg == 0.00 && RC_neg == 0.00)) {
 						if (LS_neg == 0.00 && LC_neg == 0.00) {
-							typeofRE_right()
+							typeofRE_right();
+							hideDivbyID('history'); 
+							hideDivbyID('surgeryrecs');
+							showDivbyID('values');
 						}
 						else if (RS_neg == 0.00 && RC_neg == 0.00) {
-							typeofRE_left()
+							typeofRE_left();
+							hideDivbyID('history'); 
+							hideDivbyID('surgeryrecs');
+							showDivbyID('values');
 						}
 					}
 					else {
 						typeofRE();
+						hideDivbyID('history'); 
+						hideDivbyID('surgeryrecs');
+						showDivbyID('values');
 					}
 					console.log("Processed question 3b.");
 				}
@@ -2194,9 +2279,33 @@
 						hyperopia = true;
 						hideDivByClass("myope_only");
 						console.log("hyperopia: " + hyperopia);
+						justification_statement = justification_statement + "<p>•	 You indicated that you have Hyperopia. Phakic IOLs are not indicated for patients with Hyperopia. This was accounted for in your recommendation.</p>";
 					}
+					else {
+						showDivByClass("myope_only");
+					}
+					
+					hideDivbyID('history'); 
+					hideDivbyID('surgeryrecs');
+					showDivbyID('values');
+					
 					console.log("Processed question 3b.");
 				}
+			}
+			
+			med_data_filled = true;
+		}
+		
+		function navfromsurgeryrecsbackto() {
+			hideDivbyID('surgeryrecs');
+			if (document.getElementById('abscontraindications_yes').checked == true) {
+				showDivbyID('history');
+			}
+			else if ((document.getElementById('knowpresc_no').checked == true) && (LS_neg == 0.00 && LC_neg == 0.00) && (RS_neg == 0.00 && RC_neg == 0.00)) {
+				showDivbyID('history');
+			}
+			else {
+				showDivbyID('values');
 			}
 		}
 		
@@ -2272,9 +2381,20 @@
 			if (numPrefs == 3) {
 				//document.getElementsByClassName('submitBtn')[1].disabled = true; 
 				//submittedMessage('prefs');
-				process_medical_data();
-				returnRankedPrefs();
-				returnRec();
+				//process_medical_data();
+				if (med_data_filled == true) {
+					returnRankedPrefs();
+					new_justification_statement = "<p>•	 The preferences that you have selected have also been integrated into your recommendation. </p>";
+					console.log("new_justification_statement: " + new_justification_statement);
+					justification_statement = justification_statement + "<p>•	 The preferences that you have selected have been integrated into your recommendation. </p>";
+					returnRec();
+					hideDivbyID('history'); 
+					hideDivbyID('values'); 
+					showDivbyID('surgeryrecs');
+				}
+				else {
+					alert("Please fill medical history first.");
+				}
 			}
 			else if (numPrefs < 3) {
 				alert("Please select three preferences.");
@@ -2315,21 +2435,21 @@
 
 			if (rec.localeCompare("none") != 0) {
 				if (rec.localeCompare("LASIK") == 0) {
-					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>LASIK</strong></p>. Please discuss with a refractive surgeon.";
+					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>LASIK</strong>. Please discuss with a refractive surgeon.</p>";
 					for (let i = 0; i < document.getElementsByClassName("LASIK_col").length; i++) {
 						document.getElementsByClassName("LASIK_col")[i].style.background = "#F0F0F0";
 					}
 					showDivByClass("LASIK_surgeons");
 				}
 				else if (rec.localeCompare("PRK") == 0) {
-					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>PRK</strong></p>. Please discuss with a refractive surgeon.";
+					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>PRK</strong>. Please discuss with a refractive surgeon.</p>";
 					for (let i = 0; i < document.getElementsByClassName("PRK_col").length; i++) {
 						document.getElementsByClassName("PRK_col")[i].style.background = "#F0F0F0";
 					}
 					showDivByClass("PRK_surgeons");
 				}
 				else if (rec.localeCompare("IOL") == 0) {
-					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>IOL</strong></p>. Please discuss with a refractive surgeon.";
+					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>IOL</strong>. Please discuss with a refractive surgeon.</p>";
 					for (let i = 0; i < document.getElementsByClassName("IOL_col").length; i++) {
 						document.getElementsByClassName("IOL_col")[i].style.background = "#F0F0F0";
 					}
@@ -2340,6 +2460,9 @@
 				document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon your responses, you may be contraindicated for these surgical modalities, or you may have an eye glasses prescription that is outside of laser and contact lens parameters.</p>";
 				showDivByClass("none_surgeons");
 			}
+			
+			document.getElementById("justification").innerHTML = "<p><strong>Rationale</strong>: </p>" + justification_statement;
+			console.log("new_justification_statement: " + justification_statement);
 			
 			for(let i = 0; i < element_ids_list.length; i++) {
 				if (element_ids_list[i].localeCompare("military") == 0) {
@@ -2498,55 +2621,67 @@
 			}
 		}
 		
-		function navfromhistoryto() {
-			hideDivbyID('history'); 
-			if (document.getElementById('abscontraindications_yes').checked == true) {
-				console.log("abscontraindications_yes checked.");
-				abscontraindications_or_2020vision();
-				showDivbyID('surgeryrecs');
-				hideDivbyID('values');
+		function clearotherselections() {
+			if(document.getElementById('abscontraindications_yes').checked == true) {
+				document.getElementById('abscontraindications_no').checked = false;
+				document.getElementById('uveitis_yes').checked = false;
+				document.getElementById('uveitis_no').checked = false;
+				document.getElementById('relcontraindications_yes').checked = false;
+				document.getElementById('relcontraindications_no').checked = false;
+				document.getElementById('knowpresc_yes').checked = false;
+				document.getElementById('knowpresc_no').checked = false;
+				document.getElementById('prescription_RS').value = "";
+				document.getElementById('prescription_RC').value = "";
+				document.getElementById('prescription_Raxis').value = "";
+				document.getElementById('prescription_LS').value == "";
+				document.getElementById('prescription_LC').value == "";
+				document.getElementById('prescription_Laxis').value = "";
+				document.getElementById('hyperopic_yes').checked = false;
+				document.getElementById('hyperopic_no').checked = false;
+				document.getElementById('hyperopic_idk').checked = false;
 			}
-			else if (document.getElementById('knowpresc_yes').checked == true) {
-				if (document.getElementById('prescription_RS').value == 0 && document.getElementById('prescription_LS').value == 0) {
-					if ((document.getElementById('prescription_RC').value == 0 && document.getElementById('prescription_LC').value == 0) ||
-					(document.getElementById('prescription_RC').value == "" && document.getElementById('prescription_LC').value == "") ||
-					(document.getElementById('prescription_RC').value == 0 && document.getElementById('prescription_LC').value == "") ||
-					(document.getElementById('prescription_RC').value == "" && document.getElementById('prescription_LC').value == 0)) {
-						console.log("20/20 vision ID'd.");
-						abscontraindications_or_2020vision();
-						showDivbyID('surgeryrecs');
-						hideDivbyID('values');
-					}
-					else {
-						hideDivbyID('surgeryrecs');
-						showDivbyID('values');
-					}
-				}
-			}
-			else {
-				hideDivbyID('surgeryrecs');
-				showDivbyID('values');
+			else if(document.getElementById('abscontraindications_no').checked == true) {
+				document.getElementById('abscontraindications_yes').checked = false;
+				document.getElementById('uveitis_yes').checked = false;
+				document.getElementById('uveitis_no').checked = false;
+				document.getElementById('relcontraindications_yes').checked = false;
+				document.getElementById('relcontraindications_no').checked = false;
+				document.getElementById('knowpresc_yes').checked = false;
+				document.getElementById('knowpresc_no').checked = false;
+				document.getElementById('prescription_RS').value = "";
+				document.getElementById('prescription_RC').value = "";
+				document.getElementById('prescription_Raxis').value = "";
+				document.getElementById('prescription_LS').value = "";
+				document.getElementById('prescription_LC').value = "";
+				document.getElementById('prescription_Laxis').value = "";
+				document.getElementById('hyperopic_yes').checked = false;
+				document.getElementById('hyperopic_no').checked = false;
+				document.getElementById('hyperopic_idk').checked = false;
 			}
 		}
 		
-		function navfromsurgeryrecsbackto() {
-			hideDivbyID('surgeryrecs');
-			if (document.getElementById('abscontraindications_yes').checked == true) {
-				showDivbyID('history');
+		function clearlastqn() {
+			if (document.getElementById('knowpresc_yes').checked == true) {
+				document.getElementById('hyperopic_yes').checked = false;
+				document.getElementById('hyperopic_no').checked = false;
+				document.getElementById('hyperopic_idk').checked = false;
+				document.getElementById('prescription_RS').value = "";
+				document.getElementById('prescription_RC').value = "";
+				document.getElementById('prescription_Raxis').value = "";
+				document.getElementById('prescription_LS').value = "";
+				document.getElementById('prescription_LC').value = "";
+				document.getElementById('prescription_Laxis').value = "";
 			}
-			else if (document.getElementById('prescription_RS').value == 0 && document.getElementById('prescription_LS').value == 0) {
-				if ((document.getElementById('prescription_RC').value == 0 && document.getElementById('prescription_LC').value == 0) ||
-				(document.getElementById('prescription_RC').value == "" && document.getElementById('prescription_LC').value == "") ||
-				(document.getElementById('prescription_RC').value == 0 && document.getElementById('prescription_LC').value == "") ||
-				(document.getElementById('prescription_RC').value == "" && document.getElementById('prescription_LC').value == 0)) {
-					showDivbyID('history');
-				}
-				else {
-					showDivbyID('values');
-				}
-			}
-			else {
-				showDivbyID('values');
+			else if (document.getElementById('knowpresc_no').checked == true) {
+				document.getElementById('hyperopic_yes').checked = false;
+				document.getElementById('hyperopic_no').checked = false;
+				document.getElementById('hyperopic_idk').checked = false;
+				document.getElementById('prescription_RS').value = "";
+				document.getElementById('prescription_RC').value = "";
+				document.getElementById('prescription_Raxis').value = "";
+				document.getElementById('prescription_LS').value = "";
+				document.getElementById('prescription_LC').value = "";
+				document.getElementById('prescription_Laxis').value = "";
 			}
 		}
 	</script>
@@ -2585,7 +2720,7 @@
 			<div class="home-top">
 				<h1 class="section-title">What is the best refractive surgical modality for you?</h1>
 			</div>
-			<div class="home-bottom">	
+			<div class="home-bottom">
 				<div class="logo">
                     <h1>EYE<span>CHOOSE</span></h1>
 					<p> is a prototype patient decision aid to assist college-aged students 
@@ -2745,7 +2880,7 @@
 						<input id="abscontraindications_yes" class="radioBtn qn1" name="abscontraindications" type="radio" value=-50 required onclick="hideDivByClass('qn1b'); hideDivByClass('qn2'); hideDivByClass('qn3a'); hideDivByClass('qn4'); hideDivByClass('qn3b');"/>
 							<label for="abscontraindications_yes"><p>yes</p></label>
 						
-						<input id="abscontraindications_no" class="radioBtn qn1" name="abscontraindications" type="radio" value=0 required onclick="showDivByClass('qn1b'); showDivByClass('qn2'); showDivByClass('qn3a');"/>
+						<input id="abscontraindications_no" class="radioBtn qn1" name="abscontraindications" type="radio" value=0 required onclick="showDivByClass('qn1b'); showDivByClass('qn2'); showDivByClass('qn3a');  clearotherselections();"/>
 							<label for="abscontraindications_no"><p>no</p></label>
 					</div>
 				</div>
@@ -2788,10 +2923,10 @@
 						
 						<div class="qn3a">
 						<div id="preferences">
-							<input id="knowpresc_yes" class="radioBtn qn3a" name="knowpresc" type="radio" required onclick="showDivByClass('qn3b'); hideDivByClass('qn4');" />
+							<input id="knowpresc_yes" class="radioBtn qn3a" name="knowpresc" type="radio" required onclick="showDivByClass('qn3b'); hideDivByClass('qn4'); clearlastqn();" />
 								<label for="knowpresc_yes"><p>yes</p></label>
 
-							<input id="knowpresc_no" class="radioBtn qn3a" name="knowpresc" type="radio" required onclick="hideDivByClass('qn3b'); showDivByClass('qn4');" />
+							<input id="knowpresc_no" class="radioBtn qn3a" name="knowpresc" type="radio" required onclick="hideDivByClass('qn3b'); showDivByClass('qn4'); clearlastqn();" />
 								<label for="knowpresc_no"><p>no</p></label>
 						</div></div>
 
@@ -2836,7 +2971,7 @@
 			
 			<div class="pageNav"> 
 				<a href="#surgeries" class="next round" onclick="showDivbyID('surgeries'); hideDivbyID('history');"><</a>
-				<a href="#values" class="next round" onclick="restore_original_colors(); navfromhistoryto();">></a>
+				<a href="#values" class="next round" onclick="restore_original_colors(); medical_data_filled();">></a>
 			</div>
 		</div>
 	</section>
@@ -2870,7 +3005,7 @@
 			
 			<div class="pageNav"> 
 				<a href="#history" class="next round" onclick="hideDivbyID('values'); showDivbyID('history');"><</a>
-				<a href="#surgeryrecs" class="next round" onclick="restore_original_colors(); medical_data_filled(); hideDivbyID('values'); showDivbyID('surgeryrecs'); hideDivByClass('pageNav_recs_abscontraindications_yes'); showDivByClass('pageNav_recs_abscontraindications_no');">></a>
+				<a href="#surgeryrecs" class="next round" onclick="restore_original_colors(); prefs_filled();">></a>
 			</div>
 			
 		</div>
@@ -2883,9 +3018,10 @@
 		<div class="surgeryrecsContainer inner">
 			<div class="surgeryrecs-top">
 				<h1 class="section-title"><br><br><br>Surgical Modality Recommendations</h1>
-				<p>Hover over the icons for more detail.</p>
+				<p>Your surgical modality recommendation and the preferences you selected are highlightd. Hover over the icons for more detail.</p>
 				
 				<div id="modality_recommendation"></div>
+				<div id="justification"></div>
 				<div class="recommendations_table">
 					<table>
 						<thead>
@@ -3490,6 +3626,7 @@
 			mainMenu.style.top = '-100%';
 		}
 	</script>
+
 	
 </body>
 </html>
