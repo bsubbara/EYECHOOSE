@@ -1058,21 +1058,21 @@
 			console.log("id: " + id);
 			
 			if ("LASIK" in modalities && modality.localeCompare("LASIK") == 0) {
-				console.log("add " + parseInt(document.getElementById(id).value) + " to LASIK");
-				console.log("LASIK: " + parseInt(modalities.LASIK));
-				modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(id).value);
-				console.log("LASIK: " + parseInt(modalities.LASIK));
+				console.log("add " + parseFloat(document.getElementById(id).value) + " to LASIK");
+				console.log("LASIK: " + parseFloat(modalities.LASIK));
+				modalities.LASIK = parseFloat(modalities.LASIK) + parseFloat(document.getElementById(id).value);
+				console.log("LASIK: " + parseFloat(modalities.LASIK));
 			}
 			if ("PRK" in modalities && modality.localeCompare("PRK") == 0) {
 				console.log("add " + document.getElementById(id).value + " to PRK");
 				console.log("PRK: " +  modalities.PRK);
-				modalities.PRK =  parseInt(modalities.PRK) + parseInt(document.getElementById(id).value);
+				modalities.PRK =  parseFloat(modalities.PRK) + parseFloat(document.getElementById(id).value);
 				console.log("PRK: " +  modalities.PRK);
 			}
 			if ("IOL" in modalities && modality.localeCompare("IOL") == 0) {
 				console.log("add " + document.getElementById(id).value + " to IOL");
 				console.log("IOL: " +  modalities.IOL);
-				modalities.IOL =  parseInt(modalities.IOL) + parseInt(document.getElementById(id).value);
+				modalities.IOL =  parseFloat(modalities.IOL) + parseFloat(document.getElementById(id).value);
 				console.log("IOL: " +  modalities.IOL);
 			}
 		}
@@ -1084,21 +1084,21 @@
 			if ("LASIK" in modalities) {
 				console.log("add " + document.getElementById(id).value + " to LASIK");
 				console.log("LASIK: " + modalities.LASIK);
-				modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(id).value);
+				modalities.LASIK = parseFloat(modalities.LASIK) + parseFloat(document.getElementById(id).value);
 				console.log("LASIK: " + modalities.LASIK);
 			}
 			
 			if ("PRK" in modalities) {
 				console.log("add " + document.getElementById(id).value + " to PRK");
 				console.log("PRK: " + modalities.PRK);
-				modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(id).value);
+				modalities.PRK = parseFloat(modalities.PRK) + parseFloat(document.getElementById(id).value);
 				console.log("PRK: " + modalities.PRK);
 			}
 			
 			if ("IOL" in modalities) {
 				console.log("add " + document.getElementById(id).value + " to IOL");
 				console.log("IOL: " + modalities.IOL);
-				modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(id).value);
+				modalities.IOL = parseFloat(modalities.IOL) + parseFloat(document.getElementById(id).value);
 				console.log("IOL: " + modalities.IOL);
 			}
 		}		
@@ -1332,7 +1332,7 @@
 			}
 		}
 		
-		function PRKLasers_mixed(eye) {
+		function PRKLasers_mixedastigmatism(eye) {
 			if (eye.localeCompare("right") == 0) {
 				//Abbott Medical Optics (VISX Star S4 & WaveScan WaveFront System) wavefront-guided && Alcon (LADARVision) wavefront-guided
 				if (((RS_pos >= 1.00 && RS_pos <= 5.00) && (RC_pos <= -1.00 && RC_pos >= -5.00)) ||
@@ -1370,11 +1370,11 @@
 				//<!--Artisan Phakic IOL-->
 				((RS_pos >= -20.00 && RS_pos <= -5.00) && (RC_pos >= 0.00 && RC_pos <= 2.50))){
 					console.log("prescription meets IOL parameters.");
-					if (spherical_equivalent(RS_pos, RC_pos) <= -8.00 && (LS_pos == 0.00 && LC_pos == 0.00)) {
+					if (spherical_equivalent(RS_pos, RC_pos) <= -6.00 && (LS_pos == 0.00 && LC_pos == 0.00)) {
 						if("IOL" in modalities) {
 							console.log("IOL: " + modalities.IOL);
 							console.log("add 12 to IOL");
-							modalities.IOL = parseInt(modalities.IOL) + parseInt(12);
+							modalities.IOL = parseFloat(modalities.IOL) + parseFloat(12);
 							console.log("IOL: " + modalities.IOL);
 							new_justification_statement = "<p>•	 Your prescription indicates that you have High Myopia. Phakic IOLs are better suited for patients with High Myopia. This has been reflected in your recommendation. </p>";
 							if (!justification_statement.includes(`${new_justification_statement}`)) {
@@ -1395,11 +1395,11 @@
 				//<!--Artisan Phakic IOL-->
 				((LS_pos >= -20.00 && LS_pos <= -5.00) && (LC_pos >= 0.00 && LC_pos <= 2.50))){
 					console.log("prescription meets IOL parameters.");
-					if (spherical_equivalent(RS_pos, RC_pos) <= -8.00 || spherical_equivalent(LS_pos, LC_pos) <= -8.00) {
+					if (spherical_equivalent(RS_pos, RC_pos) <= -6.00 || spherical_equivalent(LS_pos, LC_pos) <= -6.00) {
 						if("IOL" in modalities) {
 							console.log("IOL: " + modalities.IOL);
 							console.log("add 12 to IOL");
-							modalities.IOL = parseInt(modalities.IOL) + parseInt(12);
+							modalities.IOL = parseFloat(modalities.IOL) + parseFloat(12);
 							console.log("IOL: " + modalities.IOL);
 							new_justification_statement = "<p>•	 Your prescription indicates that you have High Myopia. Phakic IOLs are better suited for patients with High Myopia. This has been reflected in your recommendation. </p>";
 							if (!justification_statement.includes(`${new_justification_statement}`)) {
@@ -1415,56 +1415,56 @@
 		}
 		
 		function set_prescription(Sid, Cid, Axisid) {
-			console.log("entering set_prescription");
+			<!-- console.log("entering set_prescription"); -->
 			let spherical = 0.00;
 			let cylindrical = 0.00;
 			let axis = 0;
 			
-			console.log("Sid: " + Sid);
+			<!-- console.log("Sid: " + Sid); -->
 			spherical = document.getElementById(Sid).value;
-			console.log("spherical: " + spherical);
+			<!-- console.log("spherical: " + spherical); -->
 			
-			console.log("Cid: " + Cid);
+			<!-- console.log("Cid: " + Cid); -->
 			if (document.getElementById(Cid).value == "") {
 				cylindrical = 0.00;
 			}
 			else {
 				cylindrical = document.getElementById(Cid).value;
 			}
-			console.log("cylindrical: " + cylindrical);
+			<!-- console.log("cylindrical: " + cylindrical); -->
 			
-			console.log("Axisid: " + Axisid);
+			<!-- console.log("Axisid: " + Axisid); -->
 			if (document.getElementById(Axisid).value == "") {
 				axis = 0;
 			}
 			else {
 				axis = document.getElementById(Axisid).value;
 			}
-			console.log("axis: " + axis);
+			<!-- console.log("axis: " + axis); -->
 			return [spherical, cylindrical, axis];
 		}
 		
 		function convert_prescription(spherical, cylindrical, axis) {
-			console.log("entering convert_prescription(spherical, cylindrical, axis)");
+			/*console.log("entering convert_prescription(spherical, cylindrical, axis)");
 			console.log("spherical: " + spherical);
 			console.log("cylindrical: " + cylindrical);
-			console.log("axis: " + axis);
+			console.log("axis: " + axis);*/
 			
 			spherical = parseFloat(spherical) + parseFloat(cylindrical);
-			console.log("spherical: " + spherical);
+			<!-- console.log("spherical: " + spherical); -->
 			
 			if (cylindrical != 0.00) {
 				cylindrical = parseFloat(cylindrical) * -1;
 			}
-			console.log("cylindrical: " + cylindrical);
+			<!-- console.log("cylindrical: " + cylindrical); -->
 			
 			if (axis > 90) {
-				axis = parseInt(axis) - 90;
+				axis = parseFloat(axis) - 90;
 			}
 			else {
-				axis = parseInt(axis) + 90;
+				axis = parseFloat(axis) + 90;
 			}
-			console.log("axis: " + axis);
+			<!-- console.log("axis: " + axis); -->
 			
 			return [spherical, cylindrical, axis];
 		}
@@ -1474,11 +1474,12 @@
 			
 			//if astigmatism in right eye
 			if (RC_neg != 0) {
+				console.log("right eye");
 				//if mixed astigmatism
 				if (((RC_neg > 0 && RS_neg < 0) ||
 				(RC_neg < 0 && RS_neg > 0)) &&
 				(Math.abs(RC_neg) > Math.abs(RS_neg))) {
-					console.log("mixed_astigmatism_R: " + mixed_astigmatism_R);
+					<!-- console.log("mixed_astigmatism_R: " + mixed_astigmatism_R); -->
 					mixed_astigmatism_R = true;
 					console.log("mixed_astigmatism_R: " + mixed_astigmatism_R);
 					
@@ -1559,11 +1560,12 @@
 			
 			//if astigmatism in left eye
 			if (LC_neg != 0) {
+				console.log("left eye");
 				//if mixed astigmatism
 				if (((LC_neg > 0 && LS_neg < 0) ||
 				(LC_neg < 0 && LS_neg > 0)) &&
-				(Math.abs(LC_neg) > Math.abs(LC_neg))) {
-					console.log("mixed_astigmatism_L: " + mixed_astigmatism_L);
+				(Math.abs(LC_neg) > Math.abs(LS_neg))) {
+					<!-- console.log("mixed_astigmatism_L: " + mixed_astigmatism_L); -->
 					mixed_astigmatism_L = true;
 					console.log("mixed_astigmatism_L: " + mixed_astigmatism_L);
 					
@@ -2011,6 +2013,12 @@
 							else if (prescription_RS.value > 20.00 || prescription_RS.value < -20.00) {
 								alert("Please enter a valid right spherical component, between -20.00D and 20.00D.");
 							}
+							else if (prescription_RS.value%parseFloat(0.25) != 0.00) {
+								alert("Please enter a valid right spherical component, in increments of 0.25.");
+							}
+							else if (prescription_RC.value%parseFloat(0.25) != 0.00) {
+								alert("Please enter a valid right cylindrical component, in increments of 0.25.");
+							}
 							else if (prescription_RC.value != "" && (prescription_RC.value > 20.00 || prescription_RC.value < -20.00)) {
 								alert("Please enter a valid right cylindrical component, between -20.00D and 20.00D.");
 							}
@@ -2034,6 +2042,12 @@
 							}
 							else if (prescription_LS.value > 20.00 || prescription_LS.value < -20.00) {
 								alert("Please enter a valid left spherical component, between -20.00D and 20.00D.");
+							}
+							else if (prescription_LS.value%parseFloat(0.25) != 0.00) {
+								alert("Please enter a valid left spherical component, in increments of 0.25.");
+							}
+							else if (prescription_LC.value%parseFloat(0.25) != 0.00) {
+								alert("Please enter a valid left cylindrical component, in increments of 0.25.");
 							}
 							else if (prescription_LC.value != "" && (prescription_LC.value > 20.00 || prescription_LC.value < -20.00)) {
 								alert("Please enter a valid left cylindrical component, between -20.00D and 20.00D.");
@@ -2067,6 +2081,12 @@
 			}
 		}
 		
+		var modalities_og = {
+			LASIK_og: 0,
+			PRK_og: 0,
+			IOL_og: 0
+		}
+		
 		function process_medical_data() {
 			modalities = {
 				LASIK: 0,
@@ -2074,16 +2094,21 @@
 				IOL: 0
 			};
 			
+			modalities_og = {
+				LASIK_og: 0,
+				PRK_og: 0,
+				IOL_og: 0
+			}
+			
 			justification_statement = "";
 			
-			console.log("entering process_medical_data()");
-			
+			<!-- console.log("entering process_medical_data()"); -->
 			/* 	<!-- Question 1: Absolute contraindications -->
 			<!-- If the patient has any of the following absolute contraindications, -->
 			<!-- they are not recommended to undergo any of the surgeries. --> */
-			console.log("Processing question 1.");
+			<!-- console.log("Processing question 1."); -->
 			if(document.getElementById('abscontraindications_yes').checked==true) {
-				console.log("abscontraindications_yes checked.");
+				<!-- console.log("abscontraindications_yes checked."); -->
 				removeModality("LASIK");
 				removeModality("PRK");
 				removeModality("IOL");
@@ -2095,9 +2120,9 @@
 			}
 			
 			if(document.getElementById('abscontraindications_no').checked==true){
-				console.log("Processed question 1.");
+				/*console.log("Processed question 1.");
 				console.log("Processing question 2.");
-				console.log("Processing question 2a.");
+				console.log("Processing question 2a.");*/
 				/* 	<!-- Question 2a-d: Relative contraindications -->*/
 				/* 	<!-- If patients select any of the relative contraindications,-->
 				<!-- the following disclaimers will be shown. */
@@ -2105,10 +2130,12 @@
 					addValueByIdByModality("LASIK", 'relcontraindications_yes');
 					addValueByIdByModality("PRK", 'relcontraindications_yes');
 					if(document.getElementById('uveitis_yes').checked==true) {
+						<!-- console.log("relcontraindications_yes, uveitis_yes"); -->
 						removeModality("IOL");
 						justification_statement = justification_statement + "<p>•	 You indicated that you either have a history of or you currently have Uveitis. Uveitis is an absolute contraindication for Phakic IOLs, meaning that it is not safe for patients with Uveitis to undergo Phakic IOL placement. Uveitis is also a relative contraindication for LASIK and PRK, meaning that it <strong>may be unsafe</strong> for patients with Uveitis to undergo LASIK or PRK. </p>";
 					}
 					else {
+						<!-- console.log("relcontraindications_yes, uveitis_no"); -->
 						addValueByIdByModality("IOL", 'relcontraindications_yes');
 						justification_statement = justification_statement + "<p>•	 You indicated that you either have a history of or you currently have Diabetes Mellitus, Uncontrolled Thyroid Disease, Severe Dry Eye, Severe Glaucoma, Ocular Herpes, Ocular Rosacea, Strabismus, or Keratoconus. These are relative contraindications for LASIK, PRK, and Phakic IOLs, meaning that it <strong>may be unsafe</strong> for patients with these conditions to undergo LASIK, PRK, or Phakic IOL placement. Please consult with a refractive surgeon to determine candidacy for refractive surgery.</p>";
 						showDivByClass('disclaimer_relcontraindications');
@@ -2116,22 +2143,23 @@
 				}
 				else if (document.getElementById('relcontraindications_no').checked==true) {
 					if(document.getElementById('uveitis_yes').checked==true) {
+						<!-- console.log("relcontraindications_no, uveitis_yes"); -->
 						addValueByIdByModality("LASIK", 'uveitis_yes');
 						addValueByIdByModality("PRK", 'uveitis_yes');
 						removeModality("IOL");
 						justification_statement = justification_statement + "<p>•	 You indicated that you either have a history of or you currently have Uveitis. Uveitis is an absolute contraindication for Phakic IOLs, meaning that it is not safe for patients with Uveitis to undergo Phakic IOL placement. Uveitis is also a relative contraindication for LASIK and PRK, meaning that it <strong>may be unsafe</strong> for patients with Uveitis to undergo LASIK or PRK. Please consult with a refractive surgeon to determine candidacy for refractive surgery.</p>";
 					}
 				}
-				console.log("Processed question 2a.");
+				<!-- console.log("Processed question 2a."); -->
 								
-				console.log("Processing question 3.");
-				console.log("Processing question 3a.");
-				console.log("document.getElementById('knowpresc_yes').checked: " + document.getElementById('knowpresc_yes').checked);
-				console.log("document.getElementById('knowpresc_no').checked: " + document.getElementById('knowpresc_no').checked);
+				<!-- console.log("Processing question 3."); -->
+				<!-- console.log("Processing question 3a."); -->
+				<!-- console.log("document.getElementById('knowpresc_yes').checked: " + document.getElementById('knowpresc_yes').checked); -->
+				<!-- console.log("document.getElementById('knowpresc_no').checked: " + document.getElementById('knowpresc_no').checked); -->
 				if (document.getElementById('knowpresc_yes').checked ==true){
-					console.log("Processed question 3a.");
+					<!-- console.log("Processed question 3a.");
 					
-					console.log("Processing question 3b.");
+					<!--console.log("Processing question 3b."); -->
 					console.log("Getting and setting prescriptions.");
 					//<!-- Question 3b: getting prescription -->
 					const right_eye = set_prescription('prescription_RS', 'prescription_RC', 'prescription_Raxis');
@@ -2140,11 +2168,19 @@
 						RS_neg = right_eye[0];
 						RC_neg = right_eye[1];
 						Raxis_neg = right_eye[2];
+						
+						RS_pos = 0.00;
+						RC_pos = 0.00;
+						Raxis_pos = 0;
 					}
 					else if (right_eye[1] > 0) {
 						RS_pos = right_eye[0];
 						RC_pos = right_eye[1];
 						Raxis_pos = right_eye[2];
+						
+						RS_neg = 0.00;
+						RC_neg = 0.00;
+						Raxis_neg = 0;
 					}
 					else {
 						RS_neg = right_eye[0];
@@ -2161,11 +2197,19 @@
 						LS_neg = left_eye[0];
 						LC_neg = left_eye[1];
 						Laxis_neg = left_eye[2];
+						
+						LS_pos = 0.00;
+						LC_pos = 0.00;
+						Laxis_pos = 0;
 					}
 					else if (left_eye[1] > 0) {
 						LS_pos = left_eye[0];
 						LC_pos = left_eye[1];
 						Laxis_pos = left_eye[2];
+						
+						LS_neg = 0.00;
+						LC_neg = 0.00;
+						Laxis_neg = 0;
 					}
 					else {
 						LS_neg = left_eye[0];
@@ -2177,21 +2221,21 @@
 						Laxis_pos = left_eye[2];
 					}
 					
-					console.log("RS_neg: " + RS_neg);
+					/*console.log("\nRS_neg: " + RS_neg);
 					console.log("RC_neg: " + RC_neg);
-					console.log("Raxis_neg: " + Raxis_neg);
+					console.log("Raxis_neg: " + Raxis_neg + "\n");
 					
 					console.log("LS_neg: " + LS_neg);
 					console.log("LC_neg: " + LC_neg);
-					console.log("Laxis_neg: " + Laxis_neg);
+					console.log("Laxis_neg: " + Laxis_neg + "\n\n");
 					
 					console.log("RS_pos: " + RS_pos);
 					console.log("RC_pos: " + RC_pos);
-					console.log("Raxis_pos: " + Raxis_pos);
+					console.log("Raxis_pos: " + Raxis_pos + "\n");
 					
 					console.log("LS_pos: " + LS_pos);
 					console.log("LC_pos: " + LC_pos);
-					console.log("Laxis_pos: " + Laxis_pos);
+					console.log("Laxis_pos: " + Laxis_pos + "\n\n");*/
 					
 					console.log("Prescriptions gotten and set.");
 					//<!-- Question 3c: converting cylinders-->
@@ -2201,7 +2245,7 @@
 						let prescriptions = convert_prescription(RS_neg, RC_neg, Raxis_neg);
 						RS_pos = prescriptions[0];
 						RC_pos = prescriptions[1];
-						Raxis_pos = prescriptions.axis;
+						Raxis_pos = prescriptions[2];
 					}
 					else if (RS_neg == 0.00 && RC_neg == 0.00 && Raxis_neg == 0)	{
 						let prescriptions = convert_prescription(RS_pos, RC_pos, Raxis_pos);
@@ -2223,7 +2267,7 @@
 						Laxis_neg = prescriptions[2];
 					}
 										
-					console.log("RS_neg: " + RS_neg);
+					console.log("\nRS_neg: " + RS_neg);
 					console.log("RC_neg: " + RC_neg);
 					console.log("Raxis_neg: " + Raxis_neg + "\n");
 					
@@ -2233,7 +2277,7 @@
 					
 					console.log("RS_pos: " + RS_pos);
 					console.log("RC_pos: " + RC_pos);
-					console.log("Raxis_pos" + Raxis_pos  + "\n");
+					console.log("Raxis_pos: " + Raxis_pos  + "\n");
 					
 					console.log("LS_pos: " + LS_pos);
 					console.log("LC_pos: " + LC_pos);
@@ -2243,6 +2287,7 @@
 						removeModality("LASIK");
 						removeModality("PRK");
 						removeModality("IOL");
+						returnRec();
 						hideDivbyID('history'); 
 						hideDivbyID('values');
 						showDivbyID('surgeryrecs');
@@ -2267,33 +2312,65 @@
 						hideDivbyID('surgeryrecs');
 						showDivbyID('values');
 					}
-					console.log("Processed question 3b.");
+					if(document.getElementById('uveitis_yes').checked==true) {
+						hideDivByClass("myope_only");
+					}
+					//console.log("Processed question 3b.");
 				}
 				else if (document.getElementById('knowpresc_no').checked == true){
-					console.log("Processed question 3a.");
+					//console.log("Processed question 3a.");
 					
-					console.log("Processing question 3b.");
+					//console.log("Processing question 3b.");
 					
 					if(document.getElementById('hyperopic_yes').checked == true) {
-						console.log("hyperopia: " + hyperopia);
+						//console.log("hyperopia: " + hyperopia);
 						hyperopia = true;
 						hideDivByClass("myope_only");
-						console.log("hyperopia: " + hyperopia);
+						//console.log("hyperopia: " + hyperopia);
 						justification_statement = justification_statement + "<p>•	 You indicated that you have Hyperopia. Phakic IOLs are not indicated for patients with Hyperopia. This was accounted for in your recommendation.</p>";
 					}
 					else {
-						showDivByClass("myope_only");
+						if(document.getElementById('uveitis_yes').checked==true) {
+							hideDivByClass("myope_only");
+						}
+						else if (document.getElementById('uveitis_no').checked==true) {
+							showDivByClass("myope_only");
+						}
 					}
 					
 					hideDivbyID('history'); 
 					hideDivbyID('surgeryrecs');
 					showDivbyID('values');
 					
-					console.log("Processed question 3b.");
+					//console.log("Processed question 3b.");
 				}
 			}
 			
 			med_data_filled = true;
+			
+			console.log(modalities);
+			if ("LASIK" in modalities) {
+				modalities_og.LASIK_og = parseFloat(modalities.LASIK);
+			}
+			else {
+				delete(modalities_og.LASIK_og);
+			}
+			
+			if ("PRK" in modalities) {
+				modalities_og.PRK_og = parseFloat(modalities.PRK);
+			}
+			else {
+				delete(modalities_og.PRK_og);
+			}
+			
+			if ("IOL" in modalities) {
+				modalities_og.IOL_og = parseFloat(modalities.IOL);
+			}
+			else {
+				delete(modalities_og.IOL_og);
+			}
+			console.log(modalities_og);
+			
 		}
 		
 		function navfromsurgeryrecsbackto() {
@@ -2379,14 +2456,11 @@
 				
 			})	
 			if (numPrefs == 3) {
-				//document.getElementsByClassName('submitBtn')[1].disabled = true; 
-				//submittedMessage('prefs');
-				//process_medical_data();
 				if (med_data_filled == true) {
 					returnRankedPrefs();
 					new_justification_statement = "<p>•	 The preferences that you have selected have also been integrated into your recommendation. </p>";
 					console.log("new_justification_statement: " + new_justification_statement);
-					justification_statement = justification_statement + "<p>•	 The preferences that you have selected have been integrated into your recommendation. </p>";
+					justification_statement += new_justification_statement;
 					returnRec();
 					hideDivbyID('history'); 
 					hideDivbyID('values'); 
@@ -2404,30 +2478,102 @@
 			}
 		}
 		
-		//TODO
+		var counts = {
+			LASIK_count: 0,
+			PRK_count: 0,
+			IOL_count: 0
+		}
+		
 		function returnRec() {
 			console.log("entered returnRec()");
 			var rec = "";
+			let sort_recs_by_value = false;
 			
-			if (Object.keys(modalities).length > 0) {  //modalities length = 1, 2, 3
-				var items = Object.keys(modalities).map(function(key) {
-					return [key, modalities[key]];
+			if (!("LASIK" in modalities)) {
+				console.log("LASIK not in modalities");
+				delete(counts.LASIK_count);
+			}
+			if (!("PRK" in modalities)) {
+				console.log("PRK not in modalities");
+				delete(counts.PRK_count);
+			}
+			if (!("IOL" in modalities)) {
+				console.log("IOL not in modalities");
+				delete(counts.IOL_count);
+			}
+			
+			if (Object.keys(counts).length > 0) {  //counts length = 1, 2, 3
+				var items_1 = Object.keys(counts).map(function(key) {
+					return [key, counts[key]];
 				});
-				
-				if (Object.keys(modalities).length > 1) { //modalities length = 2, 3
-					items.sort(function(first, second) {
+					
+				if (Object.keys(counts).length > 1) { //counts length = 2, 3
+					items_1.sort(function(first, second) {
 						return second[1] - first[1];
 					});
-								
-					console.log(items);
-					rec = String(items[0]);
+						
+					console.log(items_1);
+					for (let i = 0; i < Object.keys(counts).length; i++) {
+						console.log("items_1 " + i + ": " + String(items_1[i]).split(",")[1]);
+					}
+					
+					if (Object.keys(counts).length == 3) {
+						if ((parseInt(String(items_1[0]).split(",")[1]) == parseInt(String(items_1[1]).split(",")[1])) && 
+						(parseInt(String(items_1[1]).split(",")[1]) == parseInt(String(items_1[2]).split(",")[1]))) {
+							sort_recs_by_value = true;
+						}
+						else if (parseInt(String(items_1[0]).split(",")[1]) == parseInt(String(items_1[1]).split(",")[1])) {
+							sort_recs_by_value = true;
+						}
+						else {
+							rec = String(items_1[0]).split(",")[0];
+							rec = String(rec.split("_")[0]);
+							console.log("rec: " + rec);
+						}
+					}
+					else if (Object.keys(counts).length == 2) {
+						if (parseInt(String(items_1[0]).split(",")[1]) == parseInt(String(items_1[1]).split(",")[1])) {
+							sort_recs_by_value = true;
+						}
+						else {
+							rec = String(items_1[0]).split(",")[0];
+							rec = String(rec.split("_")[0]);
+							console.log("rec: " + rec);
+						}
+					}
 				}
-				else if (Object.keys(modalities).length == 1) {
-					rec = String(items[0]);
+				else if (Object.keys(counts).length == 1) { //counts length = 1
+					rec = String(items_1[0]).split(",")[0];
+					rec = String(rec.split("_")[0]);
+					console.log("rec: " + rec);
 				}
 			}
 			else { //modalities length = 0
 				rec = "none";
+			}
+			
+			if (sort_recs_by_value == true) {
+				console.log("sort_recs_by_value: " + sort_recs_by_value);
+				if (Object.keys(modalities).length > 0) {  //modalities length = 1, 2, 3
+					var items = Object.keys(modalities).map(function(key) {
+						return [key, modalities[key]];
+					});
+					
+					if (Object.keys(modalities).length > 1) { //modalities length = 2, 3
+						items.sort(function(first, second) {
+							return second[1] - first[1];
+						});
+									
+						console.log(items);
+						rec = String(items[0]);
+					}
+					else if (Object.keys(modalities).length == 1) {
+						rec = String(items[0]);
+					}
+				}
+				else { //modalities length = 0
+					rec = "none";
+				}
 			}
 			
 			rec = rec.split(",")[0];
@@ -2457,7 +2603,7 @@
 				}
 			}
 			else {
-				document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon your responses, you may be contraindicated for these surgical modalities, or you may have an eye glasses prescription that is outside of laser and contact lens parameters.</p>";
+				document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon your responses, you may be contraindicated for these surgical modalities, or you may have an eye glasses prescription that is outside of LASIK, PRK, and Phakic IOL parameters.</p>";
 				showDivByClass("none_surgeons");
 			}
 			
@@ -2524,7 +2670,28 @@
 		
 		function returnRankedPrefs() {
 			console.log("entered returnRankedPrefs() ");
+			
 			var rank = 0;
+			counts.LASIK_count = 0;
+			counts.PRK_count = 0;
+			counts.IOL_count = 0;
+			
+			restore_original_colors();
+			
+			console.log(modalities_og);
+			if ("LASIK_og" in modalities_og) {
+				modalities.LASIK = parseFloat(modalities_og.LASIK_og);
+			}
+			
+			if ("PRK" in modalities) {
+				modalities.PRK = parseFloat(modalities_og.PRK_og);
+			}
+			
+			if ("IOL" in modalities) {
+				modalities.IOL = parseFloat(modalities_og.IOL_og);
+			}
+			console.log(modalities);
+			
 			element_ids_list.length = 0;
 			list2.childNodes.forEach((element) => {
 				
@@ -2539,59 +2706,68 @@
 					console.log("modalities remaining: " + Object.keys(modalities));
 					if (String(element_class).includes("LASIK") && "LASIK" in modalities) {
 						console.log("entered LASIK");
+						counts.LASIK_count += 1;
 						if (rank == 1) {
 							console.log("entered rank " + rank);
-							for (let i = 0; i < 3; i++) {
-								modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('lasikvalue'));
+							for (let i = 0; i < 4; i++) {
+								modalities.LASIK = parseFloat(modalities.LASIK) + parseFloat(document.getElementById(element.id).getAttribute('lasikvalue'));
 							}
 						}
 						else if (rank == 2) {
 							console.log("entered rank " + rank);
-							for (let i = 0; i < 2; i++) {
-								modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('lasikvalue'));
+							for (let i = 0; i < 3; i++) {
+								modalities.LASIK = parseFloat(modalities.LASIK) + parseFloat(document.getElementById(element.id).getAttribute('lasikvalue'));
 							}
 						}
 						else if (rank == 3) {
 							console.log("entered rank " + rank);
-							modalities.LASIK = parseInt(modalities.LASIK) + parseInt(document.getElementById(element.id).getAttribute('lasikvalue'));
+							for (let i = 0; i < 2; i++) {
+								modalities.LASIK = parseFloat(modalities.LASIK) + parseFloat(document.getElementById(element.id).getAttribute('lasikvalue'));
+							}
 						}
 					}
 					if (String(element_class).includes("PRK") && "PRK" in modalities) {
 						console.log("entered PRK");
+						counts.PRK_count += 1;
 						if (rank == 1) {
 							console.log("entered rank " + rank);
-							for (let i = 0; i < 3; i++) {
-								modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('prkvalue'));
+							for (let i = 0; i < 4; i++) {
+								modalities.PRK = parseFloat(modalities.PRK) + parseFloat(document.getElementById(element.id).getAttribute('prkvalue'));
 							}
 						}
 						else if (rank == 2) {
 							console.log("entered rank " + rank);
-							for (let i = 0; i < 2; i++) {
-								modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('prkvalue'));
+							for (let i = 0; i < 3; i++) {
+								modalities.PRK = parseFloat(modalities.PRK) + parseFloat(document.getElementById(element.id).getAttribute('prkvalue'));
 							}
 						}
 						else if (rank == 3) {
 							console.log("entered rank " + rank);
-							modalities.PRK = parseInt(modalities.PRK) + parseInt(document.getElementById(element.id).getAttribute('prkvalue'));
+							for (let i = 0; i < 2; i++) {
+								modalities.PRK = parseFloat(modalities.PRK) + parseFloat(document.getElementById(element.id).getAttribute('prkvalue'));
+							}
 						}
 					}
 					if (String(element_class).includes("IOL") && "IOL" in modalities) {
-						console.log("entered IOl");
+						counts.IOL_count += 1;
+						console.log("entered IOL");
 						if (rank == 1) {
 							console.log("entered rank " + rank);
-							for (let i = 0; i < 3; i++) {
-								modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('iolvalue'));
+							for (let i = 0; i < 4; i++) {
+								modalities.IOL = parseFloat(modalities.IOL) + parseFloat(document.getElementById(element.id).getAttribute('iolvalue'));
 							}
 						}
 						else if (rank == 2) {
 							console.log("entered rank " + rank);
-							for (let i = 0; i < 2; i++) {
-								modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('iolvalue'));
+							for (let i = 0; i < 3; i++) {
+								modalities.IOL = parseFloat(modalities.IOL) + parseFloat(document.getElementById(element.id).getAttribute('iolvalue'));
 							}
 						}
 						else if (rank == 3) {
 							console.log("entered rank " + rank);
-							modalities.IOL = parseInt(modalities.IOL) + parseInt(document.getElementById(element.id).getAttribute('iolvalue'));
+							for (let i = 0; i < 2; i++) {
+								modalities.IOL = parseFloat(modalities.IOL) + parseFloat(document.getElementById(element.id).getAttribute('iolvalue'));
+							}
 						}
 					}
 				}
@@ -2890,10 +3066,10 @@
 		
 					<div class="qn1b"> 
 					<div id="preferences">
-						<input id="uveitis_yes" class="radioBtn qn1b" name="uveitis" type="radio" value=-25 required />
+						<input id="uveitis_yes" class="radioBtn qn1b" name="uveitis" type="radio" value=-27 required/>
 							<label for="uveitis_yes"><p>yes</p></label>
 						
-						<input id="uveitis_no" class="radioBtn qn1b" name="uveitis" type="radio" value=0 required />
+						<input id="uveitis_no" class="radioBtn qn1b" name="uveitis" type="radio" value=0 required/>
 							<label for="uveitis_no"><p>no</p></label>
 					</div></div>
 				</div>
@@ -2910,7 +3086,7 @@
 						
 					<div class="qn2">
 					<div id="preferences" class="qn2">
-						<input id="relcontraindications_yes" class="radioBtn qn2a" name="relcontraindications" type="radio" value=-25 required />
+						<input id="relcontraindications_yes" class="radioBtn qn2a" name="relcontraindications" type="radio" value=-27 required />
 							<label for="relcontraindications_yes"><p>yes</p></label>
 						
 						<input id="relcontraindications_no" class="radioBtn qn2a qn2" name="relcontraindications" type="radio" value=0 required />
@@ -2989,15 +3165,15 @@
 			</div>
 			<div class="values-bottom">				
 				<div id="list1" class="droppable list" data-max="-1"><!-- I want this to accept many. -->
-				  <p class="item draggable PRK" id="military" prkvalue=4>The refractive surgery is better suited for patients in the military or for patients who participate in contact sports.</p>
-				  <p class="item draggable LASIK PRK" id="minimally_invasive" lasikvalue=2 prkvalue=4>The refractive surgery is minimally invasive.</p>
-				  <p class="item draggable LASIK PRK" id="cost_effective" lasikvalue=4 prkvalue=2>The refractive surgery is more cost effective.</p>
-				  <p class="item draggable PRK IOL" id="less_dry_eye" prkvalue=2 iolvalue=4>Following the refractive surgery, patients are at lower risk of developing dry eye symptoms.</p>
-				  <p class="item draggable IOL myope_only"id="doesnt_influence_rle" iolvalue=4>The refractive surgery does not influence vision correction during subsequent cataract surgery.</p>
-				  <p class="item draggable LASIK IOL" id="shorter_recovery" lasikvalue=4 iolvalue=2>The recovery period of this refractive surgery is shorter.</p>
-				  <p class="item draggable LASIK" id="less_painful_recovery" lasikvalue=4>The recovery period of this refractive surgery is less painful.</p>
-				  <p class="item draggable LASIK PRK" id="fewer_fus" lasikvalue=4 prkvalue=2>The refractive surgery requires less follow-up appointments post-operatively.</p>
-				  <p class="item draggable IOL myope_only" id="reversible" iolvalue=4>The refractive surgery is reversible.</p>
+				  <p class="item draggable PRK" id="military" lasikvalue=0 prkvalue=3 iolvalue=0>The refractive surgery is better suited for patients in the military or for patients who participate in contact sports.</p>
+				  <p class="item draggable LASIK PRK" id="minimally_invasive" lasikvalue=1.5 prkvalue=3 iolvalue=0>The refractive surgery is minimally invasive.</p>
+				  <p class="item draggable LASIK PRK" id="cost_effective" lasikvalue=3 prkvalue=3 iolvalue=0>The refractive surgery is more cost effective.</p>
+				  <p class="item draggable PRK IOL" id="less_dry_eye" lasikvalue=0 prkvalue=1.5 iolvalue=3>Following the refractive surgery, patients are at lower risk of developing dry eye symptoms.</p>
+				  <p class="item draggable IOL myope_only"id="doesnt_influence_rle" lasikvalue=0 prkvalue=0 iolvalue=3>The refractive surgery does not influence vision correction during subsequent cataract surgery.</p>
+				  <p class="item draggable LASIK IOL" id="shorter_recovery" lasikvalue=3 prkvalue=0 iolvalue=1.5>The recovery period of this refractive surgery is shorter.</p>
+				  <p class="item draggable LASIK IOL" id="less_painful_recovery" lasikvalue=3 prkvalue=0 iolvalue=1.5>The recovery period of this refractive surgery is less painful.</p>
+				  <p class="item draggable LASIK PRK" id="fewer_fus" lasikvalue=3 prkvalue=1.5 iolvalue=0>The refractive surgery requires less follow-up appointments post-operatively.</p>
+				  <p class="item draggable IOL myope_only" id="reversible" lasikvalue=0 prkvalue=0 iolvalue=3>The refractive surgery is reversible.</p>
 				</div>
 				<div id="list2" class="droppable list" data-max="3"><!-- I want this to accept only 3. -->
 				</div>
