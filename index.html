@@ -2460,7 +2460,9 @@
 					returnRankedPrefs();
 					new_justification_statement = "<p>•	 The preferences that you have selected have also been integrated into your recommendation. </p>";
 					console.log("new_justification_statement: " + new_justification_statement);
-					justification_statement += new_justification_statement;
+					if (!justification_statement.includes(`${new_justification_statement}`)) {
+						justification_statement += new_justification_statement;
+					}
 					returnRec();
 					hideDivbyID('history'); 
 					hideDivbyID('values'); 
