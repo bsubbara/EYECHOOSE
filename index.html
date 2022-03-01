@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--Added justification of decision making-->
-<!--TODO: fix home page image to adjust itself according screen resolution, if possible.-->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -1277,6 +1275,7 @@
 				else {
 					console.log("prescription does not meet PRK parameters.");
 					removeModality("PRK");
+					hideDivByClass("sports_only");
 				}
 			}
 			else if (eye.localeCompare("left") == 0) {
@@ -1297,6 +1296,7 @@
 				else {
 					console.log("prescription does not meet PRK parameters.");
 					removeModality("PRK");
+					hideDivByClass("sports_only");
 				}
 			}
 		}
@@ -1314,6 +1314,7 @@
 				else {
 					console.log("prescription does not meet PRK parameters.");
 					removeModality("PRK");
+					hideDivByClass("sports_only");
 				}
 			}
 			else if (eye.localeCompare("left") == 0) {
@@ -1328,6 +1329,7 @@
 				else {
 					console.log("prescription does not meet PRK parameters.");
 					removeModality("PRK");
+					hideDivByClass("sports_only");
 				}
 			}
 		}
@@ -1345,6 +1347,7 @@
 				else {
 					console.log("prescription does not meet PRK parameters.");
 					removeModality("PRK");
+					hideDivByClass("sports_only");
 				}
 			}
 			else if (eye.localeCompare("left") == 0) {
@@ -1356,6 +1359,7 @@
 				else {
 					console.log("prescription does not meet PRK parameters.");
 					removeModality("PRK");
+					hideDivByClass("sports_only");
 				}
 			}
 		}
@@ -1386,6 +1390,7 @@
 				else {
 					console.log("prescription does not meet IOL parameters.");
 					removeModality("IOL");
+					hideDivByClass("myope_only");
 				}
 			}
 			if (eye.localeCompare("left") == 0) {
@@ -1410,6 +1415,7 @@
 				else {
 					console.log("prescription does not meet IOL parameters.");
 					removeModality("IOL");
+					hideDivByClass("myope_only");
 				}
 			}
 		}
@@ -2116,7 +2122,7 @@
 				hideDivbyID('history'); 
 				showDivbyID('surgeryrecs');
 				hideDivbyID('values');
-				justification_statement = justification_statement + "<p>•	 You indicated that you have either uncontrolled eye conditions/diseases or uncontrolled autoimmune disorders. These are absolute contraindications for LASIK, PRK, and Phakic IOLs, meaning that it is not safe for patients with these conditions/diseases to undergo these surgical modalities. </p>";
+				justification_statement = justification_statement + "<p>•	 You indicated that you have either uncontrolled eye conditions/diseases or uncontrolled autoimmune disorders. These are absolute contraindications for LASIK, PRK, and Phakic IOLs, meaning that it <strong>is not safe</strong> for patients with these conditions/diseases to undergo these surgical modalities. </p>";
 			}
 			
 			if(document.getElementById('abscontraindications_no').checked==true){
@@ -2132,7 +2138,7 @@
 					if(document.getElementById('uveitis_yes').checked==true) {
 						<!-- console.log("relcontraindications_yes, uveitis_yes"); -->
 						removeModality("IOL");
-						justification_statement = justification_statement + "<p>•	 You indicated that you either have a history of or you currently have Uveitis. Uveitis is an absolute contraindication for Phakic IOLs, meaning that it is not safe for patients with Uveitis to undergo Phakic IOL placement. Uveitis is also a relative contraindication for LASIK and PRK, meaning that it <strong>may be unsafe</strong> for patients with Uveitis to undergo LASIK or PRK. </p>";
+						justification_statement = justification_statement + "<p>•	 You indicated that you either have a history of or you currently have Uveitis. Uveitis is an absolute contraindication for Phakic IOLs, meaning that it <strong>is not safe</strong> for patients with Uveitis to undergo Phakic IOL placement. Uveitis is also a relative contraindication for LASIK and PRK, meaning that it <strong>may be unsafe</strong> for patients with Uveitis to undergo LASIK or PRK. </p>";
 					}
 					else {
 						<!-- console.log("relcontraindications_yes, uveitis_no"); -->
@@ -2147,7 +2153,7 @@
 						addValueByIdByModality("LASIK", 'uveitis_yes');
 						addValueByIdByModality("PRK", 'uveitis_yes');
 						removeModality("IOL");
-						justification_statement = justification_statement + "<p>•	 You indicated that you either have a history of or you currently have Uveitis. Uveitis is an absolute contraindication for Phakic IOLs, meaning that it is not safe for patients with Uveitis to undergo Phakic IOL placement. Uveitis is also a relative contraindication for LASIK and PRK, meaning that it <strong>may be unsafe</strong> for patients with Uveitis to undergo LASIK or PRK. Please consult with a refractive surgeon to determine candidacy for refractive surgery.</p>";
+						justification_statement = justification_statement + "<p>•	 You indicated that you either have a history of or you currently have Uveitis. Uveitis is an absolute contraindication for Phakic IOLs, meaning that it <strong>is not safe</strong> for patients with Uveitis to undergo Phakic IOL placement. Uveitis is also a relative contraindication for LASIK and PRK, meaning that it <strong>may be unsafe</strong> for patients with Uveitis to undergo LASIK or PRK. Please consult with a refractive surgeon to determine candidacy for refractive surgery.</p>";
 					}
 				}
 				<!-- console.log("Processed question 2a."); -->
@@ -2583,21 +2589,21 @@
 
 			if (rec.localeCompare("none") != 0) {
 				if (rec.localeCompare("LASIK") == 0) {
-					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>LASIK</strong>. Please discuss with a refractive surgeon.</p>";
+					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'><strong>Recommendation:</strong> Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>LASIK</strong>. Please discuss with a refractive surgeon.</p>";
 					for (let i = 0; i < document.getElementsByClassName("LASIK_col").length; i++) {
 						document.getElementsByClassName("LASIK_col")[i].style.background = "#F0F0F0";
 					}
 					showDivByClass("LASIK_surgeons");
 				}
 				else if (rec.localeCompare("PRK") == 0) {
-					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>PRK</strong>. Please discuss with a refractive surgeon.</p>";
+					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'><strong>Recommendation:</strong> Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>PRK</strong>. Please discuss with a refractive surgeon.</p>";
 					for (let i = 0; i < document.getElementsByClassName("PRK_col").length; i++) {
 						document.getElementsByClassName("PRK_col")[i].style.background = "#F0F0F0";
 					}
 					showDivByClass("PRK_surgeons");
 				}
 				else if (rec.localeCompare("IOL") == 0) {
-					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'>Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>IOL</strong>. Please discuss with a refractive surgeon.</p>";
+					document.getElementById("modality_recommendation").innerHTML = "<p style='color:crimson;font-family: 'Optician Sans', sans-serif;'><strong>Recommendation:</strong> Based upon the preferences that you have shared, we recommend the following surgical modality: <strong>IOL</strong>. Please discuss with a refractive surgeon.</p>";
 					for (let i = 0; i < document.getElementsByClassName("IOL_col").length; i++) {
 						document.getElementsByClassName("IOL_col")[i].style.background = "#F0F0F0";
 					}
@@ -2903,7 +2909,8 @@
                     <h1>EYE<span>CHOOSE</span></h1>
 					<p> is a prototype patient decision aid to assist college-aged students 
 					in the selection of a refractive surgery for the correction of 
-					nearsightedness (myopia), farsightedness (hyperopia), and astigmatism.</p>
+					nearsightedness (myopia), farsightedness (hyperopia), and astigmatism. This application 
+					was developed for screen resolutions of 1920 x 1080 px.</p>
 					
 					<p><br><br><br><strong>Disclaimer:</strong> Information on this site is not intended nor implied to be a substitute for professional medical advice, diagnosis, or treatment. Please consult with a medical professional about your treatment options.</p></p>
 				</div>
@@ -2990,7 +2997,8 @@
 				errors, through corneal remodeling, lens implantation, or 
 				lens replacement. These procedures are FDA approved for 
 				patients 21 years and older, whose eye-glasses prescriptions
-				have remained stable for at least two years.</p>
+				have remained stable for at least two years. Refractive surgery 
+				is rarely covered by insurance, as it is considered cosmetic surgery.</p>
 			</div>
 			<div class="surgeries-bottom">
 				<div class="refractive-surgery">
@@ -3167,7 +3175,7 @@
 			</div>
 			<div class="values-bottom">				
 				<div id="list1" class="droppable list" data-max="-1"><!-- I want this to accept many. -->
-				  <p class="item draggable PRK" id="military" lasikvalue=0 prkvalue=3 iolvalue=0>The refractive surgery is better suited for patients in the military or for patients who participate in contact sports.</p>
+				  <p class="item draggable PRK sports_only" id="military" lasikvalue=0 prkvalue=3 iolvalue=0>The refractive surgery is better suited for patients in the military or for patients who participate in contact sports.</p>
 				  <p class="item draggable LASIK PRK" id="minimally_invasive" lasikvalue=1.5 prkvalue=3 iolvalue=0>The refractive surgery is minimally invasive.</p>
 				  <p class="item draggable LASIK PRK" id="cost_effective" lasikvalue=3 prkvalue=3 iolvalue=0>The refractive surgery is more cost effective.</p>
 				  <p class="item draggable PRK IOL" id="less_dry_eye" lasikvalue=0 prkvalue=1.5 iolvalue=3>Following the refractive surgery, patients are at lower risk of developing dry eye symptoms.</p>
@@ -3196,7 +3204,7 @@
 		<div class="surgeryrecsContainer inner">
 			<div class="surgeryrecs-top">
 				<h1 class="section-title"><br><br><br>Surgical Modality Recommendations</h1>
-				<p>Your surgical modality recommendation and the preferences you selected are highlightd. Hover over the icons for more detail.</p>
+				<p>Your surgical modality recommendation and the preferences you selected are highlighted. Hover over the icons for more detail.</p>
 				
 				<div id="modality_recommendation"></div>
 				<div id="justification"></div>
